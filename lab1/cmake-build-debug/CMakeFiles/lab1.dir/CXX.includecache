@@ -6,13 +6,37 @@
 
 #IncludeRegexTransform: 
 
-D:/NSU_Labs/OOOP/lab1/RNA.h
-unordered_map
+H:/OOOP/lab1/RNA.cpp
+cmath
 -
-
-D:/NSU_Labs/OOOP/lab1/main.cpp
 iostream
 -
 RNA.h
-D:/NSU_Labs/OOOP/lab1/RNA.h
+H:/OOOP/lab1/RNA.h
+
+H:/OOOP/lab1/RNA.h
+unordered_map
+-
+
+H:/OOOP/lab1/RNK.cpp
+iostream
+-
+cstring
+-
+cmath
+-
+unordered_map
+-
+RNK.h
+H:/OOOP/lab1/RNK.h
+
+H:/OOOP/lab1/RNK.h
+unordered_map
+-
+
+H:/OOOP/lab1/main.cpp
+iostream
+-
+RNA.h
+H:/OOOP/lab1/RNA.h
 

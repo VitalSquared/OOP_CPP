@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/NSU_Labs/OOOP/lab1/RNA.cpp" "D:/NSU_Labs/OOOP/lab1/cmake-build-debug/CMakeFiles/lab1.dir/RNA.cpp.obj"
-  "D:/NSU_Labs/OOOP/lab1/RNK.cpp" "D:/NSU_Labs/OOOP/lab1/cmake-build-debug/CMakeFiles/lab1.dir/RNK.cpp.obj"
-  "D:/NSU_Labs/OOOP/lab1/main.cpp" "D:/NSU_Labs/OOOP/lab1/cmake-build-debug/CMakeFiles/lab1.dir/main.cpp.obj"
+  "H:/OOOP/lab1/RNA.cpp" "H:/OOOP/lab1/cmake-build-debug/CMakeFiles/lab1.dir/RNA.cpp.obj"
+  "H:/OOOP/lab1/RNK.cpp" "H:/OOOP/lab1/cmake-build-debug/CMakeFiles/lab1.dir/RNK.cpp.obj"
+  "H:/OOOP/lab1/main.cpp" "H:/OOOP/lab1/cmake-build-debug/CMakeFiles/lab1.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

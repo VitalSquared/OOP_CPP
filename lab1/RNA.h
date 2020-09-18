@@ -24,7 +24,7 @@ private:
 public:
     RNA(Nucleotide nucleotide, size_t capacity);
     RNA(const RNA &rna);
-    ~RNA();
+    virtual ~RNA();
 
     void print_rna();
 
