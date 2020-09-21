@@ -1,0 +1,3 @@
+D:/NSU_Labs/OOOP/lab1/cmake-build-debug/CMakeFiles/lab1.dir
+D:/NSU_Labs/OOOP/lab1/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/NSU_Labs/OOOP/lab1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
