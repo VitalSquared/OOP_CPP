@@ -21,7 +21,7 @@ public:
     //constructors and destructors//
     RNA(Nucleotide nucleotide, size_t capacity);
     RNA(const RNA &rna);
-    ~RNA();
+    virtual ~RNA();
 
     //general
     size_t length();

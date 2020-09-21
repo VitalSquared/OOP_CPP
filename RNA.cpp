@@ -17,7 +17,6 @@ RNA::RNA(const RNA &rna) {
     for (size_t i = 0; i < capacity(); i++)
         _nucleotides[i] = rna._nucleotides[i];
 }
-
 RNA::~RNA() {
     delete [] _nucleotides;
 }
