@@ -40,7 +40,7 @@ void RNA::trim(size_t from) {
     _nucleotides = tmp;
 }
 
-bool RNA::isComplementary(RNA &rna) {
+bool RNA::is_complementary(RNA &rna) {
     if (_size != rna._size) return false;
     for (size_t i = 0; i < _size; i++) {
         Nucleotide nucl1 = get_nucleotide(i), nucl2 = rna.get_nucleotide(i);

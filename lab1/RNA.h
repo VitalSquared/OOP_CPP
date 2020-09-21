@@ -29,7 +29,7 @@ public:
 
     void trim(size_t from);
 
-    bool isComplementary (RNA & rna);
+    bool is_complementary(RNA & rna);
 
     Nucleotide get_nucleotide(size_t index);
     void set_nucleotide(Nucleotide nucleotide, size_t index);
