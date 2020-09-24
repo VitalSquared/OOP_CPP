@@ -1,0 +1,1 @@
+-ID:/NSU_Labs/OOOP/lab1/lib/googletest/include -ID:/NSU_Labs/OOOP/lab1/lib/googlemock/include -isystem D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest/include -isystem D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest -isystem D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googlemock/include -isystem D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googlemock 

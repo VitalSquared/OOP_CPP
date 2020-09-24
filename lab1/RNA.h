@@ -9,6 +9,7 @@ enum Nucleotide { A, G, C, T };
 
 class RNA {
 private:
+    Nucleotide _nucl;
     size_t _size;
     size_t *_nucleotides;
 

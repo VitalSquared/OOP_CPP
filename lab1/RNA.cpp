@@ -5,6 +5,7 @@
 //constructors and destructors//
 
 RNA::RNA(Nucleotide nucleotide, size_t size) {
+    _nucl = nucleotide;
     _size = size;
     _nucleotides = new size_t[capacity()];
     for (size_t i = 0; i < capacity(); i++)
@@ -12,6 +13,7 @@ RNA::RNA(Nucleotide nucleotide, size_t size) {
 }
 
 RNA::RNA(const RNA &rna) {
+    _nucl = rna._nucl;
     _size = rna._size;
     _nucleotides = new size_t[capacity()];
     for (size_t i = 0; i < capacity(); i++)
@@ -122,8 +124,8 @@ bool operator!=(RNA &r1, RNA &r2) {
 
 RNA RNA::operator!() {
     RNA rna(A, 0);
-    for (size_t i = 0; i < rna._size; i++) {
-        Nucleotide cur = rna.get_nucleotide(i);
+    for (size_t i = 0; i < _size; i++) {
+        Nucleotide cur = get_nucleotide(i);
         rna.add_nucleotide((Nucleotide)(3 - cur));
     }
     return rna;
