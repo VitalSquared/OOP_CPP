@@ -6,15 +6,26 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "D:/NSU_Labs/OOOP/lab1/RNA.cpp" "D:/NSU_Labs/OOOP/lab1/cmake-build-debug/CMakeFiles/lab1.dir/RNA.cpp.obj"
   "D:/NSU_Labs/OOOP/lab1/main.cpp" "D:/NSU_Labs/OOOP/lab1/cmake-build-debug/CMakeFiles/lab1.dir/main.cpp.obj"
+  "D:/NSU_Labs/OOOP/lab1/test.cpp" "D:/NSU_Labs/OOOP/lab1/cmake-build-debug/CMakeFiles/lab1.dir/test.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../lib/googletest/include"
+  "../lib/googlemock/include"
+  "../lib/googletest-master/googletest/include"
+  "../lib/googletest-master/googletest"
+  "../lib/googletest-master/googlemock/include"
+  "../lib/googletest-master/googlemock"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "D:/NSU_Labs/OOOP/lab1/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "D:/NSU_Labs/OOOP/lab1/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
+  "D:/NSU_Labs/OOOP/lab1/cmake-build-debug/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
+  "D:/NSU_Labs/OOOP/lab1/cmake-build-debug/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
