@@ -38,6 +38,8 @@ public:
     size_t cardinality(Nucleotide value);
     std::unordered_map<Nucleotide, int> cardinality();
 
+    std::pair<RNA, RNA> split(size_t index);
+
     void print_rna();
 
     //operators

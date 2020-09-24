@@ -35,6 +35,8 @@ size_t RNA::capacity() {
 }
 
 void RNA::trim(size_t from) {
+    if (from >= _size || from < 0) return;
+
     _size = from;
     size_t *tmp = new size_t[capacity()];
     for (size_t i = 0; i < capacity(); i++)
@@ -60,7 +62,7 @@ Nucleotide RNA::get_nucleotide(size_t idx) {
 
 void RNA::set_nucleotide(Nucleotide nucleotide, size_t idx) {
     if (idx >= _size) {
-        while (idx > _size) add_nucleotide(_nucl);
+        while(idx > _size) add_nucleotide(_nucl);
         add_nucleotide(nucleotide);
         return;
     }
@@ -93,6 +95,15 @@ std::unordered_map<Nucleotide, int> RNA::cardinality() {
 
     delete [] cnt;
     return std::unordered_map<Nucleotide, int>();
+}
+
+std::pair<RNA, RNA> RNA::split(size_t index) {
+    RNA rna1(_nucl, 0), rna2(_nucl, 0);
+    for (size_t i = 0; i < index; i++)
+        rna1 += get_nucleotide(i);
+    for (size_t i = index; i < _size; i++)
+        rna2 += get_nucleotide(i);
+    return std::pair<RNA, RNA>(rna1, rna2);
 }
 
 void RNA::print_rna() {

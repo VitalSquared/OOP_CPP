@@ -32,7 +32,7 @@ TEST_F(RNATest, basic_test_add) {
     rna += G;
     rna += C;
     for (int i = 0; i < 3; i++)
-        ASSERT_EQ(rna.get_nucleotide(i), (Nucleotide)i);
+        ASSERT_EQ(rna.get_nucleotide(i), (Nucleotide) i);
 }
 
 TEST_F(RNATest, basic_test_get) {
@@ -40,7 +40,7 @@ TEST_F(RNATest, basic_test_get) {
     int cnt = 100;
     Nucleotide arr[cnt];
     for (int i = 0; i < cnt; i++) {
-        arr[i] = (Nucleotide)(rand() % 4);
+        arr[i] = (Nucleotide) (rand() % 4);
         rna += arr[i];
     }
     for (int i = 0; i < cnt; i++) {
@@ -77,6 +77,17 @@ TEST_F(RNATest, basic_test_set) {
     ASSERT_EQ(true, rna == check);
 }
 
+TEST_F(RNATest, basic_test_set_outside) {
+    RNA rna(A, 10);
+    rna.set_nucleotide(G, 19);
+    rna.set_nucleotide(C, 21);
+    RNA check(A, 19);
+    check += G;
+    check += A;
+    check += C;
+    ASSERT_EQ(true, rna == check);
+}
+
 TEST_F(RNATest, basic_test_sum) {
     RNA rna1(A, 10), rna2(T, 10);
     RNA rna = rna1 + rna2;
@@ -92,6 +103,13 @@ TEST_F(RNATest, basic_test_trim) {
     RNA check(A, 5);
     rna.trim(5);
     ASSERT_EQ(true, rna == check);
+}
+
+TEST_F(RNATest, basic_test_split) {
+    RNA rna1(A, 10), rna2(T, 10);
+    RNA rna = rna1 + rna2;
+    auto pair = rna.split(10);
+    ASSERT_EQ(true, pair.first == rna1 && pair.second == rna2);
 }
 
 TEST_F(RNATest, basic_test_not) {
@@ -132,11 +150,19 @@ TEST_F(RNATest, basic_test_cardinality) {
     auto map = rna1.cardinality();
     for (auto elem : map) {
         Nucleotide nucl = elem.first;
-        switch(nucl) {
-            case A: ASSERT_EQ(5, elem.second); break;
-            case G: ASSERT_EQ(7, elem.second); break;
-            case C: ASSERT_EQ(4, elem.second); break;
-            case T: ASSERT_EQ(13, elem.second); break;
+        switch (nucl) {
+            case A:
+                ASSERT_EQ(5, elem.second);
+                break;
+            case G:
+                ASSERT_EQ(7, elem.second);
+                break;
+            case C:
+                ASSERT_EQ(4, elem.second);
+                break;
+            case T:
+                ASSERT_EQ(13, elem.second);
+                break;
         }
     }
 }
