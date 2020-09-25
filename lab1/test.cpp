@@ -167,14 +167,14 @@ TEST_F(RNATest, basic_test_cardinality) {
     }
 }
 
-/*TEST_F(RNATest, large_test_1) {
+TEST_F(RNATest, large_test_1) {
     timespec start, end;
     RNA rna(A, 0);
     clock_gettime(CLOCK_MONOTONIC, &start);
-    for (int i = 0; i < 500000; i++) {
+    for (int i = 0; i < 1000000; i++) {
         rna += (Nucleotide) (i % 4);
         clock_gettime(CLOCK_MONOTONIC, &end);
         auto time = (end.tv_sec - start.tv_sec) + 0.000000001 * (end.tv_nsec - start.tv_nsec);
         ASSERT_LE(time, 60);
     }
-}*/
+}

@@ -48,6 +48,7 @@ public:
     friend bool operator==(RNA &rna1, RNA &rna2);
     friend bool operator!=(RNA &rna1, RNA &rna2);
     RNA operator!();
+    //operator[](size_t index);
 };
 
 #endif
