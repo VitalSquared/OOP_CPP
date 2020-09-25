@@ -15,7 +15,7 @@ namespace {
 TEST_F(RNATest, basic_test_capacity) {
     for (int i = 0; i < 100; i++) {
         RNA rna(A, i);
-        ASSERT_EQ(rna.capacity(), ceil(1.0 * i / (sizeof(size_t) * 4)));
+        ASSERT_GE(rna.capacity(), ceil(1.0 * i / (sizeof(size_t) * 4)));
     }
 }
 
@@ -26,26 +26,26 @@ TEST_F(RNATest, basic_test_length) {
     }
 }
 
+TEST_F(RNATest, basic_test_get_set) {
+    int cnt = 100;
+    RNA rna(A, cnt);
+    Nucleotide arr[cnt];
+    for (int i = 0; i < cnt; i++) {
+        arr[i] = (Nucleotide) (rand() % 4);
+        rna[i] = arr[i];
+    }
+    for (int i = 0; i < cnt; i++) {
+        ASSERT_EQ(rna[i], arr[i]);
+    }
+}
+
 TEST_F(RNATest, basic_test_add) {
     RNA rna(A, 0);
     rna += A;
     rna += G;
     rna += C;
     for (int i = 0; i < 3; i++)
-        ASSERT_EQ(rna.get_nucleotide(i), (Nucleotide) i);
-}
-
-TEST_F(RNATest, basic_test_get) {
-    RNA rna(A, 0);
-    int cnt = 100;
-    Nucleotide arr[cnt];
-    for (int i = 0; i < cnt; i++) {
-        arr[i] = (Nucleotide) (rand() % 4);
-        rna += arr[i];
-    }
-    for (int i = 0; i < cnt; i++) {
-        ASSERT_EQ(rna.get_nucleotide(i), arr[i]);
-    }
+        ASSERT_EQ(rna[i], (Nucleotide) i);
 }
 
 TEST_F(RNATest, basic_test_equality) {
@@ -59,28 +59,15 @@ TEST_F(RNATest, basic_test_unequality) {
     RNA rna1(rna);
     rna1 += T;
     ASSERT_EQ(true, rna != rna1);
-}
-
-TEST_F(RNATest, basic_test_set) {
-    RNA rna(A, 10);
-    rna.set_nucleotide(T, 1);
-    rna.set_nucleotide(G, 7);
-
-    RNA check(A, 0);
-    check += A; //0
-    check += T; //1
-    for (int i = 2; i < 7; i++)
-        check += A;
-    check += G; //7
-    for (int i = 8; i < 10; i++)
-        check += A;
-    ASSERT_EQ(true, rna == check);
+    rna1.trim(100);
+    rna1[50] = T;
+    ASSERT_EQ(true, rna != rna1);
 }
 
 TEST_F(RNATest, basic_test_set_outside) {
     RNA rna(A, 10);
-    rna.set_nucleotide(G, 19);
-    rna.set_nucleotide(C, 21);
+    rna[19] = G;
+    rna[21] = C;
     RNA check(A, 19);
     check += G;
     check += A;
@@ -92,9 +79,9 @@ TEST_F(RNATest, basic_test_sum) {
     RNA rna1(A, 10), rna2(T, 10);
     RNA rna = rna1 + rna2;
     for (int i = 0; i < 10; i++)
-        ASSERT_EQ(A, rna.get_nucleotide(i));
+        ASSERT_EQ(A, rna[i]);
     for (int i = 10; i < 20; i++)
-        ASSERT_EQ(T, rna.get_nucleotide(i));
+        ASSERT_EQ(T, rna[i]);
 }
 
 TEST_F(RNATest, basic_test_trim) {
@@ -118,11 +105,11 @@ TEST_F(RNATest, basic_test_not) {
     RNA rna = rna_ + rna3;
     RNA _rna = !rna;
     for (int i = 0; i < 10; i++)
-        ASSERT_EQ(C, _rna.get_nucleotide(i));
+        ASSERT_EQ(C, _rna[i]);
     for (int i = 10; i < 25; i++)
-        ASSERT_EQ(A, _rna.get_nucleotide(i));
+        ASSERT_EQ(A, _rna[i]);
     for (int i = 25; i < 30; i++)
-        ASSERT_EQ(G, _rna.get_nucleotide(i));
+        ASSERT_EQ(G, _rna[i]);
 }
 
 TEST_F(RNATest, basic_test_complimentary) {
@@ -175,6 +162,6 @@ TEST_F(RNATest, large_test_1) {
         rna += (Nucleotide) (i % 4);
         clock_gettime(CLOCK_MONOTONIC, &end);
         auto time = (end.tv_sec - start.tv_sec) + 0.000000001 * (end.tv_nsec - start.tv_nsec);
-        ASSERT_LE(time, 60);
+        ASSERT_LE(time, 5);
     }
 }

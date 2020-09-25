@@ -520,27 +520,11 @@ cxxabi.h
 acxx_demangle.h
 -
 
-H:/OOOP/lab1/RNA.cpp
-iostream
--
-cmath
--
-RNA.h
-H:/OOOP/lab1/RNA.h
-
-H:/OOOP/lab1/RNA.h
+D:/NSU_Labs/OOOP/lab1/RNA.h
 unordered_map
 -
 
-H:/OOOP/lab1/main.cpp
-gtest/gtest.h
--
-gmock/gmock.h
--
-RNA.h
-H:/OOOP/lab1/RNA.h
-
-H:/OOOP/lab1/test.cpp
+D:/NSU_Labs/OOOP/lab1/test.cpp
 gtest/gtest.h
 -
 gmock/gmock.h
@@ -548,5 +532,5 @@ gmock/gmock.h
 ctime
 -
 RNA.h
-H:/OOOP/lab1/RNA.h
+D:/NSU_Labs/OOOP/lab1/RNA.h
 

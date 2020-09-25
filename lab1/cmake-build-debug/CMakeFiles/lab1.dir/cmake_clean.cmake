@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lab1.dir/main.cpp.obj"
   "CMakeFiles/lab1.dir/RNA.cpp.obj"
+  "CMakeFiles/lab1.dir/main.cpp.obj"
   "CMakeFiles/lab1.dir/test.cpp.obj"
-  "lab1.pdb"
   "lab1.exe"
   "lab1.exe.manifest"
+  "lab1.pdb"
   "liblab1.dll.a"
 )
 
