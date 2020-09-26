@@ -112,7 +112,7 @@ TEST_F(RNATest, basic_test_not) {
         ASSERT_EQ(G, _rna[i]);
 }
 
-TEST_F(RNATest, basic_test_complimentary) {
+TEST_F(RNATest, basic_test_complementary) {
     RNA rna1(G, 10), rna2(C, 10);
     RNA _rna1 = !rna1;
     ASSERT_EQ(true, rna1.is_complementary(rna2));

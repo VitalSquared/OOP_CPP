@@ -102,7 +102,9 @@ RNA& RNA::operator=(RNA const& rna) {
     _size = rna._size;
     _capacity = rna._capacity;
     delete [] _nucleotides;
-    _nucleotides = rna._nucleotides;
+    _nucleotides = new size_t[_capacity];
+    for (size_t i = 0; i < _capacity; i++)
+        _nucleotides[i] = rna._nucleotides[i];
     return *this;
 }
 
@@ -177,7 +179,7 @@ void RNA::add_nucleotide(Nucleotide nucleotide) {
 }
 
 Nucleotide RNA::get_nucleotide(size_t idx) {
-    if (idx >= _size) _nucl;
+    if (idx >= _size) return _nucl;
 
     size_t block_idx = idx / PAIRS_IN_SIZE_T, pair_idx = idx % PAIRS_IN_SIZE_T;
     size_t block = _nucleotides[block_idx];
