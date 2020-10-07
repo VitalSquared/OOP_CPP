@@ -2,6 +2,33 @@
 #include <cmath>
 #include "RNA.h"
 
+//nucleotide reference
+
+RNA::nucl_ref::nucl_ref(RNA& rna, size_t idx) {
+    _rna = &rna;
+    _idx = idx;
+}
+
+RNA::nucl_ref::operator Nucleotide() const {
+    return (*_rna).get_nucleotide(_idx);
+}
+
+RNA::nucl_ref& RNA::nucl_ref::operator=(Nucleotide nucleotide) {
+    (*_rna).set_nucleotide(nucleotide, _idx);
+    return *this;
+}
+
+//const nucleotide reference
+
+RNA::const_nucl_ref::const_nucl_ref(const RNA& rna, size_t idx) {
+    _rna = &rna;
+    _idx = idx;
+}
+
+RNA::const_nucl_ref::operator Nucleotide() const {
+    return (*_rna).get_nucleotide(_idx);
+}
+
 //constructors and destructors//
 
 RNA::RNA(Nucleotide nucleotide, size_t size) {
@@ -21,6 +48,7 @@ RNA::RNA(const RNA &rna) {
 
 RNA::~RNA() {
     delete [] _nucleotides;
+    _nucleotides = nullptr;
 }
 
 //public functions//
@@ -48,7 +76,7 @@ std::pair<RNA, RNA> RNA::split(size_t idx) {
     return std::pair<RNA, RNA>(rna1, rna2);
 }
 
-bool RNA::is_complementary(RNA &rna) {
+bool RNA::is_complementary(const RNA &rna) {
     if (_size != rna._size) return false;
 
     for (size_t i = 0; i < _size; i++) {
@@ -81,45 +109,37 @@ std::unordered_map<Nucleotide, int> RNA::cardinality() {
     return std::unordered_map<Nucleotide, int>();
 }
 
-void RNA::print_rna() {
-    for (size_t i = 0; i < _size; i++) {
-        char nucl = 'A';
-        switch(get_nucleotide(i)) {
-            case A: nucl = 'A'; break;
-            case G: nucl = 'G'; break;
-            case C: nucl = 'C'; break;
-            case T: nucl = 'T'; break;
-        }
-        cout << nucl;
-    }
-    cout << endl;
-}
-
 //operators
 
-RNA& RNA::operator=(RNA const& rna) {
+RNA& RNA::operator=(const RNA& rna) {
+    if (&rna == this) return *this;
+
     _nucl = rna._nucl;
     _size = rna._size;
     _capacity = rna._capacity;
+
     delete [] _nucleotides;
+    _nucleotides = nullptr;
+
     _nucleotides = new size_t[_capacity];
     for (size_t i = 0; i < _capacity; i++)
         _nucleotides[i] = rna._nucleotides[i];
     return *this;
 }
 
-void RNA::operator+=(Nucleotide nucleotide) {
+RNA& RNA::operator+=(Nucleotide nucleotide) {
     add_nucleotide(nucleotide);
+    return *this;
 }
 
-RNA operator+(RNA &r1, RNA &r2) {
+RNA operator+(const RNA& r1, const RNA& r2) {
     RNA rna(r1);
     for (size_t i = 0; i < r2._size; i++)
         rna.add_nucleotide(r2.get_nucleotide(i));
     return rna;
 }
 
-bool operator==(RNA &r1, RNA &r2) {
+bool operator==(const RNA& r1, const RNA& r2) {
     if (r1._size != r2._size) return false;
 
     for (size_t i = 0; i < r1._size; i++) {
@@ -130,7 +150,7 @@ bool operator==(RNA &r1, RNA &r2) {
     return true;
 }
 
-bool operator!=(RNA &r1, RNA &r2) {
+bool operator!=(const RNA& r1, const RNA& r2) {
     return !(r1 == r2);
 }
 
@@ -143,13 +163,33 @@ RNA RNA::operator!() {
     return rna;
 }
 
-RNA::nucl_ref RNA::operator[](size_t index) {
-    return nucl_ref(this, index);
+RNA::nucl_ref RNA::operator[](size_t index){
+    return nucl_ref(*this, index);
+}
+
+RNA::const_nucl_ref RNA::operator[](size_t index) const{
+    return const_nucl_ref(*this, index);
+}
+
+std::ostream& operator<<(std::ostream& os, const RNA& rna){
+    std::string str;
+    for (size_t i = 0; i < rna._size; i++) {
+        char nucl = 'A';
+        switch(rna.get_nucleotide(i)) {
+            case A: nucl = 'A'; break;
+            case G: nucl = 'G'; break;
+            case C: nucl = 'C'; break;
+            case T: nucl = 'T'; break;
+        }
+        str.append(1, nucl);
+    }
+    return os << str;
 }
 
 //private functions//
 
 void RNA::update_capacity() {
+    if (_capacity == 0) _nucleotides = nullptr;
     if (ceil(1.0 * _size / PAIRS_IN_SIZE_T) <= _capacity) return;
 
     size_t old_capacity = _capacity;
@@ -178,7 +218,7 @@ void RNA::add_nucleotide(Nucleotide nucleotide) {
     set_nucleotide(nucleotide, _size - 1);
 }
 
-Nucleotide RNA::get_nucleotide(size_t idx) {
+Nucleotide RNA::get_nucleotide(size_t idx) const {
     if (idx >= _size) return _nucl;
 
     size_t block_idx = idx / PAIRS_IN_SIZE_T, pair_idx = idx % PAIRS_IN_SIZE_T;
