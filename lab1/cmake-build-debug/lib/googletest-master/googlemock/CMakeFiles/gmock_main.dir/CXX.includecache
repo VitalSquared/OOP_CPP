@@ -520,13 +520,13 @@ cxxabi.h
 acxx_demangle.h
 -
 
-D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googlemock/src/gmock_main.cc
+D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googlemock/src/gmock_main.cc
 iostream
 -
 gmock/gmock.h
-D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googlemock/src/gmock/gmock.h
+D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googlemock/src/gmock/gmock.h
 gtest/gtest.h
-D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googlemock/src/gtest/gtest.h
+D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googlemock/src/gtest/gtest.h
 tchar.h
 -
 

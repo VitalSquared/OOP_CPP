@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/lab1.dir/main.cpp.o CMakeFiles/lab1.dir/RNA.cpp.o CMakeFiles/lab1.dir/test.cpp.o  -o lab1  lib/libgtestd.a lib/libgtest_maind.a lib/libgmockd.a lib/libgmock_maind.a lib/libgmockd.a lib/libgtestd.a -lpthread 

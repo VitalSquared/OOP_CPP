@@ -12,5 +12,3 @@ add_executable(lab1 main.cpp RNA.cpp RNA.h test.cpp)
 
 target_link_libraries(lab1 gtest gtest_main)
 target_link_libraries(lab1 gmock gmock_main)
-
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=leak -g")

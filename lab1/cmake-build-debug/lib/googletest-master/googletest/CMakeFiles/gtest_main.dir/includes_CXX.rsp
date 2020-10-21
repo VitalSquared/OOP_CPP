@@ -1,1 +1,1 @@
--isystem D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest/include -isystem D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest 
+-isystem D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googletest/include -isystem D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googletest 

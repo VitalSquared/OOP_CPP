@@ -520,25 +520,15 @@ cxxabi.h
 acxx_demangle.h
 -
 
-D:/NSU_Labs/OOOP/lab1/RNA.h
+D:/Workshop/CLionProjects/OOOP/lab1/RNA.h
 unordered_map
 -
 
-D:/NSU_Labs/OOOP/lab1/main.cpp
+D:/Workshop/CLionProjects/OOOP/lab1/test.cpp
 gtest/gtest.h
 -
 gmock/gmock.h
 -
 RNA.h
-D:/NSU_Labs/OOOP/lab1/RNA.h
-
-D:/NSU_Labs/OOOP/lab1/test.cpp
-gtest/gtest.h
--
-gmock/gmock.h
--
-ctime
--
-RNA.h
-D:/NSU_Labs/OOOP/lab1/RNA.h
+D:/Workshop/CLionProjects/OOOP/lab1/RNA.h
 

@@ -658,23 +658,23 @@ absl/debugging/symbolize.h
 absl/strings/str_cat.h
 ../lib/googletest-master/googletest/src/absl/strings/str_cat.h
 
-D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest/src/gtest-all.cc
+D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googletest/src/gtest-all.cc
 gtest/gtest.h
-D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest/src/gtest/gtest.h
+D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googletest/src/gtest/gtest.h
 src/gtest.cc
-D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest.cc
+D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest.cc
 src/gtest-death-test.cc
-D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-death-test.cc
+D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-death-test.cc
 src/gtest-filepath.cc
-D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-filepath.cc
+D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-filepath.cc
 src/gtest-matchers.cc
-D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-matchers.cc
+D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-matchers.cc
 src/gtest-port.cc
-D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-port.cc
+D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-port.cc
 src/gtest-printers.cc
-D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-printers.cc
+D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-printers.cc
 src/gtest-test-part.cc
-D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-test-part.cc
+D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-test-part.cc
 src/gtest-typed-test.cc
-D:/NSU_Labs/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-typed-test.cc
+D:/Workshop/CLionProjects/OOOP/lab1/lib/googletest-master/googletest/src/src/gtest-typed-test.cc
 
