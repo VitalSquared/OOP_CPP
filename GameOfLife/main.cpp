@@ -125,7 +125,7 @@ private:
     void updateUI() {
         system("cls");
         for (int r = 0; r < ROWS; r++) {
-            cout << (char) ('J' - r) << " ";
+            cout << ROWS - 1 - r << " ";
             for (int c = 0; c < COLS; c++) {
                 Cell::State state = field[IDX(r, c)].getState();
                 switch(state) {
@@ -136,7 +136,7 @@ private:
             cout << endl;
         }
         cout << "  ";
-        for (int i = 0; i < 10; i++) cout << i;
+        for (char i = 'A'; i < 'A' + COLS; i++) cout << i;
         cout << endl;
         cout << "Moves made: " << moves << endl;
     }
@@ -156,12 +156,12 @@ public:
             field->reset();
         }
         else if (cmd.substr(0, 3) == "set" && cmd[3] == ' ' && cmd.length() == 6) {
-            int r = 'J' - cmd[4], c = cmd[5] - '0';
+            int r = ROWS - 1 + '0' - cmd[5], c = cmd[4] - 'A';
             if (r < 0 || r >= ROWS || c < 0 || c >= COLS) return INVALID_ARG;
             field->setCell(r, c);
         }
         else if (cmd.substr(0, 5) == "clear" && cmd[5] == ' ' && cmd.length() == 8) {
-            int r = 'J' - cmd[6], c = cmd[7] - '0';
+            int r = ROWS - 1 + '0' - cmd[7], c = cmd[6] - 'A';
             if (r < 0 || r >= ROWS || c < 0 || c >= COLS) return INVALID_ARG;
             field->clearCell(r, c);
         }
