@@ -50,6 +50,7 @@ ParseResult CommandParser::parseCommand(string& cmd) {
     }
     else if (split[0] == "save") {
         if (split.size() != 2) return INVALID_ARG;
+        if (!split[1].starts_with("\"") && !split[1].ends_with("\"")) return INVALID_ARG;
         string fl_name = StringUtils::trim(split[1], "\"");
         ofstream sv_file(fl_name + ".txt");
         for (int i = 0; i < ROWS * COLS; i++)
@@ -58,6 +59,7 @@ ParseResult CommandParser::parseCommand(string& cmd) {
     }
     else if (split[0] == "load") {
         if (split.size() != 2) return INVALID_ARG;
+        if (!split[1].starts_with("\"") && !split[1].ends_with("\"")) return INVALID_ARG;
         string fl_name = StringUtils::trim(split[1], "\"");
         ifstream ld_file(fl_name + ".txt");
         if (!ld_file.is_open()) return NO_FILE;
@@ -72,13 +74,13 @@ ParseResult CommandParser::parseCommand(string& cmd) {
 
 void CommandParser::printHelp() {
     cout << "List of available commands:" << endl;
-    cout << "help - show this list" << endl;
-    cout << "exit - exit application" << endl;
-    cout << "reset - clear field and reset moves" << endl;
-    cout << R"(set XY - 'A' <= X <= 'J', 0 <= Y <= 9, set cell XY to ALIVE state)" << endl;
-    cout << R"(clear XY - 'A' <= X <= 'J', 0 <= Y <= 9, set cell XY to DEAD state)" << endl;
-    cout << "step [N] - cycle game N times forward (1, if N not specified)" << endl;
-    cout << "back - cycle game 1 time backward" << endl;
-    cout << R"(save "filename" - save game state (no history of moves))" << endl;
-    cout << R"(load "filename" - load game from file (no history of moves))" << endl;
+    cout << "\thelp - show this list" << endl;
+    cout << "\texit - exit application" << endl;
+    cout << "\treset - clear field and reset moves" << endl;
+    cout << "\t" << R"(set XY - 'A' <= X <= 'J', 0 <= Y <= 9, set cell XY to ALIVE state)" << endl;
+    cout << "\t" << R"(clear XY - 'A' <= X <= 'J', 0 <= Y <= 9, set cell XY to DEAD state)" << endl;
+    cout << "\tstep [N] - cycle game N times forward (1, if N not specified)" << endl;
+    cout << "\tback - cycle game 1 time backward" << endl;
+    cout << "\t" << R"(save "filename" - save game state (no history of moves))" << endl;
+    cout << "\t" << R"(load "filename" - load game from file (no history of moves))" << endl;
 }

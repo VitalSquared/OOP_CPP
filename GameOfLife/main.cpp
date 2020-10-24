@@ -8,7 +8,7 @@ int main() {
     Field field;
     CommandParser cmdParser(&field);
 
-    string cmd;
+    string cmd = "";
     getline(cin, cmd);
 
     while (cmd != "exit") {

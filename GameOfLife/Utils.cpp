@@ -16,16 +16,16 @@ vector<string> StringUtils::split(const string &str, char ch) {
     return v;
 }
 
-string & StringUtils::ltrim(string &str, const string &chars) {
+string& StringUtils::ltrim(string &str, const string &chars) {
     str.erase(0, str.find_first_not_of(chars));
     return str;
 }
 
-string & StringUtils::rtrim(std::string &str, const string &chars) {
+string& StringUtils::rtrim(std::string &str, const string &chars) {
     str.erase(str.find_last_not_of(chars) + 1);
     return str;
 }
 
-string & StringUtils::trim(std::string &str, const string &chars) {
+string& StringUtils::trim(std::string &str, const string &chars) {
     return ltrim(rtrim(str, chars), chars);
 }

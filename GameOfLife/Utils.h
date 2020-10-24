@@ -10,8 +10,8 @@ class StringUtils {
 public:
     static vector<string> split(const string& str, char ch);
     static string& ltrim(string& str, const string& chars = "\t\n\v\f\r ");
-    static string& rtrim(std::string& str, const string& chars = "\t\n\v\f\r ");
-    static string& trim(std::string& str, const string& chars = "\t\n\v\f\r ");
+    static string& rtrim(string& str, const string& chars = "\t\n\v\f\r ");
+    static string& trim(string& str, const string& chars = "\t\n\v\f\r ");
 };
 
 #endif

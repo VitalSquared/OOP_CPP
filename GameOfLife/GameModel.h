@@ -38,8 +38,8 @@ private:
     Cell *field;
     vector<Cell*> history;
 
-    int getNormalRow(int r);
-    int getNormalCol(int c);
+    int normalizeRow(int r);
+    int normalizeCol(int c);
     void updateUI();
 };
 

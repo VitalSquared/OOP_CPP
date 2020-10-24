@@ -32,12 +32,12 @@ void Field::makeMove(bool updateUI) {
             pair<int, int> neighbours[8] =
                     {
                             {r - 1, c - 1}, {r - 1, c}, {r - 1, c + 1},
-                            {r, c - 1},  {r, c + 1},
+                                {r, c - 1},                     {r, c + 1},
                             {r + 1, c - 1}, {r + 1, c}, {r + 1, c + 1}
                     };
             int alive = 0;
             for (auto pair : neighbours) {
-                int nr = getNormalRow(pair.first), nc = getNormalCol(pair.second);
+                int nr = normalizeRow(pair.first), nc = normalizeCol(pair.second);
                 if (field[IDX(nr, nc)].getState() == ALIVE) alive++;
             }
             switch(field[IDX(r, c)].getState()) {
@@ -109,13 +109,13 @@ bool Field::load(string &in) {
     return true;
 }
 
-int Field::getNormalRow(int r) {
+int Field::normalizeRow(int r) {
     while (r < 0) r += ROWS;
     while (r >= ROWS) r -= ROWS;
     return r;
 }
 
-int Field::getNormalCol(int c) {
+int Field::normalizeCol(int c) {
     while (c < 0) c += COLS;
     while (c >= COLS) c -= COLS;
     return c;
