@@ -142,6 +142,87 @@ GameOfLife/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\GameOfLife.dir\build.make CMakeFiles/GameOfLife.dir/build
 .PHONY : GameOfLife/fast
 
+CommandParser.obj: CommandParser.cpp.obj
+
+.PHONY : CommandParser.obj
+
+# target to build an object file
+CommandParser.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GameOfLife.dir\build.make CMakeFiles/GameOfLife.dir/CommandParser.cpp.obj
+.PHONY : CommandParser.cpp.obj
+
+CommandParser.i: CommandParser.cpp.i
+
+.PHONY : CommandParser.i
+
+# target to preprocess a source file
+CommandParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GameOfLife.dir\build.make CMakeFiles/GameOfLife.dir/CommandParser.cpp.i
+.PHONY : CommandParser.cpp.i
+
+CommandParser.s: CommandParser.cpp.s
+
+.PHONY : CommandParser.s
+
+# target to generate assembly for a file
+CommandParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GameOfLife.dir\build.make CMakeFiles/GameOfLife.dir/CommandParser.cpp.s
+.PHONY : CommandParser.cpp.s
+
+GameModel.obj: GameModel.cpp.obj
+
+.PHONY : GameModel.obj
+
+# target to build an object file
+GameModel.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GameOfLife.dir\build.make CMakeFiles/GameOfLife.dir/GameModel.cpp.obj
+.PHONY : GameModel.cpp.obj
+
+GameModel.i: GameModel.cpp.i
+
+.PHONY : GameModel.i
+
+# target to preprocess a source file
+GameModel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GameOfLife.dir\build.make CMakeFiles/GameOfLife.dir/GameModel.cpp.i
+.PHONY : GameModel.cpp.i
+
+GameModel.s: GameModel.cpp.s
+
+.PHONY : GameModel.s
+
+# target to generate assembly for a file
+GameModel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GameOfLife.dir\build.make CMakeFiles/GameOfLife.dir/GameModel.cpp.s
+.PHONY : GameModel.cpp.s
+
+Utils.obj: Utils.cpp.obj
+
+.PHONY : Utils.obj
+
+# target to build an object file
+Utils.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GameOfLife.dir\build.make CMakeFiles/GameOfLife.dir/Utils.cpp.obj
+.PHONY : Utils.cpp.obj
+
+Utils.i: Utils.cpp.i
+
+.PHONY : Utils.i
+
+# target to preprocess a source file
+Utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GameOfLife.dir\build.make CMakeFiles/GameOfLife.dir/Utils.cpp.i
+.PHONY : Utils.cpp.i
+
+Utils.s: Utils.cpp.s
+
+.PHONY : Utils.s
+
+# target to generate assembly for a file
+Utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\GameOfLife.dir\build.make CMakeFiles/GameOfLife.dir/Utils.cpp.s
+.PHONY : Utils.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -178,6 +259,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... GameOfLife
+	@echo ... CommandParser.obj
+	@echo ... CommandParser.i
+	@echo ... CommandParser.s
+	@echo ... GameModel.obj
+	@echo ... GameModel.i
+	@echo ... GameModel.s
+	@echo ... Utils.obj
+	@echo ... Utils.i
+	@echo ... Utils.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

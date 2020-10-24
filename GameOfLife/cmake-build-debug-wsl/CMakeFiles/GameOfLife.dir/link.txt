@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -static CMakeFiles/GameOfLife.dir/main.cpp.o CMakeFiles/GameOfLife.dir/Utils.cpp.o CMakeFiles/GameOfLife.dir/CommandParser.cpp.o CMakeFiles/GameOfLife.dir/GameModel.cpp.o  -o GameOfLife 

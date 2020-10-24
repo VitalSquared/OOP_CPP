@@ -1,4 +1,7 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/GameOfLife.dir/CommandParser.cpp.obj"
+  "CMakeFiles/GameOfLife.dir/GameModel.cpp.obj"
+  "CMakeFiles/GameOfLife.dir/Utils.cpp.obj"
   "CMakeFiles/GameOfLife.dir/main.cpp.obj"
   "GameOfLife.exe"
   "GameOfLife.exe.manifest"

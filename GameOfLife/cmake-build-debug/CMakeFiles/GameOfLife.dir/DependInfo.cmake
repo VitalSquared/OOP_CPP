@@ -4,6 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.cpp" "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/CMakeFiles/GameOfLife.dir/CommandParser.cpp.obj"
+  "D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.cpp" "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/CMakeFiles/GameOfLife.dir/GameModel.cpp.obj"
+  "D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.cpp" "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/CMakeFiles/GameOfLife.dir/Utils.cpp.obj"
   "D:/Workshop/CLionProjects/OOOP/GameOfLife/main.cpp" "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/CMakeFiles/GameOfLife.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

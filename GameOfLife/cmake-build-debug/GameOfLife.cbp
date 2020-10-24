@@ -80,6 +80,24 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.cpp">
+			<Option target="GameOfLife"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.h">
+			<Option target="GameOfLife"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.cpp">
+			<Option target="GameOfLife"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h">
+			<Option target="GameOfLife"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.cpp">
+			<Option target="GameOfLife"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.h">
+			<Option target="GameOfLife"/>
+		</Unit>
 		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/main.cpp">
 			<Option target="GameOfLife"/>
 		</Unit>
