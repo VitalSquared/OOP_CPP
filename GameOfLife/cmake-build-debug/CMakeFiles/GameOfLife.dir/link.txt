@@ -1,0 +1,3 @@
+"D:\CLion\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\GameOfLife.dir/objects.a
+D:\mingw\mingw64\bin\ar.exe cr CMakeFiles\GameOfLife.dir/objects.a @CMakeFiles\GameOfLife.dir\objects1.rsp
+D:\mingw\mingw64\bin\g++.exe -g  -static -Wl,--whole-archive CMakeFiles\GameOfLife.dir/objects.a -Wl,--no-whole-archive  -o GameOfLife.exe -Wl,--out-implib,libGameOfLife.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\GameOfLife.dir\linklibs.rsp
