@@ -117,8 +117,8 @@ private:
     }
 
     int getNormalCol(int c) {
-        while (c < 0) c += ROWS;
-        while (c >= ROWS) c -= ROWS;
+        while (c < 0) c += COLS;
+        while (c >= COLS) c -= COLS;
         return c;
     }
 
