@@ -4,17 +4,17 @@
 CMakeFiles/GameOfLife.dir/CommandParser.cpp.o: ../CommandParser.cpp
 CMakeFiles/GameOfLife.dir/CommandParser.cpp.o: ../CommandParser.h
 CMakeFiles/GameOfLife.dir/CommandParser.cpp.o: ../GameModel.h
-CMakeFiles/GameOfLife.dir/CommandParser.cpp.o: ../Utils.h
+CMakeFiles/GameOfLife.dir/CommandParser.cpp.o: ../Interface.h
 
 CMakeFiles/GameOfLife.dir/GameModel.cpp.o: ../GameModel.cpp
 CMakeFiles/GameOfLife.dir/GameModel.cpp.o: ../GameModel.h
-CMakeFiles/GameOfLife.dir/GameModel.cpp.o: ../Utils.h
+CMakeFiles/GameOfLife.dir/GameModel.cpp.o: ../Interface.h
 
-CMakeFiles/GameOfLife.dir/Utils.cpp.o: ../Utils.cpp
-CMakeFiles/GameOfLife.dir/Utils.cpp.o: ../Utils.h
+CMakeFiles/GameOfLife.dir/Interface.cpp.o: ../GameModel.h
+CMakeFiles/GameOfLife.dir/Interface.cpp.o: ../Interface.cpp
+CMakeFiles/GameOfLife.dir/Interface.cpp.o: ../Interface.h
 
 CMakeFiles/GameOfLife.dir/main.cpp.o: ../CommandParser.h
 CMakeFiles/GameOfLife.dir/main.cpp.o: ../GameModel.h
-CMakeFiles/GameOfLife.dir/main.cpp.o: ../Utils.h
 CMakeFiles/GameOfLife.dir/main.cpp.o: ../main.cpp
 

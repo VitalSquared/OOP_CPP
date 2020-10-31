@@ -92,10 +92,10 @@
 		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h">
 			<Option target="GameOfLife"/>
 		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.cpp">
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.cpp">
 			<Option target="GameOfLife"/>
 		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.h">
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.h">
 			<Option target="GameOfLife"/>
 		</Unit>
 		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/main.cpp">

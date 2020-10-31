@@ -5,16 +5,16 @@ CMakeFiles/GameOfLife.dir/CommandParser.cpp.obj
  D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.cpp
  D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.h
  D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
- D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.h
+ D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.h
 CMakeFiles/GameOfLife.dir/GameModel.cpp.obj
  D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.cpp
  D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
- D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.h
-CMakeFiles/GameOfLife.dir/Utils.cpp.obj
- D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.cpp
- D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.h
+ D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.h
+CMakeFiles/GameOfLife.dir/Interface.cpp.obj
+ D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
+ D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.cpp
+ D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.h
 CMakeFiles/GameOfLife.dir/main.cpp.obj
  D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.h
  D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
- D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.h
  D:/Workshop/CLionProjects/OOOP/GameOfLife/main.cpp

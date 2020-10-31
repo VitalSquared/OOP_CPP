@@ -6,13 +6,11 @@ using namespace std;
 
 int main() {
     Field field;
-    CommandParser cmdParser(&field);
-
     string cmd = "";
     getline(cin, cmd);
 
     while (cmd != "exit") {
-        ParseResult result = cmdParser.parseCommand(cmd);
+        ParseResult result = CommandParser::parseCommand(cmd, &field);
         switch(result) {
             case OK: break;
             case HELP: CommandParser::printHelp(); break;

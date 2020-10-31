@@ -177,32 +177,32 @@ GameModel.cpp.s:
 	$(MAKE) -f CMakeFiles/GameOfLife.dir/build.make CMakeFiles/GameOfLife.dir/GameModel.cpp.s
 .PHONY : GameModel.cpp.s
 
-Utils.o: Utils.cpp.o
+Interface.o: Interface.cpp.o
 
-.PHONY : Utils.o
+.PHONY : Interface.o
 
 # target to build an object file
-Utils.cpp.o:
-	$(MAKE) -f CMakeFiles/GameOfLife.dir/build.make CMakeFiles/GameOfLife.dir/Utils.cpp.o
-.PHONY : Utils.cpp.o
+Interface.cpp.o:
+	$(MAKE) -f CMakeFiles/GameOfLife.dir/build.make CMakeFiles/GameOfLife.dir/Interface.cpp.o
+.PHONY : Interface.cpp.o
 
-Utils.i: Utils.cpp.i
+Interface.i: Interface.cpp.i
 
-.PHONY : Utils.i
+.PHONY : Interface.i
 
 # target to preprocess a source file
-Utils.cpp.i:
-	$(MAKE) -f CMakeFiles/GameOfLife.dir/build.make CMakeFiles/GameOfLife.dir/Utils.cpp.i
-.PHONY : Utils.cpp.i
+Interface.cpp.i:
+	$(MAKE) -f CMakeFiles/GameOfLife.dir/build.make CMakeFiles/GameOfLife.dir/Interface.cpp.i
+.PHONY : Interface.cpp.i
 
-Utils.s: Utils.cpp.s
+Interface.s: Interface.cpp.s
 
-.PHONY : Utils.s
+.PHONY : Interface.s
 
 # target to generate assembly for a file
-Utils.cpp.s:
-	$(MAKE) -f CMakeFiles/GameOfLife.dir/build.make CMakeFiles/GameOfLife.dir/Utils.cpp.s
-.PHONY : Utils.cpp.s
+Interface.cpp.s:
+	$(MAKE) -f CMakeFiles/GameOfLife.dir/build.make CMakeFiles/GameOfLife.dir/Interface.cpp.s
+.PHONY : Interface.cpp.s
 
 main.o: main.cpp.o
 
@@ -246,9 +246,9 @@ help:
 	@echo "... GameModel.o"
 	@echo "... GameModel.i"
 	@echo "... GameModel.s"
-	@echo "... Utils.o"
-	@echo "... Utils.i"
-	@echo "... Utils.s"
+	@echo "... Interface.o"
+	@echo "... Interface.i"
+	@echo "... Interface.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -6,21 +6,47 @@
 
 #IncludeRegexTransform: 
 
-/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.h
-string
+/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.cpp
+iostream
 -
-GameModel.h
-/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
+fstream
+-
+CommandParser.h
+/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.h
+Interface.h
+/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Interface.h
 
-/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
-Utils.h
-/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Utils.h
-
-/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Utils.h
+/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.h
 string
 -
 vector
 -
+GameModel.h
+/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
+
+/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.cpp
+iostream
+-
+GameModel.h
+/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
+Interface.h
+/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Interface.h
+
+/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
+string
+-
+vector
+-
+
+/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Interface.cpp
+iostream
+-
+Interface.h
+/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Interface.h
+
+/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Interface.h
+GameModel.h
+/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
 
 /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/main.cpp
 iostream

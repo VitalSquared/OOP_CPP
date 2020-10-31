@@ -1,5 +1,6 @@
 #include <iostream>
 #include "GameModel.h"
+#include "Interface.h"
 
 using namespace std;
 
@@ -18,14 +19,14 @@ void Cell::setState(State newState) {
 Field::Field() {
     moves = 0;
     field = new Cell[ROWS * COLS];
-    updateUI();
+    Interface::updateUI(*this);
 }
 
 Field::~Field() {
     delete [] field;
 }
 
-void Field::makeMove(bool updateUI) {
+void Field::makeMove(bool bUpdateUI) {
     Cell *new_field = new Cell[ROWS * COLS];
     for (int r = 0; r < ROWS; r++) {
         for (int c = 0; c < COLS; c++) {
@@ -55,7 +56,7 @@ void Field::makeMove(bool updateUI) {
     moves++;
     history.push_back(field);
     field = new_field;
-    if (updateUI) this->updateUI();
+    if (bUpdateUI) Interface::updateUI(*this);
 }
 
 void Field::revertMove() {
@@ -64,21 +65,16 @@ void Field::revertMove() {
     delete [] field;
     field = history.back();
     history.pop_back();
-    updateUI();
+    Interface::updateUI(*this);
 }
 
 State Field::getCell(int i) {
     return field[i].getState();
 }
 
-void Field::setCell(int r, int c) {
-    field[IDX(r, c)].setState(ALIVE);
-    updateUI();
-}
-
-void Field::clearCell(int r, int c) {
-    field[IDX(r, c)].setState(DEAD);
-    updateUI();
+void Field::setCell(int r, int c, State state) {
+    field[IDX(r, c)].setState(state);
+    Interface::updateUI(*this);
 }
 
 void Field::reset() {
@@ -89,7 +85,7 @@ void Field::reset() {
         delete [] history.back();
         history.pop_back();
     }
-    updateUI();
+    Interface::updateUI(*this);
 }
 
 bool Field::load(string &in) {
@@ -105,8 +101,12 @@ bool Field::load(string &in) {
         delete [] history.back();
         history.pop_back();
     }
-    updateUI();
+    Interface::updateUI(*this);
     return true;
+}
+
+int Field::getMoves() {
+    return moves;
 }
 
 int Field::normalizeRow(int r) {
@@ -119,23 +119,4 @@ int Field::normalizeCol(int c) {
     while (c < 0) c += COLS;
     while (c >= COLS) c -= COLS;
     return c;
-}
-
-void Field::updateUI() {
-    system("cls");
-    for (int r = 0; r < ROWS; r++) {
-        cout << ROWS - 1 - r << " ";
-        for (int c = 0; c < COLS; c++) {
-            State state = field[IDX(r, c)].getState();
-            switch(state) {
-                case ALIVE: cout << UI_ALIVE; break;
-                case DEAD: cout << UI_DEAD; break;
-            }
-        }
-        cout << endl;
-    }
-    cout << "  ";
-    for (char i = 'A'; i < 'A' + COLS; i++) cout << i;
-    cout << endl;
-    cout << "Moves made: " << moves << endl;
 }

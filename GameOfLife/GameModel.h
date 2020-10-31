@@ -1,14 +1,14 @@
 #ifndef GAME_MODEL_H
 #define GAME_MODEL_H
 
-#include "Utils.h"
+#include <string>
+#include <vector>
 
 #define ROWS 10
 #define COLS 10
 #define IDX(R, C) ((R) * (ROWS) + (C))
 
-#define UI_DEAD '.'
-#define UI_ALIVE '*'
+using namespace std;
 
 enum State { DEAD, ALIVE };
 
@@ -25,13 +25,13 @@ class Field {
 public:
     Field();
     ~Field();
-    void makeMove(bool updateUI = true);
+    void makeMove(bool bUpdateUI = true);
     void revertMove();
     State getCell(int i);
-    void setCell(int r, int c);
-    void clearCell(int r, int c);
+    void setCell(int r, int c, State state);
     void reset();
     bool load(string& in);
+    int getMoves();
 
 private:
     int moves;
@@ -40,7 +40,6 @@ private:
 
     int normalizeRow(int r);
     int normalizeCol(int c);
-    void updateUI();
 };
 
 #endif

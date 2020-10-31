@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.cpp" "/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-wsl/CMakeFiles/GameOfLife.dir/CommandParser.cpp.o"
   "/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.cpp" "/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-wsl/CMakeFiles/GameOfLife.dir/GameModel.cpp.o"
-  "/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Utils.cpp" "/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-wsl/CMakeFiles/GameOfLife.dir/Utils.cpp.o"
+  "/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Interface.cpp" "/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-wsl/CMakeFiles/GameOfLife.dir/Interface.cpp.o"
   "/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/main.cpp" "/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-wsl/CMakeFiles/GameOfLife.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

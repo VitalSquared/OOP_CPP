@@ -70,22 +70,9 @@ CMakeFiles/GameOfLife.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameOfLife.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/main.cpp -o CMakeFiles/GameOfLife.dir/main.cpp.s
 
-CMakeFiles/GameOfLife.dir/Utils.cpp.o: CMakeFiles/GameOfLife.dir/flags.make
-CMakeFiles/GameOfLife.dir/Utils.cpp.o: ../Utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GameOfLife.dir/Utils.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameOfLife.dir/Utils.cpp.o -c /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Utils.cpp
-
-CMakeFiles/GameOfLife.dir/Utils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameOfLife.dir/Utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Utils.cpp > CMakeFiles/GameOfLife.dir/Utils.cpp.i
-
-CMakeFiles/GameOfLife.dir/Utils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameOfLife.dir/Utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Utils.cpp -o CMakeFiles/GameOfLife.dir/Utils.cpp.s
-
 CMakeFiles/GameOfLife.dir/CommandParser.cpp.o: CMakeFiles/GameOfLife.dir/flags.make
 CMakeFiles/GameOfLife.dir/CommandParser.cpp.o: ../CommandParser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GameOfLife.dir/CommandParser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GameOfLife.dir/CommandParser.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameOfLife.dir/CommandParser.cpp.o -c /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.cpp
 
 CMakeFiles/GameOfLife.dir/CommandParser.cpp.i: cmake_force
@@ -98,7 +85,7 @@ CMakeFiles/GameOfLife.dir/CommandParser.cpp.s: cmake_force
 
 CMakeFiles/GameOfLife.dir/GameModel.cpp.o: CMakeFiles/GameOfLife.dir/flags.make
 CMakeFiles/GameOfLife.dir/GameModel.cpp.o: ../GameModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GameOfLife.dir/GameModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GameOfLife.dir/GameModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameOfLife.dir/GameModel.cpp.o -c /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.cpp
 
 CMakeFiles/GameOfLife.dir/GameModel.cpp.i: cmake_force
@@ -109,20 +96,33 @@ CMakeFiles/GameOfLife.dir/GameModel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameOfLife.dir/GameModel.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.cpp -o CMakeFiles/GameOfLife.dir/GameModel.cpp.s
 
+CMakeFiles/GameOfLife.dir/Interface.cpp.o: CMakeFiles/GameOfLife.dir/flags.make
+CMakeFiles/GameOfLife.dir/Interface.cpp.o: ../Interface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GameOfLife.dir/Interface.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameOfLife.dir/Interface.cpp.o -c /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Interface.cpp
+
+CMakeFiles/GameOfLife.dir/Interface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameOfLife.dir/Interface.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Interface.cpp > CMakeFiles/GameOfLife.dir/Interface.cpp.i
+
+CMakeFiles/GameOfLife.dir/Interface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameOfLife.dir/Interface.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/Interface.cpp -o CMakeFiles/GameOfLife.dir/Interface.cpp.s
+
 # Object files for target GameOfLife
 GameOfLife_OBJECTS = \
 "CMakeFiles/GameOfLife.dir/main.cpp.o" \
-"CMakeFiles/GameOfLife.dir/Utils.cpp.o" \
 "CMakeFiles/GameOfLife.dir/CommandParser.cpp.o" \
-"CMakeFiles/GameOfLife.dir/GameModel.cpp.o"
+"CMakeFiles/GameOfLife.dir/GameModel.cpp.o" \
+"CMakeFiles/GameOfLife.dir/Interface.cpp.o"
 
 # External object files for target GameOfLife
 GameOfLife_EXTERNAL_OBJECTS =
 
 GameOfLife: CMakeFiles/GameOfLife.dir/main.cpp.o
-GameOfLife: CMakeFiles/GameOfLife.dir/Utils.cpp.o
 GameOfLife: CMakeFiles/GameOfLife.dir/CommandParser.cpp.o
 GameOfLife: CMakeFiles/GameOfLife.dir/GameModel.cpp.o
+GameOfLife: CMakeFiles/GameOfLife.dir/Interface.cpp.o
 GameOfLife: CMakeFiles/GameOfLife.dir/build.make
 GameOfLife: CMakeFiles/GameOfLife.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable GameOfLife"

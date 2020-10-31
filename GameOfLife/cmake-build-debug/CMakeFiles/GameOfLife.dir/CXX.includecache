@@ -13,32 +13,26 @@ fstream
 -
 CommandParser.h
 D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.h
+Interface.h
+D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.h
 
 D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.h
 string
 -
-GameModel.h
-D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
-
-D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.cpp
-iostream
+vector
 -
 GameModel.h
 D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
 
 D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
-Utils.h
-D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.h
-
-D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.cpp
-Utils.h
-D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.h
-
-D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.h
 string
 -
 vector
 -
+
+D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.h
+GameModel.h
+D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
 
 D:/Workshop/CLionProjects/OOOP/GameOfLife/main.cpp
 iostream
