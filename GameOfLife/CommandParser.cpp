@@ -40,7 +40,7 @@ ParseResult CommandParser::parseCommand(const string& cmd, Field *field) {
         int n = 1;
         if (split.size() == 2) {
             try {
-                n = stoi(cmd.substr(5));
+                n = stoi(split[1]);
             }
             catch (std::exception&) {
                 return INVALID_ARG;
