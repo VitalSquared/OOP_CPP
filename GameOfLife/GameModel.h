@@ -36,10 +36,10 @@ public:
 private:
     int moves;
     Cell *field;
-    vector<Cell*> history;
+    Cell *prev;
 
-    int normalizeRow(int r);
-    int normalizeCol(int c);
+    static int normalizeRow(int r);
+    static int normalizeCol(int c);
 };
 
 #endif

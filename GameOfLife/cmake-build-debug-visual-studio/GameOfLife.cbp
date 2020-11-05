@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="GameOfLife"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\lib\googletest-master\;CMake Files\lib\googletest-master\googlemock\;CMake Files\lib\googletest-master\googlemock\cmake\;CMake Files\lib\googletest-master\googletest\;CMake Files\lib\googletest-master\googletest\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 install/local"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 install"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GameOfLife">
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/GameOfLife.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googlemock/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 GameOfLife"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GameOfLife/fast">
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/GameOfLife.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googlemock/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 GameOfLife/fast"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 list_install_components"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock_main">
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/gmock_maind.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/googletest-master/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 gmock_main"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock_main/fast">
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/gmock_maind.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/googletest-master/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 gmock_main/fast"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock">
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/gmockd.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/googletest-master/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 gmock"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock/fast">
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/gmockd.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/googletest-master/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 gmock/fast"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googlemock\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest">
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/gtestd.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/googletest-master/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 gtest"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest/fast">
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/gtestd.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/googletest-master/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 gtest/fast"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main">
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/gtest_maind.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/googletest-master/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 gtest_main"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main/fast">
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/gtest_maind.lib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug-visual-studio/lib/googletest-master/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
+					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug-visual-studio\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.cpp">
+			<Option target="GameOfLife"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.h">
+			<Option target="GameOfLife"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.cpp">
+			<Option target="GameOfLife"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h">
+			<Option target="GameOfLife"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.cpp">
+			<Option target="GameOfLife"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.h">
+			<Option target="GameOfLife"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/src/gmock-all.cc">
+			<Option target="gmock_main"/>
+			<Option target="gmock"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/src/gmock_main.cc">
+			<Option target="gmock_main"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/src/gtest-all.cc">
+			<Option target="gmock_main"/>
+			<Option target="gmock"/>
+			<Option target="gtest"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/src/gtest_main.cc">
+			<Option target="gtest_main"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/main.cpp">
+			<Option target="GameOfLife"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/test.cpp">
+			<Option target="GameOfLife"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\googletest-master\"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\googletest-master\googlemock\"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/cmake/gmock.pc.in">
+			<Option virtualFolder="CMake Files\lib\googletest-master\googlemock\cmake\"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/cmake/gmock_main.pc.in">
+			<Option virtualFolder="CMake Files\lib\googletest-master\googlemock\cmake\"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\googletest-master\googletest\"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/cmake/Config.cmake.in">
+			<Option virtualFolder="CMake Files\lib\googletest-master\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/cmake/gtest.pc.in">
+			<Option virtualFolder="CMake Files\lib\googletest-master\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/cmake/gtest_main.pc.in">
+			<Option virtualFolder="CMake Files\lib\googletest-master\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\lib\googletest-master\googletest\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

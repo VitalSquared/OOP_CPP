@@ -5,7 +5,7 @@
 
 using namespace std;
 
-ParseResult CommandParser::parseCommand(string& cmd, Field *field) {
+ParseResult CommandParser::parseCommand(const string& cmd, Field *field) {
     vector<string> split = splitString(cmd, ' ');
 
     if (split.empty()) return INVALID_CMD;
@@ -61,28 +61,49 @@ ParseResult CommandParser::parseCommand(string& cmd, Field *field) {
         if (split.size() != 2) return INVALID_ARG;
         if (split[1].front() != '\"' && split[1].back() != '\"') return INVALID_ARG;
 
+        string fl_name = trimString(split[1], "\"");
+        ofstream sv_file(fl_name + ".txt");
+        if (!sv_file.is_open()) return FILE_CANT_BE_CREATED;
+
         if (field != nullptr) {
-            string fl_name = trimString(split[1], "\"");
-            ofstream sv_file(fl_name + ".txt");
             for (int i = 0; i < ROWS * COLS; i++)
                 sv_file << (field->getCell(i) == DEAD ? UI_DEAD : UI_ALIVE);
             sv_file.close();
+        }
+        else {
+            sv_file.close();
+            remove((fl_name + ".txt").c_str());
         }
     }
     else if (split[0] == "load") {
         if (split.size() != 2) return INVALID_ARG;
         if (split[1].front() != '\"' && split[1].back() != '\"') return INVALID_ARG;
+
         string fl_name = trimString(split[1], "\"");
         ifstream ld_file(fl_name + ".txt");
-        if (!ld_file.is_open()) return NO_FILE;
+        if (!ld_file.is_open()) return FILE_DOESNT_EXIST;
+
         string in;
         getline(ld_file, in);
+
         if (field != nullptr) {
             if (!field->load(in)) {
                 ld_file.close();
-                return INVALID_FILE;
+                return INVALID_FILE_CONTENT;
             }
         }
+        else {
+            bool success;
+            {
+                Field test_field;
+                success = test_field.load(in);
+            }
+            if (!success) {
+                ld_file.close();
+                return INVALID_FILE_CONTENT;
+            }
+        }
+
         ld_file.close();
     }
     else return INVALID_CMD;
@@ -98,7 +119,7 @@ void CommandParser::printHelp() {
     cout << "\t" << "" << R"(set XY - 'A' <= X <= 'J', 0 <= Y <= 9, set cell XY to ALIVE state)" << endl;
     cout << "\t" << "" << R"(clear XY - 'A' <= X <= 'J', 0 <= Y <= 9, set cell XY to DEAD state)" << endl;
     cout << "\t" << "step [N] - cycle game N times forward (1, if N not specified)" << endl;
-    cout << "\t" << "back - cycle game 1 time backward" << endl;
+    cout << "\t" << "back - cycle game 1 time backward (only one time after step command)" << endl;
     cout << "\t" << R"(save "filename" - save game state (no history of moves))" << endl;
     cout << "\t" << R"(load "filename" - load game from file (no history of moves))" << endl;
 }

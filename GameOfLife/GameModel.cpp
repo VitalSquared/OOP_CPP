@@ -19,11 +19,13 @@ void Cell::setState(State newState) {
 Field::Field() {
     moves = 0;
     field = new Cell[ROWS * COLS];
+    prev = nullptr;
     Interface::updateUI(*this);
 }
 
 Field::~Field() {
     delete [] field;
+    delete [] prev;
 }
 
 void Field::makeMove(bool bUpdateUI) {
@@ -44,27 +46,28 @@ void Field::makeMove(bool bUpdateUI) {
             switch(field[IDX(r, c)].getState()) {
                 case ALIVE:
                     if (alive < 2 || alive > 3) new_field[IDX(r, c)].setState(DEAD);
-                    else new_field[IDX(r, c)].setState(field[IDX(r, c)].getState());
+                    else new_field[IDX(r, c)].setState(ALIVE);
                     break;
                 case DEAD:
                     if (alive == 3) new_field[IDX(r, c)].setState(ALIVE);
-                    else new_field[IDX(r, c)].setState(field[IDX(r, c)].getState());
+                    else new_field[IDX(r, c)].setState(DEAD);
                     break;
             }
         }
     }
     moves++;
-    history.push_back(field);
+    delete [] prev;
+    prev = field;
     field = new_field;
     if (bUpdateUI) Interface::updateUI(*this);
 }
 
 void Field::revertMove() {
-    if (moves == 0 || history.empty()) return;
+    if (moves == 0 || prev == nullptr) return;
     moves--;
     delete [] field;
-    field = history.back();
-    history.pop_back();
+    field = prev;
+    prev = nullptr;
     Interface::updateUI(*this);
 }
 
@@ -81,10 +84,8 @@ void Field::reset() {
     for (int i = 0; i < ROWS * COLS; i++)
         field[i].setState(DEAD);
     moves = 0;
-    while (!history.empty()) {
-        delete [] history.back();
-        history.pop_back();
-    }
+    delete [] prev;
+    prev = nullptr;
     Interface::updateUI(*this);
 }
 
@@ -97,10 +98,8 @@ bool Field::load(string &in) {
     }
 
     moves = 0;
-    while (!history.empty()) {
-        delete [] history.back();
-        history.pop_back();
-    }
+    delete [] prev;
+    prev = nullptr;
     Interface::updateUI(*this);
     return true;
 }

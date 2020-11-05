@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++2a
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest/include -I/mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/lib/googlemock/include -isystem /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include -isystem /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest -isystem /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/include -isystem /mnt/d/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock 
 

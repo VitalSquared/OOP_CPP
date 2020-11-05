@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/GameOfLife.dir/GameModel.cpp.obj"
   "CMakeFiles/GameOfLife.dir/Interface.cpp.obj"
   "CMakeFiles/GameOfLife.dir/main.cpp.obj"
+  "CMakeFiles/GameOfLife.dir/test.cpp.obj"
   "GameOfLife.exe"
   "GameOfLife.exe.manifest"
   "GameOfLife.pdb"

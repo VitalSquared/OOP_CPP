@@ -7,15 +7,18 @@ set(CMAKE_DEPENDS_GENERATOR "MinGW Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
+  "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakeCInformation.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakeCXXInformation.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakeCommonLanguageInclude.cmake"
+  "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakeDependentOption.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakeFindCodeBlocks.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakeGenericSystem.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakeInitializeConfigs.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakeLanguageInformation.cmake"
+  "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakePackageConfigHelpers.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakeRCInformation.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakeSystemSpecificInformation.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/CMakeSystemSpecificInitialize.cmake"
@@ -23,6 +26,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/Compiler/GNU-C.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/Compiler/GNU-CXX.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/Compiler/GNU.cmake"
+  "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake"
+  "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/FindPackageMessage.cmake"
+  "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/FindPythonInterp.cmake"
+  "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/GNUInstallDirs.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/Internal/CMakeCheckCompilerFlag.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/Platform/Windows-GNU-C-ABI.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/Platform/Windows-GNU-C.cmake"
@@ -33,11 +40,21 @@ set(CMAKE_MAKEFILE_DEPENDS
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/Platform/Windows.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/Platform/WindowsPaths.cmake"
   "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/ProcessorCount.cmake"
+  "D:/CLion/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/WriteBasicConfigVersionFile.cmake"
   "../CMakeLists.txt"
   "CMakeFiles/3.17.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.17.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.17.3/CMakeRCCompiler.cmake"
   "CMakeFiles/3.17.3/CMakeSystem.cmake"
+  "../lib/googletest-master/CMakeLists.txt"
+  "../lib/googletest-master/googlemock/CMakeLists.txt"
+  "../lib/googletest-master/googlemock/cmake/gmock.pc.in"
+  "../lib/googletest-master/googlemock/cmake/gmock_main.pc.in"
+  "../lib/googletest-master/googletest/CMakeLists.txt"
+  "../lib/googletest-master/googletest/cmake/Config.cmake.in"
+  "../lib/googletest-master/googletest/cmake/gtest.pc.in"
+  "../lib/googletest-master/googletest/cmake/gtest_main.pc.in"
+  "../lib/googletest-master/googletest/cmake/internal_utils.cmake"
   )
 
 # The corresponding makefile is:
@@ -49,9 +66,16 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "lib/googletest-master/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "lib/googletest-master/googlemock/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "lib/googletest-master/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/GameOfLife.dir/DependInfo.cmake"
+  "lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
+  "lib/googletest-master/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
+  "lib/googletest-master/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   )

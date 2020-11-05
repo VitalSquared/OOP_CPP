@@ -7,11 +7,11 @@
 
 using namespace std;
 
-enum ParseResult { OK, HELP, INVALID_CMD, INVALID_ARG, NO_FILE, INVALID_FILE };
+enum ParseResult { OK, HELP, INVALID_CMD, INVALID_ARG, FILE_CANT_BE_CREATED, FILE_DOESNT_EXIST, INVALID_FILE_CONTENT };
 
 class CommandParser {
 public:
-    static ParseResult parseCommand(string& cmd, Field *field = nullptr);
+    static ParseResult parseCommand(const string& cmd, Field *field = nullptr);
     static void printHelp();
 private:
     static bool validateCoords(int r, int c);
