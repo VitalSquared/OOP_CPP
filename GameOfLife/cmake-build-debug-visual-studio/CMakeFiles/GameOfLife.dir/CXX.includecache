@@ -6,29 +6,17 @@
 
 #IncludeRegexTransform: 
 
-D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.cpp
+D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
+string
+-
+vector
+-
+
+D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.cpp
 iostream
 -
-fstream
--
-CommandParser.h
-D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.h
 Interface.h
 D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.h
-
-D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.h
-string
--
-vector
--
-GameModel.h
-D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
-
-D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.h
-string
--
-vector
--
 
 D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.h
 GameModel.h

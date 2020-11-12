@@ -13,11 +13,12 @@ void Interface::updateUI(Field &field) {
                 case ALIVE: cout << UI_ALIVE; break;
                 case DEAD: cout << UI_DEAD; break;
             }
+            cout << " ";
         }
         cout << endl;
     }
     cout << "  ";
-    for (char i = 'A'; i < 'A' + COLS; i++) cout << i;
+    for (char i = 'A'; i < 'A' + COLS; i++) cout << i << " ";
     cout << endl;
     cout << "Moves made: " << field.getMoves() << endl;
 }
