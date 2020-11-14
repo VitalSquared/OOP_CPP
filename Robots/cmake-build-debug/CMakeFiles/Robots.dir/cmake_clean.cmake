@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Robots.dir/GameView.cpp.obj"
   "CMakeFiles/Robots.dir/Mode.cpp.obj"
   "CMakeFiles/Robots.dir/Robot.cpp.obj"
+  "CMakeFiles/Robots.dir/Utils.cpp.obj"
   "CMakeFiles/Robots.dir/main.cpp.obj"
   "Robots.exe"
   "Robots.exe.manifest"

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "GameView.h"
+#include "Utils.h"
 
 using namespace std;
 
@@ -10,6 +11,7 @@ GameView::GameView(Field *field, Collector *collector) {
 }
 
 void GameView::renderField() {
+    //check if collector robot is dead
     if (collector->getDeadState()) {
         clearScreen();
         ifstream deathmsg("robot_has_exploded.txt");
@@ -19,13 +21,13 @@ void GameView::renderField() {
                 getline(deathmsg, row);
                 cout << row << endl;
             }
+            deathmsg.close();
         }
-        else {
-            cout << "ROBOT HAS EXPLODED" << endl;
-        }
+        else cout << "ROBOT HAS EXPLODED" << endl;
         cout << "Use <exit> to quit application" << endl;
         return;
     }
+
     int width = getWidth();
     int height = getHeight();
 
@@ -43,34 +45,47 @@ void GameView::renderField() {
                         COLLECTOR_ICON[0],
                         COLLECTOR_ICON[1] + colorWhite + " - Collector",
                      };
+
+    //calculate offset that is required from the right side to fit in legend
     int right_offset = legend[0].length();
     for (int i = 1; i < 5; i++)
         if (legend[i].length() > right_offset)
             right_offset = legend[i].length();
 
+    //calculate field width (how many cells can fit in the row)
     int field_width = width - right_offset - 1;
-    while (field_width % ICON_SIZE != 0 && (field_width / ICON_SIZE) % 2 == 0) field_width -= 1;
-    field_width -= field_width / ICON_SIZE - 1;
+    while (field_width % ICON_SIZE != 0 && (field_width / ICON_SIZE) % 2 != 0) field_width -= 1;
+    field_width -= field_width / ICON_SIZE;
     field_width /= ICON_SIZE;
-    int field_screen_width = field_width * ICON_SIZE + field_width;
+
+    //calculate field height (how many cells can fit in the column)
     int field_height = height - 4;
-    while (field_height % ICON_SIZE != 0 && (field_height / ICON_SIZE) % 2 == 0) field_height -= 1;
-    field_height -= field_height / ICON_SIZE - 1;
+    while (field_height % ICON_SIZE != 0 && (field_height / ICON_SIZE) % 2 != 0) field_height -= 1;
+    field_height -= field_height / ICON_SIZE;
     field_height /= ICON_SIZE;
 
+    //total field width
+    int field_screen_width = field_width * ICON_SIZE + field_width;
+
+    //put "Apples: {num}" in the center
     int apples_coll_len = apples_collected.length();
     int left_offset1 = (field_screen_width - apples_coll_len) / 2;
     for (int i = 0; i < left_offset1; i++) cout << " ";
     cout << apples_collected;
+
+    //put "Legend" after that
     for (int i = left_offset1 + apples_coll_len - 1; i < field_screen_width; i++) cout << " ";
     cout << "Legend" << endl;
 
+    //get coordinates of collector
     int coll_r = collector->getRow();
     int coll_c = collector->getCol();
 
+    //by placing collector in the center of screen, we calculate the coordinates of top left corner
     int top_r = coll_r - field_height / 2;
     int left_c = coll_c - field_width / 2;
 
+    //print first rows and legend
     for (int i = 0; i < 4; i++) {
         for (int icon = 0; icon < ICON_SIZE; icon++) {
             for (int j = 0; j < field_width; j++) {
@@ -81,6 +96,8 @@ void GameView::renderField() {
         for (int j = 0; j < field_screen_width; j++) cout << colorDarkGrey + ((j + 1) % (ICON_SIZE + 1) == 0 ? "+" : "-");
         cout << endl;
     }
+
+    //print the rest of the rows
     for (int i = 4; i < field_height; i++) {
         for (int icon = 0; icon < ICON_SIZE; icon++) {
             for (int j = 0; j < field_width; j++) {
@@ -95,11 +112,10 @@ void GameView::renderField() {
 }
 
 const string* GameView::getIconFromCell(int r, int c) {
-    if (r == collector->getRow() && c == collector->getCol())
-        return COLLECTOR_ICON;
-    if (!collector->hasScanned(r, c)) return UNKNOWN_ICON;
-    if (r < 0 || c < 0 || c >= field->getCols() || r >= field->getRows())
-        return ROCK_ICON;
+    if (r == collector->getRow() && c == collector->getCol()) return COLLECTOR_ICON; //collector
+    if (!collector->hasScanned(r, c)) return UNKNOWN_ICON; //not scanned
+    if (r < 0 || c < 0 || c >= field->getCols() || r >= field->getRows()) return ROCK_ICON; //out of bounds
+
     Cell cell = field->getCell(r, c);
     switch(cell) {
         case Cell::EMPTY: return EMPTY_ICON;
@@ -107,5 +123,11 @@ const string* GameView::getIconFromCell(int r, int c) {
         case Cell::BOMB: return BOMB_ICON;
         case Cell::APPLE: return APPLE_ICON;
     }
+
     return EMPTY_ICON;
+}
+
+void GameView::showMessage(string msg) {
+    cout << msg << endl;
+    delay(1000);
 }

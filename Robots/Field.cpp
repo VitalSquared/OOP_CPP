@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Field.h"
+#include "Utils.h"
 
 using namespace std;
 
@@ -13,16 +14,17 @@ Field::Field(ifstream &file) {
     string tmp;
     getline(file, tmp);
     if (rows < 1000 || cols < 1000)
-        throw exception("Invalid file");
+        throw exception();
 
     field = new Cell[rows * cols];
     for (int r = 0; r < rows; r++) {
         string row;
         getline(file, row);
+        trimString(row, "\r");
         if (row.length() != cols) {
             delete [] field;
             field = nullptr;
-            throw exception("Invalid file");
+            throw exception();
         }
         for (int c = 0; c < cols; c++) {
             switch(row[c]) {

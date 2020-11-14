@@ -9,9 +9,11 @@ class GameView : public ConsoleView {
 public:
     GameView(Field *field, Collector *collector);
     void renderField();
+    void showMessage(string msg);
 private:
     Field *field;
     Collector *collector;
+
     const string* getIconFromCell(int r, int c);
 
     const int ICON_SIZE = 2;
@@ -19,15 +21,15 @@ private:
     const string APPLE_ICON[2] = { colorRed + "/|",
                                    colorRed + "oo" };
     const string BOMB_ICON[2] = { colorMagenta + "()",
-                                  colorMagenta + "/\\"};
+                                  colorMagenta + "()"};
     const string ROCK_ICON[2] = { colorGrey + "{/",
                                   colorGrey + "/}"};
     const string EMPTY_ICON[2] = { colorWhite + "  ",
                                    colorWhite + "  "};
     const string COLLECTOR_ICON[2] = { colorGreen + "Ro",
                                        colorGreen + "bo"};
-    const string SAPPER_ICON[2] = { colorCyan + "SS",
-                                    colorCyan + "SS"};
+    const string SAPPER_ICON[2] = { colorCyan + "Sa",
+                                    colorCyan + "pp"};
     const string UNKNOWN_ICON[2] = { colorDarkGrey + "??",
                                      colorDarkGrey + "??"};
 };
