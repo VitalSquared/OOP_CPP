@@ -90,6 +90,18 @@
 		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Command.h">
 			<Option target="Robots"/>
 		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Field.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Field.h">
+			<Option target="Robots"/>
+		</Unit>
 		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/GameView.cpp">
 			<Option target="Robots"/>
 		</Unit>

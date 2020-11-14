@@ -156,13 +156,53 @@ CMakeFiles\Robots.dir\Command.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Robots.dir\Command.cpp.s /c D:\Workshop\CLionProjects\OOOP\Robots\Command.cpp
 <<
 
+CMakeFiles\Robots.dir\Field.cpp.obj: CMakeFiles\Robots.dir\flags.make
+CMakeFiles\Robots.dir\Field.cpp.obj: ..\Field.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Workshop\CLionProjects\OOOP\Robots\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Robots.dir/Field.cpp.obj"
+	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Robots.dir\Field.cpp.obj /FdCMakeFiles\Robots.dir\ /FS -c D:\Workshop\CLionProjects\OOOP\Robots\Field.cpp
+<<
+
+CMakeFiles\Robots.dir\Field.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robots.dir/Field.cpp.i"
+	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" > CMakeFiles\Robots.dir\Field.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Workshop\CLionProjects\OOOP\Robots\Field.cpp
+<<
+
+CMakeFiles\Robots.dir\Field.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robots.dir/Field.cpp.s"
+	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Robots.dir\Field.cpp.s /c D:\Workshop\CLionProjects\OOOP\Robots\Field.cpp
+<<
+
+CMakeFiles\Robots.dir\ConsoleView.cpp.obj: CMakeFiles\Robots.dir\flags.make
+CMakeFiles\Robots.dir\ConsoleView.cpp.obj: ..\ConsoleView.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Workshop\CLionProjects\OOOP\Robots\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Robots.dir/ConsoleView.cpp.obj"
+	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Robots.dir\ConsoleView.cpp.obj /FdCMakeFiles\Robots.dir\ /FS -c D:\Workshop\CLionProjects\OOOP\Robots\ConsoleView.cpp
+<<
+
+CMakeFiles\Robots.dir\ConsoleView.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robots.dir/ConsoleView.cpp.i"
+	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" > CMakeFiles\Robots.dir\ConsoleView.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Workshop\CLionProjects\OOOP\Robots\ConsoleView.cpp
+<<
+
+CMakeFiles\Robots.dir\ConsoleView.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robots.dir/ConsoleView.cpp.s"
+	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Robots.dir\ConsoleView.cpp.s /c D:\Workshop\CLionProjects\OOOP\Robots\ConsoleView.cpp
+<<
+
 # Object files for target Robots
 Robots_OBJECTS = \
 "CMakeFiles\Robots.dir\main.cpp.obj" \
 "CMakeFiles\Robots.dir\Mode.cpp.obj" \
 "CMakeFiles\Robots.dir\Robot.cpp.obj" \
 "CMakeFiles\Robots.dir\GameView.cpp.obj" \
-"CMakeFiles\Robots.dir\Command.cpp.obj"
+"CMakeFiles\Robots.dir\Command.cpp.obj" \
+"CMakeFiles\Robots.dir\Field.cpp.obj" \
+"CMakeFiles\Robots.dir\ConsoleView.cpp.obj"
 
 # External object files for target Robots
 Robots_EXTERNAL_OBJECTS =
@@ -172,9 +212,11 @@ Robots.exe: CMakeFiles\Robots.dir\Mode.cpp.obj
 Robots.exe: CMakeFiles\Robots.dir\Robot.cpp.obj
 Robots.exe: CMakeFiles\Robots.dir\GameView.cpp.obj
 Robots.exe: CMakeFiles\Robots.dir\Command.cpp.obj
+Robots.exe: CMakeFiles\Robots.dir\Field.cpp.obj
+Robots.exe: CMakeFiles\Robots.dir\ConsoleView.cpp.obj
 Robots.exe: CMakeFiles\Robots.dir\build.make
 Robots.exe: CMakeFiles\Robots.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Workshop\CLionProjects\OOOP\Robots\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Robots.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Workshop\CLionProjects\OOOP\Robots\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Robots.exe"
 	"D:\CLion\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\Robots.dir --rc="D:\Windows Kits\10\bin\10.0.18362.0\x86\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.18362.0\x86\mt.exe" --manifests  -- "D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\link.exe" /nologo @CMakeFiles\Robots.dir\objects1.rsp @<<
  /out:Robots.exe /implib:Robots.lib /pdb:D:\Workshop\CLionProjects\OOOP\Robots\cmake-build-debug\Robots.pdb /version:0.0  /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<

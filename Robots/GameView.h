@@ -1,37 +1,35 @@
 #ifndef ROBOTS_GAMEVIEW_H
 #define ROBOTS_GAMEVIEW_H
 
-#include <windows.h>
-
-class ConsoleView {
-public:
-    ConsoleView() = default;
-    void clearScreen() {
-        system("cls");
-    }
-    int getWidth() {
-        CONSOLE_SCREEN_BUFFER_INFO csbi;
-        int columns;
-        GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-        columns = csbi.srWindow.Right - csbi.srWindow.Left + 1;
-        return columns;
-    }
-    int getHeight() {
-        CONSOLE_SCREEN_BUFFER_INFO csbi;
-        int rows;
-        GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-        rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
-        return rows;
-    }
-private:
-
-};
+#include "ConsoleView.h"
+#include "Field.h"
+#include "Robot.h"
 
 class GameView : public ConsoleView {
 public:
-
+    GameView(Field *field, Collector *collector);
+    void renderField();
 private:
+    Field *field;
+    Collector *collector;
+    const string* getIconFromCell(int r, int c);
 
+    const int ICON_SIZE = 2;
+
+    const string APPLE_ICON[2] = { colorRed + "/|",
+                                   colorRed + "oo" };
+    const string BOMB_ICON[2] = { colorMagenta + "()",
+                                  colorMagenta + "/\\"};
+    const string ROCK_ICON[2] = { colorGrey + "{/",
+                                  colorGrey + "/}"};
+    const string EMPTY_ICON[2] = { colorWhite + "  ",
+                                   colorWhite + "  "};
+    const string COLLECTOR_ICON[2] = { colorGreen + "Ro",
+                                       colorGreen + "bo"};
+    const string SAPPER_ICON[2] = { colorCyan + "SS",
+                                    colorCyan + "SS"};
+    const string UNKNOWN_ICON[2] = { colorDarkGrey + "??",
+                                     colorDarkGrey + "??"};
 };
 
-#endif //ROBOTS_GAMEVIEW_H
+#endif

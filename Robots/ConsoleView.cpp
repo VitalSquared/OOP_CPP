@@ -1,0 +1,22 @@
+#include <windows.h>
+#include "ConsoleView.h"
+
+void ConsoleView::clearScreen() {
+    system("cls");
+}
+
+int  ConsoleView::getWidth() {
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    int columns;
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+    columns = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+    return columns;
+}
+
+int  ConsoleView::getHeight() {
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    int rows;
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+    rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+    return rows;
+}

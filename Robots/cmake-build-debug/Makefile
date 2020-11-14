@@ -154,6 +154,60 @@ Command.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Command.cpp.s
 .PHONY : Command.cpp.s
 
+ConsoleView.obj: ConsoleView.cpp.obj
+
+.PHONY : ConsoleView.obj
+
+# target to build an object file
+ConsoleView.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ConsoleView.cpp.obj
+.PHONY : ConsoleView.cpp.obj
+
+ConsoleView.i: ConsoleView.cpp.i
+
+.PHONY : ConsoleView.i
+
+# target to preprocess a source file
+ConsoleView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ConsoleView.cpp.i
+.PHONY : ConsoleView.cpp.i
+
+ConsoleView.s: ConsoleView.cpp.s
+
+.PHONY : ConsoleView.s
+
+# target to generate assembly for a file
+ConsoleView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ConsoleView.cpp.s
+.PHONY : ConsoleView.cpp.s
+
+Field.obj: Field.cpp.obj
+
+.PHONY : Field.obj
+
+# target to build an object file
+Field.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Field.cpp.obj
+.PHONY : Field.cpp.obj
+
+Field.i: Field.cpp.i
+
+.PHONY : Field.i
+
+# target to preprocess a source file
+Field.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Field.cpp.i
+.PHONY : Field.cpp.i
+
+Field.s: Field.cpp.s
+
+.PHONY : Field.s
+
+# target to generate assembly for a file
+Field.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Field.cpp.s
+.PHONY : Field.cpp.s
+
 GameView.obj: GameView.cpp.obj
 
 .PHONY : GameView.obj
@@ -274,6 +328,12 @@ help:
 	@echo ... Command.obj
 	@echo ... Command.i
 	@echo ... Command.s
+	@echo ... ConsoleView.obj
+	@echo ... ConsoleView.i
+	@echo ... ConsoleView.s
+	@echo ... Field.obj
+	@echo ... Field.i
+	@echo ... Field.s
 	@echo ... GameView.obj
 	@echo ... GameView.i
 	@echo ... GameView.s

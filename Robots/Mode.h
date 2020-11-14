@@ -17,4 +17,4 @@ class AutoMode : public Mode {
 
 };
 
-#endif //ROBOTS_MODE_H
+#endif

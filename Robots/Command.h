@@ -27,7 +27,7 @@ public:
         dir = new_dir;
     }
     int execute() override {
-        robot->move(dir);
+        //robot->move(dir);
         return 0;
     }
 private:
@@ -60,4 +60,4 @@ private:
     Mode *mode;
 };
 
-#endif //ROBOTS_COMMAND_H
+#endif
