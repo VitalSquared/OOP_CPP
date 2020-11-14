@@ -2,14 +2,20 @@
 #define ROBOTS_CONSOLEVIEW_H
 
 #include <string>
+#include "Field.h"
+#include "Robot.h"
+#include "GameView.h"
+
 using namespace std;
 
-class ConsoleView {
+class ConsoleView : GameView {
 public:
-    ConsoleView() = default;
+    ConsoleView(Field *field, Collector *collector);
     void clearScreen();
-    int getWidth();
-    int getHeight();
+    int getWidth() override;
+    int getHeight() override;
+    void renderField() override;
+    void showMessage(string msg);
 
     const string colorBlack = "\x1B[30m";
     const string colorRed = "\x1B[31m";
@@ -21,6 +27,28 @@ public:
     const string colorWhite = "\x1B[37m";
     const string colorGrey = "\x1B[30;1m";
     const string colorDarkGrey = "\x1B[38;5;238m";
+    const string* getIconFromCell(int r, int c);
+
+private:
+    Field *field;
+    Collector *collector;
+
+    const int ICON_SIZE = 2;
+
+    const string APPLE_ICON[2] = { colorRed + "/|",
+                                   colorRed + "oo" };
+    const string BOMB_ICON[2] = { colorMagenta + "()",
+                                  colorMagenta + "()"};
+    const string ROCK_ICON[2] = { colorGrey + "{/",
+                                  colorGrey + "/}"};
+    const string EMPTY_ICON[2] = { colorWhite + "  ",
+                                   colorWhite + "  "};
+    const string COLLECTOR_ICON[2] = { colorGreen + "Ro",
+                                       colorGreen + "bo"};
+    const string SAPPER_ICON[2] = { colorCyan + "Sa",
+                                    colorCyan + "pp"};
+    const string UNKNOWN_ICON[2] = { colorDarkGrey + "??",
+                                     colorDarkGrey + "??"};
 };
 
 #endif

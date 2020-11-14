@@ -13,40 +13,36 @@ Mode.h
 D:/Workshop/CLionProjects/OOOP/Robots/Mode.h
 
 D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.cpp
+iostream
+-
+string
+-
+ConsoleView.h
+D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
+Utils.h
+D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 windows.h
 -
 sys/ioctl.h
 -
 unistd.h
 -
-ConsoleView.h
-D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
 
 D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
-string
--
-
-D:/Workshop/CLionProjects/OOOP/Robots/Field.cpp
-iostream
--
 string
 -
 Field.h
 D:/Workshop/CLionProjects/OOOP/Robots/Field.h
-Utils.h
-D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
+Robot.h
+D:/Workshop/CLionProjects/OOOP/Robots/Robot.h
+GameView.h
+D:/Workshop/CLionProjects/OOOP/Robots/GameView.h
 
 D:/Workshop/CLionProjects/OOOP/Robots/Field.h
 fstream
 -
 
 D:/Workshop/CLionProjects/OOOP/Robots/GameView.h
-ConsoleView.h
-D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
-Field.h
-D:/Workshop/CLionProjects/OOOP/Robots/Field.h
-Robot.h
-D:/Workshop/CLionProjects/OOOP/Robots/Robot.h
 
 D:/Workshop/CLionProjects/OOOP/Robots/Mode.h
 
@@ -79,8 +75,8 @@ string
 -
 optionparser.h
 D:/Workshop/CLionProjects/OOOP/Robots/optionparser.h
-GameView.h
-D:/Workshop/CLionProjects/OOOP/Robots/GameView.h
+ConsoleView.h
+D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
 Command.h
 D:/Workshop/CLionProjects/OOOP/Robots/Command.h
 Field.h

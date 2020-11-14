@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "optionparser.h"
-#include "GameView.h"
+#include "ConsoleView.h"
 #include "Command.h"
 #include "Field.h"
 #include "Utils.h"
@@ -72,8 +72,8 @@ int main(int argc, char* argv[]) {
         ld_file.close();
 
         Collector collector(field);
-        GameView gameView(&field, &collector);
-        gameView.renderField();
+        ConsoleView consoleView(&field, &collector);
+        consoleView.renderField();
 
         string cmd;
         getline(cin, cmd);
@@ -94,9 +94,9 @@ int main(int argc, char* argv[]) {
                 }
                 string msg = collector.retrievePendingMessage();
                 if (!msg.empty()) {
-                    gameView.showMessage(msg);
+                    consoleView.showMessage(msg);
                 }
-                gameView.renderField();
+                consoleView.renderField();
             }
             getline(cin, cmd);
         }

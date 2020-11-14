@@ -2,7 +2,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Robots.dir/Command.cpp.obj"
   "CMakeFiles/Robots.dir/ConsoleView.cpp.obj"
   "CMakeFiles/Robots.dir/Field.cpp.obj"
-  "CMakeFiles/Robots.dir/GameView.cpp.obj"
   "CMakeFiles/Robots.dir/Mode.cpp.obj"
   "CMakeFiles/Robots.dir/Robot.cpp.obj"
   "CMakeFiles/Robots.dir/Utils.cpp.obj"

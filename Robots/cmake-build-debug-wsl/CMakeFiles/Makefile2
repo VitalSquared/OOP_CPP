@@ -74,12 +74,12 @@ clean: CMakeFiles/Robots.dir/clean
 CMakeFiles/Robots.dir/all:
 	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/depend
 	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target Robots"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target Robots"
 .PHONY : CMakeFiles/Robots.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Robots.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Robots.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles 0
 .PHONY : CMakeFiles/Robots.dir/rule

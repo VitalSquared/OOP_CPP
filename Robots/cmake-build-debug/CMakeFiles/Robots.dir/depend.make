@@ -9,18 +9,15 @@ CMakeFiles\Robots.dir\Command.cpp.obj: ..\Robot.h
 
 CMakeFiles\Robots.dir\ConsoleView.cpp.obj: ..\ConsoleView.cpp
 CMakeFiles\Robots.dir\ConsoleView.cpp.obj: ..\ConsoleView.h
+CMakeFiles\Robots.dir\ConsoleView.cpp.obj: ..\Field.h
+CMakeFiles\Robots.dir\ConsoleView.cpp.obj: ..\GameView.h
+CMakeFiles\Robots.dir\ConsoleView.cpp.obj: ..\Mode.h
+CMakeFiles\Robots.dir\ConsoleView.cpp.obj: ..\Robot.h
+CMakeFiles\Robots.dir\ConsoleView.cpp.obj: ..\Utils.h
 
 CMakeFiles\Robots.dir\Field.cpp.obj: ..\Field.cpp
 CMakeFiles\Robots.dir\Field.cpp.obj: ..\Field.h
 CMakeFiles\Robots.dir\Field.cpp.obj: ..\Utils.h
-
-CMakeFiles\Robots.dir\GameView.cpp.obj: ..\ConsoleView.h
-CMakeFiles\Robots.dir\GameView.cpp.obj: ..\Field.h
-CMakeFiles\Robots.dir\GameView.cpp.obj: ..\GameView.cpp
-CMakeFiles\Robots.dir\GameView.cpp.obj: ..\GameView.h
-CMakeFiles\Robots.dir\GameView.cpp.obj: ..\Mode.h
-CMakeFiles\Robots.dir\GameView.cpp.obj: ..\Robot.h
-CMakeFiles\Robots.dir\GameView.cpp.obj: ..\Utils.h
 
 CMakeFiles\Robots.dir\Mode.cpp.obj: ..\Mode.cpp
 CMakeFiles\Robots.dir\Mode.cpp.obj: ..\Mode.h

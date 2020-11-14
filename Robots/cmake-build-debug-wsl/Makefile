@@ -204,33 +204,6 @@ Field.cpp.s:
 	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Field.cpp.s
 .PHONY : Field.cpp.s
 
-GameView.o: GameView.cpp.o
-
-.PHONY : GameView.o
-
-# target to build an object file
-GameView.cpp.o:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/GameView.cpp.o
-.PHONY : GameView.cpp.o
-
-GameView.i: GameView.cpp.i
-
-.PHONY : GameView.i
-
-# target to preprocess a source file
-GameView.cpp.i:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/GameView.cpp.i
-.PHONY : GameView.cpp.i
-
-GameView.s: GameView.cpp.s
-
-.PHONY : GameView.s
-
-# target to generate assembly for a file
-GameView.cpp.s:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/GameView.cpp.s
-.PHONY : GameView.cpp.s
-
 Mode.o: Mode.cpp.o
 
 .PHONY : Mode.o
@@ -357,9 +330,6 @@ help:
 	@echo "... Field.o"
 	@echo "... Field.i"
 	@echo "... Field.s"
-	@echo "... GameView.o"
-	@echo "... GameView.i"
-	@echo "... GameView.s"
 	@echo "... Mode.o"
 	@echo "... Mode.i"
 	@echo "... Mode.s"

@@ -100,9 +100,6 @@
 		<Unit filename="/mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.h">
 			<Option target="Robots"/>
 		</Unit>
-		<Unit filename="/mnt/d/Workshop/CLionProjects/OOOP/Robots/GameView.cpp">
-			<Option target="Robots"/>
-		</Unit>
 		<Unit filename="/mnt/d/Workshop/CLionProjects/OOOP/Robots/GameView.h">
 			<Option target="Robots"/>
 		</Unit>

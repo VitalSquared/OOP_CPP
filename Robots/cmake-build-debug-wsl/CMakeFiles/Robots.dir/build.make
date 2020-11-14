@@ -96,22 +96,9 @@ CMakeFiles/Robots.dir/Robot.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robots.dir/Robot.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.cpp -o CMakeFiles/Robots.dir/Robot.cpp.s
 
-CMakeFiles/Robots.dir/GameView.cpp.o: CMakeFiles/Robots.dir/flags.make
-CMakeFiles/Robots.dir/GameView.cpp.o: ../GameView.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Robots.dir/GameView.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robots.dir/GameView.cpp.o -c /mnt/d/Workshop/CLionProjects/OOOP/Robots/GameView.cpp
-
-CMakeFiles/Robots.dir/GameView.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robots.dir/GameView.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Workshop/CLionProjects/OOOP/Robots/GameView.cpp > CMakeFiles/Robots.dir/GameView.cpp.i
-
-CMakeFiles/Robots.dir/GameView.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robots.dir/GameView.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Workshop/CLionProjects/OOOP/Robots/GameView.cpp -o CMakeFiles/Robots.dir/GameView.cpp.s
-
 CMakeFiles/Robots.dir/Command.cpp.o: CMakeFiles/Robots.dir/flags.make
 CMakeFiles/Robots.dir/Command.cpp.o: ../Command.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Robots.dir/Command.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Robots.dir/Command.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robots.dir/Command.cpp.o -c /mnt/d/Workshop/CLionProjects/OOOP/Robots/Command.cpp
 
 CMakeFiles/Robots.dir/Command.cpp.i: cmake_force
@@ -124,7 +111,7 @@ CMakeFiles/Robots.dir/Command.cpp.s: cmake_force
 
 CMakeFiles/Robots.dir/Field.cpp.o: CMakeFiles/Robots.dir/flags.make
 CMakeFiles/Robots.dir/Field.cpp.o: ../Field.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Robots.dir/Field.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Robots.dir/Field.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robots.dir/Field.cpp.o -c /mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.cpp
 
 CMakeFiles/Robots.dir/Field.cpp.i: cmake_force
@@ -134,6 +121,19 @@ CMakeFiles/Robots.dir/Field.cpp.i: cmake_force
 CMakeFiles/Robots.dir/Field.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robots.dir/Field.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.cpp -o CMakeFiles/Robots.dir/Field.cpp.s
+
+CMakeFiles/Robots.dir/Utils.cpp.o: CMakeFiles/Robots.dir/flags.make
+CMakeFiles/Robots.dir/Utils.cpp.o: ../Utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Robots.dir/Utils.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robots.dir/Utils.cpp.o -c /mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.cpp
+
+CMakeFiles/Robots.dir/Utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robots.dir/Utils.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.cpp > CMakeFiles/Robots.dir/Utils.cpp.i
+
+CMakeFiles/Robots.dir/Utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robots.dir/Utils.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.cpp -o CMakeFiles/Robots.dir/Utils.cpp.s
 
 CMakeFiles/Robots.dir/ConsoleView.cpp.o: CMakeFiles/Robots.dir/flags.make
 CMakeFiles/Robots.dir/ConsoleView.cpp.o: ../ConsoleView.cpp
@@ -148,29 +148,15 @@ CMakeFiles/Robots.dir/ConsoleView.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robots.dir/ConsoleView.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Workshop/CLionProjects/OOOP/Robots/ConsoleView.cpp -o CMakeFiles/Robots.dir/ConsoleView.cpp.s
 
-CMakeFiles/Robots.dir/Utils.cpp.o: CMakeFiles/Robots.dir/flags.make
-CMakeFiles/Robots.dir/Utils.cpp.o: ../Utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Robots.dir/Utils.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Robots.dir/Utils.cpp.o -c /mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.cpp
-
-CMakeFiles/Robots.dir/Utils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robots.dir/Utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.cpp > CMakeFiles/Robots.dir/Utils.cpp.i
-
-CMakeFiles/Robots.dir/Utils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robots.dir/Utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.cpp -o CMakeFiles/Robots.dir/Utils.cpp.s
-
 # Object files for target Robots
 Robots_OBJECTS = \
 "CMakeFiles/Robots.dir/main.cpp.o" \
 "CMakeFiles/Robots.dir/Mode.cpp.o" \
 "CMakeFiles/Robots.dir/Robot.cpp.o" \
-"CMakeFiles/Robots.dir/GameView.cpp.o" \
 "CMakeFiles/Robots.dir/Command.cpp.o" \
 "CMakeFiles/Robots.dir/Field.cpp.o" \
-"CMakeFiles/Robots.dir/ConsoleView.cpp.o" \
-"CMakeFiles/Robots.dir/Utils.cpp.o"
+"CMakeFiles/Robots.dir/Utils.cpp.o" \
+"CMakeFiles/Robots.dir/ConsoleView.cpp.o"
 
 # External object files for target Robots
 Robots_EXTERNAL_OBJECTS =
@@ -178,14 +164,13 @@ Robots_EXTERNAL_OBJECTS =
 Robots: CMakeFiles/Robots.dir/main.cpp.o
 Robots: CMakeFiles/Robots.dir/Mode.cpp.o
 Robots: CMakeFiles/Robots.dir/Robot.cpp.o
-Robots: CMakeFiles/Robots.dir/GameView.cpp.o
 Robots: CMakeFiles/Robots.dir/Command.cpp.o
 Robots: CMakeFiles/Robots.dir/Field.cpp.o
-Robots: CMakeFiles/Robots.dir/ConsoleView.cpp.o
 Robots: CMakeFiles/Robots.dir/Utils.cpp.o
+Robots: CMakeFiles/Robots.dir/ConsoleView.cpp.o
 Robots: CMakeFiles/Robots.dir/build.make
 Robots: CMakeFiles/Robots.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Robots"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Robots"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Robots.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
