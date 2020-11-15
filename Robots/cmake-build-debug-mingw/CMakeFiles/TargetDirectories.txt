@@ -1,0 +1,3 @@
+D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/CMakeFiles/Robots.dir
+D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
+D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir

@@ -6,29 +6,79 @@
 
 #IncludeRegexTransform: 
 
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Command.cpp
+Command.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Command.h
+
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Command.h
 Robot.h
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.h
 Mode.h
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Mode.h
 
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/ConsoleView.cpp
+iostream
+-
+string
+-
+ConsoleView.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
+Utils.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.h
+windows.h
+-
+sys/ioctl.h
+-
+unistd.h
+-
+
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
 string
 -
+Field.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.h
+Robot.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.h
+GameView.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/GameView.h
+
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.cpp
+iostream
+-
+string
+-
+Field.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.h
+Utils.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.h
 
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.h
 fstream
 -
 
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/GameView.h
-ConsoleView.h
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
-Field.h
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.h
-Robot.h
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.h
+
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Mode.cpp
+queue
+-
+list
+-
+Mode.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Mode.h
+Utils.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.h
 
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Mode.h
+ConsoleView.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
+Robot.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.h
+Field.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.h
+
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.cpp
+Robot.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.h
 
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.h
 iostream
@@ -37,8 +87,6 @@ set
 -
 ctime
 -
-Mode.h
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Mode.h
 Field.h
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.h
 
@@ -59,8 +107,8 @@ string
 -
 optionparser.h
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/optionparser.h
-GameView.h
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/GameView.h
+ConsoleView.h
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
 Command.h
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Command.h
 Field.h

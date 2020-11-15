@@ -2,6 +2,8 @@
 #include <chrono>
 #include <thread>
 
+using namespace std;
+
 string& ltrimString(string &str, const string &chars) {
     str.erase(0, str.find_first_not_of(chars));
     return str;
@@ -18,7 +20,7 @@ string& trimString(std::string &str, const string &chars) {
 
 void generateMap(int w, int h, ofstream& sv_file) {
     sv_file << h << " " << w << endl;
-    srand(time(0));
+    srand(time(nullptr));
     for (int r = 0; r < h; r++) {
         for (int c = 0; c < w; c++) {
             int type = rand() % 10;

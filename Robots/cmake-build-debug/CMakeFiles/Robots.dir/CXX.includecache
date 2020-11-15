@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-D:/Workshop/CLionProjects/OOOP/Robots/Command.h
-Robot.h
-D:/Workshop/CLionProjects/OOOP/Robots/Robot.h
-Mode.h
-D:/Workshop/CLionProjects/OOOP/Robots/Mode.h
-
 D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.cpp
 iostream
 -
@@ -41,10 +35,30 @@ D:/Workshop/CLionProjects/OOOP/Robots/GameView.h
 D:/Workshop/CLionProjects/OOOP/Robots/Field.h
 fstream
 -
+list
+-
 
 D:/Workshop/CLionProjects/OOOP/Robots/GameView.h
 
+D:/Workshop/CLionProjects/OOOP/Robots/Mode.cpp
+queue
+-
+list
+-
+Mode.h
 D:/Workshop/CLionProjects/OOOP/Robots/Mode.h
+Utils.h
+D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
+
+D:/Workshop/CLionProjects/OOOP/Robots/Mode.h
+list
+-
+ConsoleView.h
+D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
+Robot.h
+D:/Workshop/CLionProjects/OOOP/Robots/Robot.h
+Field.h
+D:/Workshop/CLionProjects/OOOP/Robots/Field.h
 
 D:/Workshop/CLionProjects/OOOP/Robots/Robot.h
 iostream
@@ -53,8 +67,6 @@ set
 -
 ctime
 -
-Mode.h
-D:/Workshop/CLionProjects/OOOP/Robots/Mode.h
 Field.h
 D:/Workshop/CLionProjects/OOOP/Robots/Field.h
 
@@ -66,25 +78,5 @@ fstream
 string
 -
 ctime
--
-
-D:/Workshop/CLionProjects/OOOP/Robots/main.cpp
-iostream
--
-string
--
-optionparser.h
-D:/Workshop/CLionProjects/OOOP/Robots/optionparser.h
-ConsoleView.h
-D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
-Command.h
-D:/Workshop/CLionProjects/OOOP/Robots/Command.h
-Field.h
-D:/Workshop/CLionProjects/OOOP/Robots/Field.h
-Utils.h
-D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
-
-D:/Workshop/CLionProjects/OOOP/Robots/optionparser.h
-intrin.h
 -
 

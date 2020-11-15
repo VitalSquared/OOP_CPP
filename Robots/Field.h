@@ -2,6 +2,7 @@
 #define ROBOTS_FIELD_H
 
 #include <fstream>
+#include <list>
 
 using namespace std;
 
@@ -15,6 +16,7 @@ public:
     void setCell(int r, int c, Cell cell);
     int getRows();
     int getCols();
+
 private:
     int rows;
     int cols;

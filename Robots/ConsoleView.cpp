@@ -13,13 +13,13 @@ using namespace std;
     CONSOLE_SCREEN_BUFFER_INFO csbi; \
     int columns; \
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi); \
-    columns = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+    columns = max(csbi.srWindow.Right - csbi.srWindow.Left + 1, 100);
 
 #define GET_SCREEN_HEIGHT \
     CONSOLE_SCREEN_BUFFER_INFO csbi; \
     int rows; \
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi); \
-    rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+    rows = max(csbi.srWindow.Bottom - csbi.srWindow.Top + 1, 50);
 
 #else
 
@@ -71,6 +71,7 @@ void ConsoleView::renderField() {
             deathmsg.close();
         }
         else cout << "ROBOT HAS EXPLODED" << endl;
+        cout << "Apples collected: " << collector->getApples() << endl;
         cout << "Use <exit> to quit application" << endl;
         return;
     }
@@ -141,11 +142,23 @@ void ConsoleView::renderField() {
             cout << " " << legend[i * ICON_SIZE + icon] << endl;
         }
         for (int j = 0; j < field_screen_width; j++) cout << colorDarkGrey + ((j + 1) % (ICON_SIZE + 1) == 0 ? "+" : "-");
+        if (i == 3) cout << colorWhite + " Current cell:";
+        cout << endl;
+    }
+
+    for (int i = 4; i < 5; i++) {
+        for (int icon = 0; icon < ICON_SIZE; icon++) {
+            for (int j = 0; j < field_width; j++) {
+                cout << getIconFromCell(top_r + i, left_c + j)[icon] << colorDarkGrey + "|";
+            }
+            cout << " " << getIconFromCell(coll_r, coll_c, true)[icon] << endl;
+        }
+        for (int j = 0; j < field_screen_width; j++) cout << colorDarkGrey + ((j + 1) % (ICON_SIZE + 1) == 0 ? "+" : "-");
         cout << endl;
     }
 
     //print the rest of the rows
-    for (int i = 4; i < field_height; i++) {
+    for (int i = 5; i < field_height; i++) {
         for (int icon = 0; icon < ICON_SIZE; icon++) {
             for (int j = 0; j < field_width; j++) {
                 cout << getIconFromCell(top_r + i, left_c + j)[icon] << colorDarkGrey + "|";
@@ -158,8 +171,8 @@ void ConsoleView::renderField() {
     cout << colorWhite << endl;
 }
 
-const string* ConsoleView::getIconFromCell(int r, int c) {
-    if (r == collector->getRow() && c == collector->getCol()) return COLLECTOR_ICON; //collector
+const string* ConsoleView::getIconFromCell(int r, int c, bool bIgnoreCollector) {
+    if (!bIgnoreCollector && r == collector->getRow() && c == collector->getCol()) return COLLECTOR_ICON; //collector
     if (!collector->hasScanned(r, c)) return UNKNOWN_ICON; //not scanned
     if (r < 0 || c < 0 || c >= field->getCols() || r >= field->getRows()) return ROCK_ICON; //out of bounds
 
@@ -174,7 +187,7 @@ const string* ConsoleView::getIconFromCell(int r, int c) {
     return EMPTY_ICON;
 }
 
-void ConsoleView::showMessage(string msg) {
+void ConsoleView::showMessage(string& msg) {
     cout << msg << endl;
     delay(1000);
 }

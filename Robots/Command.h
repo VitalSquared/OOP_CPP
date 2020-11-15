@@ -53,7 +53,6 @@ public:
         this->mode = new_mode;
     }
     int execute() override {
-        robot->changeMode(mode);
         return 0;
     }
 private:

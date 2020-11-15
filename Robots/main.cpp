@@ -72,34 +72,59 @@ int main(int argc, char* argv[]) {
         ld_file.close();
 
         Collector collector(field);
-        ConsoleView consoleView(&field, &collector);
-        consoleView.renderField();
+
+        ConsoleView gameView(&field, &collector);
+        gameView.renderField();
+
+        Mode *mode = new ManualMode(&field, &collector, &gameView);
 
         string cmd;
         getline(cin, cmd);
         while (cmd != "exit") {
             if (!collector.getDeadState()) {
                 if (cmd == "MOVE U") {
-                    collector.move(Direction::UP, field);
+                    mode->move(Direction::UP);
                 } else if (cmd == "MOVE D") {
-                    collector.move(Direction::DOWN, field);
+                    mode->move(Direction::DOWN);
                 } else if (cmd == "MOVE L") {
-                    collector.move(Direction::LEFT, field);
+                    mode->move(Direction::LEFT);
                 } else if (cmd == "MOVE R") {
-                    collector.move(Direction::RIGHT, field);
+                    mode->move(Direction::RIGHT);
                 } else if (cmd == "GRAB") {
-                    collector.grab(field);
+                    mode->grab();
                 } else if (cmd == "SCAN") {
-                    collector.scan();
+                    mode->scan();
+                } else if (cmd == "SET_MODE manual") {
+                    delete mode;
+                    mode = new ManualMode(&field, &collector, &gameView);
+                } else if (cmd.substr(0, 13) == "SET_MODE scan") {
+                    try {
+                        int n = stoi(cmd.substr(13));
+                        delete mode;
+                        mode = new ScanMode(&field, &collector, &gameView);
+                        mode->startAutoScanning(n);
+                    }
+                    catch (exception&){
+
+                    }
+                } else if (cmd == "SET_MODE auto") {
+                    delete mode;
+                    mode = new AutoMode(&field, &collector, &gameView);
+                } else if (cmd == "SAPPER ON") {
+
+                } else if (cmd == "SAPPER OFF") {
+
                 }
-                string msg = collector.retrievePendingMessage();
+                string msg = mode->getPendingMessage();
                 if (!msg.empty()) {
-                    consoleView.showMessage(msg);
+                    gameView.showMessage(msg);
                 }
-                consoleView.renderField();
+                gameView.renderField();
             }
             getline(cin, cmd);
         }
+
+        delete mode;
     }
     catch (exception&) {
         if (ld_file.is_open()) ld_file.close();

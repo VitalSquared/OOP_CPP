@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Robots"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Robots">
+				<Option output="D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Robots.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 Robots"/>
+					<CompileFile command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Robots/fast">
+				<Option output="D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Robots.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 Robots/fast"/>
+					<CompileFile command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Command.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Command.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Field.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Field.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/GameView.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Mode.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Mode.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Robot.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Robot.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Utils.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Utils.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/main.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

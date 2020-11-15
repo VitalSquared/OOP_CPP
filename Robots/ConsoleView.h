@@ -11,11 +11,10 @@ using namespace std;
 class ConsoleView : GameView {
 public:
     ConsoleView(Field *field, Collector *collector);
-    void clearScreen();
     int getWidth() override;
     int getHeight() override;
     void renderField() override;
-    void showMessage(string msg);
+    void showMessage(string& msg);
 
     const string colorBlack = "\x1B[30m";
     const string colorRed = "\x1B[31m";
@@ -27,11 +26,13 @@ public:
     const string colorWhite = "\x1B[37m";
     const string colorGrey = "\x1B[30;1m";
     const string colorDarkGrey = "\x1B[38;5;238m";
-    const string* getIconFromCell(int r, int c);
+    const string* getIconFromCell(int r, int c, bool bIgnoreCollector = false);
 
 private:
     Field *field;
     Collector *collector;
+
+    void clearScreen();
 
     const int ICON_SIZE = 2;
 

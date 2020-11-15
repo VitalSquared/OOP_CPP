@@ -2,6 +2,9 @@
 #include <string>
 #include "Field.h"
 #include "Utils.h"
+#include <queue>
+#include <list>
+#include <set>
 
 using namespace std;
 
@@ -51,6 +54,7 @@ Field::~Field() {
 }
 
 Cell Field::getCell(int r, int c) {
+    if (r < 0 || r >= rows || c < 0 || c >= rows) return Cell::ROCK;
     return field[getIndex(r, c)];
 }
 
