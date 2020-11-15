@@ -78,22 +78,30 @@ int main(int argc, char* argv[]) {
 
         Mode *mode = new ManualMode(&field, &collector, &gameView);
 
+        Command *command = nullptr;
+
         string cmd;
         getline(cin, cmd);
         while (cmd != "exit") {
             if (!collector.getDeadState()) {
                 if (cmd == "MOVE U") {
                     mode->move(Direction::UP);
+                    //command = new MoveCommand(mode, Direction::UP);
                 } else if (cmd == "MOVE D") {
                     mode->move(Direction::DOWN);
+                    //command = new MoveCommand(mode, Direction::DOWN);
                 } else if (cmd == "MOVE L") {
                     mode->move(Direction::LEFT);
+                    //command = new MoveCommand(mode, Direction::LEFT);
                 } else if (cmd == "MOVE R") {
                     mode->move(Direction::RIGHT);
+                    //command = new MoveCommand(mode, Direction::RIGHT);
                 } else if (cmd == "GRAB") {
                     mode->grab();
+                    //command = new GrabCommand(mode);
                 } else if (cmd == "SCAN") {
                     mode->scan();
+                    //command = new ScanCommand(mode);
                 } else if (cmd == "SET_MODE manual") {
                     delete mode;
                     mode = new ManualMode(&field, &collector, &gameView);
@@ -115,6 +123,7 @@ int main(int argc, char* argv[]) {
                 } else if (cmd == "SAPPER OFF") {
 
                 }
+                //command->execute();
                 string msg = mode->getPendingMessage();
                 if (!msg.empty()) {
                     gameView.showMessage(msg);
