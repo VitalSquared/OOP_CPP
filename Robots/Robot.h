@@ -19,7 +19,7 @@ public:
 
 class Collector : public Robot {
 public:
-    Collector(Field &field);
+    explicit Collector(Field &field);
     ~Collector() override;
 
     void setNewPosition(pair<int, int> new_pos) override;
@@ -29,8 +29,8 @@ public:
     void scan();
     bool collectApple();
     set<pair<int,int>> *getScanned();
-    int getApples();
-    bool getDeadState();
+    int getApples() const;
+    bool getDeadState() const;
 
 private:
     bool isDead;
@@ -49,7 +49,7 @@ public:
     pair<int, int> getPosition() override;
 
     void toggleSapper(bool newActive);
-    bool getActive();
+    bool getActive() const;
 
 private:
     bool active;

@@ -1,5 +1,5 @@
-#ifndef ROBOTS_GAMEVIEW_H
-#define ROBOTS_GAMEVIEW_H
+#ifndef ROBOTS_GAME_VIEW_H
+#define ROBOTS_GAME_VIEW_H
 
 class GameView {
 public:

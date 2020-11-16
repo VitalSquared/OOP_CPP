@@ -27,7 +27,7 @@ private:
 
 class GrabCommand : public ManualModeCommand {
 public:
-    GrabCommand(Mode *mode) ;
+    explicit GrabCommand(Mode *mode) ;
     void execute() override;
 private:
     Mode *mode;
@@ -35,7 +35,7 @@ private:
 
 class ScanCommand : public ManualModeCommand {
 public:
-    ScanCommand(Mode *mode);
+    explicit ScanCommand(Mode *mode);
     void execute() override;
 private:
     Mode *mode;

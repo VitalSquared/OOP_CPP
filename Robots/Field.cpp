@@ -1,10 +1,5 @@
-#include <iostream>
 #include <string>
 #include "Field.h"
-#include "Utils.h"
-#include <queue>
-#include <list>
-#include <set>
 
 using namespace std;
 
@@ -23,7 +18,7 @@ Field::Field(ifstream &file) {
     for (int r = 0; r < rows; r++) {
         string row;
         getline(file, row);
-        trimString(row, "\r");
+        while ('\n' == row.back() || '\r' == row.back()) row.pop_back();
         if (row.length() != cols) {
             delete [] field;
             field = nullptr;
@@ -62,14 +57,14 @@ void Field::setCell(int r, int c, Cell cell) {
     field[getIndex(r, c)] = cell;
 }
 
-int Field::getIndex(int r, int c) {
+int Field::getIndex(int r, int c) const {
     return r * cols + c;
 }
 
-int Field::getRows() {
+int Field::getRows() const {
     return rows;
 }
 
-int Field::getCols() {
+int Field::getCols() const {
     return cols;
 }

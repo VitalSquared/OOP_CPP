@@ -1,5 +1,5 @@
-#ifndef ROBOTS_CONSOLEVIEW_H
-#define ROBOTS_CONSOLEVIEW_H
+#ifndef ROBOTS_CONSOLE_VIEW_H
+#define ROBOTS_CONSOLE_VIEW_H
 
 #include <string>
 #include "Field.h"
@@ -14,14 +14,14 @@ public:
     int getWidth() override;
     int getHeight() override;
     void renderField() override;
-    void showMessage(string& msg);
+    static void showMessage(string& msg);
     void setModeName(const string& str);
 
-    const string colorBlack = "\x1B[30m";
+    //const string colorBlack = "\x1B[30m";
     const string colorRed = "\x1B[31m";
     const string colorGreen = "\x1B[32m";
-    const string colorYellow = "\x1B[33m";
-    const string colorBlue = "\x1B[34m";
+    //const string colorYellow = "\x1B[33m";
+    //const string colorBlue = "\x1B[34m";
     const string colorMagenta = "\x1B[35m";
     const string colorCyan = "\x1B[36m";
     const string colorWhite = "\x1B[37m";
@@ -35,7 +35,7 @@ private:
     Sapper *sapper;
     string currentMode;
 
-    void clearScreen();
+    static void clearScreen();
 
     const int ICON_SIZE = 2;
 

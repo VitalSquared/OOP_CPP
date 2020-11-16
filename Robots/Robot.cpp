@@ -51,11 +51,11 @@ set<pair<int,int>>* Collector::getScanned() {
     return scanned;
 }
 
-int Collector::getApples() {
+int Collector::getApples() const {
     return apples;
 }
 
-bool Collector::getDeadState() {
+bool Collector::getDeadState() const {
     return isDead;
 }
 
@@ -63,6 +63,8 @@ Sapper::Sapper(Field &field, set<pair<int,int>> *collectorScanned) {
     this->field = &field;
     this->collectorScanned = collectorScanned;
     active = false;
+    pos_r = 0;
+    pos_c = 0;
 }
 
 void Sapper::setNewPosition(pair<int, int> new_pos) {
@@ -95,6 +97,6 @@ void Sapper::toggleSapper(bool newActive) {
     }
 }
 
-bool Sapper::getActive() {
+bool Sapper::getActive() const {
     return active;
 }

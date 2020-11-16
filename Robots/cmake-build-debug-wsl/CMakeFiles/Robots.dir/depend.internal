@@ -19,7 +19,6 @@ CMakeFiles/Robots.dir/ConsoleView.cpp.o
 CMakeFiles/Robots.dir/Field.cpp.o
  /mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.cpp
  /mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.h
- /mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/Mode.cpp.o
  /mnt/d/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
  /mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.h
@@ -32,6 +31,7 @@ CMakeFiles/Robots.dir/Robot.cpp.o
  /mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.h
  /mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.cpp
  /mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.h
+ /mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/Utils.cpp.o
  /mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.cpp
  /mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.h

@@ -18,7 +18,6 @@ CMakeFiles\Robots.dir\ConsoleView.cpp.obj: ..\Utils.h
 
 CMakeFiles\Robots.dir\Field.cpp.obj: ..\Field.cpp
 CMakeFiles\Robots.dir\Field.cpp.obj: ..\Field.h
-CMakeFiles\Robots.dir\Field.cpp.obj: ..\Utils.h
 
 CMakeFiles\Robots.dir\Mode.cpp.obj: ..\ConsoleView.h
 CMakeFiles\Robots.dir\Mode.cpp.obj: ..\Field.h

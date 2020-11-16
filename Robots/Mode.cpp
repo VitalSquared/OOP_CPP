@@ -152,8 +152,7 @@ void ScanMode::startAutoScanning(int n) {
         }
         if (!foundUnknown) break;
 
-        srand(time(nullptr));
-        int i = 0, j = rand() % min_unknown.size();
+        int i = 0, j = random(min_unknown.size());
         for (auto un : min_unknown) {
             if (i == j) {
                 ru = un.first;

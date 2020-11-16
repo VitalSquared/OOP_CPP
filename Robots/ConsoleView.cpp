@@ -29,12 +29,12 @@ using namespace std;
 #define MIN(A, B) ((A) < (B) ? (A) : (B))
 
 #define GET_SCREEN_WIDTH \
-    struct winsize size; \
+    struct winsize size = {}; \
     ioctl(STDOUT_FILENO, TIOCGWINSZ, &size); \
     int columns = MIN(size.ws_col, 100);
 
 #define GET_SCREEN_HEIGHT \
-    struct winsize size; \
+    struct winsize size = {}; \
     ioctl(STDOUT_FILENO, TIOCGWINSZ, &size); \
     int rows = MIN(size.ws_row, 50);
 
@@ -45,12 +45,12 @@ void ConsoleView::clearScreen() {
 }
 
 int ConsoleView::getWidth() {
-    GET_SCREEN_WIDTH;
+    GET_SCREEN_WIDTH
     return columns;
 }
 
 int  ConsoleView::getHeight() {
-    GET_SCREEN_HEIGHT;
+    GET_SCREEN_HEIGHT
     return rows;
 }
 
@@ -65,14 +65,14 @@ void ConsoleView::renderField() {
     //check if collector robot is dead
     if (collector->getDeadState()) {
         clearScreen();
-        ifstream deathmsg("robot_has_exploded.txt");
-        if (deathmsg.is_open()) {
-            while (!deathmsg.eof()) {
+        ifstream death_msg("robot_has_exploded.txt");
+        if (death_msg.is_open()) {
+            while (!death_msg.eof()) {
                 string row;
-                getline(deathmsg, row);
+                getline(death_msg, row);
                 cout << row << endl;
             }
-            deathmsg.close();
+            death_msg.close();
         }
         else cout << "ROBOT HAS EXPLODED" << endl;
         cout << "Apples collected: " << collector->getApples() << endl;

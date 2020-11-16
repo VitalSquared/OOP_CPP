@@ -41,7 +41,7 @@ private:
     Sapper *sapper;
     ConsoleView *gameView;
 
-    bool validateCell(int r, int c, Cell ignore = Cell::EMPTY) override;
+    bool validateCell(int r, int c, Cell ignore) override;
 };
 
 class ScanMode : public Mode {
@@ -61,7 +61,7 @@ private:
     ConsoleView *gameView;
 
     void startAutoScanning(int n);
-    bool validateCell(int r, int c, Cell ignore = Cell::EMPTY) override;
+    bool validateCell(int r, int c, Cell ignore) override;
 };
 
 class AutoMode : public Mode {
@@ -82,7 +82,7 @@ private:
     ConsoleView *gameView;
 
     void startAutoCollecting();
-    bool validateCell(int r, int c, Cell ignore = Cell::EMPTY) override;
+    bool validateCell(int r, int c, Cell ignore) override;
     bool findClosestPoint(set<pair<int,int>> *scanned, set<pair<int,int>>& unreachable, int& rr, int& cr, int &rp, int &cp, Cell point);
 };
 

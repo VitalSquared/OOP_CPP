@@ -4,7 +4,6 @@
 #include "optionparser.h"
 #include "ConsoleView.h"
 #include "Command.h"
-#include "Field.h"
 #include "Utils.h"
 
 enum  optionIndex { LOAD, GENERATE };
@@ -12,7 +11,7 @@ const option::Descriptor usage[] =
         {
             {LOAD, 0,"l", "load",option::Arg::None, "  --load, -l \"file\"  \tLoad map from file." },
             {GENERATE, 0,"g","generate",option::Arg::None, "  --generate, -g  width height \"file\" \tGenerate map file <width x height>." },
-            {0,0,0,0,0,0}
+            {0,0,nullptr,nullptr,nullptr,nullptr}
         };
 
 using namespace std;
@@ -165,7 +164,7 @@ int main(int argc, char* argv[]) {
 
                 if (command) command->execute();
                 msg = success ? mode->getPendingMessage() : "Invalid command.";
-                if (!msg.empty()) gameView.showMessage(msg);
+                if (!msg.empty()) ConsoleView::showMessage(msg);
                 gameView.renderField();
             }
             getline(cin, cmd);
