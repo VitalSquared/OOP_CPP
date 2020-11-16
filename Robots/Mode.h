@@ -16,7 +16,6 @@ public:
     virtual void scan() = 0;
     virtual void toggleSapper(bool enable) = 0;
     virtual string getPendingMessage() = 0;
-    virtual string getModeName() = 0;
 
 private:
     virtual bool validateCell(int r, int c, Cell ignore) = 0;
@@ -34,7 +33,6 @@ public:
     void scan() override;
     void toggleSapper(bool enable) override;
     string getPendingMessage() override;
-    string getModeName() override;
 
 private:
     string pendingMessage;
@@ -55,7 +53,6 @@ public:
     void scan() override;
     void toggleSapper(bool enable) override;
     string getPendingMessage() override;
-    string getModeName() override;
 
 private:
     string pendingMessage;
@@ -76,7 +73,6 @@ public:
     void scan() override;
     void toggleSapper(bool enable) override;
     string getPendingMessage() override;
-    string getModeName() override;
 
 private:
     string pendingMessage;

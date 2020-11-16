@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include <string>
 #include <ctime>
 
@@ -13,9 +14,11 @@ enum class ErrorType { OTHER, INVALID_ARGS, NO_FILE, CANT_CREATE_FILE, WH1000,  
 string& ltrimString(string &str, const string &chars);
 string& rtrimString(std::string &str, const string &chars);
 string& trimString(std::string &str, const string &chars);
+vector<string> splitString(const string& str, char ch = ' ');
 
 void generateMap(int w, int h, ofstream& sv_file);
 void printError(ErrorType err);
 void delay(int ms);
+int random(int max);
 
 #endif

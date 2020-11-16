@@ -1,1 +1,1 @@
-Robots.exe "map1.txt"
+Robots.exe --load "map1.txt"

@@ -43,7 +43,7 @@ ManualMode::ManualMode(Field *field, Collector *collector, Sapper *sapper, Conso
     this->sapper = sapper;
     this->gameView = gameView;
     this->pendingMessage = "";
-    this->gameView->setModeName(this->getModeName());
+    this->gameView->setModeName("MANUAL");
 }
 
 void ManualMode::move(Direction dir) {
@@ -54,13 +54,13 @@ void ManualMode::move(Direction dir) {
         case Direction::LEFT: dc = -1; break;
         case Direction::RIGHT: dc = 1; break;
     }
-    int new_r = collector->getRow() + dr, new_c = collector->getCol() + dc;
+    int new_r = collector->getPosition().first + dr, new_c = collector->getPosition().second + dc;
     if (new_r < 0 || new_r >= field->getRows() || new_c < 0 || new_c >= field->getCols() ||
         !collector->hasScanned(new_r, new_c) || field->getCell(new_r, new_c) == Cell::ROCK ||
-        sapper->getActive() && new_r == sapper->getRow() && new_c == sapper->getCol()) {
+        sapper->getActive() && make_pair(new_r, new_c) == sapper->getPosition()) {
         pendingMessage = "I can't go there.";
     }
-    else collector->setNewPosition(new_r, new_c);
+    else collector->setNewPosition(make_pair(new_r, new_c));
 }
 
 void ManualMode::grab() {
@@ -88,10 +88,6 @@ string ManualMode::getPendingMessage() {
     return msg;
 }
 
-string ManualMode::getModeName() {
-    return "MANUAL";
-}
-
 bool ManualMode::validateCell(int r, int c, Cell ignore) {
     return true;
 }
@@ -101,7 +97,7 @@ ScanMode::ScanMode(Field *field, Collector *collector, ConsoleView *gameView, in
     this->collector = collector;
     this->gameView = gameView;
     this->pendingMessage = "";
-    this->gameView->setModeName(this->getModeName());
+    this->gameView->setModeName("SCANNING");
     startAutoScanning(n);
 }
 
@@ -128,14 +124,14 @@ void ScanMode::startAutoScanning(int n) {
 
     while(steps < n) {
         bool foundUnknown = false;
-        int rc = collector->getRow(), cc = collector->getCol();
+        int rc = collector->getPosition().first, cc = collector->getPosition().second;
         int ru = 0, cu = 0;
         double min_dist = -1;
         set<pair<int, int>> min_unknown;
         for (auto scan: *scanned) {
             int rs = scan.first, cs = scan.second;
 
-            if ((rs == collector->getRow() && cs == collector->getCol() && scanned->size() > 1) ||
+            if ((rs == rc && cs == cc && scanned->size() > 1) ||
                     field->getCell(rs, cs) == Cell::BOMB || field->getCell(rs, cs) == Cell::ROCK ||
                     unreachable.find(make_pair(rs, cs)) != unreachable.end()) {
                 continue;
@@ -175,7 +171,7 @@ void ScanMode::startAutoScanning(int n) {
 
         for (auto cell : path) {
             int r = cell.first, c = cell.second;
-            collector->setNewPosition(r, c);
+            collector->setNewPosition(make_pair(r, c));
 
             if (rc != r || cc != c) {
                 steps++;
@@ -208,17 +204,13 @@ string ScanMode::getPendingMessage() {
     return msg;
 }
 
-string ScanMode::getModeName() {
-    return "SCANNING";
-}
-
 AutoMode::AutoMode(Field *field, Collector *collector, Sapper *sapper, ConsoleView *gameView) {
     this->field = field;
     this->collector = collector;
     this->sapper = sapper;
     this->gameView = gameView;
     this->pendingMessage = "";
-    this->gameView->setModeName(this->getModeName());
+    this->gameView->setModeName("AUTO");
     startAutoCollecting();
 }
 
@@ -244,17 +236,13 @@ string AutoMode::getPendingMessage() {
     return msg;
 }
 
-string AutoMode::getModeName() {
-    return "AUTO";
-}
-
 void AutoMode::startAutoCollecting() {
     set<pair<int, int>> *scanned = collector->getScanned();
     set<pair<int, int>> unreachable_apples, unreachable_bombs;
 
     while(true) {
-        int rc = collector->getRow(), cc = collector->getCol();
-        int rs = sapper->getRow(), cs = sapper->getCol();
+        int rc = collector->getPosition().first, cc = collector->getPosition().second;
+        int rs = sapper->getPosition().first, cs = sapper->getPosition().second;
         int ra = 0, ca = 0, rb = 0, cb = 0;
         bool foundApple = findClosestPoint(scanned, unreachable_apples, rc, cc, ra, ca, Cell::APPLE);
         if (!foundApple) break;
@@ -287,12 +275,12 @@ void AutoMode::startAutoCollecting() {
         int i = 0, off = 0;
         for (auto pair : path_to_apple) {
             int r = pair.first, c = pair.second;
-            collector->setNewPosition(r, c);
+            collector->setNewPosition(make_pair(r, c));
             if (field->getCell(r, c) == Cell::APPLE) collector->collectApple();
 
             if (foundBomb) {
                 int r1 = path_to_bomb[i].first, c1 = path_to_bomb[i].second;
-                sapper->setNewPosition(r1, c1);
+                sapper->setNewPosition(make_pair(r1, c1));
             }
 
             if (r != rc || c != cc) {
@@ -303,7 +291,7 @@ void AutoMode::startAutoCollecting() {
 
             if (foundBomb) {
                 if (i >= path_to_bomb.size()) {
-                    rs = sapper->getRow(); cs = sapper->getCol();
+                    rs = sapper->getPosition().first; cs = sapper->getPosition().second;
                     while (true) {
                         foundBomb = findClosestPoint(scanned, unreachable_bombs, rs, cs, rb, cb, Cell::BOMB);
                         if (!foundBomb) break;

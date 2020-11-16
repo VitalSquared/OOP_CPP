@@ -134,8 +134,8 @@ void ConsoleView::renderField() {
     cout << "Legend" << endl;
 
     //get coordinates of collector
-    int coll_r = collector->getRow();
-    int coll_c = collector->getCol();
+    int coll_r = collector->getPosition().first;
+    int coll_c = collector->getPosition().second;
 
     //by placing collector in the center of screen, we calculate the coordinates of top left corner
     int top_r = coll_r - field_height / 2;
@@ -180,9 +180,9 @@ void ConsoleView::renderField() {
 }
 
 const string* ConsoleView::getIconFromCell(int r, int c, bool bIgnoreCollector) {
-    if (!bIgnoreCollector && r == collector->getRow() && c == collector->getCol()) return COLLECTOR_ICON; //collector
+    if (!bIgnoreCollector && make_pair(r, c) == collector->getPosition()) return COLLECTOR_ICON; //collector
     if (sapper->getActive()) {
-        if (r == sapper->getRow() && c == sapper->getCol()) return SAPPER_ICON;
+        if (make_pair(r, c) == sapper->getPosition()) return SAPPER_ICON;
     }
     if (!collector->hasScanned(r, c)) return UNKNOWN_ICON; //not scanned
     if (r < 0 || c < 0 || c >= field->getCols() || r >= field->getRows()) return ROCK_ICON; //out of bounds

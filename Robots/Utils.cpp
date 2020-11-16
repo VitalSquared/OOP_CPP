@@ -18,12 +18,27 @@ string& trimString(std::string &str, const string &chars) {
     return ltrimString(rtrimString(str, chars), chars);
 }
 
+vector<string> splitString(const string &str, char ch) {
+    vector<string> v;
+    size_t pos = str.find(ch);
+    size_t initialPos = 0;
+    string substr;
+    while (pos != string::npos) {
+        substr = str.substr(initialPos, pos - initialPos);
+        if (!substr.empty()) v.push_back(substr);
+        initialPos = pos + 1;
+        pos = str.find(ch, initialPos);
+    }
+    substr = str.substr(initialPos, min(pos, str.size()) - initialPos + 1);
+    if (!substr.empty()) v.push_back(substr);
+    return v;
+}
+
 void generateMap(int w, int h, ofstream& sv_file) {
     sv_file << h << " " << w << endl;
-    srand(time(nullptr));
     for (int r = 0; r < h; r++) {
         for (int c = 0; c < w; c++) {
-            int type = rand() % 10;
+            int type = random(10);
 
             if (type == 2) sv_file << "B";
             else if (type == 5) sv_file << "R";
@@ -37,7 +52,7 @@ void generateMap(int w, int h, ofstream& sv_file) {
 void printError(ErrorType err) {
     switch(err) {
         case ErrorType::INVALID_ARGS:
-            cout << R"(Invalid arguments or no arguments provided. Use "-generate w h file_name" to generate map or "file_name" to load it)" << endl;
+            cout << R"(Invalid arguments or no arguments provided.)" << endl;
             break;
         case ErrorType::NO_FILE:
             cout << "File doesn't exist. Exiting..." << endl;
@@ -57,4 +72,10 @@ void printError(ErrorType err) {
 
 void delay(int ms) {
     this_thread::sleep_for(chrono::milliseconds(ms));
+}
+
+
+int random(int max) {
+    srand(time(nullptr));
+    return rand() % max;
 }
