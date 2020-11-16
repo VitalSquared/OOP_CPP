@@ -1,20 +1,21 @@
 #include <queue>
-#include <list>
+#include <vector>
+#include <cmath>
 #include "Mode.h"
 #include "Utils.h"
 
 using namespace std;
 
-list<pair<int, int>> Mode::buildPath(int rs, int cs, int rf, int cf) {
+vector<pair<int, int>> Mode::buildPath(int rs, int cs, int rf, int cf, Cell ignore) {
     set<pair<int, int>> visited;
-    queue<list<pair<int,int>>> q;
+    queue<vector<pair<int,int>>> q;
 
-    list<pair<int,int>> init_path;
+    vector<pair<int,int>> init_path;
     init_path.emplace_back(make_pair(rs, cs));
     q.push(init_path);
 
     while (!q.empty()) {
-        list<pair<int,int>> cur_path = list<pair<int,int>>(q.front());
+        vector<pair<int,int>> cur_path = vector<pair<int,int>>(q.front());
         q.pop();
 
         if (visited.find(cur_path.back()) != visited.end()) continue;
@@ -26,21 +27,23 @@ list<pair<int, int>> Mode::buildPath(int rs, int cs, int rf, int cf) {
 
         pair<int,int> neighbours[4] = { {r, c - 1}, {r, c + 1}, {r - 1, c}, {r + 1, c} };
         for (auto neighbour : neighbours) {
-            if (visited.find(neighbour) == visited.end() && validateCell(neighbour.first, neighbour.second)) {
-                list<pair<int, int>> new_path(cur_path);
+            if (visited.find(neighbour) == visited.end() && validateCell(neighbour.first, neighbour.second, ignore)) {
+                vector<pair<int, int>> new_path(cur_path);
                 new_path.emplace_back(make_pair(neighbour.first, neighbour.second));
                 q.push(new_path);
             }
         }
     }
-    return list<pair<int,int>>();
+    return vector<pair<int,int>>();
 }
 
-ManualMode::ManualMode(Field *field, Collector *collector, ConsoleView *gameView) {
+ManualMode::ManualMode(Field *field, Collector *collector, Sapper *sapper, ConsoleView *gameView) {
     this->field = field;
     this->collector = collector;
+    this->sapper = sapper;
     this->gameView = gameView;
     this->pendingMessage = "";
+    this->gameView->setModeName(this->getModeName());
 }
 
 void ManualMode::move(Direction dir) {
@@ -53,7 +56,8 @@ void ManualMode::move(Direction dir) {
     }
     int new_r = collector->getRow() + dr, new_c = collector->getCol() + dc;
     if (new_r < 0 || new_r >= field->getRows() || new_c < 0 || new_c >= field->getCols() ||
-        !collector->hasScanned(new_r, new_c) || field->getCell(new_r, new_c) == Cell::ROCK) {
+        !collector->hasScanned(new_r, new_c) || field->getCell(new_r, new_c) == Cell::ROCK ||
+        sapper->getActive() && new_r == sapper->getRow() && new_c == sapper->getCol()) {
         pendingMessage = "I can't go there.";
     }
     else collector->setNewPosition(new_r, new_c);
@@ -67,8 +71,15 @@ void ManualMode::scan() {
     collector->scan();
 }
 
-void ManualMode::startAutoScanning(int n) {
-    pendingMessage = "You need to switch to SCAN mode to execute this command.";
+void ManualMode::toggleSapper(bool enable) {
+    if (sapper->getActive()) {
+        if (enable) pendingMessage = "There is already a Sapper present.";
+        else sapper->toggleSapper(false);
+    }
+    else {
+        if (enable) sapper->toggleSapper(true);
+        else pendingMessage = "There is no Sapper anyway.";
+    }
 }
 
 string ManualMode::getPendingMessage() {
@@ -81,15 +92,17 @@ string ManualMode::getModeName() {
     return "MANUAL";
 }
 
-bool ManualMode::validateCell(int r, int c) {
+bool ManualMode::validateCell(int r, int c, Cell ignore) {
     return true;
 }
 
-ScanMode::ScanMode(Field *field, Collector *collector, ConsoleView *gameView) {
+ScanMode::ScanMode(Field *field, Collector *collector, ConsoleView *gameView, int n) {
     this->field = field;
     this->collector = collector;
     this->gameView = gameView;
     this->pendingMessage = "";
+    this->gameView->setModeName(this->getModeName());
+    startAutoScanning(n);
 }
 
 void ScanMode::move(Direction dir) {
@@ -101,6 +114,10 @@ void ScanMode::grab() {
 }
 
 void ScanMode::scan() {
+    pendingMessage = "You have to switch to MANUAL mode to execute this command";
+}
+
+void ScanMode::toggleSapper(bool enable) {
     pendingMessage = "You have to switch to MANUAL mode to execute this command";
 }
 
@@ -150,7 +167,7 @@ void ScanMode::startAutoScanning(int n) {
             i++;
         }
 
-        list<pair<int, int>> path = buildPath(rc, cc, ru, cu);
+        vector<pair<int, int>> path = buildPath(rc, cc, ru, cu);
         if (path.empty()) {
             unreachable.insert(make_pair(ru, cu));
             continue;
@@ -179,9 +196,9 @@ void ScanMode::startAutoScanning(int n) {
     }
 }
 
-bool ScanMode::validateCell(int r, int c) {
+bool ScanMode::validateCell(int r, int c, Cell ignore) {
     if (r < 0 || r >= field->getRows() || c < 0 || c >= field->getCols()) return false;
-    if (field->getCell(r, c) == Cell::BOMB || field->getCell(r, c) == Cell::ROCK) return false;
+    if (field->getCell(r, c) != ignore && (field->getCell(r, c) == Cell::BOMB || field->getCell(r, c) == Cell::ROCK)) return false;
     return true;
 }
 
@@ -195,11 +212,13 @@ string ScanMode::getModeName() {
     return "SCANNING";
 }
 
-AutoMode::AutoMode(Field *field, Collector *collector, ConsoleView *gameView) {
+AutoMode::AutoMode(Field *field, Collector *collector, Sapper *sapper, ConsoleView *gameView) {
     this->field = field;
     this->collector = collector;
+    this->sapper = sapper;
     this->gameView = gameView;
     this->pendingMessage = "";
+    this->gameView->setModeName(this->getModeName());
     startAutoCollecting();
 }
 
@@ -215,8 +234,8 @@ void AutoMode::scan() {
     pendingMessage = "You have to switch to MANUAL mode to execute this command";
 }
 
-void AutoMode::startAutoScanning(int n) {
-    pendingMessage = "You need to switch to SCAN mode to execute this command.";
+void AutoMode::toggleSapper(bool enable) {
+    pendingMessage = "You have to switch to MANUAL mode to execute this command";
 }
 
 string AutoMode::getPendingMessage() {
@@ -231,47 +250,98 @@ string AutoMode::getModeName() {
 
 void AutoMode::startAutoCollecting() {
     set<pair<int, int>> *scanned = collector->getScanned();
-    set<pair<int, int>> unreachable;
+    set<pair<int, int>> unreachable_apples, unreachable_bombs;
 
     while(true) {
-        bool foundApple = false;
         int rc = collector->getRow(), cc = collector->getCol();
-        int ra = 0, ca = 0;
-        double min_dist = -1;
-        for (auto pair : *scanned) {
-            int r = pair.first;
-            int c = pair.second;
-            if (field->getCell(r, c) == Cell::APPLE && unreachable.find(make_pair(r, c)) == unreachable.end()) {
-                double dist = sqrt(pow(abs(r - rc), 2) + pow(abs(c - cc), 2));
-                if (min_dist < 0 || dist < min_dist) {
-                    foundApple = true;
-                    ra = r;
-                    ca = c;
-                    min_dist = dist;
+        int rs = sapper->getRow(), cs = sapper->getCol();
+        int ra = 0, ca = 0, rb = 0, cb = 0;
+        bool foundApple = findClosestPoint(scanned, unreachable_apples, rc, cc, ra, ca, Cell::APPLE);
+        if (!foundApple) break;
+
+        vector<pair<int, int>> path_to_apple = buildPath(rc, cc, ra, ca);
+        if (path_to_apple.empty()) {
+            unreachable_apples.insert(make_pair(ra, ca));
+            continue;
+        }
+
+        bool foundBomb = false;
+        vector<pair<int, int>> path_to_bomb;
+        if (sapper->getActive()) {
+            foundBomb = findClosestPoint(scanned, unreachable_bombs, rs, cs, rb, cb, Cell::BOMB);
+            if (foundBomb) {
+                while (true) {
+                    if (!foundBomb) break;
+                    path_to_bomb = buildPath(rs, cs, rb, cb, Cell::BOMB);
+                    if (path_to_bomb.empty()) {
+                        unreachable_bombs.insert(make_pair(rb, cb));
+                        foundBomb = findClosestPoint(scanned, unreachable_bombs, rs, cs, rb, cb, Cell::BOMB);
+                    }
+                    else break;
                 }
             }
         }
-        if (!foundApple) break;
 
-        list<pair<int, int>> path = buildPath(rc, cc, ra, ca);
-        if (path.empty()) {
-            unreachable.insert(make_pair(ra, ca));
-            continue;
-        }
-        for (auto pair : path) {
+        while (path_to_bomb.size() > path_to_apple.size()) path_to_bomb.pop_back();
+
+        int i = 0, off = 0;
+        for (auto pair : path_to_apple) {
             int r = pair.first, c = pair.second;
             collector->setNewPosition(r, c);
             if (field->getCell(r, c) == Cell::APPLE) collector->collectApple();
+
+            if (foundBomb) {
+                int r1 = path_to_bomb[i].first, c1 = path_to_bomb[i].second;
+                sapper->setNewPosition(r1, c1);
+            }
+
             if (r != rc || c != cc) {
                 gameView->renderField();
                 delay(1000);
+            }
+            i++;
+
+            if (foundBomb) {
+                if (i >= path_to_bomb.size()) {
+                    rs = sapper->getRow(); cs = sapper->getCol();
+                    while (true) {
+                        foundBomb = findClosestPoint(scanned, unreachable_bombs, rs, cs, rb, cb, Cell::BOMB);
+                        if (!foundBomb) break;
+                        path_to_bomb = buildPath(rs, cs, rb, cb, Cell::BOMB);
+                        if (path_to_bomb.empty()) unreachable_bombs.insert(make_pair(rb, cb));
+                        else break;
+                    }
+                    if (!path_to_bomb.empty()) path_to_bomb.erase(path_to_bomb.begin());
+                    while (path_to_bomb.size() > path_to_apple.size() - off) path_to_bomb.pop_back();
+                    off = i;
+                    i = 0;
+                }
             }
         }
     }
 }
 
-bool AutoMode::validateCell(int r, int c) {
+bool AutoMode::validateCell(int r, int c, Cell ignore) {
     if (!collector->hasScanned(r, c)) return false;
-    if (field->getCell(r, c) == Cell::BOMB || field->getCell(r, c) == Cell::ROCK) return false;
+    if (field->getCell(r, c) != ignore && (field->getCell(r, c) == Cell::BOMB || field->getCell(r, c) == Cell::ROCK)) return false;
     return true;
+}
+
+bool AutoMode::findClosestPoint(set<pair<int,int>> *scanned, set<pair<int,int>>& unreachable, int& rr, int& cr, int &rp, int &cp, Cell point) {
+    bool foundPoint = false;
+    double min_dist = -1;
+    for (auto pair : *scanned) {
+        int r = pair.first;
+        int c = pair.second;
+        if (field->getCell(r, c) == point && unreachable.find(make_pair(r, c)) == unreachable.end()) {
+            double dist = sqrt(pow(abs(r - rr), 2) + pow(abs(c - cr), 2));
+            if (min_dist < 0 || dist < min_dist) {
+                foundPoint = true;
+                rp = r;
+                cp = c;
+                min_dist = dist;
+            }
+        }
+    }
+    return foundPoint;
 }

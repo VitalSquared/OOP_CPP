@@ -92,7 +92,59 @@ private:
 };
 
 class Sapper : public Robot {
+public:
+    Sapper(Field &field, set<pair<int,int>> *collectorScanned) {
+        this->field = &field;
+        this->collectorScanned = collectorScanned;
+        active = false;
+    }
 
+    ~Sapper() {}
+
+    void setNewPosition(int new_r, int new_c) {
+        if (active) {
+            r = new_r;
+            c = new_c;
+            if (field->getCell(new_r, new_c) == Cell::BOMB) {
+                field->setCell(new_r, new_c, Cell::DEFUSED_BOMB);
+            }
+        }
+    }
+
+    void toggleSapper(bool newActive) {
+        active = newActive;
+        if (active) {
+            srand(time(nullptr));
+            int i = 0, req = rand() % collectorScanned->size();
+            for (auto coord : *collectorScanned) {
+                if (i == req) {
+                    r = coord.first;
+                    c = coord.second;
+                    break;
+                }
+                i++;
+            }
+            setNewPosition(r, c);
+        }
+    }
+
+    bool getActive() {
+        return active;
+    }
+
+    int getRow() {
+        return r;
+    }
+
+    int getCol() {
+        return c;
+    }
+
+private:
+    bool active;
+    int r, c;
+    Field *field;
+    set<pair<int,int>> *collectorScanned;
 };
 
 #endif

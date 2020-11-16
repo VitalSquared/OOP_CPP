@@ -72,11 +72,12 @@ int main(int argc, char* argv[]) {
         ld_file.close();
 
         Collector collector(field);
+        Sapper sapper(field, collector.getScanned());
 
-        ConsoleView gameView(&field, &collector);
+        ConsoleView gameView(&field, &collector, &sapper);
         gameView.renderField();
 
-        Mode *mode = new ManualMode(&field, &collector, &gameView);
+        Mode *mode = new ManualMode(&field, &collector, &sapper, &gameView);
 
         Command *command = nullptr;
 
@@ -84,55 +85,55 @@ int main(int argc, char* argv[]) {
         getline(cin, cmd);
         while (cmd != "exit") {
             if (!collector.getDeadState()) {
+                delete command;
+                command = nullptr;
+
                 if (cmd == "MOVE U") {
-                    mode->move(Direction::UP);
-                    //command = new MoveCommand(mode, Direction::UP);
-                } else if (cmd == "MOVE D") {
-                    mode->move(Direction::DOWN);
-                    //command = new MoveCommand(mode, Direction::DOWN);
-                } else if (cmd == "MOVE L") {
-                    mode->move(Direction::LEFT);
-                    //command = new MoveCommand(mode, Direction::LEFT);
-                } else if (cmd == "MOVE R") {
-                    mode->move(Direction::RIGHT);
-                    //command = new MoveCommand(mode, Direction::RIGHT);
-                } else if (cmd == "GRAB") {
-                    mode->grab();
-                    //command = new GrabCommand(mode);
-                } else if (cmd == "SCAN") {
-                    mode->scan();
-                    //command = new ScanCommand(mode);
-                } else if (cmd == "SET_MODE manual") {
-                    delete mode;
-                    mode = new ManualMode(&field, &collector, &gameView);
-                } else if (cmd.substr(0, 13) == "SET_MODE scan") {
+                    command = new MoveCommand(mode, Direction::UP);
+                }
+                else if (cmd == "MOVE D") {
+                    command = new MoveCommand(mode, Direction::DOWN);
+                }
+                else if (cmd == "MOVE L") {
+                    command = new MoveCommand(mode, Direction::LEFT);
+                }
+                else if (cmd == "MOVE R") {
+                    command = new MoveCommand(mode, Direction::RIGHT);
+                }
+                else if (cmd == "GRAB") {
+                    command = new GrabCommand(mode);
+                }
+                else if (cmd == "SCAN") {
+                    command = new ScanCommand(mode);
+                }
+                else if (cmd == "SET_MODE manual") {
+                    command = new ChangeModeCommand(&mode, new ManualMode(&field, &collector, &sapper, &gameView));
+                }
+                else if (cmd.substr(0, 13) == "SET_MODE scan") {
                     try {
                         int n = stoi(cmd.substr(13));
-                        delete mode;
-                        mode = new ScanMode(&field, &collector, &gameView);
-                        mode->startAutoScanning(n);
+                        command = new ChangeModeCommand(&mode, new ScanMode(&field, &collector, &gameView, n));
                     }
-                    catch (exception&){
-
-                    }
-                } else if (cmd == "SET_MODE auto") {
-                    delete mode;
-                    mode = new AutoMode(&field, &collector, &gameView);
-                } else if (cmd == "SAPPER ON") {
-
-                } else if (cmd == "SAPPER OFF") {
-
+                    catch (exception&) {}
                 }
-                //command->execute();
+                else if (cmd == "SET_MODE auto") {
+                    command = new ChangeModeCommand(&mode,new AutoMode(&field, &collector, &sapper, &gameView));
+                }
+                else if (cmd == "SAPPER ON") {
+                    command = new SapperCommand(mode, true);
+                }
+                else if (cmd == "SAPPER OFF") {
+                    command = new SapperCommand(mode, false);
+                }
+                if (command) command->execute();
                 string msg = mode->getPendingMessage();
-                if (!msg.empty()) {
-                    gameView.showMessage(msg);
-                }
+                if (!msg.empty()) gameView.showMessage(msg);
                 gameView.renderField();
             }
             getline(cin, cmd);
         }
 
+        delete command;
         delete mode;
     }
     catch (exception&) {

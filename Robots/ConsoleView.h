@@ -10,11 +10,12 @@ using namespace std;
 
 class ConsoleView : GameView {
 public:
-    ConsoleView(Field *field, Collector *collector);
+    ConsoleView(Field *field, Collector *collector, Sapper *sapper);
     int getWidth() override;
     int getHeight() override;
     void renderField() override;
     void showMessage(string& msg);
+    void setModeName(const string& str);
 
     const string colorBlack = "\x1B[30m";
     const string colorRed = "\x1B[31m";
@@ -31,6 +32,8 @@ public:
 private:
     Field *field;
     Collector *collector;
+    Sapper *sapper;
+    string currentMode;
 
     void clearScreen();
 
@@ -40,6 +43,8 @@ private:
                                    colorRed + "oo" };
     const string BOMB_ICON[2] = { colorMagenta + "()",
                                   colorMagenta + "()"};
+    const string DEFUSED_BOMB_ICON[2] = { colorGrey + "()",
+                                          colorGrey + "()"};
     const string ROCK_ICON[2] = { colorGrey + "{/",
                                   colorGrey + "/}"};
     const string EMPTY_ICON[2] = { colorWhite + "  ",

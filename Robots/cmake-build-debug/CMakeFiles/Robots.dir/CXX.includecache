@@ -34,8 +34,20 @@ list
 
 D:/Workshop/CLionProjects/OOOP/Robots/GameView.h
 
+D:/Workshop/CLionProjects/OOOP/Robots/Mode.cpp
+queue
+-
+vector
+-
+cmath
+-
+Mode.h
 D:/Workshop/CLionProjects/OOOP/Robots/Mode.h
-list
+Utils.h
+D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
+
+D:/Workshop/CLionProjects/OOOP/Robots/Mode.h
+vector
 -
 ConsoleView.h
 D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h

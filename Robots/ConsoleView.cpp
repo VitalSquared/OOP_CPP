@@ -19,22 +19,24 @@ using namespace std;
     CONSOLE_SCREEN_BUFFER_INFO csbi; \
     int rows; \
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi); \
-    rows = max(csbi.srWindow.Bottom - csbi.srWindow.Top + 1, 50);
+    rows = max(csbi.srWindow.Bottom - csbi.srWindow.Top + 1, 30);
 
 #else
 
 #include <sys/ioctl.h>
 #include <unistd.h>
 
+#define MIN(A, B) ((A) < (B) ? (A) : (B))
+
 #define GET_SCREEN_WIDTH \
     struct winsize size; \
     ioctl(STDOUT_FILENO, TIOCGWINSZ, &size); \
-    int columns = size.ws_col;
+    int columns = MIN(size.ws_col, 100);
 
 #define GET_SCREEN_HEIGHT \
     struct winsize size; \
     ioctl(STDOUT_FILENO, TIOCGWINSZ, &size); \
-    int rows = size.ws_row;
+    int rows = MIN(size.ws_row, 50);
 
 #endif
 
@@ -52,9 +54,11 @@ int  ConsoleView::getHeight() {
     return rows;
 }
 
-ConsoleView::ConsoleView(Field *field, Collector *collector) {
+ConsoleView::ConsoleView(Field *field, Collector *collector, Sapper *sapper) {
     this->field = field;
     this->collector = collector;
+    this->sapper = sapper;
+    this->currentMode = "MANUAL";
 }
 
 void ConsoleView::renderField() {
@@ -81,17 +85,21 @@ void ConsoleView::renderField() {
 
     clearScreen();
     cout << endl; //empty line on top
-    string apples_collected = "Apples: " + to_string(collector->getApples());
+    string apples_collected = "Apples: " + to_string(collector->getApples()) + "   |    Current mode: " + currentMode;
 
     string legend[] = {
             APPLE_ICON[0],
             APPLE_ICON[1] + colorWhite + " - Apple",
             BOMB_ICON[0],
             BOMB_ICON[1] + colorWhite + " - Bomb",
+            DEFUSED_BOMB_ICON[0],
+            DEFUSED_BOMB_ICON[1] + colorWhite + " - Defused bomb",
             ROCK_ICON[0],
             ROCK_ICON[1] + colorWhite + " - Rock",
             COLLECTOR_ICON[0],
             COLLECTOR_ICON[1] + colorWhite + " - Collector",
+            SAPPER_ICON[0],
+            SAPPER_ICON[1] + colorWhite + " - Sapper"
     };
 
     //calculate offset that is required from the right side to fit in legend
@@ -134,7 +142,7 @@ void ConsoleView::renderField() {
     int left_c = coll_c - field_width / 2;
 
     //print first rows and legend
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 6; i++) {
         for (int icon = 0; icon < ICON_SIZE; icon++) {
             for (int j = 0; j < field_width; j++) {
                 cout << getIconFromCell(top_r + i, left_c + j)[icon] << colorDarkGrey + "|";
@@ -142,11 +150,11 @@ void ConsoleView::renderField() {
             cout << " " << legend[i * ICON_SIZE + icon] << endl;
         }
         for (int j = 0; j < field_screen_width; j++) cout << colorDarkGrey + ((j + 1) % (ICON_SIZE + 1) == 0 ? "+" : "-");
-        if (i == 3) cout << colorWhite + " Current cell:";
+        if (i == 5) cout << colorWhite + " Current cell:";
         cout << endl;
     }
 
-    for (int i = 4; i < 5; i++) {
+    for (int i = 6; i < 7; i++) {
         for (int icon = 0; icon < ICON_SIZE; icon++) {
             for (int j = 0; j < field_width; j++) {
                 cout << getIconFromCell(top_r + i, left_c + j)[icon] << colorDarkGrey + "|";
@@ -158,7 +166,7 @@ void ConsoleView::renderField() {
     }
 
     //print the rest of the rows
-    for (int i = 5; i < field_height; i++) {
+    for (int i = 7; i < field_height; i++) {
         for (int icon = 0; icon < ICON_SIZE; icon++) {
             for (int j = 0; j < field_width; j++) {
                 cout << getIconFromCell(top_r + i, left_c + j)[icon] << colorDarkGrey + "|";
@@ -173,6 +181,9 @@ void ConsoleView::renderField() {
 
 const string* ConsoleView::getIconFromCell(int r, int c, bool bIgnoreCollector) {
     if (!bIgnoreCollector && r == collector->getRow() && c == collector->getCol()) return COLLECTOR_ICON; //collector
+    if (sapper->getActive()) {
+        if (r == sapper->getRow() && c == sapper->getCol()) return SAPPER_ICON;
+    }
     if (!collector->hasScanned(r, c)) return UNKNOWN_ICON; //not scanned
     if (r < 0 || c < 0 || c >= field->getCols() || r >= field->getRows()) return ROCK_ICON; //out of bounds
 
@@ -182,6 +193,7 @@ const string* ConsoleView::getIconFromCell(int r, int c, bool bIgnoreCollector) 
         case Cell::ROCK: return ROCK_ICON;
         case Cell::BOMB: return BOMB_ICON;
         case Cell::APPLE: return APPLE_ICON;
+        case Cell::DEFUSED_BOMB: return DEFUSED_BOMB_ICON;
     }
 
     return EMPTY_ICON;
@@ -190,4 +202,8 @@ const string* ConsoleView::getIconFromCell(int r, int c, bool bIgnoreCollector) 
 void ConsoleView::showMessage(string& msg) {
     cout << msg << endl;
     delay(1000);
+}
+
+void ConsoleView::setModeName(const string& str) {
+    currentMode = str;
 }

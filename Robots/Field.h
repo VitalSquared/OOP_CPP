@@ -6,7 +6,7 @@
 
 using namespace std;
 
-enum class Cell { EMPTY, ROCK, BOMB, APPLE };
+enum class Cell { EMPTY, ROCK, BOMB, APPLE, DEFUSED_BOMB };
 
 class Field {
 public:

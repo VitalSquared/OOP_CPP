@@ -6,31 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Command.cpp
-Command.h
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Command.h
-
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Command.h
 Robot.h
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.h
 Mode.h
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Mode.h
-
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/ConsoleView.cpp
-iostream
--
-string
--
-ConsoleView.h
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
-Utils.h
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.h
-windows.h
--
-sys/ioctl.h
--
-unistd.h
--
 
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
 string
@@ -42,43 +22,23 @@ Robot.h
 GameView.h
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/GameView.h
 
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.cpp
-iostream
--
-string
--
-Field.h
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.h
-Utils.h
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.h
-
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.h
 fstream
+-
+list
 -
 
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/GameView.h
 
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Mode.cpp
-queue
--
+/mnt/d/Workshop/CLionProjects/OOOP/Robots/Mode.h
 list
 -
-Mode.h
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Mode.h
-Utils.h
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Utils.h
-
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Mode.h
 ConsoleView.h
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
 Robot.h
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.h
 Field.h
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Field.h
-
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.cpp
-Robot.h
-/mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.h
 
 /mnt/d/Workshop/CLionProjects/OOOP/Robots/Robot.h
 iostream

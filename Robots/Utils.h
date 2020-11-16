@@ -4,8 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
 #include <ctime>
+
 using namespace std;
 
 enum class ErrorType { OTHER, INVALID_ARGS, NO_FILE, CANT_CREATE_FILE, WH1000,  };
