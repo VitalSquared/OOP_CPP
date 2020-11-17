@@ -5,6 +5,7 @@ CMakeFiles/Robots.dir/commands/Command.cpp.obj
  ../field/Field.h
  ../modes/Mode.h
  ../robots/Robot.h
+ ../utils/Utils.h
  D:/Workshop/CLionProjects/OOOP/Robots/commands/Command.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/commands/Command.h
 CMakeFiles/Robots.dir/field/Field.cpp.obj
@@ -59,6 +60,7 @@ CMakeFiles/Robots.dir/modes/ManualMode.cpp.obj
 CMakeFiles/Robots.dir/modes/Mode.cpp.obj
  ../field/Field.h
  ../robots/Robot.h
+ ../utils/Utils.h
  D:/Workshop/CLionProjects/OOOP/Robots/modes/Mode.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/modes/Mode.h
 CMakeFiles/Robots.dir/modes/ScanMode.cpp.obj

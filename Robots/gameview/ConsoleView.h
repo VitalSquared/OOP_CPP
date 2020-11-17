@@ -17,7 +17,7 @@ public:
     int getWidth() override;
     int getHeight() override;
     void renderField() override;
-    static void showMessage(string& msg);
+    void showMessage(string& msg);
     void setModeName(const string& str);
 
     //const string colorBlack = "\x1B[30m";

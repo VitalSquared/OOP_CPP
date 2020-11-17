@@ -11,7 +11,7 @@ enum class Cell { EMPTY, ROCK, BOMB, APPLE, DEFUSED_BOMB };
 
 class Field {
 public:
-    explicit Field(ifstream &file);
+    Field(ifstream &file);
     ~Field();
     Cell getCell(int r, int c);
     void setCell(int r, int c, Cell cell);
@@ -19,8 +19,7 @@ public:
     int getCols() const;
 
 private:
-    int rows;
-    int cols;
+    int rows, cols;
     Cell *field;
     int getIndex(int r, int c) const;
 };

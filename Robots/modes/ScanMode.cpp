@@ -58,6 +58,7 @@ void ScanMode::startAutoScanning(int n) {
                 }
             }
         }
+
         if (!foundUnknown) break;
 
         int i = 0, j = random(min_unknown.size());

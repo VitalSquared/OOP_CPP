@@ -170,7 +170,7 @@ int main(int argc, char* argv[]) {
 
                 if (command) command->execute();
                 msg = success ? mode->getPendingMessage() : "Invalid command.";
-                if (!msg.empty()) ConsoleView::showMessage(msg);
+                if (!msg.empty()) gameView.showMessage(msg);
                 gameView.renderField();
             }
             getline(cin, cmd);
