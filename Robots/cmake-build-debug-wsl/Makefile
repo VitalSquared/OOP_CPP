@@ -123,167 +123,86 @@ Robots/fast:
 	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/build
 .PHONY : Robots/fast
 
-Command.o: Command.cpp.o
+commands/Command.o: commands/Command.cpp.o
 
-.PHONY : Command.o
-
-# target to build an object file
-Command.cpp.o:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Command.cpp.o
-.PHONY : Command.cpp.o
-
-Command.i: Command.cpp.i
-
-.PHONY : Command.i
-
-# target to preprocess a source file
-Command.cpp.i:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Command.cpp.i
-.PHONY : Command.cpp.i
-
-Command.s: Command.cpp.s
-
-.PHONY : Command.s
-
-# target to generate assembly for a file
-Command.cpp.s:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Command.cpp.s
-.PHONY : Command.cpp.s
-
-ConsoleView.o: ConsoleView.cpp.o
-
-.PHONY : ConsoleView.o
+.PHONY : commands/Command.o
 
 # target to build an object file
-ConsoleView.cpp.o:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/ConsoleView.cpp.o
-.PHONY : ConsoleView.cpp.o
+commands/Command.cpp.o:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/commands/Command.cpp.o
+.PHONY : commands/Command.cpp.o
 
-ConsoleView.i: ConsoleView.cpp.i
+commands/Command.i: commands/Command.cpp.i
 
-.PHONY : ConsoleView.i
+.PHONY : commands/Command.i
 
 # target to preprocess a source file
-ConsoleView.cpp.i:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/ConsoleView.cpp.i
-.PHONY : ConsoleView.cpp.i
+commands/Command.cpp.i:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/commands/Command.cpp.i
+.PHONY : commands/Command.cpp.i
 
-ConsoleView.s: ConsoleView.cpp.s
+commands/Command.s: commands/Command.cpp.s
 
-.PHONY : ConsoleView.s
+.PHONY : commands/Command.s
 
 # target to generate assembly for a file
-ConsoleView.cpp.s:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/ConsoleView.cpp.s
-.PHONY : ConsoleView.cpp.s
+commands/Command.cpp.s:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/commands/Command.cpp.s
+.PHONY : commands/Command.cpp.s
 
-Field.o: Field.cpp.o
+field/Field.o: field/Field.cpp.o
 
-.PHONY : Field.o
+.PHONY : field/Field.o
 
 # target to build an object file
-Field.cpp.o:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Field.cpp.o
-.PHONY : Field.cpp.o
+field/Field.cpp.o:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/field/Field.cpp.o
+.PHONY : field/Field.cpp.o
 
-Field.i: Field.cpp.i
+field/Field.i: field/Field.cpp.i
 
-.PHONY : Field.i
+.PHONY : field/Field.i
 
 # target to preprocess a source file
-Field.cpp.i:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Field.cpp.i
-.PHONY : Field.cpp.i
+field/Field.cpp.i:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/field/Field.cpp.i
+.PHONY : field/Field.cpp.i
 
-Field.s: Field.cpp.s
+field/Field.s: field/Field.cpp.s
 
-.PHONY : Field.s
+.PHONY : field/Field.s
 
 # target to generate assembly for a file
-Field.cpp.s:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Field.cpp.s
-.PHONY : Field.cpp.s
+field/Field.cpp.s:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/field/Field.cpp.s
+.PHONY : field/Field.cpp.s
 
-Mode.o: Mode.cpp.o
+gameview/ConsoleView.o: gameview/ConsoleView.cpp.o
 
-.PHONY : Mode.o
+.PHONY : gameview/ConsoleView.o
 
 # target to build an object file
-Mode.cpp.o:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Mode.cpp.o
-.PHONY : Mode.cpp.o
+gameview/ConsoleView.cpp.o:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/gameview/ConsoleView.cpp.o
+.PHONY : gameview/ConsoleView.cpp.o
 
-Mode.i: Mode.cpp.i
+gameview/ConsoleView.i: gameview/ConsoleView.cpp.i
 
-.PHONY : Mode.i
-
-# target to preprocess a source file
-Mode.cpp.i:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Mode.cpp.i
-.PHONY : Mode.cpp.i
-
-Mode.s: Mode.cpp.s
-
-.PHONY : Mode.s
-
-# target to generate assembly for a file
-Mode.cpp.s:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Mode.cpp.s
-.PHONY : Mode.cpp.s
-
-Robot.o: Robot.cpp.o
-
-.PHONY : Robot.o
-
-# target to build an object file
-Robot.cpp.o:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Robot.cpp.o
-.PHONY : Robot.cpp.o
-
-Robot.i: Robot.cpp.i
-
-.PHONY : Robot.i
+.PHONY : gameview/ConsoleView.i
 
 # target to preprocess a source file
-Robot.cpp.i:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Robot.cpp.i
-.PHONY : Robot.cpp.i
+gameview/ConsoleView.cpp.i:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/gameview/ConsoleView.cpp.i
+.PHONY : gameview/ConsoleView.cpp.i
 
-Robot.s: Robot.cpp.s
+gameview/ConsoleView.s: gameview/ConsoleView.cpp.s
 
-.PHONY : Robot.s
-
-# target to generate assembly for a file
-Robot.cpp.s:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Robot.cpp.s
-.PHONY : Robot.cpp.s
-
-Utils.o: Utils.cpp.o
-
-.PHONY : Utils.o
-
-# target to build an object file
-Utils.cpp.o:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Utils.cpp.o
-.PHONY : Utils.cpp.o
-
-Utils.i: Utils.cpp.i
-
-.PHONY : Utils.i
-
-# target to preprocess a source file
-Utils.cpp.i:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Utils.cpp.i
-.PHONY : Utils.cpp.i
-
-Utils.s: Utils.cpp.s
-
-.PHONY : Utils.s
+.PHONY : gameview/ConsoleView.s
 
 # target to generate assembly for a file
-Utils.cpp.s:
-	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/Utils.cpp.s
-.PHONY : Utils.cpp.s
+gameview/ConsoleView.cpp.s:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/gameview/ConsoleView.cpp.s
+.PHONY : gameview/ConsoleView.cpp.s
 
 main.o: main.cpp.o
 
@@ -312,6 +231,195 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+modes/AutoMode.o: modes/AutoMode.cpp.o
+
+.PHONY : modes/AutoMode.o
+
+# target to build an object file
+modes/AutoMode.cpp.o:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/modes/AutoMode.cpp.o
+.PHONY : modes/AutoMode.cpp.o
+
+modes/AutoMode.i: modes/AutoMode.cpp.i
+
+.PHONY : modes/AutoMode.i
+
+# target to preprocess a source file
+modes/AutoMode.cpp.i:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/modes/AutoMode.cpp.i
+.PHONY : modes/AutoMode.cpp.i
+
+modes/AutoMode.s: modes/AutoMode.cpp.s
+
+.PHONY : modes/AutoMode.s
+
+# target to generate assembly for a file
+modes/AutoMode.cpp.s:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/modes/AutoMode.cpp.s
+.PHONY : modes/AutoMode.cpp.s
+
+modes/ManualMode.o: modes/ManualMode.cpp.o
+
+.PHONY : modes/ManualMode.o
+
+# target to build an object file
+modes/ManualMode.cpp.o:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/modes/ManualMode.cpp.o
+.PHONY : modes/ManualMode.cpp.o
+
+modes/ManualMode.i: modes/ManualMode.cpp.i
+
+.PHONY : modes/ManualMode.i
+
+# target to preprocess a source file
+modes/ManualMode.cpp.i:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/modes/ManualMode.cpp.i
+.PHONY : modes/ManualMode.cpp.i
+
+modes/ManualMode.s: modes/ManualMode.cpp.s
+
+.PHONY : modes/ManualMode.s
+
+# target to generate assembly for a file
+modes/ManualMode.cpp.s:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/modes/ManualMode.cpp.s
+.PHONY : modes/ManualMode.cpp.s
+
+modes/Mode.o: modes/Mode.cpp.o
+
+.PHONY : modes/Mode.o
+
+# target to build an object file
+modes/Mode.cpp.o:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/modes/Mode.cpp.o
+.PHONY : modes/Mode.cpp.o
+
+modes/Mode.i: modes/Mode.cpp.i
+
+.PHONY : modes/Mode.i
+
+# target to preprocess a source file
+modes/Mode.cpp.i:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/modes/Mode.cpp.i
+.PHONY : modes/Mode.cpp.i
+
+modes/Mode.s: modes/Mode.cpp.s
+
+.PHONY : modes/Mode.s
+
+# target to generate assembly for a file
+modes/Mode.cpp.s:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/modes/Mode.cpp.s
+.PHONY : modes/Mode.cpp.s
+
+modes/ScanMode.o: modes/ScanMode.cpp.o
+
+.PHONY : modes/ScanMode.o
+
+# target to build an object file
+modes/ScanMode.cpp.o:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/modes/ScanMode.cpp.o
+.PHONY : modes/ScanMode.cpp.o
+
+modes/ScanMode.i: modes/ScanMode.cpp.i
+
+.PHONY : modes/ScanMode.i
+
+# target to preprocess a source file
+modes/ScanMode.cpp.i:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/modes/ScanMode.cpp.i
+.PHONY : modes/ScanMode.cpp.i
+
+modes/ScanMode.s: modes/ScanMode.cpp.s
+
+.PHONY : modes/ScanMode.s
+
+# target to generate assembly for a file
+modes/ScanMode.cpp.s:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/modes/ScanMode.cpp.s
+.PHONY : modes/ScanMode.cpp.s
+
+robots/Collector.o: robots/Collector.cpp.o
+
+.PHONY : robots/Collector.o
+
+# target to build an object file
+robots/Collector.cpp.o:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/robots/Collector.cpp.o
+.PHONY : robots/Collector.cpp.o
+
+robots/Collector.i: robots/Collector.cpp.i
+
+.PHONY : robots/Collector.i
+
+# target to preprocess a source file
+robots/Collector.cpp.i:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/robots/Collector.cpp.i
+.PHONY : robots/Collector.cpp.i
+
+robots/Collector.s: robots/Collector.cpp.s
+
+.PHONY : robots/Collector.s
+
+# target to generate assembly for a file
+robots/Collector.cpp.s:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/robots/Collector.cpp.s
+.PHONY : robots/Collector.cpp.s
+
+robots/Sapper.o: robots/Sapper.cpp.o
+
+.PHONY : robots/Sapper.o
+
+# target to build an object file
+robots/Sapper.cpp.o:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/robots/Sapper.cpp.o
+.PHONY : robots/Sapper.cpp.o
+
+robots/Sapper.i: robots/Sapper.cpp.i
+
+.PHONY : robots/Sapper.i
+
+# target to preprocess a source file
+robots/Sapper.cpp.i:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/robots/Sapper.cpp.i
+.PHONY : robots/Sapper.cpp.i
+
+robots/Sapper.s: robots/Sapper.cpp.s
+
+.PHONY : robots/Sapper.s
+
+# target to generate assembly for a file
+robots/Sapper.cpp.s:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/robots/Sapper.cpp.s
+.PHONY : robots/Sapper.cpp.s
+
+utils/Utils.o: utils/Utils.cpp.o
+
+.PHONY : utils/Utils.o
+
+# target to build an object file
+utils/Utils.cpp.o:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/utils/Utils.cpp.o
+.PHONY : utils/Utils.cpp.o
+
+utils/Utils.i: utils/Utils.cpp.i
+
+.PHONY : utils/Utils.i
+
+# target to preprocess a source file
+utils/Utils.cpp.i:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/utils/Utils.cpp.i
+.PHONY : utils/Utils.cpp.i
+
+utils/Utils.s: utils/Utils.cpp.s
+
+.PHONY : utils/Utils.s
+
+# target to generate assembly for a file
+utils/Utils.cpp.s:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/utils/Utils.cpp.s
+.PHONY : utils/Utils.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -321,27 +429,39 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Robots"
-	@echo "... Command.o"
-	@echo "... Command.i"
-	@echo "... Command.s"
-	@echo "... ConsoleView.o"
-	@echo "... ConsoleView.i"
-	@echo "... ConsoleView.s"
-	@echo "... Field.o"
-	@echo "... Field.i"
-	@echo "... Field.s"
-	@echo "... Mode.o"
-	@echo "... Mode.i"
-	@echo "... Mode.s"
-	@echo "... Robot.o"
-	@echo "... Robot.i"
-	@echo "... Robot.s"
-	@echo "... Utils.o"
-	@echo "... Utils.i"
-	@echo "... Utils.s"
+	@echo "... commands/Command.o"
+	@echo "... commands/Command.i"
+	@echo "... commands/Command.s"
+	@echo "... field/Field.o"
+	@echo "... field/Field.i"
+	@echo "... field/Field.s"
+	@echo "... gameview/ConsoleView.o"
+	@echo "... gameview/ConsoleView.i"
+	@echo "... gameview/ConsoleView.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... modes/AutoMode.o"
+	@echo "... modes/AutoMode.i"
+	@echo "... modes/AutoMode.s"
+	@echo "... modes/ManualMode.o"
+	@echo "... modes/ManualMode.i"
+	@echo "... modes/ManualMode.s"
+	@echo "... modes/Mode.o"
+	@echo "... modes/Mode.i"
+	@echo "... modes/Mode.s"
+	@echo "... modes/ScanMode.o"
+	@echo "... modes/ScanMode.i"
+	@echo "... modes/ScanMode.s"
+	@echo "... robots/Collector.o"
+	@echo "... robots/Collector.i"
+	@echo "... robots/Collector.s"
+	@echo "... robots/Sapper.o"
+	@echo "... robots/Sapper.i"
+	@echo "... robots/Sapper.s"
+	@echo "... utils/Utils.o"
+	@echo "... utils/Utils.i"
+	@echo "... utils/Utils.s"
 .PHONY : help
 
 

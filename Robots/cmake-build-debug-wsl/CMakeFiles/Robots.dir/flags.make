@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/mnt/d/Workshop/CLionProjects/OOOP/Robots/commands -I/mnt/d/Workshop/CLionProjects/OOOP/Robots/gameview -I/mnt/d/Workshop/CLionProjects/OOOP/Robots/modes -I/mnt/d/Workshop/CLionProjects/OOOP/Robots/robots -I/mnt/d/Workshop/CLionProjects/OOOP/Robots/field -I/mnt/d/Workshop/CLionProjects/OOOP/Robots/utils 
 

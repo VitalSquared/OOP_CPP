@@ -2,7 +2,12 @@
 #include <vector>
 #include <string>
 #include "optionparser.h"
+#include "Collector.h"
+#include "Sapper.h"
 #include "ConsoleView.h"
+#include "ManualMode.h"
+#include "ScanMode.h"
+#include "AutoMode.h"
 #include "Command.h"
 #include "Utils.h"
 
@@ -160,6 +165,7 @@ int main(int argc, char* argv[]) {
                             else success = false;
                         }
                     }
+                    else success = false;
                 }
 
                 if (command) command->execute();
