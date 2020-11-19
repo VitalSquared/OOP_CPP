@@ -20,10 +20,10 @@ public:
     virtual string getPendingMessage() = 0;
 
 private:
-    virtual bool validateCell(int r, int c, Cell ignore) = 0;
+    virtual bool validateCell(int r, int c, const set<Cell>& canWalkOn) = 0;
 
 protected:
-    vector<pair<int,int>> buildPath(int rs, int cs, int rf, int cf, Cell ignore = Cell::EMPTY);
+    vector<pair<int,int>> buildPath(int rs, int cs, int rf, int cf, const set<Cell>& canWalkOn);
     bool findClosestPoint(Field *field,set<pair<int,int>> *scanned, set<pair<int,int>>& unreachable,
                           int& rr, int& cr, int &rp, int &cp, Cell point);
 };

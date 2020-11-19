@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/d/Workshop/CLionProjects/OOOP/Robots/modes/Mode.cpp" "/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles/Robots.dir/modes/Mode.cpp.o"
   "/mnt/d/Workshop/CLionProjects/OOOP/Robots/modes/ScanMode.cpp" "/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles/Robots.dir/modes/ScanMode.cpp.o"
   "/mnt/d/Workshop/CLionProjects/OOOP/Robots/robots/Collector.cpp" "/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles/Robots.dir/robots/Collector.cpp.o"
+  "/mnt/d/Workshop/CLionProjects/OOOP/Robots/robots/Robot.cpp" "/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles/Robots.dir/robots/Robot.cpp.o"
   "/mnt/d/Workshop/CLionProjects/OOOP/Robots/robots/Sapper.cpp" "/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles/Robots.dir/robots/Sapper.cpp.o"
   "/mnt/d/Workshop/CLionProjects/OOOP/Robots/utils/Utils.cpp" "/mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl/CMakeFiles/Robots.dir/utils/Utils.cpp.o"
   )

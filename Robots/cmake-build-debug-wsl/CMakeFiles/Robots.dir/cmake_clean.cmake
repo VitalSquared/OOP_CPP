@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Robots.dir/modes/Mode.cpp.o"
   "CMakeFiles/Robots.dir/modes/ScanMode.cpp.o"
   "CMakeFiles/Robots.dir/robots/Collector.cpp.o"
+  "CMakeFiles/Robots.dir/robots/Robot.cpp.o"
   "CMakeFiles/Robots.dir/robots/Sapper.cpp.o"
   "CMakeFiles/Robots.dir/utils/Utils.cpp.o"
   "Robots"

@@ -366,6 +366,33 @@ robots/Collector.cpp.s:
 	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/robots/Collector.cpp.s
 .PHONY : robots/Collector.cpp.s
 
+robots/Robot.o: robots/Robot.cpp.o
+
+.PHONY : robots/Robot.o
+
+# target to build an object file
+robots/Robot.cpp.o:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/robots/Robot.cpp.o
+.PHONY : robots/Robot.cpp.o
+
+robots/Robot.i: robots/Robot.cpp.i
+
+.PHONY : robots/Robot.i
+
+# target to preprocess a source file
+robots/Robot.cpp.i:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/robots/Robot.cpp.i
+.PHONY : robots/Robot.cpp.i
+
+robots/Robot.s: robots/Robot.cpp.s
+
+.PHONY : robots/Robot.s
+
+# target to generate assembly for a file
+robots/Robot.cpp.s:
+	$(MAKE) -f CMakeFiles/Robots.dir/build.make CMakeFiles/Robots.dir/robots/Robot.cpp.s
+.PHONY : robots/Robot.cpp.s
+
 robots/Sapper.o: robots/Sapper.cpp.o
 
 .PHONY : robots/Sapper.o
@@ -456,6 +483,9 @@ help:
 	@echo "... robots/Collector.o"
 	@echo "... robots/Collector.i"
 	@echo "... robots/Collector.s"
+	@echo "... robots/Robot.o"
+	@echo "... robots/Robot.i"
+	@echo "... robots/Robot.s"
 	@echo "... robots/Sapper.o"
 	@echo "... robots/Sapper.i"
 	@echo "... robots/Sapper.s"

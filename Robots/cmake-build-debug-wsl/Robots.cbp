@@ -148,6 +148,9 @@
 		<Unit filename="/mnt/d/Workshop/CLionProjects/OOOP/Robots/robots/Collector.h">
 			<Option target="Robots"/>
 		</Unit>
+		<Unit filename="/mnt/d/Workshop/CLionProjects/OOOP/Robots/robots/Robot.cpp">
+			<Option target="Robots"/>
+		</Unit>
 		<Unit filename="/mnt/d/Workshop/CLionProjects/OOOP/Robots/robots/Robot.h">
 			<Option target="Robots"/>
 		</Unit>

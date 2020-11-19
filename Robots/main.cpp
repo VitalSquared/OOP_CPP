@@ -91,7 +91,7 @@ int main(int argc, char* argv[]) {
         ld_file.close();
 
         Collector collector(field);
-        Sapper sapper(field, collector.getScanned());
+        Sapper sapper(field, &collector);
 
         ConsoleView gameView(&field, &collector, &sapper);
         gameView.renderField();
@@ -106,7 +106,7 @@ int main(int argc, char* argv[]) {
         while (cmd != "exit") {
             vector<string> args = splitString(cmd, ' ');
 
-            if (!collector.getDeadState()) {
+            if (collector.isActive()) {
                 delete command;
                 command = nullptr;
                 bool success = true;
@@ -143,7 +143,7 @@ int main(int argc, char* argv[]) {
                                 else {
                                     try {
                                         int n = stoi(args[2]);
-                                        command = new ChangeModeCommand(&mode, new ScanMode(&field, &collector, &gameView, n));
+                                        command = new ChangeModeCommand(&mode, new ScanMode(&field, &collector, &sapper, &gameView, n));
                                     }
                                     catch (exception &) {
                                         success = false;

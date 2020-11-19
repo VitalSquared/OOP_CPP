@@ -1,8 +1,9 @@
 #include "ScanMode.h"
 
-ScanMode::ScanMode(Field *field, Collector *collector, ConsoleView *gameView, int n) {
+ScanMode::ScanMode(Field *field, Collector *collector, Sapper *sapper, ConsoleView *gameView, int n) {
     this->field = field;
     this->collector = collector;
+    this->sapper = sapper;
     this->gameView = gameView;
     this->pendingMessage = "";
     this->gameView->setModeName("SCANNING");
@@ -71,7 +72,7 @@ void ScanMode::startAutoScanning(int n) {
             i++;
         }
 
-        vector<pair<int, int>> path = buildPath(rc, cc, ru, cu);
+        vector<pair<int, int>> path = buildPath(rc, cc, ru, cu, {Cell::EMPTY, Cell::APPLE, Cell::DEFUSED_BOMB});
         if (path.empty()) {
             unreachable.insert(make_pair(ru, cu));
             continue;
@@ -100,9 +101,9 @@ void ScanMode::startAutoScanning(int n) {
     }
 }
 
-bool ScanMode::validateCell(int r, int c, Cell ignore) {
-    if (r < 0 || r >= field->getRows() || c < 0 || c >= field->getCols()) return false;
-    if (field->getCell(r, c) != ignore && (field->getCell(r, c) == Cell::BOMB || field->getCell(r, c) == Cell::ROCK)) return false;
+bool ScanMode::validateCell(int r, int c, const set<Cell>& canWalkOn) {
+    if (sapper->isActive() && make_pair(r, c) == sapper->getPosition()) return false;
+    if (canWalkOn.find(field->getCell(r, c)) == canWalkOn.end()) return false;
     return true;
 }
 

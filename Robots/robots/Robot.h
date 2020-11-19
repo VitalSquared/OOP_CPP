@@ -2,6 +2,8 @@
 #define ROBOTS_ROBOT_H
 
 #include <iostream>
+#include <set>
+#include "Field.h"
 
 using namespace std;
 
@@ -12,6 +14,10 @@ public:
     virtual ~Robot() = default;
     virtual void setNewPosition(pair<int, int> new_pos) = 0;
     virtual pair<int, int> getPosition() = 0;
+    virtual bool isActive() const = 0;
+
+private:
+    virtual pair<int, int> findSuitablePos() = 0;
 };
 
 #endif

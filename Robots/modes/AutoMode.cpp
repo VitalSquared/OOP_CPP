@@ -43,7 +43,7 @@ void AutoMode::startAutoCollecting() {
         bool foundApple = findClosestPoint(field, scanned, unreachable_apples, rc, cc, ra, ca, Cell::APPLE);
         if (!foundApple) break;
 
-        vector<pair<int, int>> path_to_apple = buildPath(rc, cc, ra, ca);
+        vector<pair<int, int>> path_to_apple = buildPath(rc, cc, ra, ca, {Cell::EMPTY, Cell::APPLE, Cell::DEFUSED_BOMB});
         if (path_to_apple.empty()) {
             unreachable_apples.insert(make_pair(ra, ca));
             continue;
@@ -51,12 +51,12 @@ void AutoMode::startAutoCollecting() {
 
         bool foundBomb = false;
         vector<pair<int, int>> path_to_bomb;
-        if (sapper->getActive()) {
+        if (sapper->isActive()) {
             foundBomb = findClosestPoint(field, scanned, unreachable_bombs, rs, cs, rb, cb, Cell::BOMB);
             if (foundBomb) {
                 while (true) {
                     if (!foundBomb) break;
-                    path_to_bomb = buildPath(rs, cs, rb, cb, Cell::BOMB);
+                    path_to_bomb = buildPath(rs, cs, rb, cb,{Cell::EMPTY, Cell::APPLE, Cell::DEFUSED_BOMB, Cell::BOMB});
                     if (path_to_bomb.empty()) {
                         unreachable_bombs.insert(make_pair(rb, cb));
                         foundBomb = findClosestPoint(field, scanned, unreachable_bombs, rs, cs, rb, cb, Cell::BOMB);
@@ -69,20 +69,28 @@ void AutoMode::startAutoCollecting() {
         while (path_to_bomb.size() > path_to_apple.size()) path_to_bomb.pop_back();
 
         int i = 0, off = 0;
-        for (auto pair : path_to_apple) {
-            int r = pair.first, c = pair.second;
-            collector->setNewPosition(make_pair(r, c));
-            if (field->getCell(r, c) == Cell::APPLE) collector->collectApple();
-
+        for (int j = 0; j < path_to_apple.size(); j++) {
             if (foundBomb) {
                 int r1 = path_to_bomb[i].first, c1 = path_to_bomb[i].second;
                 sapper->setNewPosition(make_pair(r1, c1));
             }
 
-            if (r != rc || c != cc) {
+            pair<int, int> pos = path_to_apple[j];
+            int r = pos.first, c = pos.second;
+            if (sapper->isActive() && pos == sapper->getPosition()) {
+                j--;
                 gameView->renderField();
                 delay(1000);
             }
+            else {
+                collector->setNewPosition(make_pair(r, c));
+                if (field->getCell(r, c) == Cell::APPLE) collector->collectApple();
+                if (r != rc || c != cc) {
+                    gameView->renderField();
+                    delay(1000);
+                }
+            }
+
             i++;
 
             if (foundBomb) {
@@ -91,7 +99,7 @@ void AutoMode::startAutoCollecting() {
                     while (true) {
                         foundBomb = findClosestPoint(field, scanned, unreachable_bombs, rs, cs, rb, cb, Cell::BOMB);
                         if (!foundBomb) break;
-                        path_to_bomb = buildPath(rs, cs, rb, cb, Cell::BOMB);
+                        path_to_bomb = buildPath(rs, cs, rb, cb, {Cell::EMPTY, Cell::APPLE, Cell::DEFUSED_BOMB, Cell::BOMB});
                         if (path_to_bomb.empty()) unreachable_bombs.insert(make_pair(rb, cb));
                         else break;
                     }
@@ -105,8 +113,8 @@ void AutoMode::startAutoCollecting() {
     }
 }
 
-bool AutoMode::validateCell(int r, int c, Cell ignore) {
+bool AutoMode::validateCell(int r, int c, const set<Cell>& canWalkOn) {
     if (!collector->hasScanned(r, c)) return false;
-    if (field->getCell(r, c) != ignore && (field->getCell(r, c) == Cell::BOMB || field->getCell(r, c) == Cell::ROCK)) return false;
+    if (canWalkOn.find(field->getCell(r, c)) == canWalkOn.end()) return false;
     return true;
 }

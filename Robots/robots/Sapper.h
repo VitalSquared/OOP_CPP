@@ -7,23 +7,26 @@
 #include "Field.h"
 #include "Utils.h"
 #include "Robot.h"
+#include "Collector.h"
 
 class Sapper : public Robot {
 public:
-    Sapper(Field &field, set<pair<int,int>> *collectorScanned);
+    Sapper(Field &field, Collector *collector);
     ~Sapper() override = default;
 
     void setNewPosition(pair<int, int> new_pos) override;
     pair<int, int> getPosition() override;
+    bool isActive() const override;
 
     void toggleSapper(bool newActive);
-    bool getActive() const;
 
 private:
     bool active;
     int pos_r, pos_c;
     Field *field;
-    set<pair<int,int>> *collectorScanned;
+    Collector *collector;
+
+    pair<int, int> findSuitablePos() override;
 };
 
 #endif

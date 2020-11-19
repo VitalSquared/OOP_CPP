@@ -82,6 +82,7 @@ CMakeFiles\Robots.dir\robots\Collector.cpp.obj: ..\robots\Robot.h
 
 CMakeFiles\Robots.dir\robots\Sapper.cpp.obj: ..\field\Field.h
 CMakeFiles\Robots.dir\robots\Sapper.cpp.obj: ..\utils\Utils.h
+CMakeFiles\Robots.dir\robots\Sapper.cpp.obj: ..\robots\Collector.h
 CMakeFiles\Robots.dir\robots\Sapper.cpp.obj: ..\robots\Robot.h
 CMakeFiles\Robots.dir\robots\Sapper.cpp.obj: ..\robots\Sapper.cpp
 CMakeFiles\Robots.dir\robots\Sapper.cpp.obj: ..\robots\Sapper.h

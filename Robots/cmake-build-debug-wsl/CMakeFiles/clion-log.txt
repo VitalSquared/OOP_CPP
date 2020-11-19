@@ -1,1 +1,4 @@
-CMake executable is incorrect Configure
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /mnt/d/Workshop/CLionProjects/OOOP/Robots
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/d/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug-wsl

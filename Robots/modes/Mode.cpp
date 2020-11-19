@@ -2,7 +2,7 @@
 
 using namespace std;
 
-vector<pair<int, int>> Mode::buildPath(int rs, int cs, int rf, int cf, Cell ignore) {
+vector<pair<int, int>> Mode::buildPath(int rs, int cs, int rf, int cf, const set<Cell>& canWalkOn) {
     set<pair<int, int>> visited;
     queue<vector<pair<int,int>>> q;
 
@@ -23,14 +23,17 @@ vector<pair<int, int>> Mode::buildPath(int rs, int cs, int rf, int cf, Cell igno
 
         pair<int,int> neighbours[4] = { {r, c - 1}, {r, c + 1}, {r - 1, c}, {r + 1, c} };
         for (auto neighbour : neighbours) {
-            if (visited.find(neighbour) == visited.end() && validateCell(neighbour.first, neighbour.second, ignore)) {
+            if (visited.find(neighbour) == visited.end() && validateCell(neighbour.first, neighbour.second, canWalkOn)) {
                 vector<pair<int, int>> new_path(cur_path);
                 new_path.emplace_back(make_pair(neighbour.first, neighbour.second));
                 q.push(new_path);
             }
+            if (!validateCell(neighbour.first, neighbour.second, canWalkOn) && rf == neighbour.first && cf == neighbour.second) {
+                return {};
+            }
         }
     }
-    return vector<pair<int,int>>();
+    return {};
 }
 
 bool Mode::findClosestPoint(Field *field, set<pair<int,int>> *scanned, set<pair<int,int>>& unreachable,

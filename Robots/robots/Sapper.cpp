@@ -1,8 +1,8 @@
 #include "Sapper.h"
 
-Sapper::Sapper(Field &field, set<pair<int,int>> *collectorScanned) {
+Sapper::Sapper(Field &field, Collector *collector) {
     this->field = &field;
-    this->collectorScanned = collectorScanned;
+    this->collector = collector;
     active = false;
     pos_r = 0;
     pos_c = 0;
@@ -15,6 +15,18 @@ void Sapper::setNewPosition(pair<int, int> new_pos) {
         if (field->getCell(pos_r, pos_c) == Cell::BOMB) {
             field->setCell(pos_r, pos_c, Cell::DEFUSED_BOMB);
         }
+        if (new_pos == collector->getPosition()) {
+            vector<pair<int, int>> collNewPos;
+            int rc = new_pos.first, cc = new_pos.second;
+            pair<int, int> adjs[4] = {{rc - 1, cc}, {rc + 1, cc}, {rc, cc - 1}, {rc, cc + 1}};
+            for (auto adj : adjs) {
+                Cell cell = field->getCell(adj.first, adj.second);
+                if (cell != Cell::BOMB && cell != Cell::ROCK) {
+                    collNewPos.emplace_back(adj);
+                }
+            }
+            collector->setNewPosition(collNewPos[random(collNewPos.size())]);
+        }
     }
 }
 
@@ -24,20 +36,31 @@ pair<int, int> Sapper::getPosition() {
 
 void Sapper::toggleSapper(bool newActive) {
     active = newActive;
-    if (active) {
-        int i = 0, req = random(collectorScanned->size());
-        for (auto coord : *collectorScanned) {
-            if (i == req) {
-                pos_r = coord.first;
-                pos_c = coord.second;
-                break;
-            }
-            i++;
-        }
-        setNewPosition(make_pair(pos_r, pos_c));
-    }
+    if (active) setNewPosition(findSuitablePos());
 }
 
-bool Sapper::getActive() const {
+bool Sapper::isActive() const {
     return active;
+}
+
+pair<int, int> Sapper::findSuitablePos() {
+    vector<pair<int, int>> possible;
+    for (auto pos : *collector->getScanned()) {
+        Cell cell = field->getCell(pos.first, pos.second);
+        if (cell != Cell::ROCK) {
+            if (pos == collector->getPosition()) {
+                int cntSuitable = 0;
+                int rc = pos.first, cc = pos.second;
+                pair<int, int> adjs[4] = {{rc - 1, cc}, {rc + 1, cc}, {rc, cc - 1}, {rc, cc + 1}};
+                for (auto adj : adjs) {
+                    Cell cell = field->getCell(adj.first, adj.second);
+                    if (cell != Cell::BOMB && cell != Cell::ROCK) cntSuitable++;
+                }
+                if (cntSuitable == 0) continue;
+            }
+            possible.emplace_back(pos);
+        }
+    }
+    int idx = random(possible.size());
+    return possible[idx];
 }

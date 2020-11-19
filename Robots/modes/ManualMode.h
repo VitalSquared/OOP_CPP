@@ -24,7 +24,7 @@ private:
     Sapper *sapper;
     ConsoleView *gameView;
 
-    bool validateCell(int r, int c, Cell ignore) override;
+    bool validateCell(int r, int c, const set<Cell>& canWalkOn) override;
 };
 
 #endif

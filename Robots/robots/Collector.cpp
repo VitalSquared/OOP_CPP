@@ -1,13 +1,13 @@
 #include "Collector.h"
 
 Collector::Collector(Field &field) {
-    isDead = false;
+    active = true;
     apples = 0;
-    pos_r = random(field.getRows());
-    pos_c = random(field.getCols());
+    pos_r = 0;
+    pos_c = 0;
     scanned = new set<pair<int, int>>();
-    scanned->insert({pos_r, pos_c});
     this->field = &field;
+    init();
 }
 
 Collector::~Collector() {
@@ -16,10 +16,17 @@ Collector::~Collector() {
     scanned = nullptr;
 }
 
+void Collector::init() {
+    pair<int, int> pos = findSuitablePos();
+    pos_r = pos.first;
+    pos_c = pos.second;
+    scanned->insert({pos_r, pos_c});
+}
+
 void Collector::setNewPosition(pair<int, int> new_pos) {
     pos_r = new_pos.first;
     pos_c = new_pos.second;
-    if (field->getCell(pos_r, pos_c) == Cell::BOMB) isDead = true;
+    if (field->getCell(pos_r, pos_c) == Cell::BOMB) active = false;
 }
 
 pair<int, int> Collector::getPosition() {
@@ -54,6 +61,20 @@ int Collector::getApples() const {
     return apples;
 }
 
-bool Collector::getDeadState() const {
-    return isDead;
+bool Collector::isActive() const {
+    return active;
+}
+
+pair<int, int> Collector::findSuitablePos() {
+    vector<pair<int, int>> possible;
+    for (int r = 0; r < field->getRows(); r++) {
+        for (int c = 0; c < field->getCols(); c++) {
+            Cell cell = field->getCell(r, c);
+            if (cell != Cell::BOMB && cell != Cell::ROCK) {
+                possible.emplace_back(make_pair(r, c));
+            }
+        }
+    }
+    int idx = random(possible.size());
+    return possible[idx];
 }

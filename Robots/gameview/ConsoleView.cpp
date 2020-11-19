@@ -60,7 +60,7 @@ ConsoleView::ConsoleView(Field *field, Collector *collector, Sapper *sapper) {
 
 void ConsoleView::renderField() {
     //check if collector robot is dead
-    if (collector->getDeadState()) {
+    if (!collector->isActive()) {
         clearScreen();
         ifstream death_msg("robot_has_exploded.txt");
         if (death_msg.is_open()) {
@@ -178,7 +178,7 @@ void ConsoleView::renderField() {
 
 const string* ConsoleView::getIconFromCell(int r, int c, bool bIgnoreCollector) {
     if (!bIgnoreCollector && make_pair(r, c) == collector->getPosition()) return COLLECTOR_ICON; //collector
-    if (sapper->getActive()) {
+    if (sapper->isActive()) {
         if (make_pair(r, c) == sapper->getPosition()) return SAPPER_ICON;
     }
     if (!collector->hasScanned(r, c)) return UNKNOWN_ICON; //not scanned

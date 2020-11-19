@@ -20,7 +20,7 @@ void ManualMode::move(Direction dir) {
     int new_r = collector->getPosition().first + dr, new_c = collector->getPosition().second + dc;
     if (new_r < 0 || new_r >= field->getRows() || new_c < 0 || new_c >= field->getCols() ||
         !collector->hasScanned(new_r, new_c) || field->getCell(new_r, new_c) == Cell::ROCK ||
-        sapper->getActive() && make_pair(new_r, new_c) == sapper->getPosition()) {
+        sapper->isActive() && make_pair(new_r, new_c) == sapper->getPosition()) {
         pendingMessage = "I can't go there.";
     }
     else collector->setNewPosition(make_pair(new_r, new_c));
@@ -35,7 +35,7 @@ void ManualMode::scan() {
 }
 
 void ManualMode::toggleSapper(bool enable) {
-    if (sapper->getActive()) {
+    if (sapper->isActive()) {
         if (enable) pendingMessage = "There is already a Sapper present.";
         else sapper->toggleSapper(false);
     }
@@ -51,6 +51,6 @@ string ManualMode::getPendingMessage() {
     return msg;
 }
 
-bool ManualMode::validateCell(int r, int c, Cell ignore) {
+bool ManualMode::validateCell(int r, int c, const set<Cell>& canWalkOn) {
     return true;
 }
