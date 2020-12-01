@@ -3,11 +3,4 @@ project(Robots)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(commands)
-include_directories(gameview)
-include_directories(modes)
-include_directories(robots)
-include_directories(field)
-include_directories(utils)
-
-add_executable(Robots main.cpp modes/Mode.cpp modes/Mode.h robots/Robot.h gameview/GameView.h commands/Command.cpp commands/Command.h field/Field.cpp field/Field.h utils/Utils.cpp utils/Utils.h gameview/ConsoleView.cpp gameview/ConsoleView.h robots/Collector.cpp robots/Collector.h robots/Sapper.cpp robots/Sapper.h modes/ManualMode.cpp modes/ManualMode.h modes/ScanMode.cpp modes/ScanMode.h modes/AutoMode.cpp modes/AutoMode.h)
+add_executable(Robots main.cpp IRobot.h ICommand.h IGameView.h Collector.cpp Collector.h Sapper.cpp Sapper.h ConsoleView.cpp ConsoleView.h IMode.h Game.cpp Game.h ChangeModeCommand.cpp ChangeModeCommand.h MoveCommand.cpp MoveCommand.h ScanCommand.cpp ScanCommand.h GrabCommand.cpp GrabCommand.h ToggleSapperCommand.cpp ToggleSapperCommand.h ManualMode.cpp ManualMode.h AutoMode.cpp AutoMode.h ScanMode.cpp ScanMode.h Utils.cpp Utils.h Map.cpp Map.h Repeater.cpp Repeater.h Texture.cpp Texture.h)

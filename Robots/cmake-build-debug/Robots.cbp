@@ -24,12 +24,6 @@
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add directory="D:/Workshop/CLionProjects/OOOP/Robots/commands"/>
-					<Add directory="D:/Workshop/CLionProjects/OOOP/Robots/gameview"/>
-					<Add directory="D:/Workshop/CLionProjects/OOOP/Robots/modes"/>
-					<Add directory="D:/Workshop/CLionProjects/OOOP/Robots/robots"/>
-					<Add directory="D:/Workshop/CLionProjects/OOOP/Robots/field"/>
-					<Add directory="D:/Workshop/CLionProjects/OOOP/Robots/utils"/>
 					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
 					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
@@ -53,12 +47,6 @@
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add directory="D:/Workshop/CLionProjects/OOOP/Robots/commands"/>
-					<Add directory="D:/Workshop/CLionProjects/OOOP/Robots/gameview"/>
-					<Add directory="D:/Workshop/CLionProjects/OOOP/Robots/modes"/>
-					<Add directory="D:/Workshop/CLionProjects/OOOP/Robots/robots"/>
-					<Add directory="D:/Workshop/CLionProjects/OOOP/Robots/field"/>
-					<Add directory="D:/Workshop/CLionProjects/OOOP/Robots/utils"/>
 					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
 					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
@@ -96,73 +84,115 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/commands/Command.cpp">
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/AutoMode.cpp">
 			<Option target="Robots"/>
 		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/commands/Command.h">
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/AutoMode.h">
 			<Option target="Robots"/>
 		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/field/Field.cpp">
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ChangeModeCommand.cpp">
 			<Option target="Robots"/>
 		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/field/Field.h">
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ChangeModeCommand.h">
 			<Option target="Robots"/>
 		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/gameview/ConsoleView.cpp">
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Collector.cpp">
 			<Option target="Robots"/>
 		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/gameview/ConsoleView.h">
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Collector.h">
 			<Option target="Robots"/>
 		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/gameview/GameView.h">
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Game.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Game.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/GrabCommand.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/GrabCommand.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/IGameView.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/IMode.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ManualMode.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ManualMode.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Map.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Map.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/MoveCommand.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/MoveCommand.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Repeater.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Repeater.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Sapper.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Sapper.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ScanCommand.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ScanCommand.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ScanMode.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ScanMode.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Texture.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Texture.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.h">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Utils.cpp">
+			<Option target="Robots"/>
+		</Unit>
+		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/Utils.h">
 			<Option target="Robots"/>
 		</Unit>
 		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/main.cpp">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/modes/AutoMode.cpp">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/modes/AutoMode.h">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/modes/ManualMode.cpp">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/modes/ManualMode.h">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/modes/Mode.cpp">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/modes/Mode.h">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/modes/ScanMode.cpp">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/modes/ScanMode.h">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/robots/Collector.cpp">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/robots/Collector.h">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/robots/Robot.h">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/robots/Sapper.cpp">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/robots/Sapper.h">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/utils/Utils.cpp">
-			<Option target="Robots"/>
-		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/utils/Utils.h">
 			<Option target="Robots"/>
 		</Unit>
 		<Unit filename="D:/Workshop/CLionProjects/OOOP/Robots/CMakeLists.txt">

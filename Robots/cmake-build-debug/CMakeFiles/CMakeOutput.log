@@ -50,48 +50,48 @@ The CXX compiler identification is MSVC, found in "D:/Workshop/CLionProjects/OOO
 Determining if the C compiler works passed with the following output:
 Change Dir: D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):nmake /nologo cmTC_6b66b\fast && 	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_6b66b.dir\build.make /nologo -L                  CMakeFiles\cmTC_6b66b.dir\build
-Building C object CMakeFiles/cmTC_6b66b.dir/testCCompiler.c.obj
-	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" @C:\Users\vital\AppData\Local\Temp\nm7E86.tmp
+Run Build Command(s):nmake /nologo cmTC_537c3\fast && 	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_537c3.dir\build.make /nologo -L                  CMakeFiles\cmTC_537c3.dir\build
+Building C object CMakeFiles/cmTC_537c3.dir/testCCompiler.c.obj
+	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" @C:\Users\vital\AppData\Local\Temp\nmA60E.tmp
 testCCompiler.c
-Linking C executable cmTC_6b66b.exe
-	"D:\CLion\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_6b66b.dir --rc="D:\Windows Kits\10\bin\10.0.18362.0\x86\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.18362.0\x86\mt.exe" --manifests  -- "D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\link.exe" /nologo @CMakeFiles\cmTC_6b66b.dir\objects1.rsp @C:\Users\vital\AppData\Local\Temp\nm805C.tmp
+Linking C executable cmTC_537c3.exe
+	"D:\CLion\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_537c3.dir --rc="D:\Windows Kits\10\bin\10.0.18362.0\x86\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.18362.0\x86\mt.exe" --manifests  -- "D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\link.exe" /nologo @CMakeFiles\cmTC_537c3.dir\objects1.rsp @C:\Users\vital\AppData\Local\Temp\nmA738.tmp
 
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):nmake /nologo cmTC_9948d\fast && 	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_9948d.dir\build.make /nologo -L                  CMakeFiles\cmTC_9948d.dir\build
-Building C object CMakeFiles/cmTC_9948d.dir/CMakeCCompilerABI.c.obj
-	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" @C:\Users\vital\AppData\Local\Temp\nm8482.tmp
+Run Build Command(s):nmake /nologo cmTC_8687e\fast && 	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_8687e.dir\build.make /nologo -L                  CMakeFiles\cmTC_8687e.dir\build
+Building C object CMakeFiles/cmTC_8687e.dir/CMakeCCompilerABI.c.obj
+	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" @C:\Users\vital\AppData\Local\Temp\nmABDA.tmp
 CMakeCCompilerABI.c
-Linking C executable cmTC_9948d.exe
-	"D:\CLion\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_9948d.dir --rc="D:\Windows Kits\10\bin\10.0.18362.0\x86\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.18362.0\x86\mt.exe" --manifests  -- "D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\link.exe" /nologo @CMakeFiles\cmTC_9948d.dir\objects1.rsp @C:\Users\vital\AppData\Local\Temp\nm854E.tmp
+Linking C executable cmTC_8687e.exe
+	"D:\CLion\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_8687e.dir --rc="D:\Windows Kits\10\bin\10.0.18362.0\x86\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.18362.0\x86\mt.exe" --manifests  -- "D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\link.exe" /nologo @CMakeFiles\cmTC_8687e.dir\objects1.rsp @C:\Users\vital\AppData\Local\Temp\nmACD5.tmp
 
 
 
 Determining if the CXX compiler works passed with the following output:
 Change Dir: D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):nmake /nologo cmTC_18985\fast && 	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_18985.dir\build.make /nologo -L                  CMakeFiles\cmTC_18985.dir\build
-Building CXX object CMakeFiles/cmTC_18985.dir/testCXXCompiler.cxx.obj
-	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" @C:\Users\vital\AppData\Local\Temp\nm8954.tmp
+Run Build Command(s):nmake /nologo cmTC_96216\fast && 	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_96216.dir\build.make /nologo -L                  CMakeFiles\cmTC_96216.dir\build
+Building CXX object CMakeFiles/cmTC_96216.dir/testCXXCompiler.cxx.obj
+	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" @C:\Users\vital\AppData\Local\Temp\nmB0DB.tmp
 testCXXCompiler.cxx
-Linking CXX executable cmTC_18985.exe
-	"D:\CLion\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_18985.dir --rc="D:\Windows Kits\10\bin\10.0.18362.0\x86\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.18362.0\x86\mt.exe" --manifests  -- "D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\link.exe" /nologo @CMakeFiles\cmTC_18985.dir\objects1.rsp @C:\Users\vital\AppData\Local\Temp\nm8A3F.tmp
+Linking CXX executable cmTC_96216.exe
+	"D:\CLion\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_96216.dir --rc="D:\Windows Kits\10\bin\10.0.18362.0\x86\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.18362.0\x86\mt.exe" --manifests  -- "D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\link.exe" /nologo @CMakeFiles\cmTC_96216.dir\objects1.rsp @C:\Users\vital\AppData\Local\Temp\nmB282.tmp
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):nmake /nologo cmTC_0184e\fast && 	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_0184e.dir\build.make /nologo -L                  CMakeFiles\cmTC_0184e.dir\build
-Building CXX object CMakeFiles/cmTC_0184e.dir/CMakeCXXCompilerABI.cpp.obj
-	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" @C:\Users\vital\AppData\Local\Temp\nm8EB3.tmp
+Run Build Command(s):nmake /nologo cmTC_88c47\fast && 	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_88c47.dir\build.make /nologo -L                  CMakeFiles\cmTC_88c47.dir\build
+Building CXX object CMakeFiles/cmTC_88c47.dir/CMakeCXXCompilerABI.cpp.obj
+	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" @C:\Users\vital\AppData\Local\Temp\nmB763.tmp
 CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_0184e.exe
-	"D:\CLion\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_0184e.dir --rc="D:\Windows Kits\10\bin\10.0.18362.0\x86\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.18362.0\x86\mt.exe" --manifests  -- "D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\link.exe" /nologo @CMakeFiles\cmTC_0184e.dir\objects1.rsp @C:\Users\vital\AppData\Local\Temp\nm8F7F.tmp
+Linking CXX executable cmTC_88c47.exe
+	"D:\CLion\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_88c47.dir --rc="D:\Windows Kits\10\bin\10.0.18362.0\x86\rc.exe" --mt="D:\Windows Kits\10\bin\10.0.18362.0\x86\mt.exe" --manifests  -- "D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\link.exe" /nologo @CMakeFiles\cmTC_88c47.dir\objects1.rsp @C:\Users\vital\AppData\Local\Temp\nmB87E.tmp
 
 
 

@@ -1,1 +1,0 @@
-Robots.exe -generate 1000 1000 "map1.txt"

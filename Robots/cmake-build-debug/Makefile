@@ -127,86 +127,437 @@ Robots\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\build
 .PHONY : Robots\fast
 
-commands\Command.obj: commands\Command.cpp.obj
+AutoMode.obj: AutoMode.cpp.obj
 
-.PHONY : commands\Command.obj
-
-# target to build an object file
-commands\Command.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\commands\Command.cpp.obj
-.PHONY : commands\Command.cpp.obj
-
-commands\Command.i: commands\Command.cpp.i
-
-.PHONY : commands\Command.i
-
-# target to preprocess a source file
-commands\Command.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\commands\Command.cpp.i
-.PHONY : commands\Command.cpp.i
-
-commands\Command.s: commands\Command.cpp.s
-
-.PHONY : commands\Command.s
-
-# target to generate assembly for a file
-commands\Command.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\commands\Command.cpp.s
-.PHONY : commands\Command.cpp.s
-
-field\Field.obj: field\Field.cpp.obj
-
-.PHONY : field\Field.obj
+.PHONY : AutoMode.obj
 
 # target to build an object file
-field\Field.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\field\Field.cpp.obj
-.PHONY : field\Field.cpp.obj
+AutoMode.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\AutoMode.cpp.obj
+.PHONY : AutoMode.cpp.obj
 
-field\Field.i: field\Field.cpp.i
+AutoMode.i: AutoMode.cpp.i
 
-.PHONY : field\Field.i
+.PHONY : AutoMode.i
 
 # target to preprocess a source file
-field\Field.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\field\Field.cpp.i
-.PHONY : field\Field.cpp.i
+AutoMode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\AutoMode.cpp.i
+.PHONY : AutoMode.cpp.i
 
-field\Field.s: field\Field.cpp.s
+AutoMode.s: AutoMode.cpp.s
 
-.PHONY : field\Field.s
+.PHONY : AutoMode.s
 
 # target to generate assembly for a file
-field\Field.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\field\Field.cpp.s
-.PHONY : field\Field.cpp.s
+AutoMode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\AutoMode.cpp.s
+.PHONY : AutoMode.cpp.s
 
-gameview\ConsoleView.obj: gameview\ConsoleView.cpp.obj
+ChangeModeCommand.obj: ChangeModeCommand.cpp.obj
 
-.PHONY : gameview\ConsoleView.obj
+.PHONY : ChangeModeCommand.obj
 
 # target to build an object file
-gameview\ConsoleView.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\gameview\ConsoleView.cpp.obj
-.PHONY : gameview\ConsoleView.cpp.obj
+ChangeModeCommand.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ChangeModeCommand.cpp.obj
+.PHONY : ChangeModeCommand.cpp.obj
 
-gameview\ConsoleView.i: gameview\ConsoleView.cpp.i
+ChangeModeCommand.i: ChangeModeCommand.cpp.i
 
-.PHONY : gameview\ConsoleView.i
+.PHONY : ChangeModeCommand.i
 
 # target to preprocess a source file
-gameview\ConsoleView.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\gameview\ConsoleView.cpp.i
-.PHONY : gameview\ConsoleView.cpp.i
+ChangeModeCommand.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ChangeModeCommand.cpp.i
+.PHONY : ChangeModeCommand.cpp.i
 
-gameview\ConsoleView.s: gameview\ConsoleView.cpp.s
+ChangeModeCommand.s: ChangeModeCommand.cpp.s
 
-.PHONY : gameview\ConsoleView.s
+.PHONY : ChangeModeCommand.s
 
 # target to generate assembly for a file
-gameview\ConsoleView.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\gameview\ConsoleView.cpp.s
-.PHONY : gameview\ConsoleView.cpp.s
+ChangeModeCommand.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ChangeModeCommand.cpp.s
+.PHONY : ChangeModeCommand.cpp.s
+
+Collector.obj: Collector.cpp.obj
+
+.PHONY : Collector.obj
+
+# target to build an object file
+Collector.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Collector.cpp.obj
+.PHONY : Collector.cpp.obj
+
+Collector.i: Collector.cpp.i
+
+.PHONY : Collector.i
+
+# target to preprocess a source file
+Collector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Collector.cpp.i
+.PHONY : Collector.cpp.i
+
+Collector.s: Collector.cpp.s
+
+.PHONY : Collector.s
+
+# target to generate assembly for a file
+Collector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Collector.cpp.s
+.PHONY : Collector.cpp.s
+
+ConsoleView.obj: ConsoleView.cpp.obj
+
+.PHONY : ConsoleView.obj
+
+# target to build an object file
+ConsoleView.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ConsoleView.cpp.obj
+.PHONY : ConsoleView.cpp.obj
+
+ConsoleView.i: ConsoleView.cpp.i
+
+.PHONY : ConsoleView.i
+
+# target to preprocess a source file
+ConsoleView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ConsoleView.cpp.i
+.PHONY : ConsoleView.cpp.i
+
+ConsoleView.s: ConsoleView.cpp.s
+
+.PHONY : ConsoleView.s
+
+# target to generate assembly for a file
+ConsoleView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ConsoleView.cpp.s
+.PHONY : ConsoleView.cpp.s
+
+Game.obj: Game.cpp.obj
+
+.PHONY : Game.obj
+
+# target to build an object file
+Game.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Game.cpp.obj
+.PHONY : Game.cpp.obj
+
+Game.i: Game.cpp.i
+
+.PHONY : Game.i
+
+# target to preprocess a source file
+Game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Game.cpp.i
+.PHONY : Game.cpp.i
+
+Game.s: Game.cpp.s
+
+.PHONY : Game.s
+
+# target to generate assembly for a file
+Game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Game.cpp.s
+.PHONY : Game.cpp.s
+
+GrabCommand.obj: GrabCommand.cpp.obj
+
+.PHONY : GrabCommand.obj
+
+# target to build an object file
+GrabCommand.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\GrabCommand.cpp.obj
+.PHONY : GrabCommand.cpp.obj
+
+GrabCommand.i: GrabCommand.cpp.i
+
+.PHONY : GrabCommand.i
+
+# target to preprocess a source file
+GrabCommand.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\GrabCommand.cpp.i
+.PHONY : GrabCommand.cpp.i
+
+GrabCommand.s: GrabCommand.cpp.s
+
+.PHONY : GrabCommand.s
+
+# target to generate assembly for a file
+GrabCommand.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\GrabCommand.cpp.s
+.PHONY : GrabCommand.cpp.s
+
+ManualMode.obj: ManualMode.cpp.obj
+
+.PHONY : ManualMode.obj
+
+# target to build an object file
+ManualMode.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ManualMode.cpp.obj
+.PHONY : ManualMode.cpp.obj
+
+ManualMode.i: ManualMode.cpp.i
+
+.PHONY : ManualMode.i
+
+# target to preprocess a source file
+ManualMode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ManualMode.cpp.i
+.PHONY : ManualMode.cpp.i
+
+ManualMode.s: ManualMode.cpp.s
+
+.PHONY : ManualMode.s
+
+# target to generate assembly for a file
+ManualMode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ManualMode.cpp.s
+.PHONY : ManualMode.cpp.s
+
+Map.obj: Map.cpp.obj
+
+.PHONY : Map.obj
+
+# target to build an object file
+Map.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Map.cpp.obj
+.PHONY : Map.cpp.obj
+
+Map.i: Map.cpp.i
+
+.PHONY : Map.i
+
+# target to preprocess a source file
+Map.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Map.cpp.i
+.PHONY : Map.cpp.i
+
+Map.s: Map.cpp.s
+
+.PHONY : Map.s
+
+# target to generate assembly for a file
+Map.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Map.cpp.s
+.PHONY : Map.cpp.s
+
+MoveCommand.obj: MoveCommand.cpp.obj
+
+.PHONY : MoveCommand.obj
+
+# target to build an object file
+MoveCommand.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\MoveCommand.cpp.obj
+.PHONY : MoveCommand.cpp.obj
+
+MoveCommand.i: MoveCommand.cpp.i
+
+.PHONY : MoveCommand.i
+
+# target to preprocess a source file
+MoveCommand.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\MoveCommand.cpp.i
+.PHONY : MoveCommand.cpp.i
+
+MoveCommand.s: MoveCommand.cpp.s
+
+.PHONY : MoveCommand.s
+
+# target to generate assembly for a file
+MoveCommand.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\MoveCommand.cpp.s
+.PHONY : MoveCommand.cpp.s
+
+Repeater.obj: Repeater.cpp.obj
+
+.PHONY : Repeater.obj
+
+# target to build an object file
+Repeater.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Repeater.cpp.obj
+.PHONY : Repeater.cpp.obj
+
+Repeater.i: Repeater.cpp.i
+
+.PHONY : Repeater.i
+
+# target to preprocess a source file
+Repeater.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Repeater.cpp.i
+.PHONY : Repeater.cpp.i
+
+Repeater.s: Repeater.cpp.s
+
+.PHONY : Repeater.s
+
+# target to generate assembly for a file
+Repeater.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Repeater.cpp.s
+.PHONY : Repeater.cpp.s
+
+Sapper.obj: Sapper.cpp.obj
+
+.PHONY : Sapper.obj
+
+# target to build an object file
+Sapper.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Sapper.cpp.obj
+.PHONY : Sapper.cpp.obj
+
+Sapper.i: Sapper.cpp.i
+
+.PHONY : Sapper.i
+
+# target to preprocess a source file
+Sapper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Sapper.cpp.i
+.PHONY : Sapper.cpp.i
+
+Sapper.s: Sapper.cpp.s
+
+.PHONY : Sapper.s
+
+# target to generate assembly for a file
+Sapper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Sapper.cpp.s
+.PHONY : Sapper.cpp.s
+
+ScanCommand.obj: ScanCommand.cpp.obj
+
+.PHONY : ScanCommand.obj
+
+# target to build an object file
+ScanCommand.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ScanCommand.cpp.obj
+.PHONY : ScanCommand.cpp.obj
+
+ScanCommand.i: ScanCommand.cpp.i
+
+.PHONY : ScanCommand.i
+
+# target to preprocess a source file
+ScanCommand.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ScanCommand.cpp.i
+.PHONY : ScanCommand.cpp.i
+
+ScanCommand.s: ScanCommand.cpp.s
+
+.PHONY : ScanCommand.s
+
+# target to generate assembly for a file
+ScanCommand.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ScanCommand.cpp.s
+.PHONY : ScanCommand.cpp.s
+
+ScanMode.obj: ScanMode.cpp.obj
+
+.PHONY : ScanMode.obj
+
+# target to build an object file
+ScanMode.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ScanMode.cpp.obj
+.PHONY : ScanMode.cpp.obj
+
+ScanMode.i: ScanMode.cpp.i
+
+.PHONY : ScanMode.i
+
+# target to preprocess a source file
+ScanMode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ScanMode.cpp.i
+.PHONY : ScanMode.cpp.i
+
+ScanMode.s: ScanMode.cpp.s
+
+.PHONY : ScanMode.s
+
+# target to generate assembly for a file
+ScanMode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ScanMode.cpp.s
+.PHONY : ScanMode.cpp.s
+
+Texture.obj: Texture.cpp.obj
+
+.PHONY : Texture.obj
+
+# target to build an object file
+Texture.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Texture.cpp.obj
+.PHONY : Texture.cpp.obj
+
+Texture.i: Texture.cpp.i
+
+.PHONY : Texture.i
+
+# target to preprocess a source file
+Texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Texture.cpp.i
+.PHONY : Texture.cpp.i
+
+Texture.s: Texture.cpp.s
+
+.PHONY : Texture.s
+
+# target to generate assembly for a file
+Texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Texture.cpp.s
+.PHONY : Texture.cpp.s
+
+ToggleSapperCommand.obj: ToggleSapperCommand.cpp.obj
+
+.PHONY : ToggleSapperCommand.obj
+
+# target to build an object file
+ToggleSapperCommand.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ToggleSapperCommand.cpp.obj
+.PHONY : ToggleSapperCommand.cpp.obj
+
+ToggleSapperCommand.i: ToggleSapperCommand.cpp.i
+
+.PHONY : ToggleSapperCommand.i
+
+# target to preprocess a source file
+ToggleSapperCommand.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ToggleSapperCommand.cpp.i
+.PHONY : ToggleSapperCommand.cpp.i
+
+ToggleSapperCommand.s: ToggleSapperCommand.cpp.s
+
+.PHONY : ToggleSapperCommand.s
+
+# target to generate assembly for a file
+ToggleSapperCommand.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\ToggleSapperCommand.cpp.s
+.PHONY : ToggleSapperCommand.cpp.s
+
+Utils.obj: Utils.cpp.obj
+
+.PHONY : Utils.obj
+
+# target to build an object file
+Utils.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Utils.cpp.obj
+.PHONY : Utils.cpp.obj
+
+Utils.i: Utils.cpp.i
+
+.PHONY : Utils.i
+
+# target to preprocess a source file
+Utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Utils.cpp.i
+.PHONY : Utils.cpp.i
+
+Utils.s: Utils.cpp.s
+
+.PHONY : Utils.s
+
+# target to generate assembly for a file
+Utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\Utils.cpp.s
+.PHONY : Utils.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -235,195 +586,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\main.cpp.s
 .PHONY : main.cpp.s
 
-modes\AutoMode.obj: modes\AutoMode.cpp.obj
-
-.PHONY : modes\AutoMode.obj
-
-# target to build an object file
-modes\AutoMode.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\modes\AutoMode.cpp.obj
-.PHONY : modes\AutoMode.cpp.obj
-
-modes\AutoMode.i: modes\AutoMode.cpp.i
-
-.PHONY : modes\AutoMode.i
-
-# target to preprocess a source file
-modes\AutoMode.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\modes\AutoMode.cpp.i
-.PHONY : modes\AutoMode.cpp.i
-
-modes\AutoMode.s: modes\AutoMode.cpp.s
-
-.PHONY : modes\AutoMode.s
-
-# target to generate assembly for a file
-modes\AutoMode.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\modes\AutoMode.cpp.s
-.PHONY : modes\AutoMode.cpp.s
-
-modes\ManualMode.obj: modes\ManualMode.cpp.obj
-
-.PHONY : modes\ManualMode.obj
-
-# target to build an object file
-modes\ManualMode.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\modes\ManualMode.cpp.obj
-.PHONY : modes\ManualMode.cpp.obj
-
-modes\ManualMode.i: modes\ManualMode.cpp.i
-
-.PHONY : modes\ManualMode.i
-
-# target to preprocess a source file
-modes\ManualMode.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\modes\ManualMode.cpp.i
-.PHONY : modes\ManualMode.cpp.i
-
-modes\ManualMode.s: modes\ManualMode.cpp.s
-
-.PHONY : modes\ManualMode.s
-
-# target to generate assembly for a file
-modes\ManualMode.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\modes\ManualMode.cpp.s
-.PHONY : modes\ManualMode.cpp.s
-
-modes\Mode.obj: modes\Mode.cpp.obj
-
-.PHONY : modes\Mode.obj
-
-# target to build an object file
-modes\Mode.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\modes\Mode.cpp.obj
-.PHONY : modes\Mode.cpp.obj
-
-modes\Mode.i: modes\Mode.cpp.i
-
-.PHONY : modes\Mode.i
-
-# target to preprocess a source file
-modes\Mode.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\modes\Mode.cpp.i
-.PHONY : modes\Mode.cpp.i
-
-modes\Mode.s: modes\Mode.cpp.s
-
-.PHONY : modes\Mode.s
-
-# target to generate assembly for a file
-modes\Mode.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\modes\Mode.cpp.s
-.PHONY : modes\Mode.cpp.s
-
-modes\ScanMode.obj: modes\ScanMode.cpp.obj
-
-.PHONY : modes\ScanMode.obj
-
-# target to build an object file
-modes\ScanMode.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\modes\ScanMode.cpp.obj
-.PHONY : modes\ScanMode.cpp.obj
-
-modes\ScanMode.i: modes\ScanMode.cpp.i
-
-.PHONY : modes\ScanMode.i
-
-# target to preprocess a source file
-modes\ScanMode.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\modes\ScanMode.cpp.i
-.PHONY : modes\ScanMode.cpp.i
-
-modes\ScanMode.s: modes\ScanMode.cpp.s
-
-.PHONY : modes\ScanMode.s
-
-# target to generate assembly for a file
-modes\ScanMode.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\modes\ScanMode.cpp.s
-.PHONY : modes\ScanMode.cpp.s
-
-robots\Collector.obj: robots\Collector.cpp.obj
-
-.PHONY : robots\Collector.obj
-
-# target to build an object file
-robots\Collector.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\robots\Collector.cpp.obj
-.PHONY : robots\Collector.cpp.obj
-
-robots\Collector.i: robots\Collector.cpp.i
-
-.PHONY : robots\Collector.i
-
-# target to preprocess a source file
-robots\Collector.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\robots\Collector.cpp.i
-.PHONY : robots\Collector.cpp.i
-
-robots\Collector.s: robots\Collector.cpp.s
-
-.PHONY : robots\Collector.s
-
-# target to generate assembly for a file
-robots\Collector.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\robots\Collector.cpp.s
-.PHONY : robots\Collector.cpp.s
-
-robots\Sapper.obj: robots\Sapper.cpp.obj
-
-.PHONY : robots\Sapper.obj
-
-# target to build an object file
-robots\Sapper.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\robots\Sapper.cpp.obj
-.PHONY : robots\Sapper.cpp.obj
-
-robots\Sapper.i: robots\Sapper.cpp.i
-
-.PHONY : robots\Sapper.i
-
-# target to preprocess a source file
-robots\Sapper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\robots\Sapper.cpp.i
-.PHONY : robots\Sapper.cpp.i
-
-robots\Sapper.s: robots\Sapper.cpp.s
-
-.PHONY : robots\Sapper.s
-
-# target to generate assembly for a file
-robots\Sapper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\robots\Sapper.cpp.s
-.PHONY : robots\Sapper.cpp.s
-
-utils\Utils.obj: utils\Utils.cpp.obj
-
-.PHONY : utils\Utils.obj
-
-# target to build an object file
-utils\Utils.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\utils\Utils.cpp.obj
-.PHONY : utils\Utils.cpp.obj
-
-utils\Utils.i: utils\Utils.cpp.i
-
-.PHONY : utils\Utils.i
-
-# target to preprocess a source file
-utils\Utils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\utils\Utils.cpp.i
-.PHONY : utils\Utils.cpp.i
-
-utils\Utils.s: utils\Utils.cpp.s
-
-.PHONY : utils\Utils.s
-
-# target to generate assembly for a file
-utils\Utils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Robots.dir\utils\Utils.cpp.s
-.PHONY : utils\Utils.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -433,39 +595,57 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Robots
-	@echo ... commands/Command.obj
-	@echo ... commands/Command.i
-	@echo ... commands/Command.s
-	@echo ... field/Field.obj
-	@echo ... field/Field.i
-	@echo ... field/Field.s
-	@echo ... gameview/ConsoleView.obj
-	@echo ... gameview/ConsoleView.i
-	@echo ... gameview/ConsoleView.s
+	@echo ... AutoMode.obj
+	@echo ... AutoMode.i
+	@echo ... AutoMode.s
+	@echo ... ChangeModeCommand.obj
+	@echo ... ChangeModeCommand.i
+	@echo ... ChangeModeCommand.s
+	@echo ... Collector.obj
+	@echo ... Collector.i
+	@echo ... Collector.s
+	@echo ... ConsoleView.obj
+	@echo ... ConsoleView.i
+	@echo ... ConsoleView.s
+	@echo ... Game.obj
+	@echo ... Game.i
+	@echo ... Game.s
+	@echo ... GrabCommand.obj
+	@echo ... GrabCommand.i
+	@echo ... GrabCommand.s
+	@echo ... ManualMode.obj
+	@echo ... ManualMode.i
+	@echo ... ManualMode.s
+	@echo ... Map.obj
+	@echo ... Map.i
+	@echo ... Map.s
+	@echo ... MoveCommand.obj
+	@echo ... MoveCommand.i
+	@echo ... MoveCommand.s
+	@echo ... Repeater.obj
+	@echo ... Repeater.i
+	@echo ... Repeater.s
+	@echo ... Sapper.obj
+	@echo ... Sapper.i
+	@echo ... Sapper.s
+	@echo ... ScanCommand.obj
+	@echo ... ScanCommand.i
+	@echo ... ScanCommand.s
+	@echo ... ScanMode.obj
+	@echo ... ScanMode.i
+	@echo ... ScanMode.s
+	@echo ... Texture.obj
+	@echo ... Texture.i
+	@echo ... Texture.s
+	@echo ... ToggleSapperCommand.obj
+	@echo ... ToggleSapperCommand.i
+	@echo ... ToggleSapperCommand.s
+	@echo ... Utils.obj
+	@echo ... Utils.i
+	@echo ... Utils.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... modes/AutoMode.obj
-	@echo ... modes/AutoMode.i
-	@echo ... modes/AutoMode.s
-	@echo ... modes/ManualMode.obj
-	@echo ... modes/ManualMode.i
-	@echo ... modes/ManualMode.s
-	@echo ... modes/Mode.obj
-	@echo ... modes/Mode.i
-	@echo ... modes/Mode.s
-	@echo ... modes/ScanMode.obj
-	@echo ... modes/ScanMode.i
-	@echo ... modes/ScanMode.s
-	@echo ... robots/Collector.obj
-	@echo ... robots/Collector.i
-	@echo ... robots/Collector.s
-	@echo ... robots/Sapper.obj
-	@echo ... robots/Sapper.i
-	@echo ... robots/Sapper.s
-	@echo ... utils/Utils.obj
-	@echo ... utils/Utils.i
-	@echo ... utils/Utils.s
 .PHONY : help
 
 
