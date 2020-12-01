@@ -14,9 +14,11 @@ public:
     bool isActive() const override;
     void setActive(bool newActive) override;
     std::pair<int, int> getPosition() const override;
+    int getInvestment() const override;
     RobotType getRobotType() const override;
     std::set<MapElement> getWalkable() const override;
-    void receiveNotification(std::pair<int, int> node) override;
+    std::set<MapElement> getInvestible() const override;
+    void receiveNotification(std::pair<int, int> node, MapElement elem) override;
     bool move(Direction dir) override;
     bool invest() override;
     bool scan() override;
@@ -24,6 +26,7 @@ public:
 private:
     bool bActive;
     int pos_r, pos_c;
+    int bombs;
     Map localMap;
     Repeater* repeater;
 };

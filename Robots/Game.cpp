@@ -78,29 +78,38 @@ std::vector<const IRobot *> Game::getRobots() {
 
 bool Game::modeActivity() {
     if (curArgs[0] == "manual") {
-        if (mode->getModeType() == ModeType::MANUAL) return false;
-        else {
+        if (mode->getModeType() != ModeType::MANUAL) {
             delete mode;
             mode = new ManualMode();
         }
+        return false;
     }
-    else if (curArgs[0] == "scan"){
-        if (mode->getModeType() == ModeType::SCAN) return false;
-        else {
+    else if (curArgs[0] == "scan") {
+        if (mode->getModeType() != ModeType::SCAN) {
             delete mode;
             mode = new ScanMode();
         }
+        bool res = mode->invokeCommand(collector, curCmd, curArgs);
+        if (!res) {
+            delete mode;
+            mode = new ManualMode();
+        }
+        return res;
     }
     else if (curArgs[0] == "auto") {
-        if (mode->getModeType() == ModeType::AUTO) return false;
-        else {
+        if (mode->getModeType() != ModeType::AUTO) {
             delete mode;
             mode = new AutoMode();
         }
+        mode->invokeCommand(sapper, curCmd, curArgs);
+        bool res = mode->invokeCommand(collector, curCmd, curArgs);
+        if (!res) {
+            delete mode;
+            mode = new ManualMode();
+        }
+        return res;
     }
     else return false;
-
-    return true;
 }
 
 bool Game::toggleSapper() {

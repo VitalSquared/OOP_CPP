@@ -76,13 +76,19 @@ void ConsoleView::renderMap() {
         }
     }
 
-    if (curCollector == nullptr) return;
+    if (curCollector == nullptr) {
+        std::cout << "No map to draw" << std::endl;
+        return;
+    }
 
     int map_width = (width - 5) / textureSize / 2, map_height = (height - 5) / textureSize / 2;
     int center_r = curCollector->getPosition().first, center_c = curCollector->getPosition().second;
-    int top_left_r = center_r - map_height / textureSize, top_left_c = center_c - map_width / textureSize;
+    int top_left_r = center_r - map_height / 2, top_left_c = center_c - map_width / 2;
 
-    if (map_width <= 0 || map_height <= 0) return;
+    if (map_width <= 0 || map_height <= 0) {
+        std::cout << "Impossible to draw map" << std::endl;
+        return;
+    }
 
     std::vector<std::vector<std::string>> buffer(map_height * textureSize, std::vector<std::string>(map_width * textureSize));
 
@@ -96,11 +102,28 @@ void ConsoleView::renderMap() {
             else {
                 texture = T_Unknown;
             }
-            putTextureInBuffer(buffer, texture,std::make_pair(textureSize * r, textureSize * c));
+            putTextureInBuffer(buffer, texture, std::make_pair(textureSize * r, textureSize * c));
         }
     }
 
-    putTextureInBuffer(buffer, T_Collector, std::make_pair(textureSize * (center_r - top_left_r),textureSize * (center_c - top_left_c)));
+    int apples = 0, bombs = 0;
+
+    for (auto* robot : robots) {
+        Texture* texture;
+        switch(robot->getRobotType()) {
+            case RobotType::COLLECTOR:
+                texture = T_Collector;
+                apples += robot->getInvestment();
+                break;
+            case RobotType::SAPPER:
+                texture = T_Sapper;
+                bombs += robot->getInvestment();
+                break;
+        }
+        if (!robot->isActive()) continue;
+        int pos_r = robot->getPosition().first, pos_c = robot->getPosition().second;
+        putTextureInBuffer(buffer, texture, std::make_pair(textureSize * (pos_r - top_left_r), textureSize * (pos_c - top_left_c)));
+    }
 
     std::string output;
     int i = 0;
@@ -121,6 +144,8 @@ void ConsoleView::renderMap() {
     }
 
     std::cout << output + colorDefault << std::endl;
+    std::cout << "Apples collected: " << apples << "\tBombs defused: " << bombs << std::endl;
+    std::cout << std::endl;
 }
 
 std::pair<int, int> ConsoleView::getConsoleSize() {
@@ -131,7 +156,7 @@ std::pair<int, int> ConsoleView::getConsoleSize() {
     width = csbi.srWindow.Right - csbi.srWindow.Left + 1;
     height = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
 
-    return std::make_pair(width, height);
+    return std::make_pair(width > 100 ? width : 100, height > 25 ? height : 25);
 }
 
 Texture * ConsoleView::getTextureFromMap(MapElement elem) {
@@ -146,7 +171,9 @@ Texture * ConsoleView::getTextureFromMap(MapElement elem) {
 void ConsoleView::putTextureInBuffer(std::vector<std::vector<std::string>>& buffer, Texture *texture, std::pair<int, int> top_left) {
     for (int tr = 0; tr < texture->getSize(); tr++) {
         for (int tc = 0; tc < texture->getSize(); tc++) {
-            buffer[top_left.first + tr][top_left.second + tc] = texture->getPixel(tr, tc);
+            int r = top_left.first + tr, c = top_left.second + tc;
+            if (r < 0 || r >= buffer.size() || c < 0 || c >= buffer[r].size()) return;
+            buffer[r][c] = texture->getPixel(tr, tc);
         }
     }
 }

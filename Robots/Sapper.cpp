@@ -2,6 +2,7 @@
 
 Sapper::Sapper(Repeater* repeater) {
     bActive = false;
+    bombs = 0;
     pos_r = 0;
     pos_c = 0;
     this->repeater = repeater;
@@ -17,17 +18,23 @@ bool Sapper::isActive() const {
 }
 
 void Sapper::setActive(bool newActive) {
-    if (!bActive && newActive) {
+    bool bOldActive = bActive;
+    bActive = newActive;
+    if (!bOldActive && newActive) {
         scan();
         std::pair<int, int> new_pos = findSuitablePos(localMap.getMap(), getWalkable());
         pos_r = new_pos.first;
         pos_c = new_pos.second;
+        invest();
     }
-    bActive = newActive;
 }
 
 std::pair<int, int> Sapper::getPosition() const {
     return std::make_pair(pos_r, pos_c);
+}
+
+int Sapper::getInvestment() const {
+    return bombs;
 }
 
 RobotType Sapper::getRobotType() const {
@@ -38,8 +45,12 @@ std::set<MapElement> Sapper::getWalkable() const {
     return { MapElement::EMPTY, MapElement::APPLE, MapElement::BOMB };
 }
 
-void Sapper::receiveNotification(std::pair<int, int> node) {
-    localMap.addElement(node.first, node.second, MapElement::EMPTY);
+std::set<MapElement> Sapper::getInvestible() const {
+    return { MapElement::BOMB };
+}
+
+void Sapper::receiveNotification(std::pair<int, int> node, MapElement elem) {
+    localMap.addElement(node.first, node.second, elem);
 }
 
 bool Sapper::move(Direction dir) {
@@ -53,17 +64,22 @@ bool Sapper::move(Direction dir) {
 
     auto walkable = getWalkable();
     if (walkable.find(localMap.getElement(pos_r + dr, pos_c + dc)) != walkable.end()) {
-        pos_r += dr;
-        pos_c += dc;
-        return true;
+        if (!repeater->anyRobotsInPosition(std::make_pair(pos_r + dr, pos_c + dc))) {
+            pos_r += dr;
+            pos_c += dc;
+            invest();
+            return true;
+        }
     }
     return false;
 }
 
 bool Sapper::invest() {
-    if (repeater->getMapElement(pos_r, pos_c) == MapElement::BOMB) {
+    std::set<MapElement> investible = getInvestible();
+    if (bActive && investible.find(localMap.getElement(pos_r, pos_c)) != investible.end()) {
         localMap.addElement(pos_r, pos_c, MapElement::EMPTY);
-        repeater->notifyAll(this, std::make_pair(pos_r, pos_c));
+        bombs++;
+        repeater->notifyAll(this, std::make_pair(pos_r, pos_c), MapElement::EMPTY);
         return true;
     }
     return false;

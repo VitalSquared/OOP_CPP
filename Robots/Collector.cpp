@@ -26,6 +26,10 @@ std::pair<int, int> Collector::getPosition() const {
     return std::make_pair(pos_r, pos_c);
 }
 
+int Collector::getInvestment() const {
+    return apples;
+}
+
 RobotType Collector::getRobotType() const {
     return RobotType::COLLECTOR;
 }
@@ -34,8 +38,12 @@ std::set<MapElement> Collector::getWalkable() const {
     return { MapElement::EMPTY, MapElement::APPLE };
 }
 
-void Collector::receiveNotification(std::pair<int, int> node) {
-    localMap.addElement(node.first, node.second, MapElement::EMPTY);
+std::set<MapElement> Collector::getInvestible() const {
+    return { MapElement::APPLE };
+}
+
+void Collector::receiveNotification(std::pair<int, int> node, MapElement elem) {
+    localMap.addElement(node.first, node.second, elem);
 }
 
 bool Collector::move(Direction dir) {
@@ -49,18 +57,21 @@ bool Collector::move(Direction dir) {
 
     auto walkable = getWalkable();
     if (walkable.find(localMap.getElement(pos_r + dr, pos_c + dc)) != walkable.end()) {
-        pos_r += dr;
-        pos_c += dc;
-        return true;
+        if (!repeater->anyRobotsInPosition(std::make_pair(pos_r + dr, pos_c + dc))) {
+            pos_r += dr;
+            pos_c += dc;
+            return true;
+        }
     }
     return false;
 }
 
 bool Collector::invest() {
-    if (repeater->getMapElement(pos_r, pos_c) == MapElement::APPLE) {
+    std::set<MapElement> investible = getInvestible();
+    if (investible.find(localMap.getElement(pos_r, pos_c)) != investible.end()) {
         localMap.addElement(pos_r, pos_c, MapElement::EMPTY);
         apples++;
-        repeater->notifyAll(this, std::make_pair(pos_r, pos_c));
+        repeater->notifyAll(this, std::make_pair(pos_r, pos_c), MapElement::EMPTY);
         return true;
     }
     return false;
@@ -72,6 +83,7 @@ bool Collector::scan() {
     for (auto adj: adjs) {
         if (!localMap.containsLocation(adj.first, adj.second)) {
             localMap.addElement(adj.first, adj.second, repeater->getMapElement(adj.first, adj.second));
+            repeater->notifyAll(this, adj, localMap.getElement(adj.first, adj.second));
         }
     }
     return true;

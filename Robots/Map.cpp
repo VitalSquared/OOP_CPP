@@ -52,7 +52,9 @@ bool Map::containsLocation(int r, int c) const {
 }
 
 void Map::mergeMap(const Map &map) {
-    data.insert(map.data.begin(), map.data.end());
+    for (auto elem : map.getMap()) {
+        addElement(elem.first.first, elem.first.second, elem.second);
+    }
 }
 
 const std::map<std::pair<int, int>, MapElement> & Map::getMap() const{

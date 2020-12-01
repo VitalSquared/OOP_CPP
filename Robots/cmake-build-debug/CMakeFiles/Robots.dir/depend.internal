@@ -8,6 +8,7 @@ CMakeFiles/Robots.dir/AutoMode.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/IMode.h
  D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
  D:/Workshop/CLionProjects/OOOP/Robots/Map.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/ChangeModeCommand.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/ChangeModeCommand.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/ChangeModeCommand.h
@@ -100,6 +101,7 @@ CMakeFiles/Robots.dir/ScanMode.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/Map.h
  D:/Workshop/CLionProjects/OOOP/Robots/ScanMode.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/ScanMode.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/Texture.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/Texture.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/Texture.h
@@ -108,6 +110,7 @@ CMakeFiles/Robots.dir/ToggleSapperCommand.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.h
 CMakeFiles/Robots.dir/Utils.cpp.obj
+ D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
  D:/Workshop/CLionProjects/OOOP/Robots/Map.h
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
