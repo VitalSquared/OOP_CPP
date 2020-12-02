@@ -18,7 +18,8 @@ public:
     RobotType getRobotType() const override;
     std::set<MapElement> getWalkable() const override;
     std::set<MapElement> getInvestible() const override;
-    void receiveNotification(std::pair<int, int> node, MapElement elem) override;
+    void receiveNotificationUpdatedMap(std::pair<int, int> node, MapElement elem) override;
+    bool receiveNotificationLanding(std::pair<int, int> pos) override;
     bool move(Direction dir) override;
     bool invest() override;
     bool scan() override;

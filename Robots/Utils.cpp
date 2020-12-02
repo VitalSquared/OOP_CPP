@@ -40,7 +40,8 @@ std::pair<int, int> findSuitablePos(const std::map<std::pair<int, int>, MapEleme
     return possible[random(possible.size())];
 }
 
-vector<pair<int, int>> buildPath(int rs, int cs, int rf, int cf, const Map& scannedMap, const set<MapElement>& canWalkOn) {
+vector<pair<int, int>> buildPath(int rs, int cs, int rf, int cf, const Map& scannedMap,
+                                 const set<MapElement>& canWalkOn, const std::set<std::pair<int, int>>& unreachable) {
     set<pair<int, int>> visited;
     queue<vector<pair<int,int>>> q;
 
@@ -64,9 +65,9 @@ vector<pair<int, int>> buildPath(int rs, int cs, int rf, int cf, const Map& scan
 
         vector<pair<int,int>> adjs = getAdjacentCoords(r, c);
         for (auto adj : adjs) {
-            if (scannedMap.containsLocation(adj.first, adj.second) &&
-                    canWalkOn.find(scannedMap.getElement(adj.first, adj.second)) != canWalkOn.end()) {
-                if (visited.find(adj) == visited.end()) {
+            if (scannedMap.containsLocation(adj.first, adj.second) && !containerContains(unreachable, adj) &&
+                                                        containerContains(canWalkOn, scannedMap.getElement(adj.first, adj.second))) {
+                if (!containerContains(visited, adj)) {
                     vector<pair<int, int>> new_path(cur_path);
                     new_path.emplace_back(adj);
                     q.push(new_path);
@@ -78,25 +79,6 @@ vector<pair<int, int>> buildPath(int rs, int cs, int rf, int cf, const Map& scan
         }
     }
     return {};
-}
-
-Direction calcDirection(std::pair<int, int> start, std::pair<int, int> end) {
-    int dr = end.first - start.first, dc = end.second - start.second;
-    if (dr == 0) {
-        if (dc == 1) return Direction::RIGHT;
-        else return Direction::LEFT;
-    }
-    else {
-        if (dr == 1) return Direction::DOWN;
-        else return Direction::UP;
-    }
-}
-
-Direction convertStringToDirection(const std::string &str) {
-    if (str == "U") return Direction::UP;
-    else if (str == "D") return Direction::DOWN;
-    else if (str == "R") return Direction::RIGHT;
-    else return Direction::LEFT;
 }
 
 std::vector<std::pair<int, int>> getAdjacentCoords(int pos_r, int pos_c) {
@@ -142,4 +124,45 @@ bool convertStringToInt(const std::string& str, int& out) {
     catch (exception&) {
         return false;
     }
+}
+
+Direction calcDirection(std::pair<int, int> start, std::pair<int, int> end) {
+    int dr = end.first - start.first, dc = end.second - start.second;
+    if (dr == 0) {
+        if (dc == 1) return Direction::RIGHT;
+        else if (dc == -1) return Direction::LEFT;
+    }
+    else {
+        if (dr == 1) return Direction::DOWN;
+        else return Direction::UP;
+    }
+    return Direction::NONE;
+}
+
+Direction convertStringToDirection(const std::string &str) {
+    if (str == "U") return Direction::UP;
+    else if (str == "D") return Direction::DOWN;
+    else if (str == "R") return Direction::RIGHT;
+    else if (str == "L") return Direction::LEFT;
+    return Direction::NONE;
+}
+
+Direction convertPairToDirection(std::pair<int, int> _pair) {
+    if (std::make_pair(1, 0) == _pair) return Direction::DOWN;
+    else if (std::make_pair(-1, 0) == _pair) return Direction::UP;
+    else if (std::make_pair(0, 1) == _pair) return Direction::RIGHT;
+    else if (std::make_pair(0, -1) == _pair) return Direction::LEFT;
+    else return Direction::NONE;
+}
+
+std::pair<int, int> convertDirectionToDelta(Direction dir) {
+    std::pair<int, int> delta;
+    switch(dir) {
+        case Direction::RIGHT: delta = std::make_pair(0, 1); break;
+        case Direction::DOWN: delta = std::make_pair(1, 0); break;
+        case Direction::UP: delta = std::make_pair(-1, 0); break;
+        case Direction::LEFT: delta = std::make_pair(0, -1); break;
+        case Direction::NONE: delta = std::make_pair(0, 0); break;
+    }
+    return delta;
 }

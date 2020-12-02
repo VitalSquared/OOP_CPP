@@ -117,7 +117,9 @@ bool Game::toggleSapper() {
         return false;
     }
     else {
+        bool bOldActive = sapper->isActive();
         sapper->setActive(!sapper->isActive());
+        if (bOldActive == sapper->isActive()) return false;
     }
     return true;
 }

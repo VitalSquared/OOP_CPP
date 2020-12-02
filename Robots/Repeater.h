@@ -10,7 +10,8 @@ public:
     Repeater(const Map *globalMap);
 
     ~Repeater() = default;
-    void notifyAll(IRobot* sender, std::pair<int, int> node, MapElement elem);
+    void notifyAllUpdatedMap(IRobot* sender, std::pair<int, int> node, MapElement elem);
+    bool notifyAllLanding(IRobot* sender, std::pair<int, int> pos);
     MapElement getMapElement(int r, int c);
     void connectRobot(IRobot* robot);
     Map getCollectorsScannedMap();

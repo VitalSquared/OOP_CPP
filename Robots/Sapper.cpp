@@ -23,9 +23,12 @@ void Sapper::setActive(bool newActive) {
     if (!bOldActive && newActive) {
         scan();
         std::pair<int, int> new_pos = findSuitablePos(localMap.getMap(), getWalkable());
-        pos_r = new_pos.first;
-        pos_c = new_pos.second;
-        invest();
+        if (repeater->notifyAllLanding(this, new_pos)) {
+            pos_r = new_pos.first;
+            pos_c = new_pos.second;
+            invest();
+        }
+        else bActive = false;
     }
 }
 
@@ -49,18 +52,25 @@ std::set<MapElement> Sapper::getInvestible() const {
     return { MapElement::BOMB };
 }
 
-void Sapper::receiveNotification(std::pair<int, int> node, MapElement elem) {
+void Sapper::receiveNotificationUpdatedMap(std::pair<int, int> node, MapElement elem) {
     localMap.addElement(node.first, node.second, elem);
 }
 
-bool Sapper::move(Direction dir) {
-    int dr = 0, dc = 0;
-    switch(dir) {
-        case Direction::RIGHT: dr = 0; dc = 1; break;
-        case Direction::DOWN: dr = 1; dc = 0; break;
-        case Direction::UP: dr = -1; dc = 0; break;
-        case Direction::LEFT: dr = 0; dc = -1; break;
+bool Sapper::receiveNotificationLanding(std::pair<int, int> pos) {
+    if (getPosition() != pos) return true;
+
+    std::vector<std::pair<int, int>> adjs = getAdjacentCoords(0, 0);
+    for (auto adj : adjs) {
+        if (move(convertPairToDirection(adj))) {
+            return true;
+        }
     }
+    return false;
+}
+
+bool Sapper::move(Direction dir) {
+    std::pair<int, int> delta = convertDirectionToDelta(dir);
+    int dr = delta.first, dc = delta.second;
 
     auto walkable = getWalkable();
     if (walkable.find(localMap.getElement(pos_r + dr, pos_c + dc)) != walkable.end()) {
@@ -79,7 +89,7 @@ bool Sapper::invest() {
     if (bActive && investible.find(localMap.getElement(pos_r, pos_c)) != investible.end()) {
         localMap.addElement(pos_r, pos_c, MapElement::EMPTY);
         bombs++;
-        repeater->notifyAll(this, std::make_pair(pos_r, pos_c), MapElement::EMPTY);
+        repeater->notifyAllUpdatedMap(this, std::make_pair(pos_r, pos_c), MapElement::EMPTY);
         return true;
     }
     return false;

@@ -160,20 +160,27 @@ std::pair<int, int> ConsoleView::getConsoleSize() {
 }
 
 Texture * ConsoleView::getTextureFromMap(MapElement elem) {
+    Texture* texture;
     switch(elem) {
-        case MapElement::EMPTY: return T_Empty;
-        case MapElement::BOMB: return T_Bomb;
-        case MapElement::APPLE: return T_Apple;
-        case MapElement::ROCK: return T_Rock;
+        case MapElement::EMPTY: texture = T_Empty; break;
+        case MapElement::BOMB: texture = T_Bomb; break;
+        case MapElement::APPLE: texture = T_Apple; break;
+        case MapElement::ROCK: texture = T_Rock; break;
     }
+    return texture;
 }
 
 void ConsoleView::putTextureInBuffer(std::vector<std::vector<std::string>>& buffer, Texture *texture, std::pair<int, int> top_left) {
+    bool fail = false;
     for (int tr = 0; tr < texture->getSize(); tr++) {
         for (int tc = 0; tc < texture->getSize(); tc++) {
             int r = top_left.first + tr, c = top_left.second + tc;
-            if (r < 0 || r >= buffer.size() || c < 0 || c >= buffer[r].size()) return;
+            if (r < 0 || r >= buffer.size() || c < 0 || c >= buffer[r].size()) {
+                fail = true;
+                break;
+            }
             buffer[r][c] = texture->getPixel(tr, tc);
         }
+        if (fail) break;
     }
 }

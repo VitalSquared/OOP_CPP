@@ -42,18 +42,25 @@ std::set<MapElement> Collector::getInvestible() const {
     return { MapElement::APPLE };
 }
 
-void Collector::receiveNotification(std::pair<int, int> node, MapElement elem) {
+void Collector::receiveNotificationUpdatedMap(std::pair<int, int> node, MapElement elem) {
     localMap.addElement(node.first, node.second, elem);
 }
 
-bool Collector::move(Direction dir) {
-    int dr = 0, dc = 0;
-    switch(dir) {
-        case Direction::RIGHT: dr = 0; dc = 1; break;
-        case Direction::DOWN: dr = 1; dc = 0; break;
-        case Direction::UP: dr = -1; dc = 0; break;
-        case Direction::LEFT: dr = 0; dc = -1; break;
+bool Collector::receiveNotificationLanding(std::pair<int, int> pos) {
+    if (getPosition() != pos) return true;
+
+    std::vector<std::pair<int, int>> adjs = getAdjacentCoords(0, 0);
+    for (auto adj : adjs) {
+        if (move(convertPairToDirection(adj))) {
+            return true;
+        }
     }
+    return false;
+}
+
+bool Collector::move(Direction dir) {
+    std::pair<int, int> delta = convertDirectionToDelta(dir);
+    int dr = delta.first, dc = delta.second;
 
     auto walkable = getWalkable();
     if (walkable.find(localMap.getElement(pos_r + dr, pos_c + dc)) != walkable.end()) {
@@ -71,7 +78,7 @@ bool Collector::invest() {
     if (investible.find(localMap.getElement(pos_r, pos_c)) != investible.end()) {
         localMap.addElement(pos_r, pos_c, MapElement::EMPTY);
         apples++;
-        repeater->notifyAll(this, std::make_pair(pos_r, pos_c), MapElement::EMPTY);
+        repeater->notifyAllUpdatedMap(this, std::make_pair(pos_r, pos_c), MapElement::EMPTY);
         return true;
     }
     return false;
@@ -82,7 +89,7 @@ bool Collector::scan() {
     for (auto adj: adjs) {
         if (!localMap.containsLocation(adj.first, adj.second)) {
             localMap.addElement(adj.first, adj.second, repeater->getMapElement(adj.first, adj.second));
-            repeater->notifyAll(this, adj, localMap.getElement(adj.first, adj.second));
+            repeater->notifyAllUpdatedMap(this, adj, localMap.getElement(adj.first, adj.second));
         }
     }
     return true;

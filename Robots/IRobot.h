@@ -5,7 +5,7 @@
 #include "Map.h"
 
 enum class RobotType { COLLECTOR, SAPPER };
-enum class Direction { UP, DOWN, LEFT, RIGHT };
+enum class Direction { NONE, UP, DOWN, LEFT, RIGHT };
 
 class IRobot {
 public:
@@ -18,7 +18,8 @@ public:
     virtual RobotType getRobotType() const = 0;
     virtual std::set<MapElement> getWalkable() const = 0;
     virtual std::set<MapElement> getInvestible() const = 0;
-    virtual void receiveNotification(std::pair<int, int> node, MapElement elem) = 0;
+    virtual void receiveNotificationUpdatedMap(std::pair<int, int> node, MapElement elem) = 0;
+    virtual bool receiveNotificationLanding(std::pair<int, int> pos) = 0;
     virtual bool move(Direction dir) = 0;
     virtual bool invest() = 0;
     virtual bool scan() = 0;

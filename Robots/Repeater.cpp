@@ -4,12 +4,21 @@ Repeater::Repeater(const Map* globalMap) {
     this->globalMap = globalMap;
 }
 
-void Repeater::notifyAll(IRobot* sender, std::pair<int, int> node, MapElement elem) {
+void Repeater::notifyAllUpdatedMap(IRobot* sender, std::pair<int, int> node, MapElement elem) {
     for(auto* robot: robots) {
         if (robot != sender) {
-            robot->receiveNotification(node, elem);
+            robot->receiveNotificationUpdatedMap(node, elem);
         }
     }
+}
+
+bool Repeater::notifyAllLanding(IRobot* sender, std::pair<int, int> pos) {
+    for(auto* robot: robots) {
+        if (robot != sender) {
+            if (!robot->receiveNotificationLanding(pos)) return false;
+        }
+    }
+    return true;
 }
 
 MapElement Repeater::getMapElement(int r, int c) {

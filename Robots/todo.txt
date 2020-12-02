@@ -1,6 +1,4 @@
 -add support for multiple collectors and sappers
--fix navigation during auto mode (infinite loop if robots try to walk into each other)
--add system of robots pushing another robot off the cell
 -fix random number generator
 -try to decrease loading time
 -files review
