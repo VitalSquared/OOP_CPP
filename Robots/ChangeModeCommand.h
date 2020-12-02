@@ -2,6 +2,7 @@
 #define ROBOTS_CHANGEMODECOMMAND_H
 
 #include "ICommand.h"
+#include "Utils.h"
 
 class ChangeModeCommand : public ICommand {
 public:

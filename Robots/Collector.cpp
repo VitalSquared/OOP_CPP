@@ -7,7 +7,7 @@ Collector::Collector(std::pair<int, int> initPos, Repeater* repeater) {
     pos_c = initPos.second;
     this->repeater = repeater;
     repeater->connectRobot(this);
-    localMap.addElement(pos_r, pos_c, repeater->getMapElement(pos_r, pos_c)); //need to request map element
+    localMap.addElement(pos_r, pos_c, repeater->getMapElement(pos_r, pos_c));
 }
 
 const Map & Collector::getLocalMap() const {
@@ -78,8 +78,7 @@ bool Collector::invest() {
 }
 
 bool Collector::scan() {
-    std::pair<int, int> adjs[4] = { {pos_r + 1, pos_c}, {pos_r - 1, pos_c},
-                                   {pos_r, pos_c + 1}, {pos_r, pos_c - 1} };
+    std::vector<std::pair<int, int>> adjs = getAdjacentCoords(pos_r, pos_c);
     for (auto adj: adjs) {
         if (!localMap.containsLocation(adj.first, adj.second)) {
             localMap.addElement(adj.first, adj.second, repeater->getMapElement(adj.first, adj.second));

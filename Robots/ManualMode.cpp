@@ -18,7 +18,7 @@ bool ManualMode::invokeCommand(IRobot *robot, CommandType cmd, std::vector<std::
     bool res;
     switch(cmd) {
         case CommandType::MOVE:
-            res = robot->move(stringToDirection(args[0]));
+            res = robot->move(convertStringToDirection(args[0]));
             break;
         case CommandType::GRAB:
             res = robot->invest();
@@ -31,11 +31,4 @@ bool ManualMode::invokeCommand(IRobot *robot, CommandType cmd, std::vector<std::
     }
     if (!res) stepsMade = 0;
     return res;
-}
-
-Direction ManualMode::stringToDirection(const std::string &str) {
-    if (str == "U") return Direction::UP;
-    else if (str == "D") return Direction::DOWN;
-    else if (str == "R") return Direction::RIGHT;
-    else return Direction::LEFT;
 }

@@ -12,12 +12,16 @@ CMakeFiles\Robots.dir\AutoMode.cpp.obj: ..\Utils.h
 CMakeFiles\Robots.dir\ChangeModeCommand.cpp.obj: ..\ChangeModeCommand.cpp
 CMakeFiles\Robots.dir\ChangeModeCommand.cpp.obj: ..\ChangeModeCommand.h
 CMakeFiles\Robots.dir\ChangeModeCommand.cpp.obj: ..\ICommand.h
+CMakeFiles\Robots.dir\ChangeModeCommand.cpp.obj: ..\IRobot.h
+CMakeFiles\Robots.dir\ChangeModeCommand.cpp.obj: ..\Map.h
+CMakeFiles\Robots.dir\ChangeModeCommand.cpp.obj: ..\Utils.h
 
 CMakeFiles\Robots.dir\Collector.cpp.obj: ..\Collector.cpp
 CMakeFiles\Robots.dir\Collector.cpp.obj: ..\Collector.h
 CMakeFiles\Robots.dir\Collector.cpp.obj: ..\IRobot.h
 CMakeFiles\Robots.dir\Collector.cpp.obj: ..\Map.h
 CMakeFiles\Robots.dir\Collector.cpp.obj: ..\Repeater.h
+CMakeFiles\Robots.dir\Collector.cpp.obj: ..\Utils.h
 
 CMakeFiles\Robots.dir\ConsoleView.cpp.obj: ..\AutoMode.h
 CMakeFiles\Robots.dir\ConsoleView.cpp.obj: ..\ChangeModeCommand.h
@@ -70,6 +74,7 @@ CMakeFiles\Robots.dir\ManualMode.cpp.obj: ..\IRobot.h
 CMakeFiles\Robots.dir\ManualMode.cpp.obj: ..\ManualMode.cpp
 CMakeFiles\Robots.dir\ManualMode.cpp.obj: ..\ManualMode.h
 CMakeFiles\Robots.dir\ManualMode.cpp.obj: ..\Map.h
+CMakeFiles\Robots.dir\ManualMode.cpp.obj: ..\Utils.h
 
 CMakeFiles\Robots.dir\Map.cpp.obj: ..\Map.cpp
 CMakeFiles\Robots.dir\Map.cpp.obj: ..\Map.h
@@ -135,4 +140,5 @@ CMakeFiles\Robots.dir\main.cpp.obj: ..\Texture.h
 CMakeFiles\Robots.dir\main.cpp.obj: ..\ToggleSapperCommand.h
 CMakeFiles\Robots.dir\main.cpp.obj: ..\Utils.h
 CMakeFiles\Robots.dir\main.cpp.obj: ..\main.cpp
+CMakeFiles\Robots.dir\main.cpp.obj: ..\optionparser.h
 

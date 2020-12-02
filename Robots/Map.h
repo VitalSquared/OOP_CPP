@@ -15,7 +15,7 @@ public:
     ~Map() = default;
 
     MapElement getElement(int r, int c) const;
-    void addElement(int r, int c, MapElement elem);
+    void addElement(int r, int c, MapElement elem, bool overrideValue = true);
     bool containsLocation(int r, int c) const;
     void mergeMap(const Map& map);
 

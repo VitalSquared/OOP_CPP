@@ -1,9 +1,13 @@
+#include <chrono>
+#include <thread>
+#include <ctime>
+#include <windows.h>
 #include "Utils.h"
 
 using namespace std;
 
 int random(int max) {
-    srand(time(nullptr));
+    srand(time(nullptr) * GetTickCount());
     return rand() % max;
 }
 
@@ -58,7 +62,7 @@ vector<pair<int, int>> buildPath(int rs, int cs, int rf, int cf, const Map& scan
 
         visited.insert(make_pair(r, c));
 
-        pair<int,int> adjs[4] = { {r, c - 1}, {r, c + 1}, {r - 1, c}, {r + 1, c} };
+        vector<pair<int,int>> adjs = getAdjacentCoords(r, c);
         for (auto adj : adjs) {
             if (scannedMap.containsLocation(adj.first, adj.second) &&
                     canWalkOn.find(scannedMap.getElement(adj.first, adj.second)) != canWalkOn.end()) {
@@ -88,10 +92,54 @@ Direction calcDirection(std::pair<int, int> start, std::pair<int, int> end) {
     }
 }
 
+Direction convertStringToDirection(const std::string &str) {
+    if (str == "U") return Direction::UP;
+    else if (str == "D") return Direction::DOWN;
+    else if (str == "R") return Direction::RIGHT;
+    else return Direction::LEFT;
+}
+
 std::vector<std::pair<int, int>> getAdjacentCoords(int pos_r, int pos_c) {
     return {{pos_r, pos_c - 1}, {pos_r, pos_c + 1}, {pos_r - 1, pos_c}, {pos_r + 1, pos_c}};
 }
 
 double calcDistance(std::pair<int, int> point1, std::pair<int, int> point2) {
     return sqrt(pow(abs(point1.first - point2.first), 2) + pow(abs(point1.second - point2.second), 2));
+}
+
+void generateMap(int w, int h, ofstream& sv_file) {
+    sv_file << h << " " << w << endl;
+    std::cout << "0%\r";
+    for (int r = 0; r < h; r++) {
+        for (int c = 0; c < w; c++) {
+            int type = random(10);
+
+            if (type == 2) sv_file << "B";
+            else if (type == 6) sv_file << "R";
+            else if (type == 8) sv_file << "A";
+            else sv_file << " ";
+        }
+        sv_file << endl;
+        std::cout << (int)(100.0 * r / h) << "%\r";
+    }
+    std::cout << "100%\n";
+}
+
+bool fileExists(const std::string& file_name) {
+    ifstream file(file_name);
+    if (file.is_open()) {
+        file.close();
+        return true;
+    }
+    return false;
+}
+
+bool convertStringToInt(const std::string& str, int& out) {
+    try {
+        out = stoi(str);
+        return true;
+    }
+    catch (exception&) {
+        return false;
+    }
 }

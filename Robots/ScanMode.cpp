@@ -7,7 +7,9 @@ ModeType ScanMode::getModeType() {
 bool ScanMode::invokeCommand(IRobot *robot, CommandType cmd, std::vector<std::string> &args) {
     if (cmd != CommandType::SET_MODE || robot->getRobotType() != RobotType::COLLECTOR) return false;
 
-    int stepsReq = std::stoi(args[1]);
+    int stepsReq;
+    convertStringToInt(args[1], stepsReq);
+
     if (stepsMade.find(robot) == stepsMade.end()) {
         stepsMade.insert(std::make_pair(robot, 0));
         dest.insert(std::make_pair(robot, robot->getPosition()));

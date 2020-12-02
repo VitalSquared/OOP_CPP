@@ -2,6 +2,7 @@
 #define ROBOTS_MANUALMODE_H
 
 #include "IMode.h"
+#include "Utils.h"
 
 class ManualMode : public IMode {
 public:
@@ -12,8 +13,6 @@ public:
 
 private:
     int stepsMade;
-
-    Direction stringToDirection(const std::string& str);
 };
 
 #endif

@@ -14,7 +14,7 @@ bool AutoMode::invokeCommand(IRobot *robot, CommandType cmd, std::vector<std::st
         unreachable.erase(robot);
     }
 
-    std::set<MapElement> invesitble = robot->getInvestible();
+    std::set<MapElement> investible = robot->getInvestible();
     while (true) {
         if (dest.find(robot) == dest.end()) {
             double min_dist = -1;
@@ -22,7 +22,7 @@ bool AutoMode::invokeCommand(IRobot *robot, CommandType cmd, std::vector<std::st
             for (auto cell: robot->getLocalMap().getMap()) {
                 int cell_r = cell.first.first, cell_c = cell.first.second;
 
-                if (invesitble.find(robot->getLocalMap().getElement(cell_r, cell_c)) == invesitble.end() ||
+                if (investible.find(robot->getLocalMap().getElement(cell_r, cell_c)) == investible.end() ||
                     unreachable[robot].find(cell.first) != unreachable[robot].end() ||
                     cell.first == robot->getPosition()) continue;
 

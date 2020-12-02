@@ -4,6 +4,7 @@
 #include "IRobot.h"
 #include "Repeater.h"
 #include "Map.h"
+#include "Utils.h"
 
 class Collector : public IRobot {
 public:
