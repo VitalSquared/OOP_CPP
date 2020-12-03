@@ -7,10 +7,12 @@
 #IncludeRegexTransform: 
 
 D:/Workshop/CLionProjects/OOOP/Robots/AutoMode.h
+set
+-
+map
+-
 IMode.h
 D:/Workshop/CLionProjects/OOOP/Robots/IMode.h
-Utils.h
-D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 
 D:/Workshop/CLionProjects/OOOP/Robots/ChangeModeCommand.h
 ICommand.h
@@ -175,8 +177,6 @@ map
 -
 IMode.h
 D:/Workshop/CLionProjects/OOOP/Robots/IMode.h
-Utils.h
-D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 
 D:/Workshop/CLionProjects/OOOP/Robots/SwitchCollectorCommand.h
 ICommand.h

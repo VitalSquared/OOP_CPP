@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 #include "optionparser.h"
 #include "Utils.h"
 #include "IGameView.h"
@@ -20,6 +21,8 @@ void completeExecution(const std::string& message) {
 }
 
 int main(int argc, char** argv) {
+    srand(std::time(nullptr));
+
     int cnt_collectors = 1;
     argc -= (argc>0); argv += (argc>0);
 

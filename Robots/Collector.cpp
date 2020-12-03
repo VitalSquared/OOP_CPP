@@ -7,7 +7,6 @@ Collector::Collector(int id, std::pair<int, int> initPos, Repeater* repeater) {
     pos_r = initPos.first;
     pos_c = initPos.second;
     this->repeater = repeater;
-    repeater->connectRobot(this);
 
     MapElement elem = repeater->getMapElement(pos_r, pos_c);
     localMap.addElement(pos_r, pos_c, elem);

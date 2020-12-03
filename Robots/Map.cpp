@@ -2,6 +2,8 @@
 
 Map::Map(const std::string &map_file) {
     std::ifstream file(map_file);
+    std::string row;
+
     if (file.is_open()) {
         std::cout << "0%\r";
         int rows = 0, cols = 0;
@@ -9,7 +11,6 @@ Map::Map(const std::string &map_file) {
         file.get();
         if (rows < 1000 || cols < 1000) throw std::exception();
         for (int r = 0; r < rows; r++) {
-            std::string row;
             std::getline(file, row);
             while ('\n' == row.back() || '\r' == row.back()) row.pop_back();
             if (row.length() != cols) throw std::exception();
@@ -29,16 +30,21 @@ Map::Map(const std::string &map_file) {
                         break;
                 }
             }
-            std::cout << (int)(100.0 * r / rows) << "%" << std::string((int)(100.0 * r / rows), '.') << "\r";
+            int percent = (int)(100.0 * r / rows);
+            std::cout << std::string(percent, '.') << percent << "%" << "\r";
         }
         file.close();
-        std::cout << std::endl;
+        std::cout << std::string(100, '.') << "100%" << std::endl;
     }
 }
 
 MapElement Map::getElement(int r, int c) const {
     if (containsLocation(r, c)) return data.at(std::make_pair(r, c));
     else return MapElement::ROCK;
+}
+
+MapElement Map::getElement(std::pair<int, int> pos) const {
+    return getElement(pos.first, pos.second);
 }
 
 void Map::addElement(int r, int c, MapElement elem, bool overrideValue) {

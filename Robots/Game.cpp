@@ -10,7 +10,7 @@ Game::Game(const std::string& map_file, int cnt_collectors) {
 
     globalMap = new Map(map_file);
 
-    repeater = new Repeater(globalMap);
+    repeater = new Repeater(globalMap, &robots);
 
     std::vector<std::pair<int, int>> positions = findSuitablePos(cnt_collectors, globalMap->getMap(), { MapElement::EMPTY, MapElement::APPLE });
     for (int i = 0; i < cnt_collectors; i++)
@@ -70,14 +70,6 @@ bool Game::step() {
             break;
         default:
             res = mode->invokeCommand(getActiveCollector(), curCmd, curArgs);
-            if (res && !getActiveCollector()->isActive()) {
-                for (int i = 0; i < robots.size(); i++) {
-                    if (robots[i]->getRobotID().second == activeCollectorID) {
-                        robots.erase(robots.begin() + i);
-                        break;
-                    }
-                }
-            }
             break;
     }
 
@@ -138,33 +130,31 @@ bool Game::modeActivity() {
         }
         return false;
     }
-    else if (curArgs[0] == "scan") {
-        if (mode->getModeType() != ModeType::SCAN) {
+    else if (curArgs[0] == "scan" || curArgs[0] == "auto") {
+        if (mode->getModeType() != ModeType::SCAN && curArgs[0] == "scan") {
             delete mode;
             mode = new ScanMode();
         }
-        bool res = false;
-        for (auto* robot : robots) {
-            if (robot->getRobotID().first == RobotType::COLLECTOR) {
-                res = mode->invokeCommand(robot, curCmd, curArgs) || res;
-            }
-        }
-        if (!res) {
-            delete mode;
-            mode = new ManualMode();
-        }
-        return res;
-    }
-    else if (curArgs[0] == "auto") {
-        if (mode->getModeType() != ModeType::AUTO) {
+        if (mode->getModeType() != ModeType::AUTO && curArgs[0] == "auto") {
             delete mode;
             mode = new AutoMode();
         }
+        std::set<IRobot*> finished;
         bool res = false;
         for (auto* robot : robots) {
+            if (curArgs[0] == "scan" && robot->getRobotID().first == RobotType::SAPPER) continue;
+
             bool invokeRes = mode->invokeCommand(robot, curCmd, curArgs);
             if (robot->getRobotID().first == RobotType::COLLECTOR) {
                 res = res || invokeRes;
+                if (!invokeRes) finished.insert(robot);
+            }
+        }
+        if (containerContains(finished, getActiveCollector()) && res) {
+            for (auto* robot : robots) {
+                if (robot->getRobotID().first != RobotType::COLLECTOR || containerContains(finished, robot)) continue;
+                activeCollectorID = robot->getRobotID().second;
+                break;
             }
         }
         if (!res) {

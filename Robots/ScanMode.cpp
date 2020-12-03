@@ -1,3 +1,4 @@
+#include "Utils.h"
 #include "ScanMode.h"
 
 ModeType ScanMode::getModeType() {
@@ -12,76 +13,71 @@ bool ScanMode::invokeCommand(IRobot *robot, CommandType cmd, std::vector<std::st
 
     if (!containerContains(stepsMade, robot)) {
         stepsMade.insert(std::make_pair(robot, 0));
-        dest.insert(std::make_pair(robot, robot->getPosition()));
+        destination.insert(std::make_pair(robot, robot->getPosition()));
     }
 
-    if (containerContains(dest, robot) && robot->getPosition() == dest[robot]) {
+    if (!containerContains(unreachable, robot)) {
+        unreachable.insert(std::make_pair(robot, std::set<std::pair<int, int>>()));
+    }
+
+    if (containerContains(destination, robot) && robot->getPosition() == destination[robot]) {
         robot->scan();
-        dest.erase(robot);
-        unreachable.erase(robot);
+        destination.erase(robot);
+        unreachable[robot].clear();
         return true;
     }
 
     if (stepsMade[robot] >= stepsReq) {
-        if (containerContains(dest, robot)) dest.erase(robot);
+        if (containerContains(destination, robot)) destination.erase(robot);
         return false;
     }
 
     std::set<MapElement> walkable = robot->getWalkable();
     while (true) {
-        if (dest.find(robot) == dest.end()) {
+        if (destination.find(robot) == destination.end()) {
             double min_dist = -1;
-            std::vector<std::pair<int, int>> all_min_psbl;
+            std::vector<std::pair<int, int>> possible_destinations;
             for (auto cell: robot->getLocalMap().getMap()) {
-                int cell_r = cell.first.first, cell_c = cell.first.second;
+                if (!containerContains(walkable, robot->getLocalMap().getElement(cell.first)) ||
+                    containerContains(unreachable[robot], cell.first) ||
+                    cell.first == robot->getPosition() ||
+                    anyRobotsMoveToPosition(robot, cell.first)) continue;
 
-                if (!containerContains(walkable, robot->getLocalMap().getElement(cell_r, cell_c)) ||
-                        containerContains(unreachable[robot], cell.first) || cell.first == robot->getPosition()) continue;
-
-                std::vector<std::pair<int, int>> adjs = getAdjacentCoords(cell_r, cell_c);
+                std::vector<std::pair<int, int>> adjs = getAdjacentCoords(cell.first);
                 for (auto adj : adjs) {
                     if (!robot->getLocalMap().containsLocation(adj.first, adj.second)) {
                         double dist = calcDistance(cell.first, robot->getPosition());
                         if (min_dist < 0 || dist < min_dist) {
                             min_dist = dist;
-                            all_min_psbl.clear();
+                            possible_destinations.clear();
                         }
-                        if (dist <= min_dist) all_min_psbl.emplace_back(std::make_pair(cell_r, cell_c));
+                        if (dist <= min_dist) possible_destinations.emplace_back(cell.first);
                         break;
                     }
                 }
             }
 
-            if (all_min_psbl.empty()) return false;
-            dest.insert(std::make_pair(robot, all_min_psbl[random(all_min_psbl.size())]));
+            if (possible_destinations.empty()) return false;
+            destination.insert(std::make_pair(robot, possible_destinations[random(possible_destinations.size())]));
         }
 
-        int rbt_r = robot->getPosition().first, rbt_c = robot->getPosition().second;
-        int dst_r = dest[robot].first, dst_c = dest[robot].second;
-        std::vector<std::pair<int, int>> path = buildPath(rbt_r, rbt_c, dst_r, dst_c, robot->getLocalMap(), robot->getWalkable(),
-                                      containerContains(unreachable, robot) ? unreachable[robot] : std::set<std::pair<int, int>>());
-        if (path.empty()) {
-            if (!containerContains(unreachable, robot)) {
-                unreachable.insert(std::make_pair(robot, std::set<std::pair<int, int>>({dest[robot]})));
-            }
-            else {
-                unreachable[robot].insert(dest[robot]);
-            }
-            dest.erase(robot);
-            continue;
-        }
-        if (!robot->move(convertDeltaToDirection(path[0] - robot->getPosition()))) {
-            if (!containerContains(unreachable, robot)) {
-                unreachable.insert(std::make_pair(robot, std::set<std::pair<int, int>>({path[0]})));
-            }
-            else {
-                unreachable[robot].insert(path[0]);
-            }
-            if (path[0] == dest[robot]) dest.erase(robot);
+        std::vector<std::pair<int, int>> path = buildPath(robot->getPosition(), destination[robot],
+                                                      robot->getLocalMap(), robot->getWalkable(),unreachable[robot]);
+        if (path.empty() || !robot->move(convertDeltaToDirection(path[0] - robot->getPosition()))) {
+            unreachable[robot].insert(path.empty() ? destination[robot] : path[0]);
+            destination.erase(robot);
             continue;
         }
         stepsMade[robot]++;
         break;
     }
     return true;
+}
+
+bool ScanMode::anyRobotsMoveToPosition(IRobot *sender, std::pair<int, int> pos) {
+    for(auto & iter : destination) {
+        if (iter.first == sender) continue;
+        if (iter.second == pos) return true;
+    }
+    return false;
 }

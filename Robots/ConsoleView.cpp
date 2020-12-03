@@ -74,7 +74,11 @@ void ConsoleView::renderMap() {
         return;
     }
 
-    int map_width = (width - 6) / (textureSize + 1), map_height = (height - 6) / (textureSize + 1);
+    int padding_top = 1 * (textureSize + 1), padding_bottom = 2 * (textureSize + 1),
+            padding_left = 1 * (textureSize + 1), padding_right = 2 * (textureSize + 1);
+
+    int map_width = (width - (padding_left + padding_right)) / (textureSize + 1),
+        map_height = (height - (padding_top + padding_bottom)) / (textureSize + 1);
     int center_r = curCollector->getPosition().first, center_c = curCollector->getPosition().second;
     int top_left_r = center_r - map_height / 2, top_left_c = center_c - map_width / 2;
 
@@ -103,24 +107,30 @@ void ConsoleView::renderMap() {
 
     for (auto* robot : robots) {
         Texture* texture;
+        std::string id = "0" + std::to_string(robot->getRobotID().second);
         switch(robot->getRobotID().first) {
             case RobotType::COLLECTOR:
-                texture = T_Collector;
+                texture = new Texture(textureSize, colorGreen, "Rb" + id.substr(id.size() - 2));
                 apples += robot->getInvestment();
                 break;
             case RobotType::SAPPER:
-                texture = T_Sapper;
+                texture = new Texture(textureSize, colorCyan, "Sp" + id.substr(id.size() - 2));
                 break;
         }
         if (!robot->isActive()) continue;
         int pos_r = robot->getPosition().first, pos_c = robot->getPosition().second;
         putTextureInBuffer(buffer, texture, std::make_pair(textureSize * (pos_r - top_left_r), textureSize * (pos_c - top_left_c)));
+        delete texture;
+        texture = nullptr;
     }
 
+
+    for (int r = 0; r < padding_top; r++) std::cout << std::endl;
     std::string output;
     int i = 0;
     for (const auto& row : buffer) {
         int j = 0;
+        output += std::string(padding_left, ' ');
         for (const auto& col : row) {
             output += colorDefault + col + colorDarkGrey + (j == textureSize - 1 ? "|" : "");
             j++;
@@ -128,6 +138,7 @@ void ConsoleView::renderMap() {
         }
         output += "\n";
         if (i == textureSize - 1) {
+            output += std::string(padding_left, ' ');
             output += colorDarkGrey + std::string(row.size() * (textureSize + 1) / textureSize, '-');
             output += "\n";
         }

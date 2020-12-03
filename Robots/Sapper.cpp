@@ -5,7 +5,6 @@ Sapper::Sapper(Repeater* repeater, int id) {
     this->id = id;
     bombs = 0;
     this->repeater = repeater;
-    repeater->connectRobot(this);
     pos_r = 0;
     pos_c = 0;
     init();

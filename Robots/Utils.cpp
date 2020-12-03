@@ -7,7 +7,6 @@
 using namespace std;
 
 int random(int max) {
-    srand(time(nullptr));
     return rand() % max;
 }
 
@@ -28,9 +27,10 @@ void generateMap(int w, int h, ofstream& sv_file) {
             else sv_file << " ";
         }
         sv_file << endl;
-        std::cout << (int)(100.0 * r / h) << "%\r";
+        int percent = (int)(100.0 * r / h);
+        std::cout << std::string(percent, '.') << percent << "%" << "\r";
     }
-    std::cout << "100%\n";
+    std::cout << std::string(100, '.') << "100%" << std::endl;
 }
 
 std::pair<int, int> operator-(std::pair<int, int> p1, std::pair<int, int> p2) {
@@ -79,8 +79,9 @@ std::vector<std::pair<int, int>> findSuitablePos(int count, const std::map<std::
     return result;
 }
 
-vector<pair<int, int>> buildPath(int rs, int cs, int rf, int cf, const Map& scannedMap,
+vector<pair<int, int>> buildPath(std::pair<int, int> start, std::pair<int, int> end, const Map& scannedMap,
                                  const set<MapElement>& canWalkOn, const std::set<std::pair<int, int>>& unreachable) {
+    int rs = start.first, cs = start.second, rf = end.first, cf = end.second;
     set<pair<int, int>> visited;
     queue<vector<pair<int,int>>> q;
 
@@ -122,6 +123,10 @@ vector<pair<int, int>> buildPath(int rs, int cs, int rf, int cf, const Map& scan
 
 std::vector<std::pair<int, int>> getAdjacentCoords(int pos_r, int pos_c) {
     return {{pos_r, pos_c - 1}, {pos_r, pos_c + 1}, {pos_r - 1, pos_c}, {pos_r + 1, pos_c}};
+}
+
+std::vector<std::pair<int, int>> getAdjacentCoords(std::pair<int, int> pos) {
+    return getAdjacentCoords(pos.first, pos.second);
 }
 
 double calcDistance(std::pair<int, int> point1, std::pair<int, int> point2) {

@@ -24,9 +24,10 @@ bool containerContains(const Container& container, Elem elem) {
 }
 
 std::vector<std::pair<int, int>> findSuitablePos(int count, const std::map<std::pair<int, int>, MapElement>& data, const std::set<MapElement>& allowed);
-std::vector<std::pair<int, int>> buildPath(int rs, int cs, int rf, int cf, const Map& scannedMap,
+std::vector<std::pair<int, int>> buildPath(std::pair<int, int> start, std::pair<int, int> end, const Map& scannedMap,
                                            const std::set<MapElement>& canWalkOn, const std::set<std::pair<int, int>>& unreachable);
 std::vector<std::pair<int, int>> getAdjacentCoords(int pos_r, int pos_c);
+std::vector<std::pair<int, int>> getAdjacentCoords(std::pair<int, int> pos);
 double calcDistance(std::pair<int, int> point1, std::pair<int, int> point2);
 
 bool convertStringToInt(const std::string& str, int& out);

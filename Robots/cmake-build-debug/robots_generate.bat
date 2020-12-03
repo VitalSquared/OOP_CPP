@@ -1,2 +1,2 @@
-Robots.exe --generate 2500 2500 map2.txt
+Robots.exe --generate 1500 1500 map2.txt
 pause

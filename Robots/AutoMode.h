@@ -1,19 +1,23 @@
-#ifndef ROBOTS_AUTOMODE_H
-#define ROBOTS_AUTOMODE_H
+#ifndef ROBOTS_AUTO_MODE_H
+#define ROBOTS_AUTO_MODE_H
 
+#include <set>
+#include <map>
 #include "IMode.h"
-#include "Utils.h"
 
 class AutoMode : public IMode {
 public:
     AutoMode() = default;
     ~AutoMode() override = default;
-    bool invokeCommand(IRobot* robot, CommandType cmd, std::vector<std::string>& args) override;
+
     ModeType getModeType() override;
+    bool invokeCommand(IRobot* robot, CommandType cmd, std::vector<std::string>& args) override;
 
 private:
-    std::map<IRobot*, std::pair<int, int>> dest;
+    std::map<IRobot*, std::pair<int, int>> destination;
     std::map<IRobot*, std::set<std::pair<int, int>>> unreachable;
+
+    bool anyRobotsMoveToPosition(IRobot* sender, std::pair<int, int> pos);
 };
 
 #endif

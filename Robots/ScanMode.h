@@ -4,20 +4,21 @@
 #include <set>
 #include <map>
 #include "IMode.h"
-#include "Utils.h"
 
 class ScanMode : public IMode {
 public:
     ScanMode() = default;
     ~ScanMode() override = default;
-    bool invokeCommand(IRobot* robot, CommandType cmd, std::vector<std::string>& args) override;
+
     ModeType getModeType() override;
+    bool invokeCommand(IRobot* robot, CommandType cmd, std::vector<std::string>& args) override;
 
 private:
     std::map<IRobot*, int> stepsMade;
-    std::map<IRobot*, std::pair<int, int>> dest;
+    std::map<IRobot*, std::pair<int, int>> destination;
     std::map<IRobot*, std::set<std::pair<int, int>>> unreachable;
 
+    bool anyRobotsMoveToPosition(IRobot* sender, std::pair<int, int> pos);
 };
 
 #endif
