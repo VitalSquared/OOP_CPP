@@ -1,3 +1,4 @@
+#include "Utils.h"
 #include "Collector.h"
 
 Collector::Collector(int id, std::pair<int, int> initPos, Repeater* repeater) {
@@ -14,7 +15,7 @@ Collector::Collector(int id, std::pair<int, int> initPos, Repeater* repeater) {
     localMap.mergeMap(repeater->getCollectorsScannedMap());
 }
 
-const Map & Collector::getLocalMap() const {
+const Map& Collector::getLocalMap() const {
     return localMap;
 }
 
@@ -45,32 +46,26 @@ void Collector::receiveNotificationUpdatedMap(std::pair<int, int> node, MapEleme
     localMap.addElement(node.first, node.second, elem);
 }
 
-bool Collector::receiveNotificationLanding(std::pair<int, int> pos) {
-    if (getPosition() != pos) return true;
-
-    std::vector<std::pair<int, int>> adjs = getAdjacentCoords(0, 0);
-    for (auto adj : adjs) {
+void Collector::receiveNotificationLanding(std::pair<int, int> pos) {
+    if (getPosition() != pos) return;
+    for (auto adj : getAdjacentCoords(0, 0)) {
         if (move(convertDeltaToDirection(adj))) {
-            return true;
+            return;
         }
     }
     bActive = false;
-    return true;
 }
 
 bool Collector::move(Direction dir) {
-    std::pair<int, int> delta = convertDirectionToDelta(dir);
-    int dr = delta.first, dc = delta.second;
-
-    auto walkable = getWalkable();
-    if (walkable.find(localMap.getElement(pos_r + dr, pos_c + dc)) != walkable.end()) {
-        if (!repeater->anyRobotsInPosition(std::make_pair(pos_r + dr, pos_c + dc))) {
-            pos_r += dr;
-            pos_c += dc;
+    std::pair<int, int> newPos = getPosition() + convertDirectionToDelta(dir);
+    if (containerContains(getWalkable(), localMap.getElement(newPos))) {
+        if (!repeater->anyRobotsInPosition(newPos)) {
+            pos_r = newPos.first;
+            pos_c = newPos.second;
             return true;
         }
     }
-    else if (localMap.getElement(pos_r + dr, pos_c + dc) == MapElement::BOMB) {
+    else if (localMap.getElement(newPos) == MapElement::BOMB) {
         bActive = false;
         return true;
     }
@@ -78,19 +73,17 @@ bool Collector::move(Direction dir) {
 }
 
 bool Collector::invest() {
-    std::set<MapElement> investible = getInvestible();
-    if (investible.find(localMap.getElement(pos_r, pos_c)) != investible.end()) {
-        localMap.addElement(pos_r, pos_c, MapElement::EMPTY);
+    if (containerContains(getInvestible(), localMap.getElement(pos_r, pos_c))) {
         apples++;
-        repeater->notifyAllUpdatedMap(this, std::make_pair(pos_r, pos_c), MapElement::EMPTY);
+        localMap.addElement(pos_r, pos_c, MapElement::EMPTY);
+        repeater->notifyAllUpdatedMap(this, getPosition(), MapElement::EMPTY);
         return true;
     }
     return false;
 }
 
 bool Collector::scan() {
-    std::vector<std::pair<int, int>> adjs = getAdjacentCoords(pos_r, pos_c);
-    for (auto adj: adjs) {
+    for (auto adj: getAdjacentCoords(pos_r, pos_c)) {
         if (!localMap.containsLocation(adj.first, adj.second)) {
             localMap.addElement(adj.first, adj.second, repeater->getMapElement(adj.first, adj.second));
             repeater->notifyAllUpdatedMap(this, adj, localMap.getElement(adj.first, adj.second));

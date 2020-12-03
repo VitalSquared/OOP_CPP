@@ -9,7 +9,8 @@ public:
     ~Texture() = default;
 
     std::string getPixel(int r, int c);
-    int getSize();
+    int getSize() const;
+
 private:
     int size;
     std::string color;

@@ -1,6 +1,10 @@
 #include <chrono>
 #include <thread>
 #include <ctime>
+#include <iostream>
+#include <cmath>
+#include <queue>
+#include <fstream>
 #include <windows.h>
 #include "Utils.h"
 
@@ -33,10 +37,13 @@ void generateMap(int w, int h, ofstream& sv_file) {
     std::cout << std::string(100, '.') << "100%" << std::endl;
 }
 
+std::pair<int, int> operator+(std::pair<int, int> p1, std::pair<int, int> p2) {
+    return std::make_pair(p1.first + p2.first, p1.second + p2.second);
+}
+
 std::pair<int, int> operator-(std::pair<int, int> p1, std::pair<int, int> p2) {
     return std::make_pair(p1.first - p2.first, p1.second - p2.second);
 }
-
 
 vector<string> splitString(const string& str, char ch) {
     vector<string> v;
@@ -74,7 +81,7 @@ std::vector<std::pair<int, int>> findSuitablePos(int count, const std::map<std::
     for (int i = 0; i < count; i++) {
         int idx = random(possible.size());
         result.emplace_back(possible[idx]);
-        possible.erase(possible.begin() + idx);
+        containerRemove(possible, idx);
     }
     return result;
 }
@@ -83,15 +90,15 @@ vector<pair<int, int>> buildPath(std::pair<int, int> start, std::pair<int, int> 
                                  const set<MapElement>& canWalkOn, const std::set<std::pair<int, int>>& unreachable) {
     int rs = start.first, cs = start.second, rf = end.first, cf = end.second;
     set<pair<int, int>> visited;
-    queue<vector<pair<int,int>>> q;
+    queue<vector<pair<int,int>>> _queue;
 
     vector<pair<int,int>> init_path;
     init_path.emplace_back(make_pair(rs, cs));
-    q.push(init_path);
+    _queue.push(init_path);
 
-    while (!q.empty()) {
-        vector<pair<int,int>> cur_path = vector<pair<int,int>>(q.front());
-        q.pop();
+    while (!_queue.empty()) {
+        vector<pair<int,int>> cur_path = vector<pair<int,int>>(_queue.front());
+        _queue.pop();
 
         if (visited.find(cur_path.back()) != visited.end()) continue;
 
@@ -103,19 +110,18 @@ vector<pair<int, int>> buildPath(std::pair<int, int> start, std::pair<int, int> 
 
         visited.insert(make_pair(r, c));
 
-        vector<pair<int,int>> adjs = getAdjacentCoords(r, c);
-        for (auto adj : adjs) {
-            if (scannedMap.containsLocation(adj.first, adj.second) && !containerContains(unreachable, adj) &&
-                                                        containerContains(canWalkOn, scannedMap.getElement(adj.first, adj.second))) {
+        for (auto adj : getAdjacentCoords(r, c)) {
+            if (scannedMap.containsLocation(adj.first, adj.second) &&
+                !containerContains(unreachable, adj) &&
+                containerContains(canWalkOn, scannedMap.getElement(adj.first, adj.second)))
+            {
                 if (!containerContains(visited, adj)) {
                     vector<pair<int, int>> new_path(cur_path);
                     new_path.emplace_back(adj);
-                    q.push(new_path);
+                    _queue.push(new_path);
                 }
             }
-            else if (rf == adj.first && cf == adj.second) {
-                return {};
-            }
+            else if (rf == adj.first && cf == adj.second) return {};
         }
     }
     return {};
@@ -132,8 +138,6 @@ std::vector<std::pair<int, int>> getAdjacentCoords(std::pair<int, int> pos) {
 double calcDistance(std::pair<int, int> point1, std::pair<int, int> point2) {
     return sqrt(pow(abs(point1.first - point2.first), 2) + pow(abs(point1.second - point2.second), 2));
 }
-
-
 
 bool convertStringToInt(const std::string& str, int& out) {
     try {

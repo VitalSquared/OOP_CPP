@@ -3,9 +3,7 @@
 
 #include <set>
 #include <vector>
-#include <queue>
 #include <string>
-#include <cmath>
 #include "Map.h"
 #include "IRobot.h"
 
@@ -13,6 +11,7 @@ int random(int max);
 void delay(size_t ms);
 void generateMap(int w, int h, std::ofstream& sv_file);
 
+std::pair<int, int> operator+(std::pair<int, int> p1, std::pair<int, int> p2);
 std::pair<int, int> operator-(std::pair<int, int> p1, std::pair<int, int> p2);
 
 std::vector<std::string> splitString(const std::string& str, char ch);
@@ -21,6 +20,10 @@ bool fileExists(const std::string& file_name);
 template <typename Container, typename Elem>
 bool containerContains(const Container& container, Elem elem) {
     return container.find(elem) != container.end();
+}
+template <typename Container>
+void containerRemove(Container& container, int idx) {
+    if (0 <= idx && idx < container.size()) container.erase(container.begin() + idx);
 }
 
 std::vector<std::pair<int, int>> findSuitablePos(int count, const std::map<std::pair<int, int>, MapElement>& data, const std::set<MapElement>& allowed);

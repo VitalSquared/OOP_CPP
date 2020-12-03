@@ -7,6 +7,7 @@ class GrabCommand : public ICommand {
 public:
     GrabCommand() = default;
     ~GrabCommand() override = default;
+
     CommandType validateArgs(std::vector<std::string> args) override;
 };
 

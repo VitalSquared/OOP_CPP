@@ -1,14 +1,11 @@
-#ifndef ROBOTS_CONSOLEVIEW_H
-#define ROBOTS_CONSOLEVIEW_H
+#ifndef ROBOTS_CONSOLE_VIEW_H
+#define ROBOTS_CONSOLE_VIEW_H
 
-#include <iostream>
 #include <string>
-#include <windows.h>
 #include "IGameView.h"
 #include "Game.h"
 #include "Texture.h"
 #include "Map.h"
-#include "Utils.h"
 
 class ConsoleView : public IGameView {
 public:
@@ -19,16 +16,11 @@ public:
 private:
     Game* game;
 
-    void renderMap();
-    std::pair<int, int> getConsoleSize();
-    Texture* getTextureFromMap(MapElement elem);
-    void putTextureInBuffer(std::vector<std::vector<std::string>>& buffer, Texture* texture, std::pair<int, int> top_left);
-
-    //const string colorBlack = "\x1B[30m";
+    const std::string colorBlack = "\x1B[30m";
     const std::string colorRed = "\x1B[31m";
     const std::string colorGreen = "\x1B[32m";
-    //const std::string colorYellow = "\x1B[33m";
-    //const std::string colorBlue = "\x1B[34m";
+    const std::string colorYellow = "\x1B[33m";
+    const std::string colorBlue = "\x1B[34m";
     const std::string colorMagenta = "\x1B[35m";
     const std::string colorCyan = "\x1B[36m";
     const std::string colorWhite = "\x1B[37m";
@@ -37,7 +29,6 @@ private:
     const std::string colorDefault = "\x1B[0m";
 
     const int textureSize = 2;
-
     Texture* T_Unknown;
     Texture* T_Collector;
     Texture* T_Sapper;
@@ -45,6 +36,11 @@ private:
     Texture* T_Bomb;
     Texture* T_Rock;
     Texture* T_Empty;
+
+    void renderMap();
+    std::pair<int, int> getConsoleSize();
+    Texture* getTextureFromMap(MapElement elem);
+    void putTextureInBuffer(std::vector<std::vector<std::string>>& buffer, Texture* texture, std::pair<int, int> top_left);
 };
 
 #endif

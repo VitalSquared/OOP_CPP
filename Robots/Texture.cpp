@@ -17,6 +17,6 @@ std::string Texture::getPixel(int r, int c) {
     }
 }
 
-int Texture::getSize() {
+int Texture::getSize() const {
     return size;
 }

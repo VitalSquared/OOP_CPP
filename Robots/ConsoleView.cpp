@@ -1,3 +1,6 @@
+#include <iostream>
+#include <windows.h>
+#include "Utils.h"
 #include "ConsoleView.h"
 
 ConsoleView::ConsoleView(const std::string& map_file, int cnt_collectors) {
@@ -52,7 +55,7 @@ void ConsoleView::run() {
         if (game->parseCommand(cmd)) {
             while(game->step()) {
                 renderMap();
-                delay(500);
+                delay(300);
             }
         }
         else std::cout << "Invalid command or argument(s).\n";
@@ -79,13 +82,13 @@ void ConsoleView::renderMap() {
 
     int map_width = (width - (padding_left + padding_right)) / (textureSize + 1),
         map_height = (height - (padding_top + padding_bottom)) / (textureSize + 1);
-    int center_r = curCollector->getPosition().first, center_c = curCollector->getPosition().second;
-    int top_left_r = center_r - map_height / 2, top_left_c = center_c - map_width / 2;
-
     if (map_width <= 0 || map_height <= 0) {
         std::cout << "Impossible to draw map. Invalid map size. Try to increase Console Window size" << std::endl;
         return;
     }
+
+    int center_r = curCollector->getPosition().first, center_c = curCollector->getPosition().second;
+    int top_left_r = center_r - map_height / 2, top_left_c = center_c - map_width / 2;
 
     std::vector<std::vector<std::string>> buffer(map_height * textureSize, std::vector<std::string>(map_width * textureSize));
 
@@ -96,9 +99,7 @@ void ConsoleView::renderMap() {
                 MapElement elem = curCollector->getLocalMap().getElement(r + top_left_r, c + top_left_c);
                 texture = getTextureFromMap(elem);
             }
-            else {
-                texture = T_Unknown;
-            }
+            else texture = T_Unknown;
             putTextureInBuffer(buffer, texture, std::make_pair(textureSize * r, textureSize * c));
         }
     }
@@ -108,6 +109,7 @@ void ConsoleView::renderMap() {
     for (auto* robot : robots) {
         Texture* texture;
         std::string id = "0" + std::to_string(robot->getRobotID().second);
+
         switch(robot->getRobotID().first) {
             case RobotType::COLLECTOR:
                 texture = new Texture(textureSize, colorGreen, "Rb" + id.substr(id.size() - 2));
@@ -117,13 +119,13 @@ void ConsoleView::renderMap() {
                 texture = new Texture(textureSize, colorCyan, "Sp" + id.substr(id.size() - 2));
                 break;
         }
-        if (!robot->isActive()) continue;
+
         int pos_r = robot->getPosition().first, pos_c = robot->getPosition().second;
         putTextureInBuffer(buffer, texture, std::make_pair(textureSize * (pos_r - top_left_r), textureSize * (pos_c - top_left_c)));
+
         delete texture;
         texture = nullptr;
     }
-
 
     for (int r = 0; r < padding_top; r++) std::cout << std::endl;
     std::string output;

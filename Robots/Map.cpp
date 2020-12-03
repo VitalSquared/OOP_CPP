@@ -1,3 +1,6 @@
+#include <iostream>
+#include <fstream>
+#include "Utils.h"
 #include "Map.h"
 
 Map::Map(const std::string &map_file) {
@@ -38,6 +41,10 @@ Map::Map(const std::string &map_file) {
     }
 }
 
+Map::~Map() {
+    data.clear();
+}
+
 MapElement Map::getElement(int r, int c) const {
     if (containsLocation(r, c)) return data.at(std::make_pair(r, c));
     else return MapElement::ROCK;
@@ -47,17 +54,17 @@ MapElement Map::getElement(std::pair<int, int> pos) const {
     return getElement(pos.first, pos.second);
 }
 
+bool Map::containsLocation(int r, int c) const {
+    return containerContains(data, std::make_pair(r,c));
+}
+
 void Map::addElement(int r, int c, MapElement elem, bool overrideValue) {
-    if (!overrideValue || data.find(std::make_pair(r, c)) == data.end()) {
+    if (!overrideValue || !containerContains(data, std::make_pair(r, c))) {
         data.insert(std::make_pair(std::make_pair(r, c), elem));
     }
     else {
         data[std::make_pair(r, c)] = elem;
     }
-}
-
-bool Map::containsLocation(int r, int c) const {
-    return data.find(std::make_pair(r,c)) != data.end();
 }
 
 void Map::mergeMap(const Map &map) {

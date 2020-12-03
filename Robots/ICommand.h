@@ -3,7 +3,6 @@
 
 #include <vector>
 #include <string>
-#include <exception>
 
 enum class CommandType { UNKNOWN, MOVE, SCAN, GRAB, SAPPER, SET_MODE, COLLECTOR };
 

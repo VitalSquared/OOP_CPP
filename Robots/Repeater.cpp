@@ -6,6 +6,7 @@ Repeater::Repeater(const Map* globalMap, const std::vector<IRobot*>* robots) {
 }
 
 void Repeater::notifyAllUpdatedMap(IRobot* sender, std::pair<int, int> node, MapElement elem) {
+    if (robots == nullptr || sender == nullptr) return;
     for(auto* robot: *robots) {
         if (robot != sender) {
             robot->receiveNotificationUpdatedMap(node, elem);
@@ -13,13 +14,13 @@ void Repeater::notifyAllUpdatedMap(IRobot* sender, std::pair<int, int> node, Map
     }
 }
 
-bool Repeater::notifyAllLanding(IRobot* sender, std::pair<int, int> pos) {
+void Repeater::notifyAllLanding(IRobot* sender, std::pair<int, int> pos) {
+    if (robots == nullptr || sender == nullptr) return;
     for(auto* robot: *robots) {
         if (robot != sender) {
-            if (!robot->receiveNotificationLanding(pos)) return false;
+            robot->receiveNotificationLanding(pos);
         }
     }
-    return true;
 }
 
 MapElement Repeater::getMapElement(int r, int c) {
@@ -28,15 +29,18 @@ MapElement Repeater::getMapElement(int r, int c) {
 
 Map Repeater::getCollectorsScannedMap() {
     Map scannedMap;
-    for (auto* robot: *robots) {
-        if (robot->getRobotID().first == RobotType::COLLECTOR) {
-            scannedMap.mergeMap(robot->getLocalMap());
+    if (robots != nullptr) {
+        for (auto *robot: *robots) {
+            if (robot->getRobotID().first == RobotType::COLLECTOR) {
+                scannedMap.mergeMap(robot->getLocalMap());
+            }
         }
     }
     return scannedMap;
 }
 
 bool Repeater::anyRobotsInPosition(std::pair<int, int> pos) {
+    if (robots == nullptr) return false;
     for (auto* robot : *robots) {
         if (robot->isActive() && robot->getPosition() == pos) return true;
     }

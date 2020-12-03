@@ -3,8 +3,6 @@
 
 #include <map>
 #include <string>
-#include <iostream>
-#include <fstream>
 
 enum class MapElement { EMPTY, BOMB, ROCK, APPLE };
 
@@ -12,12 +10,13 @@ class Map {
 public:
     Map() = default;
     Map(const std::string& map_file);
-    ~Map() = default;
+    ~Map();
 
     MapElement getElement(int r, int c) const;
     MapElement getElement(std::pair<int, int> pos) const;
-    void addElement(int r, int c, MapElement elem, bool overrideValue = true);
     bool containsLocation(int r, int c) const;
+
+    void addElement(int r, int c, MapElement elem, bool overrideValue = true);
     void mergeMap(const Map& map);
 
     const std::map<std::pair<int, int>, MapElement>& getMap() const;

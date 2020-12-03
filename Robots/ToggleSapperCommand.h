@@ -1,8 +1,7 @@
-#ifndef ROBOTS_TOGGLESAPPERCOMMAND_H
-#define ROBOTS_TOGGLESAPPERCOMMAND_H
+#ifndef ROBOTS_TOGGLE_SAPPER_COMMAND_H
+#define ROBOTS_TOGGLE_SAPPER_COMMAND_H
 
 #include "ICommand.h"
-#include "Utils.h"
 
 class ToggleSapperCommand : public ICommand {
 public:

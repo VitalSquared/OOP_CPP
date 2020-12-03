@@ -43,8 +43,7 @@ bool ScanMode::invokeCommand(IRobot *robot, CommandType cmd, std::vector<std::st
                     cell.first == robot->getPosition() ||
                     anyRobotsMoveToPosition(robot, cell.first)) continue;
 
-                std::vector<std::pair<int, int>> adjs = getAdjacentCoords(cell.first);
-                for (auto adj : adjs) {
+                for (auto adj : getAdjacentCoords(cell.first)) {
                     if (!robot->getLocalMap().containsLocation(adj.first, adj.second)) {
                         double dist = calcDistance(cell.first, robot->getPosition());
                         if (min_dist < 0 || dist < min_dist) {

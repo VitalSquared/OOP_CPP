@@ -1,3 +1,4 @@
+#include "Utils.h"
 #include "Sapper.h"
 
 Sapper::Sapper(Repeater* repeater, int id) {
@@ -51,28 +52,23 @@ void Sapper::receiveNotificationUpdatedMap(std::pair<int, int> node, MapElement 
     localMap.addElement(node.first, node.second, elem);
 }
 
-bool Sapper::receiveNotificationLanding(std::pair<int, int> pos) {
-    if (getPosition() != pos) return true;
-
-    std::vector<std::pair<int, int>> adjs = getAdjacentCoords(0, 0);
-    for (auto adj : adjs) {
+void Sapper::receiveNotificationLanding(std::pair<int, int> pos) {
+    if (getPosition() != pos) return;
+    for (auto adj : getAdjacentCoords(0, 0)) {
         if (move(convertDeltaToDirection(adj))) {
-            return true;
+            return;
         }
     }
     bActive = false;
-    return true;
 }
 
 bool Sapper::move(Direction dir) {
-    std::pair<int, int> delta = convertDirectionToDelta(dir);
-    int dr = delta.first, dc = delta.second;
+    std::pair<int, int> newPos = getPosition() + convertDirectionToDelta(dir);
 
-    auto walkable = getWalkable();
-    if (walkable.find(localMap.getElement(pos_r + dr, pos_c + dc)) != walkable.end()) {
-        if (!repeater->anyRobotsInPosition(std::make_pair(pos_r + dr, pos_c + dc))) {
-            pos_r += dr;
-            pos_c += dc;
+    if (containerContains(getWalkable(), localMap.getElement(newPos))) {
+        if (!repeater->anyRobotsInPosition(newPos)) {
+            pos_r = newPos.first;
+            pos_c = newPos.second;
             invest();
             return true;
         }
@@ -81,11 +77,10 @@ bool Sapper::move(Direction dir) {
 }
 
 bool Sapper::invest() {
-    std::set<MapElement> investible = getInvestible();
-    if (bActive && investible.find(localMap.getElement(pos_r, pos_c)) != investible.end()) {
-        localMap.addElement(pos_r, pos_c, MapElement::EMPTY);
+    if (containerContains(getInvestible(), localMap.getElement(pos_r, pos_c))) {
         bombs++;
-        repeater->notifyAllUpdatedMap(this, std::make_pair(pos_r, pos_c), MapElement::EMPTY);
+        localMap.addElement(pos_r, pos_c, MapElement::EMPTY);
+        repeater->notifyAllUpdatedMap(this, getPosition(), MapElement::EMPTY);
         return true;
     }
     return false;

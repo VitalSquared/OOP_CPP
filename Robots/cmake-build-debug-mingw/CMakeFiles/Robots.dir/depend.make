@@ -23,27 +23,16 @@ CMakeFiles/Robots.dir/Collector.cpp.obj: ../Map.h
 CMakeFiles/Robots.dir/Collector.cpp.obj: ../Repeater.h
 CMakeFiles/Robots.dir/Collector.cpp.obj: ../Utils.h
 
-CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../AutoMode.h
-CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../ChangeModeCommand.h
-CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../Collector.h
 CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../ConsoleView.cpp
 CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../ConsoleView.h
 CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../Game.h
-CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../GrabCommand.h
 CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../ICommand.h
 CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../IGameView.h
 CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../IMode.h
 CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../IRobot.h
-CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../ManualMode.h
 CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../Map.h
-CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../MoveCommand.h
 CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../Repeater.h
-CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../Sapper.h
-CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../ScanCommand.h
-CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../ScanMode.h
-CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../SwitchCollectorCommand.h
 CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../Texture.h
-CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../ToggleSapperCommand.h
 CMakeFiles/Robots.dir/ConsoleView.cpp.obj: ../Utils.h
 
 CMakeFiles/Robots.dir/Game.cpp.obj: ../AutoMode.h
@@ -78,12 +67,17 @@ CMakeFiles/Robots.dir/ManualMode.cpp.obj: ../ManualMode.h
 CMakeFiles/Robots.dir/ManualMode.cpp.obj: ../Map.h
 CMakeFiles/Robots.dir/ManualMode.cpp.obj: ../Utils.h
 
+CMakeFiles/Robots.dir/Map.cpp.obj: ../IRobot.h
 CMakeFiles/Robots.dir/Map.cpp.obj: ../Map.cpp
 CMakeFiles/Robots.dir/Map.cpp.obj: ../Map.h
+CMakeFiles/Robots.dir/Map.cpp.obj: ../Utils.h
 
 CMakeFiles/Robots.dir/MoveCommand.cpp.obj: ../ICommand.h
+CMakeFiles/Robots.dir/MoveCommand.cpp.obj: ../IRobot.h
+CMakeFiles/Robots.dir/MoveCommand.cpp.obj: ../Map.h
 CMakeFiles/Robots.dir/MoveCommand.cpp.obj: ../MoveCommand.cpp
 CMakeFiles/Robots.dir/MoveCommand.cpp.obj: ../MoveCommand.h
+CMakeFiles/Robots.dir/MoveCommand.cpp.obj: ../Utils.h
 
 CMakeFiles/Robots.dir/Repeater.cpp.obj: ../IRobot.h
 CMakeFiles/Robots.dir/Repeater.cpp.obj: ../Map.h
@@ -131,26 +125,15 @@ CMakeFiles/Robots.dir/Utils.cpp.obj: ../Map.h
 CMakeFiles/Robots.dir/Utils.cpp.obj: ../Utils.cpp
 CMakeFiles/Robots.dir/Utils.cpp.obj: ../Utils.h
 
-CMakeFiles/Robots.dir/main.cpp.obj: ../AutoMode.h
-CMakeFiles/Robots.dir/main.cpp.obj: ../ChangeModeCommand.h
-CMakeFiles/Robots.dir/main.cpp.obj: ../Collector.h
 CMakeFiles/Robots.dir/main.cpp.obj: ../ConsoleView.h
 CMakeFiles/Robots.dir/main.cpp.obj: ../Game.h
-CMakeFiles/Robots.dir/main.cpp.obj: ../GrabCommand.h
 CMakeFiles/Robots.dir/main.cpp.obj: ../ICommand.h
 CMakeFiles/Robots.dir/main.cpp.obj: ../IGameView.h
 CMakeFiles/Robots.dir/main.cpp.obj: ../IMode.h
 CMakeFiles/Robots.dir/main.cpp.obj: ../IRobot.h
-CMakeFiles/Robots.dir/main.cpp.obj: ../ManualMode.h
 CMakeFiles/Robots.dir/main.cpp.obj: ../Map.h
-CMakeFiles/Robots.dir/main.cpp.obj: ../MoveCommand.h
 CMakeFiles/Robots.dir/main.cpp.obj: ../Repeater.h
-CMakeFiles/Robots.dir/main.cpp.obj: ../Sapper.h
-CMakeFiles/Robots.dir/main.cpp.obj: ../ScanCommand.h
-CMakeFiles/Robots.dir/main.cpp.obj: ../ScanMode.h
-CMakeFiles/Robots.dir/main.cpp.obj: ../SwitchCollectorCommand.h
 CMakeFiles/Robots.dir/main.cpp.obj: ../Texture.h
-CMakeFiles/Robots.dir/main.cpp.obj: ../ToggleSapperCommand.h
 CMakeFiles/Robots.dir/main.cpp.obj: ../Utils.h
 CMakeFiles/Robots.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/Robots.dir/main.cpp.obj: ../optionparser.h

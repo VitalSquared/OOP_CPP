@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <ctime>
 #include "optionparser.h"
 #include "Utils.h"

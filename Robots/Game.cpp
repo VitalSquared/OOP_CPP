@@ -1,3 +1,17 @@
+#include <iostream>
+#include <algorithm>
+#include "MoveCommand.h"
+#include "ScanCommand.h"
+#include "GrabCommand.h"
+#include "ToggleSapperCommand.h"
+#include "ChangeModeCommand.h"
+#include "SwitchCollectorCommand.h"
+#include "Collector.h"
+#include "Sapper.h"
+#include "ManualMode.h"
+#include "ScanMode.h"
+#include "AutoMode.h"
+#include "Utils.h"
 #include "Game.h"
 
 Game::Game(const std::string& map_file, int cnt_collectors) {
@@ -7,19 +21,15 @@ Game::Game(const std::string& map_file, int cnt_collectors) {
     commandsContainer.insert(std::make_pair("SAPPER", new ToggleSapperCommand()));
     commandsContainer.insert(std::make_pair("SET_MODE", new ChangeModeCommand()));
     commandsContainer.insert(std::make_pair("COLLECTOR", new SwitchCollectorCommand()));
+    curCmd = CommandType::UNKNOWN;
 
     globalMap = new Map(map_file);
-
     repeater = new Repeater(globalMap, &robots);
-
-    std::vector<std::pair<int, int>> positions = findSuitablePos(cnt_collectors, globalMap->getMap(), { MapElement::EMPTY, MapElement::APPLE });
-    for (int i = 0; i < cnt_collectors; i++)
-        robots.emplace_back(new Collector(i, positions[i], repeater));
-    activeCollectorID = 0;
-
     mode = new ManualMode();
 
-    curCmd = CommandType::UNKNOWN;
+    std::vector<std::pair<int, int>> positions = findSuitablePos(cnt_collectors, globalMap->getMap(), { MapElement::EMPTY, MapElement::APPLE });
+    for (int i = 0; i < cnt_collectors; i++) robots.emplace_back(new Collector(i, positions[i], repeater));
+    activeCollectorID = 0;
 }
 
 Game::~Game() {
@@ -28,6 +38,9 @@ Game::~Game() {
 
     for (auto* robot : robots) delete robot;
     robots.clear();
+
+    delete globalMap;
+    globalMap = nullptr;
 
     delete mode;
     mode = nullptr;
@@ -44,14 +57,11 @@ bool Game::parseCommand(const std::string &cmd) {
     }
     else {
         std::string main_cmd(split[0]);
-        split.erase(split.begin());
+        containerRemove(split, 0);
         curArgs = split;
 
-        if (commandsContainer.find(main_cmd) == commandsContainer.end()) {
-            curCmd = CommandType::UNKNOWN;
-        } else {
-            curCmd = commandsContainer[main_cmd]->validateArgs(curArgs);
-        }
+        if (!containerContains(commandsContainer, main_cmd)) curCmd = CommandType::UNKNOWN;
+        else curCmd = commandsContainer[main_cmd]->validateArgs(curArgs);
     }
     return curCmd != CommandType::UNKNOWN;
 }
@@ -79,7 +89,8 @@ bool Game::step() {
         bFoundInactive = false;
         for (int i = 0; i < robots.size(); i++) {
             if (!robots[i]->isActive()) {
-                robots.erase(robots.begin() + i);
+                delete robots[i];
+                containerRemove(robots, i);
                 bFoundInactive = true;
                 break;
             }
@@ -89,23 +100,17 @@ bool Game::step() {
         }
     } while (bFoundInactive);
 
-    if (!containerContains(collectorIDs, activeCollectorID)) {
-        if (!collectorIDs.empty()) {
-            int idx = random(collectorIDs.size()), i = 0;
-            for (auto elem : collectorIDs) {
-                if (i == idx) {
-                    activeCollectorID = elem;
-                    break;
-                }
-                i++;
+    if (!containerContains(collectorIDs, activeCollectorID) && !collectorIDs.empty()) {
+        int idx = random(collectorIDs.size()), i = 0;
+        for (auto elem : collectorIDs) {
+            if (i == idx) {
+                activeCollectorID = elem;
+                break;
             }
+            i++;
         }
     }
     return res;
-}
-
-const Map* Game::getMap() {
-    return globalMap;
 }
 
 const std::vector<IRobot*>& Game::getRobots() {
@@ -139,7 +144,7 @@ bool Game::modeActivity() {
             delete mode;
             mode = new AutoMode();
         }
-        std::set<IRobot*> finished;
+        std::set<IRobot*> finishedWork;
         bool res = false;
         for (auto* robot : robots) {
             if (curArgs[0] == "scan" && robot->getRobotID().first == RobotType::SAPPER) continue;
@@ -147,12 +152,12 @@ bool Game::modeActivity() {
             bool invokeRes = mode->invokeCommand(robot, curCmd, curArgs);
             if (robot->getRobotID().first == RobotType::COLLECTOR) {
                 res = res || invokeRes;
-                if (!invokeRes) finished.insert(robot);
+                if (!invokeRes) finishedWork.insert(robot);
             }
         }
-        if (containerContains(finished, getActiveCollector()) && res) {
+        if (containerContains(finishedWork, getActiveCollector()) && res) {
             for (auto* robot : robots) {
-                if (robot->getRobotID().first != RobotType::COLLECTOR || containerContains(finished, robot)) continue;
+                if (robot->getRobotID().first != RobotType::COLLECTOR || containerContains(finishedWork, robot)) continue;
                 activeCollectorID = robot->getRobotID().second;
                 break;
             }
@@ -188,7 +193,7 @@ bool Game::toggleSapper() {
             if (id.first == RobotType::SAPPER) {
                 if (curArgs.size() == 2 && id.second == idReq) {
                     if (curArgs[0] == "OFF") {
-                        robots.erase(robots.begin() + i);
+                        containerRemove(robots, i);
                         return true;
                     }
                     else return false;
@@ -198,7 +203,7 @@ bool Game::toggleSapper() {
             }
         }
         if (ids.size() == 1 && curArgs.size() == 1 && curArgs[0] == "OFF") {
-            robots.erase(robots.begin() + idxLastSapper);
+            containerRemove(robots, idxLastSapper);
             return true;
         }
 

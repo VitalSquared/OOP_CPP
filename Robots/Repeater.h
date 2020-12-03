@@ -8,12 +8,14 @@
 class Repeater {
 public:
     Repeater(const Map *globalMap, const std::vector<IRobot*>* robots);
-
     ~Repeater() = default;
+
     void notifyAllUpdatedMap(IRobot* sender, std::pair<int, int> node, MapElement elem);
-    bool notifyAllLanding(IRobot* sender, std::pair<int, int> pos);
+    void notifyAllLanding(IRobot* sender, std::pair<int, int> pos);
+
     MapElement getMapElement(int r, int c);
     Map getCollectorsScannedMap();
+
     bool anyRobotsInPosition(std::pair<int, int> pos);
 
 private:

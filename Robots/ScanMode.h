@@ -1,5 +1,5 @@
-#ifndef ROBOTS_SCANMODE_H
-#define ROBOTS_SCANMODE_H
+#ifndef ROBOTS_SCAN_MODE_H
+#define ROBOTS_SCAN_MODE_H
 
 #include <set>
 #include <map>

@@ -6,7 +6,7 @@ ModeType AutoMode::getModeType() {
 }
 
 bool AutoMode::invokeCommand(IRobot* robot, CommandType cmd, std::vector<std::string>& args) {
-    if (cmd != CommandType::SET_MODE) return false;
+    if (robot == nullptr || cmd != CommandType::SET_MODE) return false;
     if (robot->invest()) return true;
 
     if (!containerContains(unreachable, robot)) {
@@ -18,13 +18,12 @@ bool AutoMode::invokeCommand(IRobot* robot, CommandType cmd, std::vector<std::st
         unreachable[robot].clear();
     }
 
-    std::set<MapElement> investible = robot->getInvestible();
     while (true) {
         if (!containerContains(destination, robot)) {
             double min_dist = -1;
             std::vector<std::pair<int, int>> possible_destinations;
             for (auto cell: robot->getLocalMap().getMap()) {
-                if (!containerContains(investible, robot->getLocalMap().getElement(cell.first)) ||
+                if (!containerContains(robot->getInvestible(), robot->getLocalMap().getElement(cell.first)) ||
                     containerContains(unreachable[robot], cell.first) ||
                     cell.first == robot->getPosition() ||
                     anyRobotsMoveToPosition(robot, cell.first)) continue;
