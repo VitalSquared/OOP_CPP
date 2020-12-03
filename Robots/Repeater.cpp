@@ -32,7 +32,7 @@ void Repeater::connectRobot(IRobot *robot) {
 Map Repeater::getCollectorsScannedMap() {
     Map scannedMap;
     for (auto* robot: robots) {
-        if (robot->getRobotType() == RobotType::COLLECTOR) {
+        if (robot->getRobotID().first == RobotType::COLLECTOR) {
             scannedMap.mergeMap(robot->getLocalMap());
         }
     }

@@ -2,6 +2,7 @@
 #define ROBOTS_TOGGLESAPPERCOMMAND_H
 
 #include "ICommand.h"
+#include "Utils.h"
 
 class ToggleSapperCommand : public ICommand {
 public:

@@ -12,10 +12,9 @@ public:
     virtual ~IRobot() = default;
     virtual const Map& getLocalMap() const = 0;
     virtual bool isActive() const = 0;
-    virtual void setActive(bool newActive) = 0;
     virtual std::pair<int, int> getPosition() const = 0;
     virtual int getInvestment() const = 0;
-    virtual RobotType getRobotType() const = 0;
+    virtual std::pair<RobotType, int> getRobotID() const = 0;
     virtual std::set<MapElement> getWalkable() const = 0;
     virtual std::set<MapElement> getInvestible() const = 0;
     virtual void receiveNotificationUpdatedMap(std::pair<int, int> node, MapElement elem) = 0;

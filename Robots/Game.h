@@ -5,12 +5,14 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include "ICommand.h"
 #include "MoveCommand.h"
 #include "ScanCommand.h"
 #include "GrabCommand.h"
 #include "ToggleSapperCommand.h"
 #include "ChangeModeCommand.h"
+#include "SwitchCollectorCommand.h"
 #include "IRobot.h"
 #include "Collector.h"
 #include "Sapper.h"
@@ -24,19 +26,20 @@
 
 class Game {
 public:
-    Game(const std::string& map_file);
+    Game(const std::string& map_file, int cnt_collectors);
     ~Game();
     bool parseCommand(const std::string& cmd);
     bool step();
 
     const Map* getMap();
-    std::vector<const IRobot*> getRobots();
+    const std::vector<IRobot*>& getRobots();
+    IRobot* getActiveCollector();
 
 private:
     std::map<std::string, ICommand*> commandsContainer;
 
-    IRobot* collector{};
-    IRobot* sapper{};
+    int activeCollectorID;
+    std::vector<IRobot*> robots;
 
     IMode* mode;
 
@@ -49,6 +52,7 @@ private:
 
     bool modeActivity();
     bool toggleSapper();
+    bool switchCollector();
 };
 
 #endif

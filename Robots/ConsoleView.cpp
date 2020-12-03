@@ -1,12 +1,12 @@
 #include "ConsoleView.h"
 
-ConsoleView::ConsoleView(const std::string& map_file) {
-    game = new Game(map_file);
+ConsoleView::ConsoleView(const std::string& map_file, int cnt_collectors) {
+    game = new Game(map_file, cnt_collectors);
 
     T_Unknown = new Texture(textureSize, colorDarkGrey, "????");
     T_Collector = new Texture(textureSize, colorGreen, "Robo");
     T_Sapper = new Texture(textureSize, colorCyan, "Sapp");
-    T_Apple = new Texture(textureSize, colorRed, "|\\oo");
+    T_Apple = new Texture(textureSize, colorRed, "/\\oo");
     T_Bomb = new Texture(textureSize, colorMagenta, "()()");
     T_Rock = new Texture(textureSize, colorGrey, "\\}{\\");
     T_Empty = new Texture(textureSize, colorWhite, "    ");
@@ -66,27 +66,20 @@ void ConsoleView::renderMap() {
     width = getConsoleSize().first;
     height = getConsoleSize().second;
 
-    std::vector<const IRobot*> robots = game->getRobots();
-    const IRobot* curCollector = nullptr;
-
-    for (auto* robot : robots) {
-        if (robot->getRobotType() == RobotType::COLLECTOR) {
-            curCollector = robot;
-            break;
-        }
-    }
+    const std::vector<IRobot*> robots = game->getRobots();
+    const IRobot* curCollector = game->getActiveCollector();
 
     if (curCollector == nullptr) {
-        std::cout << "No map to draw" << std::endl;
+        std::cout << "No map to draw. Looks like all collectors are gone..." << std::endl;
         return;
     }
 
-    int map_width = (width - 5) / textureSize / 2, map_height = (height - 5) / textureSize / 2;
+    int map_width = (width - 6) / (textureSize + 1), map_height = (height - 6) / (textureSize + 1);
     int center_r = curCollector->getPosition().first, center_c = curCollector->getPosition().second;
     int top_left_r = center_r - map_height / 2, top_left_c = center_c - map_width / 2;
 
     if (map_width <= 0 || map_height <= 0) {
-        std::cout << "Impossible to draw map" << std::endl;
+        std::cout << "Impossible to draw map. Invalid map size. Try to increase Console Window size" << std::endl;
         return;
     }
 
@@ -106,18 +99,17 @@ void ConsoleView::renderMap() {
         }
     }
 
-    int apples = 0, bombs = 0;
+    int apples = 0;
 
     for (auto* robot : robots) {
         Texture* texture;
-        switch(robot->getRobotType()) {
+        switch(robot->getRobotID().first) {
             case RobotType::COLLECTOR:
                 texture = T_Collector;
                 apples += robot->getInvestment();
                 break;
             case RobotType::SAPPER:
                 texture = T_Sapper;
-                bombs += robot->getInvestment();
                 break;
         }
         if (!robot->isActive()) continue;
@@ -136,7 +128,7 @@ void ConsoleView::renderMap() {
         }
         output += "\n";
         if (i == textureSize - 1) {
-            output += colorDarkGrey + std::string(row.size() * 1.5, '-');
+            output += colorDarkGrey + std::string(row.size() * (textureSize + 1) / textureSize, '-');
             output += "\n";
         }
         i++;
@@ -144,7 +136,7 @@ void ConsoleView::renderMap() {
     }
 
     std::cout << output + colorDefault << std::endl;
-    std::cout << "Apples collected: " << apples << "\tBombs defused: " << bombs << std::endl;
+    std::cout << "\tApples collected: " << apples << std::endl;
     std::cout << std::endl;
 }
 

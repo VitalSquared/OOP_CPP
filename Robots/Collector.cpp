@@ -1,13 +1,18 @@
 #include "Collector.h"
 
-Collector::Collector(std::pair<int, int> initPos, Repeater* repeater) {
+Collector::Collector(int id, std::pair<int, int> initPos, Repeater* repeater) {
     bActive = true;
     apples = 0;
+    this->id = id;
     pos_r = initPos.first;
     pos_c = initPos.second;
     this->repeater = repeater;
     repeater->connectRobot(this);
-    localMap.addElement(pos_r, pos_c, repeater->getMapElement(pos_r, pos_c));
+
+    MapElement elem = repeater->getMapElement(pos_r, pos_c);
+    localMap.addElement(pos_r, pos_c, elem);
+    repeater->notifyAllUpdatedMap(this, std::make_pair(pos_r, pos_c), elem);
+    localMap.mergeMap(repeater->getCollectorsScannedMap());
 }
 
 const Map & Collector::getLocalMap() const {
@@ -17,11 +22,6 @@ const Map & Collector::getLocalMap() const {
 bool Collector::isActive() const {
     return bActive;
 }
-
-void Collector::setActive(bool newActive) {
-    bActive = newActive;
-}
-
 std::pair<int, int> Collector::getPosition() const {
     return std::make_pair(pos_r, pos_c);
 }
@@ -30,8 +30,8 @@ int Collector::getInvestment() const {
     return apples;
 }
 
-RobotType Collector::getRobotType() const {
-    return RobotType::COLLECTOR;
+std::pair<RobotType, int> Collector::getRobotID() const {
+    return std::make_pair(RobotType::COLLECTOR, id);
 }
 
 std::set<MapElement> Collector::getWalkable() const {
@@ -51,11 +51,12 @@ bool Collector::receiveNotificationLanding(std::pair<int, int> pos) {
 
     std::vector<std::pair<int, int>> adjs = getAdjacentCoords(0, 0);
     for (auto adj : adjs) {
-        if (move(convertPairToDirection(adj))) {
+        if (move(convertDeltaToDirection(adj))) {
             return true;
         }
     }
-    return false;
+    bActive = false;
+    return true;
 }
 
 bool Collector::move(Direction dir) {
@@ -69,6 +70,10 @@ bool Collector::move(Direction dir) {
             pos_c += dc;
             return true;
         }
+    }
+    else if (localMap.getElement(pos_r + dr, pos_c + dc) == MapElement::BOMB) {
+        bActive = false;
+        return true;
     }
     return false;
 }

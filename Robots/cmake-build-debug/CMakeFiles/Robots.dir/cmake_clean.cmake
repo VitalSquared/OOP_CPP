@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Robots.dir/Sapper.cpp.obj"
   "CMakeFiles/Robots.dir/ScanCommand.cpp.obj"
   "CMakeFiles/Robots.dir/ScanMode.cpp.obj"
+  "CMakeFiles/Robots.dir/SwitchCollectorCommand.cpp.obj"
   "CMakeFiles/Robots.dir/Texture.cpp.obj"
   "CMakeFiles/Robots.dir/ToggleSapperCommand.cpp.obj"
   "CMakeFiles/Robots.dir/Utils.cpp.obj"

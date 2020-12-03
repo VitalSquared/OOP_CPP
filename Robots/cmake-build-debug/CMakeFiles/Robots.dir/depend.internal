@@ -42,6 +42,7 @@ CMakeFiles/Robots.dir/ConsoleView.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/Sapper.h
  D:/Workshop/CLionProjects/OOOP/Robots/ScanCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/ScanMode.h
+ D:/Workshop/CLionProjects/OOOP/Robots/SwitchCollectorCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/Texture.h
  D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
@@ -62,6 +63,7 @@ CMakeFiles/Robots.dir/Game.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/Sapper.h
  D:/Workshop/CLionProjects/OOOP/Robots/ScanCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/ScanMode.h
+ D:/Workshop/CLionProjects/OOOP/Robots/SwitchCollectorCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/GrabCommand.cpp.obj
@@ -107,13 +109,23 @@ CMakeFiles/Robots.dir/ScanMode.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/ScanMode.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/ScanMode.h
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
+CMakeFiles/Robots.dir/SwitchCollectorCommand.cpp.obj
+ D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Map.h
+ D:/Workshop/CLionProjects/OOOP/Robots/SwitchCollectorCommand.cpp
+ D:/Workshop/CLionProjects/OOOP/Robots/SwitchCollectorCommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/Texture.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/Texture.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/Texture.h
 CMakeFiles/Robots.dir/ToggleSapperCommand.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Map.h
  D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/Utils.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
  D:/Workshop/CLionProjects/OOOP/Robots/Map.h
@@ -137,6 +149,7 @@ CMakeFiles/Robots.dir/main.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/Sapper.h
  D:/Workshop/CLionProjects/OOOP/Robots/ScanCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/ScanMode.h
+ D:/Workshop/CLionProjects/OOOP/Robots/SwitchCollectorCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/Texture.h
  D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h

@@ -9,7 +9,7 @@ ModeType ManualMode::getModeType() {
 }
 
 bool ManualMode::invokeCommand(IRobot *robot, CommandType cmd, std::vector<std::string> &args) {
-    if (robot->getRobotType() == RobotType::SAPPER) return false;
+    if (robot == nullptr || robot->getRobotID().first == RobotType::SAPPER) return false;
     if (stepsMade >= 1) {
         stepsMade = 0;
         return false;

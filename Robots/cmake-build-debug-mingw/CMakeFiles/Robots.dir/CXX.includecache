@@ -28,27 +28,11 @@ D:/Workshop/CLionProjects/OOOP/Robots/Map.h
 Utils.h
 D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 
-D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.cpp
-ConsoleView.h
-D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
-
-D:/Workshop/CLionProjects/OOOP/Robots/ConsoleView.h
-iostream
+D:/Workshop/CLionProjects/OOOP/Robots/Game.cpp
+algorithm
 -
-string
--
-windows.h
--
-IGameView.h
-D:/Workshop/CLionProjects/OOOP/Robots/IGameView.h
 Game.h
 D:/Workshop/CLionProjects/OOOP/Robots/Game.h
-Texture.h
-D:/Workshop/CLionProjects/OOOP/Robots/Texture.h
-Map.h
-D:/Workshop/CLionProjects/OOOP/Robots/Map.h
-Utils.h
-D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 
 D:/Workshop/CLionProjects/OOOP/Robots/Game.h
 map
@@ -71,6 +55,8 @@ ToggleSapperCommand.h
 D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.h
 ChangeModeCommand.h
 D:/Workshop/CLionProjects/OOOP/Robots/ChangeModeCommand.h
+SwitchCollectorCommand.h
+D:/Workshop/CLionProjects/OOOP/Robots/SwitchCollectorCommand.h
 IRobot.h
 D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
 Collector.h
@@ -103,8 +89,6 @@ string
 -
 exception
 -
-
-D:/Workshop/CLionProjects/OOOP/Robots/IGameView.h
 
 D:/Workshop/CLionProjects/OOOP/Robots/IMode.h
 vector
@@ -174,13 +158,17 @@ D:/Workshop/CLionProjects/OOOP/Robots/IMode.h
 Utils.h
 D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 
-D:/Workshop/CLionProjects/OOOP/Robots/Texture.h
-string
--
+D:/Workshop/CLionProjects/OOOP/Robots/SwitchCollectorCommand.h
+ICommand.h
+D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+Utils.h
+D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 
 D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.h
 ICommand.h
 D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+Utils.h
+D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 
 D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 set

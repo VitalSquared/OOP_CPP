@@ -29,7 +29,7 @@ Map::Map(const std::string &map_file) {
                         break;
                 }
             }
-            std::cout << (int)(100.0 * r / rows) << "%\r";
+            std::cout << (int)(100.0 * r / rows) << "%" << std::string((int)(100.0 * r / rows), '.') << "\r";
         }
         file.close();
         std::cout << std::endl;

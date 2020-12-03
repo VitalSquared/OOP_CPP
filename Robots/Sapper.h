@@ -8,14 +8,13 @@
 
 class Sapper : public IRobot {
 public:
-    Sapper(Repeater* repeater);
+    Sapper(Repeater* repeater, int id);
     ~Sapper() override = default;
     const Map& getLocalMap() const override;
     bool isActive() const override;
-    void setActive(bool newActive) override;
     std::pair<int, int> getPosition() const override;
     int getInvestment() const override;
-    RobotType getRobotType() const override;
+    std::pair<RobotType, int> getRobotID() const override;
     std::set<MapElement> getWalkable() const override;
     std::set<MapElement> getInvestible() const override;
     void receiveNotificationUpdatedMap(std::pair<int, int> node, MapElement elem) override;
@@ -28,8 +27,11 @@ private:
     bool bActive;
     int pos_r, pos_c;
     int bombs;
+    int id;
     Map localMap;
     Repeater* repeater;
+
+    void init();
 };
 
 #endif

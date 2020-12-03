@@ -493,6 +493,33 @@ ScanMode.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make CMakeFiles/Robots.dir/ScanMode.cpp.s
 .PHONY : ScanMode.cpp.s
 
+SwitchCollectorCommand.obj: SwitchCollectorCommand.cpp.obj
+
+.PHONY : SwitchCollectorCommand.obj
+
+# target to build an object file
+SwitchCollectorCommand.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make CMakeFiles/Robots.dir/SwitchCollectorCommand.cpp.obj
+.PHONY : SwitchCollectorCommand.cpp.obj
+
+SwitchCollectorCommand.i: SwitchCollectorCommand.cpp.i
+
+.PHONY : SwitchCollectorCommand.i
+
+# target to preprocess a source file
+SwitchCollectorCommand.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make CMakeFiles/Robots.dir/SwitchCollectorCommand.cpp.i
+.PHONY : SwitchCollectorCommand.cpp.i
+
+SwitchCollectorCommand.s: SwitchCollectorCommand.cpp.s
+
+.PHONY : SwitchCollectorCommand.s
+
+# target to generate assembly for a file
+SwitchCollectorCommand.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Robots.dir\build.make CMakeFiles/Robots.dir/SwitchCollectorCommand.cpp.s
+.PHONY : SwitchCollectorCommand.cpp.s
+
 Texture.obj: Texture.cpp.obj
 
 .PHONY : Texture.obj
@@ -649,6 +676,9 @@ help:
 	@echo ... ScanMode.obj
 	@echo ... ScanMode.i
 	@echo ... ScanMode.s
+	@echo ... SwitchCollectorCommand.obj
+	@echo ... SwitchCollectorCommand.i
+	@echo ... SwitchCollectorCommand.s
 	@echo ... Texture.obj
 	@echo ... Texture.i
 	@echo ... Texture.s

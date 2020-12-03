@@ -5,7 +5,7 @@ ModeType ScanMode::getModeType() {
 }
 
 bool ScanMode::invokeCommand(IRobot *robot, CommandType cmd, std::vector<std::string> &args) {
-    if (cmd != CommandType::SET_MODE || robot->getRobotType() != RobotType::COLLECTOR) return false;
+    if (cmd != CommandType::SET_MODE || robot->getRobotID().first != RobotType::COLLECTOR) return false;
 
     int stepsReq;
     convertStringToInt(args[1], stepsReq);
@@ -70,7 +70,7 @@ bool ScanMode::invokeCommand(IRobot *robot, CommandType cmd, std::vector<std::st
             dest.erase(robot);
             continue;
         }
-        if (!robot->move(calcDirection(robot->getPosition(), path[0]))) {
+        if (!robot->move(convertDeltaToDirection(path[0] - robot->getPosition()))) {
             if (!containerContains(unreachable, robot)) {
                 unreachable.insert(std::make_pair(robot, std::set<std::pair<int, int>>({path[0]})));
             }

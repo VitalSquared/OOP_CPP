@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "D:/Workshop/CLionProjects/OOOP/Robots/Sapper.cpp" "D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug/CMakeFiles/Robots.dir/Sapper.cpp.obj"
   "D:/Workshop/CLionProjects/OOOP/Robots/ScanCommand.cpp" "D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug/CMakeFiles/Robots.dir/ScanCommand.cpp.obj"
   "D:/Workshop/CLionProjects/OOOP/Robots/ScanMode.cpp" "D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug/CMakeFiles/Robots.dir/ScanMode.cpp.obj"
+  "D:/Workshop/CLionProjects/OOOP/Robots/SwitchCollectorCommand.cpp" "D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug/CMakeFiles/Robots.dir/SwitchCollectorCommand.cpp.obj"
   "D:/Workshop/CLionProjects/OOOP/Robots/Texture.cpp" "D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug/CMakeFiles/Robots.dir/Texture.cpp.obj"
   "D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.cpp" "D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug/CMakeFiles/Robots.dir/ToggleSapperCommand.cpp.obj"
   "D:/Workshop/CLionProjects/OOOP/Robots/Utils.cpp" "D:/Workshop/CLionProjects/OOOP/Robots/cmake-build-debug/CMakeFiles/Robots.dir/Utils.cpp.obj"

@@ -12,7 +12,7 @@
 
 class ConsoleView : public IGameView {
 public:
-    ConsoleView(const std::string& map_file);
+    ConsoleView(const std::string& map_file, int cnt_collectors);
     ~ConsoleView() override;
 
     void run() override;

@@ -7,13 +7,36 @@
 using namespace std;
 
 int random(int max) {
-    srand(time(nullptr) * GetTickCount());
+    srand(time(nullptr));
     return rand() % max;
 }
 
 void delay(size_t ms) {
     this_thread::sleep_for(chrono::milliseconds(ms));
 }
+
+void generateMap(int w, int h, ofstream& sv_file) {
+    sv_file << h << " " << w << endl;
+    std::cout << "0%\r";
+    for (int r = 0; r < h; r++) {
+        for (int c = 0; c < w; c++) {
+            int type = random(10);
+
+            if (type == 2) sv_file << "B";
+            else if (type == 6) sv_file << "R";
+            else if (type == 8) sv_file << "A";
+            else sv_file << " ";
+        }
+        sv_file << endl;
+        std::cout << (int)(100.0 * r / h) << "%\r";
+    }
+    std::cout << "100%\n";
+}
+
+std::pair<int, int> operator-(std::pair<int, int> p1, std::pair<int, int> p2) {
+    return std::make_pair(p1.first - p2.first, p1.second - p2.second);
+}
+
 
 vector<string> splitString(const string& str, char ch) {
     vector<string> v;
@@ -31,13 +54,29 @@ vector<string> splitString(const string& str, char ch) {
     return v;
 }
 
-std::pair<int, int> findSuitablePos(const std::map<std::pair<int, int>, MapElement>& data, const std::set<MapElement>& allowed) {
+bool fileExists(const std::string& file_name) {
+    ifstream file(file_name);
+    if (file.is_open()) {
+        file.close();
+        return true;
+    }
+    return false;
+}
+
+
+std::vector<std::pair<int, int>> findSuitablePos(int count, const std::map<std::pair<int, int>, MapElement>& data, const std::set<MapElement>& allowed) {
     std::vector<std::pair<int, int>> possible;
+    std::vector<std::pair<int, int>> result;
     for(auto cell: data) {
-        if (allowed.find(cell.second) == allowed.end()) continue;
+        if (!containerContains(allowed, cell.second)) continue;
         possible.emplace_back(cell.first);
     }
-    return possible[random(possible.size())];
+    for (int i = 0; i < count; i++) {
+        int idx = random(possible.size());
+        result.emplace_back(possible[idx]);
+        possible.erase(possible.begin() + idx);
+    }
+    return result;
 }
 
 vector<pair<int, int>> buildPath(int rs, int cs, int rf, int cf, const Map& scannedMap,
@@ -89,32 +128,7 @@ double calcDistance(std::pair<int, int> point1, std::pair<int, int> point2) {
     return sqrt(pow(abs(point1.first - point2.first), 2) + pow(abs(point1.second - point2.second), 2));
 }
 
-void generateMap(int w, int h, ofstream& sv_file) {
-    sv_file << h << " " << w << endl;
-    std::cout << "0%\r";
-    for (int r = 0; r < h; r++) {
-        for (int c = 0; c < w; c++) {
-            int type = random(10);
 
-            if (type == 2) sv_file << "B";
-            else if (type == 6) sv_file << "R";
-            else if (type == 8) sv_file << "A";
-            else sv_file << " ";
-        }
-        sv_file << endl;
-        std::cout << (int)(100.0 * r / h) << "%\r";
-    }
-    std::cout << "100%\n";
-}
-
-bool fileExists(const std::string& file_name) {
-    ifstream file(file_name);
-    if (file.is_open()) {
-        file.close();
-        return true;
-    }
-    return false;
-}
 
 bool convertStringToInt(const std::string& str, int& out) {
     try {
@@ -126,19 +140,6 @@ bool convertStringToInt(const std::string& str, int& out) {
     }
 }
 
-Direction calcDirection(std::pair<int, int> start, std::pair<int, int> end) {
-    int dr = end.first - start.first, dc = end.second - start.second;
-    if (dr == 0) {
-        if (dc == 1) return Direction::RIGHT;
-        else if (dc == -1) return Direction::LEFT;
-    }
-    else {
-        if (dr == 1) return Direction::DOWN;
-        else return Direction::UP;
-    }
-    return Direction::NONE;
-}
-
 Direction convertStringToDirection(const std::string &str) {
     if (str == "U") return Direction::UP;
     else if (str == "D") return Direction::DOWN;
@@ -147,7 +148,7 @@ Direction convertStringToDirection(const std::string &str) {
     return Direction::NONE;
 }
 
-Direction convertPairToDirection(std::pair<int, int> _pair) {
+Direction convertDeltaToDirection(std::pair<int, int> _pair) {
     if (std::make_pair(1, 0) == _pair) return Direction::DOWN;
     else if (std::make_pair(-1, 0) == _pair) return Direction::UP;
     else if (std::make_pair(0, 1) == _pair) return Direction::RIGHT;

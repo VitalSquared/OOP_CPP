@@ -1,4 +1,4 @@
--add support for multiple collectors and sappers
+-fix navigation during auto mode and scan mode
 -fix random number generator
 -try to decrease loading time
 -files review

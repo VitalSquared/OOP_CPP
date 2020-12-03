@@ -7,7 +7,7 @@
 enum  optionIndex { LOAD, GENERATE };
 const option::Descriptor usage[] =
         {
-                {LOAD, 0,"l", "load",option::Arg::None, "  --load, -l \"file\"  \tLoad map from file." },
+                {LOAD, 0,"l", "load",option::Arg::None, "  --load, -l <\"file\"> [collectors count]  \tLoad map from file with collectors count (>=1, defaults to 1 if not present)." },
                 {GENERATE, 0,"g","generate",option::Arg::None, "  --generate, -g  width height \"file\" \tGenerate map file <width x height>." },
                 {0,0,nullptr,nullptr,nullptr,nullptr}
         };
@@ -20,6 +20,7 @@ void completeExecution(const std::string& message) {
 }
 
 int main(int argc, char** argv) {
+    int cnt_collectors = 1;
     argc -= (argc>0); argv += (argc>0);
 
     option::Stats  stats(usage, argc, argv);
@@ -56,7 +57,7 @@ int main(int argc, char** argv) {
         completeExecution("Generation completed. Exiting...");
     }
     else if (options[LOAD]) {
-        if (parse.nonOptionsCount() != 1) {
+        if (parse.nonOptionsCount() != 1 && parse.nonOptionsCount() != 2) {
             option::printUsage(std::cout, usage);
             completeExecution("Invalid amount of arguments.");
             return 0;
@@ -64,6 +65,12 @@ int main(int argc, char** argv) {
         if (!fileExists(parse.nonOption(0))) {
             completeExecution("File doesn't exist");
             return 0;
+        }
+        if (parse.nonOptionsCount() == 2) {
+            if (!convertStringToInt(parse.nonOption(1), cnt_collectors) || cnt_collectors <= 0) {
+                completeExecution("Invalid amount of collectors");
+                return 0;
+            }
         }
     }
     else {
@@ -75,7 +82,7 @@ int main(int argc, char** argv) {
     std::cout << "Booting up..." << std::endl;
     std::cout << "Loading map " + std::string(parse.nonOption(0)) << std::endl;
 
-    IGameView* gameView = new ConsoleView(parse.nonOption(0));
+    IGameView* gameView = new ConsoleView(parse.nonOption(0), cnt_collectors);
     gameView->run();
     delete gameView;
 
