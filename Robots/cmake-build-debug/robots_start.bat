@@ -1,2 +1,2 @@
-Robots.exe --load map1.txt 1
+Robots.exe map1.txt 2
 pause
