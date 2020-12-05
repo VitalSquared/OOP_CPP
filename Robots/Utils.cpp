@@ -86,6 +86,23 @@ std::vector<std::pair<int, int>> findSuitablePos(int count, const std::map<std::
     return result;
 }
 
+std::vector<std::pair<int, int>> findSuitablePos(int count, const std::vector<MapElement>& data, const std::set<MapElement>& allowed) {
+    std::vector<std::pair<int, int>> possible;
+    std::vector<std::pair<int, int>> result;
+    //for(auto cell: data) {
+    for (int k = 0; k < data.size(); k++) {
+        auto cell = std::make_pair(Cantor_NumberToPair(k), data[k]);
+        if (!containerContains(allowed, cell.second)) continue;
+        possible.emplace_back(cell.first);
+    }
+    for (int i = 0; i < count; i++) {
+        int idx = random(possible.size());
+        result.emplace_back(possible[idx]);
+        containerRemove(possible, idx);
+    }
+    return result;
+}
+
 vector<pair<int, int>> buildPath(std::pair<int, int> start, std::pair<int, int> end, const Map& scannedMap,
                                  const set<MapElement>& canWalkOn, const std::set<std::pair<int, int>>& unreachable) {
     int rs = start.first, cs = start.second, rf = end.first, cf = end.second;
@@ -175,4 +192,17 @@ std::pair<int, int> convertDirectionToDelta(Direction dir) {
         case Direction::NONE: delta = std::make_pair(0, 0); break;
     }
     return delta;
+}
+
+int Cantor_PairToNumber(std::pair<int, int> _pair) {
+    int k1 = _pair.first, k2 = _pair.second;
+    return (k1 + k2) * (k1 + k2 + 1) / 2 + k2;
+}
+
+std::pair<int, int> Cantor_NumberToPair(int z) {
+    int w = (int)floor((sqrt(8 * z + 1) - 1) / 2);
+    int t = (w * w + w) / 2;
+    int y = z - t;
+    int x = w - y;
+    return std::make_pair(x, y);
 }

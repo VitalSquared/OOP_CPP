@@ -4,7 +4,7 @@
 #include <map>
 #include <string>
 
-enum class MapElement { EMPTY, BOMB, ROCK, APPLE };
+enum class MapElement { UNKNOWN, EMPTY, BOMB, ROCK, APPLE };
 
 class Map {
 public:
@@ -16,13 +16,13 @@ public:
     MapElement getElement(std::pair<int, int> pos) const;
     bool containsLocation(int r, int c) const;
 
-    void addElement(int r, int c, MapElement elem, bool overrideValue = true);
+    void addElement(int r, int c, MapElement elem);
     void mergeMap(const Map& map);
 
-    const std::map<std::pair<int, int>, MapElement>& getMap() const;
+    const std::vector<MapElement>& _getMap() const;
 
 private:
-    std::map<std::pair<int, int>, MapElement> data;
+    std::vector<MapElement> _data;
 };
 
 #endif

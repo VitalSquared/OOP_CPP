@@ -27,6 +27,7 @@ void containerRemove(Container& container, int idx) {
 }
 
 std::vector<std::pair<int, int>> findSuitablePos(int count, const std::map<std::pair<int, int>, MapElement>& data, const std::set<MapElement>& allowed);
+std::vector<std::pair<int, int>> findSuitablePos(int count, const std::vector<MapElement>& data, const std::set<MapElement>& allowed);
 std::vector<std::pair<int, int>> buildPath(std::pair<int, int> start, std::pair<int, int> end, const Map& scannedMap,
                                            const std::set<MapElement>& canWalkOn, const std::set<std::pair<int, int>>& unreachable);
 std::vector<std::pair<int, int>> getAdjacentCoords(int pos_r, int pos_c);
@@ -37,5 +38,8 @@ bool convertStringToInt(const std::string& str, int& out);
 Direction convertStringToDirection(const std::string &str);
 Direction convertDeltaToDirection(std::pair<int, int> _pair);
 std::pair<int, int> convertDirectionToDelta(Direction dir);
+
+int Cantor_PairToNumber(std::pair<int, int> _pair);
+std::pair<int, int> Cantor_NumberToPair(int num);
 
 #endif

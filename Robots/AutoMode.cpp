@@ -22,7 +22,10 @@ bool AutoMode::invokeCommand(IRobot* robot, CommandType cmd, std::vector<std::st
         if (!containerContains(destination, robot)) {
             double min_dist = -1;
             std::vector<std::pair<int, int>> possible_destinations;
-            for (auto cell: robot->getLocalMap().getMap()) {
+            const auto& _map = robot->getLocalMap()._getMap();
+            //for (auto cell: robot->getLocalMap().getMap()) {
+            for (int k = 0; k < _map.size(); k++) {
+                auto cell = std::make_pair(Cantor_NumberToPair(k), _map[k]);
                 if (!containerContains(robot->getInvestible(), robot->getLocalMap().getElement(cell.first)) ||
                     containerContains(unreachable[robot], cell.first) ||
                     cell.first == robot->getPosition() ||

@@ -27,7 +27,7 @@ Game::Game(const std::string& map_file, int cnt_collectors) {
     repeater = new Repeater(globalMap, &robots);
     mode = new ManualMode();
 
-    std::vector<std::pair<int, int>> positions = findSuitablePos(cnt_collectors, globalMap->getMap(), { MapElement::EMPTY, MapElement::APPLE });
+    std::vector<std::pair<int, int>> positions = findSuitablePos(cnt_collectors, globalMap->_getMap(), { MapElement::EMPTY, MapElement::APPLE });
     for (int i = 0; i < cnt_collectors; i++) robots.emplace_back(new Collector(i, positions[i], repeater));
     activeCollectorID = 0;
 }

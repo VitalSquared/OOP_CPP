@@ -13,7 +13,7 @@ Sapper::Sapper(Repeater* repeater, int id) {
 
 void Sapper::init() {
     scan();
-    std::pair<int, int> new_pos = findSuitablePos(1, localMap.getMap(), getWalkable())[0];
+    std::pair<int, int> new_pos = findSuitablePos(1, localMap._getMap(), getWalkable())[0];
     repeater->notifyAllLanding(this, new_pos);
     pos_r = new_pos.first;
     pos_c = new_pos.second;

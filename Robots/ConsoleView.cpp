@@ -55,7 +55,7 @@ void ConsoleView::run() {
         if (game->parseCommand(cmd)) {
             while(game->step()) {
                 renderMap();
-                delay(300);
+                delay(500);
             }
         }
         else std::cout << "Invalid command or argument(s).\n";
