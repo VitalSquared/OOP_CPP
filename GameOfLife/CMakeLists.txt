@@ -9,7 +9,7 @@ add_subdirectory(lib/googletest-master)
 include_directories(lib/googletest/include)
 include_directories(lib/googlemock/include)
 
-add_executable(GameOfLife main.cpp CommandParser.cpp CommandParser.h GameModel.cpp GameModel.h Interface.cpp Interface.h test.cpp)
+add_executable(GameOfLife main.cpp CommandParser.cpp CommandParser.h GameModel.cpp GameModel.h Interface.cpp Interface.h test.cpp Utils.cpp Utils.h)
 
 target_link_libraries(GameOfLife gtest gtest_main)
 target_link_libraries(GameOfLife gmock gmock_main)

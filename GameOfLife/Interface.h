@@ -1,16 +1,27 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
 
+#include "CommandParser.h"
 #include "GameModel.h"
-
-#define UI_DEAD '.'
-#define UI_ALIVE '*'
 
 class Interface {
 public:
-    static void updateUI(Field &field);
+    Interface(int rows, int cols);
+    ~Interface();
+
+    void run();
+
 private:
-    static void clearUI();
+    int rows;
+    int cols;
+    GameModel *game;
+
+    const char T_Dead = '.';
+    const char T_Alive = '*';
+
+    void clearUI();
+    void updateUI();
+    void printHelp();
 };
 
 #endif

@@ -1,4 +1,4 @@
-ToolSet: w64 6.0 (local)@D:\mingw\mingw64
+ToolSet: 16.0 (local)@D:\Visual Studio\2019\Community
 Options: 
 
 Options:

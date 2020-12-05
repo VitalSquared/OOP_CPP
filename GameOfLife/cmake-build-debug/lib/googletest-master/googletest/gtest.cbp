@@ -4,109 +4,117 @@
 	<Project>
 		<Option title="gtest"/>
 		<Option makefile_is_custom="1"/>
-		<Option compiler="gcc"/>
+		<Option compiler="msvc8"/>
 		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\lib\googletest-master\;CMake Files\lib\googletest-master\googlemock\;CMake Files\lib\googletest-master\googlemock\cmake\;CMake Files\lib\googletest-master\googletest\;CMake Files\lib\googletest-master\googletest\cmake\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest">
-				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/gtestd.lib" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
-				<Option compiler="gcc"/>
+				<Option compiler="msvc8"/>
 				<Compiler>
 					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
 					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
-					<CompileFile command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 gtest"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest/fast">
-				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/gtestd.lib" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
-				<Option compiler="gcc"/>
+				<Option compiler="msvc8"/>
 				<Compiler>
 					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
 					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
-					<CompileFile command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 gtest/fast"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest_main">
-				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/gtest_maind.lib" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
-				<Option compiler="gcc"/>
+				<Option compiler="msvc8"/>
 				<Compiler>
 					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
 					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
-					<CompileFile command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 gtest_main"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest_main/fast">
-				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option output="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/gtest_maind.lib" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
-				<Option compiler="gcc"/>
+				<Option compiler="msvc8"/>
 				<Compiler>
 					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/include"/>
 					<Add directory="D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="D:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
-					<CompileFile command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\lib\googletest-master\googletest\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>

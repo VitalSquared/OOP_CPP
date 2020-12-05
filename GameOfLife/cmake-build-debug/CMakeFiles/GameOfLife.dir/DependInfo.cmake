@@ -7,10 +7,11 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "D:/Workshop/CLionProjects/OOOP/GameOfLife/CommandParser.cpp" "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/CMakeFiles/GameOfLife.dir/CommandParser.cpp.obj"
   "D:/Workshop/CLionProjects/OOOP/GameOfLife/GameModel.cpp" "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/CMakeFiles/GameOfLife.dir/GameModel.cpp.obj"
   "D:/Workshop/CLionProjects/OOOP/GameOfLife/Interface.cpp" "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/CMakeFiles/GameOfLife.dir/Interface.cpp.obj"
+  "D:/Workshop/CLionProjects/OOOP/GameOfLife/Utils.cpp" "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/CMakeFiles/GameOfLife.dir/Utils.cpp.obj"
   "D:/Workshop/CLionProjects/OOOP/GameOfLife/main.cpp" "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/CMakeFiles/GameOfLife.dir/main.cpp.obj"
   "D:/Workshop/CLionProjects/OOOP/GameOfLife/test.cpp" "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/CMakeFiles/GameOfLife.dir/test.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

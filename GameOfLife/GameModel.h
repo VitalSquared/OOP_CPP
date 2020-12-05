@@ -3,43 +3,41 @@
 
 #include <string>
 #include <vector>
-
-#define ROWS 10
-#define COLS 10
-#define IDX(R, C) ((R) * (ROWS) + (C))
+#include "CommandParser.h"
 
 using namespace std;
 
-enum State { DEAD, ALIVE };
-
-class Cell {
+class GameModel {
 public:
-    Cell();
-    State getState();
-    void setState(State newState);
-private:
-    State state;
-};
+    GameModel(int rows, int cols);
+    ~GameModel();
 
-class Field {
-public:
-    Field();
-    ~Field();
-    void makeMove(bool bUpdateUI = true);
-    void revertMove();
-    State getCell(int i);
-    void setCell(int r, int c, State state);
-    void reset();
-    bool load(string& in);
-    int getMoves();
+    bool invokeCommand(CommandType cmd, const vector<string>& args);
+
+    bool getCell(int r, int c) const;
+    int getMoves() const;
 
 private:
+    int rows;
+    int cols;
     int moves;
-    Cell *field;
-    Cell *prev;
+    bool undidMove;
+    bool *cur_field;
+    bool *prev_field;
 
-    static int normalizeRow(int r);
-    static int normalizeCol(int c);
+    void makeMove();
+    void undoMove();
+
+    void setCell(int r, int c, bool state);
+    void reset();
+
+    bool load(const string& fl_name);
+    bool save(const string& fl_name);
+
+    int normalizeRow(int r) const;
+    int normalizeCol(int c) const;
+
+    int pairToIndex(int r, int c) const;
 };
 
 #endif

@@ -1,37 +1,65 @@
 #include <iostream>
+#include <fstream>
 #include "GameModel.h"
-#include "Interface.h"
 
 using namespace std;
 
-Cell::Cell() {
-    state = DEAD;
-}
-
-State Cell::getState() {
-    return state;
-}
-
-void Cell::setState(State newState) {
-    state = newState;
-}
-
-Field::Field() {
+GameModel::GameModel(int rows, int cols) {
+    this->rows = rows;
+    this->cols = cols;
     moves = 0;
-    field = new Cell[ROWS * COLS];
-    prev = nullptr;
-    Interface::updateUI(*this);
+    undidMove = false;
+    cur_field = new bool[rows * cols];
+    prev_field = new bool[rows * cols];
+    for (int i = 0; i < rows * cols; i++) cur_field[i] = false;
 }
 
-Field::~Field() {
-    delete [] field;
-    delete [] prev;
+GameModel::~GameModel() {
+    delete [] cur_field;
+    cur_field = nullptr;
+
+    delete [] prev_field;
+    prev_field = nullptr;
 }
 
-void Field::makeMove(bool bUpdateUI) {
-    Cell *new_field = new Cell[ROWS * COLS];
-    for (int r = 0; r < ROWS; r++) {
-        for (int c = 0; c < COLS; c++) {
+bool GameModel::invokeCommand(CommandType cmd, const vector<string>& args) {
+    int r, c, n;
+    switch(cmd) {
+        case CommandType::SET:
+            r = stoi(args[0]);
+            c = stoi(args[1]);
+            setCell(r, c, true);
+            break;
+        case CommandType::CLEAR:
+            r = stoi(args[0]);
+            c = stoi(args[1]);
+            setCell(r, c, false);
+            break;
+        case CommandType::RESET:
+            reset();
+            break;
+        case CommandType::BACK:
+            undoMove();
+            break;
+        case CommandType::STEP:
+            if (args.empty()) n = 1;
+            else n = stoi(args[0]);
+            for (int i = 0; i < n; i++) makeMove();
+            break;
+        case CommandType::LOAD:
+            load(args[0]);
+            break;
+        case CommandType::SAVE:
+            save(args[0]);
+            break;
+        default: return false;
+    }
+    return true;
+}
+
+void GameModel::makeMove() {
+    for (int r = 0; r < rows; r++) {
+        for (int c = 0; c < cols; c++) {
             pair<int, int> neighbours[8] =
                     {
                             {r - 1, c - 1}, {r - 1, c}, {r - 1, c + 1},
@@ -41,81 +69,100 @@ void Field::makeMove(bool bUpdateUI) {
             int alive = 0;
             for (auto pair : neighbours) {
                 int nr = normalizeRow(pair.first), nc = normalizeCol(pair.second);
-                if (field[IDX(nr, nc)].getState() == ALIVE) alive++;
+                if (cur_field[pairToIndex(nr, nc)]) alive++;
             }
-            switch(field[IDX(r, c)].getState()) {
-                case ALIVE:
-                    if (alive < 2 || alive > 3) new_field[IDX(r, c)].setState(DEAD);
-                    else new_field[IDX(r, c)].setState(ALIVE);
-                    break;
-                case DEAD:
-                    if (alive == 3) new_field[IDX(r, c)].setState(ALIVE);
-                    else new_field[IDX(r, c)].setState(DEAD);
-                    break;
+
+            if(cur_field[pairToIndex(r, c)]) {
+                if (alive < 2 || alive > 3) prev_field[pairToIndex(r, c)] = false;
+                else prev_field[pairToIndex(r, c)] = true;
+            }
+            else {
+                if (alive == 3) prev_field[pairToIndex(r, c)] = true;
+                else prev_field[pairToIndex(r, c)] = false;
             }
         }
     }
+
+    undidMove = false;
     moves++;
-    delete [] prev;
-    prev = field;
-    field = new_field;
-    if (bUpdateUI) Interface::updateUI(*this);
+
+    bool* tmp = prev_field;
+    prev_field = cur_field;
+    cur_field = tmp;
 }
 
-void Field::revertMove() {
-    if (moves == 0 || prev == nullptr) return;
+void GameModel::undoMove() {
+    if (moves == 0 || undidMove) return;
+
+    undidMove = true;
     moves--;
-    delete [] field;
-    field = prev;
-    prev = nullptr;
-    Interface::updateUI(*this);
+
+    bool* tmp = cur_field;
+    cur_field = prev_field;
+    prev_field = tmp;
 }
 
-State Field::getCell(int i) {
-    return field[i].getState();
+bool GameModel::getCell(int r, int c) const {
+    return cur_field[pairToIndex(r, c)];
 }
 
-void Field::setCell(int r, int c, State state) {
-    field[IDX(r, c)].setState(state);
-    Interface::updateUI(*this);
+void GameModel::setCell(int r, int c, bool state) {
+    cur_field[pairToIndex(r, c)] = state;
 }
 
-void Field::reset() {
-    for (int i = 0; i < ROWS * COLS; i++)
-        field[i].setState(DEAD);
+void GameModel::reset() {
+    for (int i = 0; i < rows * cols; i++)
+        cur_field[i] = false;
     moves = 0;
-    delete [] prev;
-    prev = nullptr;
-    Interface::updateUI(*this);
 }
 
-bool Field::load(string &in) {
-    if (in.size() != ROWS * COLS) return false;
+bool GameModel::load(const string &fl_name) {
+    ifstream file(fl_name);
+    if (!file.is_open()) return false;
+    string in;
+    getline(file, in);
+    file.close();
 
-    for (int i = 0; i < ROWS * COLS; i++) {
-        if (in[i] != UI_DEAD && in[i] != UI_ALIVE) return false;
-        field[i].setState(in[i] == UI_DEAD ? DEAD : ALIVE);
+    if (in.size() != rows * cols) return false;
+
+    for (int i = 0; i < rows * cols; i++) {
+        if (in[i] != '.' && in[i] != '*') return false;
+    }
+
+    for (int i = 0; i < rows * cols; i++) {
+        cur_field[i] = in[i] == '*';
     }
 
     moves = 0;
-    delete [] prev;
-    prev = nullptr;
-    Interface::updateUI(*this);
     return true;
 }
 
-int Field::getMoves() {
+bool GameModel::save(const string &fl_name) {
+    ofstream file(fl_name);
+    if (!file.is_open()) return false;
+    for (int i = 0; i < rows * cols; i++) {
+        file << (cur_field[i] ? '*' : '.');
+    }
+    file.close();
+    return true;
+}
+
+int GameModel::getMoves() const {
     return moves;
 }
 
-int Field::normalizeRow(int r) {
-    while (r < 0) r += ROWS;
-    while (r >= ROWS) r -= ROWS;
+int GameModel::normalizeRow(int r) const {
+    while (r < 0) r += rows;
+    while (r >= rows) r -= rows;
     return r;
 }
 
-int Field::normalizeCol(int c) {
-    while (c < 0) c += COLS;
-    while (c >= COLS) c -= COLS;
+int GameModel::normalizeCol(int c) const {
+    while (c < 0) c += rows;
+    while (c >= rows) c -= rows;
     return c;
+}
+
+int GameModel::pairToIndex(int r, int c) const {
+    return r * cols + c;
 }

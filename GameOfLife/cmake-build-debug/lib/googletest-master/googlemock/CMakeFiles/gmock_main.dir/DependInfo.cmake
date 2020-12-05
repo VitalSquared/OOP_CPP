@@ -4,9 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googletest/src/gtest-all.cc" "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.obj"
+  "D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/src/gmock-all.cc" "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.obj"
   "D:/Workshop/CLionProjects/OOOP/GameOfLife/lib/googletest-master/googlemock/src/gmock_main.cc" "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
@@ -18,8 +20,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
-  "D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

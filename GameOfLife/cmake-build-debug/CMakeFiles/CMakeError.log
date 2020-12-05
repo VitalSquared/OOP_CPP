@@ -1,0 +1,15 @@
+Determining if the include file pthread.h exists failed with the following output:
+Change Dir: D:/Workshop/CLionProjects/OOOP/GameOfLife/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):nmake /nologo cmTC_7886d\fast && 	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_7886d.dir\build.make /nologo -L                  CMakeFiles\cmTC_7886d.dir\build
+Building C object CMakeFiles/cmTC_7886d.dir/CheckIncludeFile.c.obj
+	"D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" @C:\Users\vital\AppData\Local\Temp\nmA1B8.tmp
+CheckIncludeFile.c
+D:\Workshop\CLionProjects\OOOP\GameOfLife\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Не удается открыть файл включение: pthread.h: No such file or directory,
+NMAKE : fatal error U1077: "D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx86\x86\cl.exe" : тючтЁр∙хээ√щ ъюф "0x2"
+Stop.
+NMAKE : fatal error U1077: "D:\Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX86\x86\nmake.exe" : тючтЁр∙хээ√щ ъюф "0x2"
+Stop.
+
+
+

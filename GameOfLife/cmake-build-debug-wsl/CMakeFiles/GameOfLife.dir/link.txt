@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/GameOfLife.dir/main.cpp.o CMakeFiles/GameOfLife.dir/CommandParser.cpp.o CMakeFiles/GameOfLife.dir/GameModel.cpp.o CMakeFiles/GameOfLife.dir/Interface.cpp.o CMakeFiles/GameOfLife.dir/test.cpp.o  -o GameOfLife  lib/libgtestd.a lib/libgtest_maind.a lib/libgmockd.a lib/libgmock_maind.a lib/libgmockd.a lib/libgtestd.a -lpthread 
