@@ -1,5 +1,6 @@
 #include "Utils.h"
 #include "ManualMode.h"
+#include "IManualModeCommand.h"
 
 ManualMode::ManualMode() {
     stepsMade = 0;
@@ -9,27 +10,20 @@ ModeType ManualMode::getModeType() {
     return ModeType::MANUAL;
 }
 
-bool ManualMode::invokeCommand(IRobot *robot, CommandType cmd, std::vector<std::string> &args) {
+bool ManualMode::invokeCommand(IRobot *robot, ICommand* cmd, std::vector<std::string> &args) {
     if (robot == nullptr || robot->getRobotID().first == RobotType::SAPPER) return false;
+
+    auto* manualCmd = dynamic_cast<IManualModeCommand*>(cmd);
+    if (manualCmd == nullptr) return cmd->execute(args);
+
     if (stepsMade >= 1) {
         stepsMade = 0;
         return false;
     }
     stepsMade++;
-    bool res;
-    switch(cmd) {
-        case CommandType::MOVE:
-            res = robot->move(convertStringToDirection(args[0]));
-            break;
-        case CommandType::GRAB:
-            res = robot->invest();
-            break;
-        case CommandType::SCAN:
-            res = robot->scan();
-            break;
-        default:
-            res = false;
-    }
+
+    bool res = manualCmd->execute(args);
     if (!res) stepsMade = 0;
+
     return res;
 }

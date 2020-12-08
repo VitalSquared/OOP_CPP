@@ -8,15 +8,11 @@ Sapper::Sapper(Repeater* repeater, int id) {
     this->repeater = repeater;
     pos_r = 0;
     pos_c = 0;
-    init();
 }
 
-void Sapper::init() {
+void Sapper::initMap() {
     scan();
-    std::pair<int, int> new_pos = findSuitablePos(1, localMap._getMap(), getWalkable())[0];
-    repeater->notifyAllLanding(this, new_pos);
-    pos_r = new_pos.first;
-    pos_c = new_pos.second;
+    repeater->notifyAllLanding(this, getPosition());
     invest();
 }
 
@@ -66,7 +62,7 @@ bool Sapper::move(Direction dir) {
     std::pair<int, int> newPos = getPosition() + convertDirectionToDelta(dir);
 
     if (containerContains(getWalkable(), localMap.getElement(newPos))) {
-        if (!repeater->anyRobotsInPosition(newPos)) {
+        if (!repeater->anyRobotsInPosition(this, newPos)) {
             pos_r = newPos.first;
             pos_c = newPos.second;
             invest();
@@ -87,6 +83,6 @@ bool Sapper::invest() {
 }
 
 bool Sapper::scan() {
-    localMap.mergeMap(repeater->getCollectorsScannedMap());
+    localMap.mergeMap(repeater->getCollectorsScannedMap(this));
     return true;
 }

@@ -1,1 +1,3 @@
-if you are reading this, you are an awesome person :)
+-need to make sure that "local positions of robots" feature works normally
+-put common fields of Collector and Sapper in the IRobot
+-files review

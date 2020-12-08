@@ -11,7 +11,7 @@ public:
     ~ScanMode() override = default;
 
     ModeType getModeType() override;
-    bool invokeCommand(IRobot* robot, CommandType cmd, std::vector<std::string>& args) override;
+    bool invokeCommand(IRobot* robot, ICommand* cmd, std::vector<std::string>& args) override;
 
 private:
     std::map<IRobot*, int> stepsMade;

@@ -5,16 +5,23 @@ CMakeFiles/Robots.dir/AutoMode.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/AutoMode.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/AutoMode.h
  D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IManualModeCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/IMode.h
  D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
  D:/Workshop/CLionProjects/OOOP/Robots/Map.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Repeater.h
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/ChangeModeCommand.cpp.obj
+ D:/Workshop/CLionProjects/OOOP/Robots/AutoMode.h
  D:/Workshop/CLionProjects/OOOP/Robots/ChangeModeCommand.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/ChangeModeCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IMode.h
  D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
+ D:/Workshop/CLionProjects/OOOP/Robots/ManualMode.h
  D:/Workshop/CLionProjects/OOOP/Robots/Map.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Repeater.h
+ D:/Workshop/CLionProjects/OOOP/Robots/ScanMode.h
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/Collector.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/Collector.cpp
@@ -43,6 +50,7 @@ CMakeFiles/Robots.dir/Game.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/Game.h
  D:/Workshop/CLionProjects/OOOP/Robots/GrabCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IManualModeCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/IMode.h
  D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
  D:/Workshop/CLionProjects/OOOP/Robots/ManualMode.h
@@ -59,13 +67,19 @@ CMakeFiles/Robots.dir/GrabCommand.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/GrabCommand.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/GrabCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IManualModeCommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Map.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Repeater.h
 CMakeFiles/Robots.dir/ManualMode.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IManualModeCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/IMode.h
  D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
  D:/Workshop/CLionProjects/OOOP/Robots/ManualMode.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/ManualMode.h
  D:/Workshop/CLionProjects/OOOP/Robots/Map.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Repeater.h
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/Map.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
@@ -74,16 +88,19 @@ CMakeFiles/Robots.dir/Map.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/MoveCommand.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IManualModeCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
  D:/Workshop/CLionProjects/OOOP/Robots/Map.h
  D:/Workshop/CLionProjects/OOOP/Robots/MoveCommand.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/MoveCommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Repeater.h
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/Repeater.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
  D:/Workshop/CLionProjects/OOOP/Robots/Map.h
  D:/Workshop/CLionProjects/OOOP/Robots/Repeater.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/Repeater.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/Sapper.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
  D:/Workshop/CLionProjects/OOOP/Robots/Map.h
@@ -93,20 +110,28 @@ CMakeFiles/Robots.dir/Sapper.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/ScanCommand.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IManualModeCommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Map.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Repeater.h
  D:/Workshop/CLionProjects/OOOP/Robots/ScanCommand.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/ScanCommand.h
 CMakeFiles/Robots.dir/ScanMode.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IManualModeCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/IMode.h
  D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
  D:/Workshop/CLionProjects/OOOP/Robots/Map.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Repeater.h
  D:/Workshop/CLionProjects/OOOP/Robots/ScanMode.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/ScanMode.h
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
 CMakeFiles/Robots.dir/SwitchCollectorCommand.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IManualModeCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
  D:/Workshop/CLionProjects/OOOP/Robots/Map.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Repeater.h
  D:/Workshop/CLionProjects/OOOP/Robots/SwitchCollectorCommand.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/SwitchCollectorCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h
@@ -115,8 +140,11 @@ CMakeFiles/Robots.dir/Texture.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/Texture.h
 CMakeFiles/Robots.dir/ToggleSapperCommand.cpp.obj
  D:/Workshop/CLionProjects/OOOP/Robots/ICommand.h
+ D:/Workshop/CLionProjects/OOOP/Robots/IManualModeCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/IRobot.h
  D:/Workshop/CLionProjects/OOOP/Robots/Map.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Repeater.h
+ D:/Workshop/CLionProjects/OOOP/Robots/Sapper.h
  D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.cpp
  D:/Workshop/CLionProjects/OOOP/Robots/ToggleSapperCommand.h
  D:/Workshop/CLionProjects/OOOP/Robots/Utils.h

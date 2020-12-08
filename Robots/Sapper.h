@@ -22,6 +22,7 @@ public:
     void receiveNotificationUpdatedMap(std::pair<int, int> node, MapElement elem) override;
     void receiveNotificationLanding(std::pair<int, int> pos) override;
 
+    void initMap() override;
     bool move(Direction dir) override;
     bool invest() override;
     bool scan() override;

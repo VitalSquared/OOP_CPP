@@ -1,12 +1,15 @@
 #include "Utils.h"
 #include "ScanMode.h"
+#include "IManualModeCommand.h"
 
 ModeType ScanMode::getModeType() {
     return ModeType::SCAN;
 }
 
-bool ScanMode::invokeCommand(IRobot *robot, CommandType cmd, std::vector<std::string> &args) {
-    if (cmd != CommandType::SET_MODE || robot->getRobotID().first != RobotType::COLLECTOR) return false;
+bool ScanMode::invokeCommand(IRobot *robot, ICommand* cmd, std::vector<std::string> &args) {
+    if (robot == nullptr || robot->getRobotID().first != RobotType::COLLECTOR || dynamic_cast<IManualModeCommand*>(cmd) != nullptr) return false;
+
+    if (cmd->execute(args)) return true;
 
     int stepsReq;
     convertStringToInt(args[1], stepsReq);
@@ -38,7 +41,6 @@ bool ScanMode::invokeCommand(IRobot *robot, CommandType cmd, std::vector<std::st
             double min_dist = -1;
             std::vector<std::pair<int, int>> possible_destinations;
             const auto& _map = robot->getLocalMap()._getMap();
-            //for (auto cell: robot->getLocalMap().getMap()) {
             for (int k = 0; k < _map.size(); k++) {
                 auto cell = std::make_pair(Cantor_NumberToPair(k), _map[k]);
                 if (!containerContains(walkable, robot->getLocalMap().getElement(cell.first)) ||

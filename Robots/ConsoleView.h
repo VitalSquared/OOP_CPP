@@ -13,6 +13,7 @@ public:
     ~ConsoleView() override;
 
     void run() override;
+
 private:
     Game* game;
 

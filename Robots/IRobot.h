@@ -23,6 +23,7 @@ public:
     virtual void receiveNotificationUpdatedMap(std::pair<int, int> node, MapElement elem) = 0;
     virtual void receiveNotificationLanding(std::pair<int, int> pos) = 0;
 
+    virtual void initMap() = 0;
     virtual bool move(Direction dir) = 0;
     virtual bool invest() = 0;
     virtual bool scan() = 0;

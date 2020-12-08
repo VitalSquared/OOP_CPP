@@ -89,7 +89,6 @@ std::vector<std::pair<int, int>> findSuitablePos(int count, const std::map<std::
 std::vector<std::pair<int, int>> findSuitablePos(int count, const std::vector<MapElement>& data, const std::set<MapElement>& allowed) {
     std::vector<std::pair<int, int>> possible;
     std::vector<std::pair<int, int>> result;
-    //for(auto cell: data) {
     for (int k = 0; k < data.size(); k++) {
         auto cell = std::make_pair(Cantor_NumberToPair(k), data[k]);
         if (!containerContains(allowed, cell.second)) continue;
@@ -194,8 +193,26 @@ std::pair<int, int> convertDirectionToDelta(Direction dir) {
     return delta;
 }
 
+int Z_To_N(int num) {
+    if (num >= 0) {
+        return 2 * num;
+    }
+    else {
+        return 2 * (-num) - 1;
+    }
+}
+
+int N_To_Z(int num) {
+    if (num % 2 == 0) {
+        return num / 2;
+    }
+    else {
+        return -((num + 1) / 2);
+    }
+}
+
 int Cantor_PairToNumber(std::pair<int, int> _pair) {
-    int k1 = _pair.first, k2 = _pair.second;
+    int k1 = Z_To_N(_pair.first), k2 = Z_To_N(_pair.second);
     return (k1 + k2) * (k1 + k2 + 1) / 2 + k2;
 }
 
@@ -204,5 +221,5 @@ std::pair<int, int> Cantor_NumberToPair(int z) {
     int t = (w * w + w) / 2;
     int y = z - t;
     int x = w - y;
-    return std::make_pair(x, y);
+    return std::make_pair(N_To_Z(x), N_To_Z(y));
 }

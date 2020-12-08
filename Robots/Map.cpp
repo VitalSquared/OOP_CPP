@@ -13,6 +13,7 @@ Map::Map(const std::string &map_file) {
         file >> rows >> cols;
         file.get();
         if (rows < 1000 || cols < 1000) throw std::exception();
+        int center_r = rows / 2, center_c = cols / 2;
         for (int r = 0; r < rows; r++) {
             std::getline(file, row);
             while ('\n' == row.back() || '\r' == row.back()) row.pop_back();
@@ -20,16 +21,16 @@ Map::Map(const std::string &map_file) {
             for (int c = 0; c < cols; c++) {
                 switch(row[c]) {
                     case 'A':
-                        addElement(r, c, MapElement::APPLE);
+                        addElement(r - center_r, c - center_c, MapElement::APPLE);
                         break;
                     case 'B':
-                        addElement(r, c, MapElement::BOMB);
+                        addElement(r - center_r, c - center_c, MapElement::BOMB);
                         break;
                     case 'R':
-                        addElement(r, c, MapElement::ROCK);
+                        addElement(r - center_r, c - center_c, MapElement::ROCK);
                         break;
                     default:
-                        addElement(r, c, MapElement::EMPTY);
+                        addElement(r - center_r, c - center_c, MapElement::EMPTY);
                         break;
                 }
             }

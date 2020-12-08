@@ -26,7 +26,6 @@ void containerRemove(Container& container, int idx) {
     if (0 <= idx && idx < container.size()) container.erase(container.begin() + idx);
 }
 
-std::vector<std::pair<int, int>> findSuitablePos(int count, const std::map<std::pair<int, int>, MapElement>& data, const std::set<MapElement>& allowed);
 std::vector<std::pair<int, int>> findSuitablePos(int count, const std::vector<MapElement>& data, const std::set<MapElement>& allowed);
 std::vector<std::pair<int, int>> buildPath(std::pair<int, int> start, std::pair<int, int> end, const Map& scannedMap,
                                            const std::set<MapElement>& canWalkOn, const std::set<std::pair<int, int>>& unreachable);

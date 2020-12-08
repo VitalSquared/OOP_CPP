@@ -7,7 +7,7 @@
 
 class Collector : public IRobot {
 public:
-    Collector(int id, std::pair<int, int> initPos, Repeater* repeater);
+    Collector(int id, Repeater* repeater);
     ~Collector() override = default;
 
     const Map& getLocalMap() const override;
@@ -22,6 +22,7 @@ public:
     void receiveNotificationUpdatedMap(std::pair<int, int> node, MapElement elem) override;
     void receiveNotificationLanding(std::pair<int, int> pos) override;
 
+    void initMap() override;
     bool move(Direction dir) override;
     bool invest() override;
     bool scan() override;

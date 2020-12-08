@@ -19,22 +19,19 @@ public:
     bool parseCommand(const std::string& cmd);
     bool step();
 
-    const std::vector<IRobot*>& getRobots();
+    const std::map<IRobot *, std::pair<int, int>> & getRobots();
     IRobot* getActiveCollector();
 
 private:
     int activeCollectorID;
-    CommandType curCmd;
+    std::string curCmd;
+    CommandType curCmdType;
     std::vector<std::string> curArgs;
     std::map<std::string, ICommand*> commandsContainer;
-    std::vector<IRobot*> robots;
+    std::map<IRobot*, std::pair<int, int>> robots;
     IMode* mode;
     Map* globalMap;
     Repeater* repeater;
-
-    bool modeActivity();
-    bool toggleSapper();
-    bool switchCollector();
 };
 
 #endif

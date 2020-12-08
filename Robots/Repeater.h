@@ -7,20 +7,20 @@
 
 class Repeater {
 public:
-    Repeater(const Map *globalMap, const std::vector<IRobot*>* robots);
+    Repeater(const Map *globalMap, const std::map<IRobot*, std::pair<int, int>>* robots);
     ~Repeater() = default;
 
-    void notifyAllUpdatedMap(IRobot* sender, std::pair<int, int> node, MapElement elem);
+    void notifyAllUpdatedMap(IRobot* sender, std::pair<int, int> pos, MapElement elem);
     void notifyAllLanding(IRobot* sender, std::pair<int, int> pos);
 
-    MapElement getMapElement(int r, int c);
-    Map getCollectorsScannedMap();
+    MapElement getMapElement(IRobot* sender, int r, int c);
+    Map getCollectorsScannedMap(IRobot* sender);
 
-    bool anyRobotsInPosition(std::pair<int, int> pos);
+    bool anyRobotsInPosition(IRobot* sender, std::pair<int, int> pos);
 
 private:
     const Map* globalMap;
-    const std::vector<IRobot*>* robots;
+    const std::map<IRobot*, std::pair<int, int>>* robots;
 };
 
 #endif

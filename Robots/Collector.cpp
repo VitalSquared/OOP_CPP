@@ -1,18 +1,20 @@
 #include "Utils.h"
 #include "Collector.h"
 
-Collector::Collector(int id, std::pair<int, int> initPos, Repeater* repeater) {
+Collector::Collector(int id, Repeater* repeater) {
     bActive = true;
     apples = 0;
     this->id = id;
-    pos_r = initPos.first;
-    pos_c = initPos.second;
+    pos_r = 0;
+    pos_c = 0;
     this->repeater = repeater;
+}
 
-    MapElement elem = repeater->getMapElement(pos_r, pos_c);
+void Collector::initMap() {
+    MapElement elem = repeater->getMapElement(this, pos_r, pos_c);
     localMap.addElement(pos_r, pos_c, elem);
     repeater->notifyAllUpdatedMap(this, std::make_pair(pos_r, pos_c), elem);
-    localMap.mergeMap(repeater->getCollectorsScannedMap());
+    localMap.mergeMap(repeater->getCollectorsScannedMap(this));
 }
 
 const Map& Collector::getLocalMap() const {
@@ -59,7 +61,7 @@ void Collector::receiveNotificationLanding(std::pair<int, int> pos) {
 bool Collector::move(Direction dir) {
     std::pair<int, int> newPos = getPosition() + convertDirectionToDelta(dir);
     if (containerContains(getWalkable(), localMap.getElement(newPos))) {
-        if (!repeater->anyRobotsInPosition(newPos)) {
+        if (!repeater->anyRobotsInPosition(this, newPos)) {
             pos_r = newPos.first;
             pos_c = newPos.second;
             return true;
@@ -85,7 +87,7 @@ bool Collector::invest() {
 bool Collector::scan() {
     for (auto adj: getAdjacentCoords(pos_r, pos_c)) {
         if (!localMap.containsLocation(adj.first, adj.second)) {
-            localMap.addElement(adj.first, adj.second, repeater->getMapElement(adj.first, adj.second));
+            localMap.addElement(adj.first, adj.second, repeater->getMapElement(this, adj.first, adj.second));
             repeater->notifyAllUpdatedMap(this, adj, localMap.getElement(adj.first, adj.second));
         }
     }

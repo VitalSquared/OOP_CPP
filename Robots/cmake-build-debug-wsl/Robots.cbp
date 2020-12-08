@@ -124,6 +124,9 @@
 		<Unit filename="/mnt/d/Workshop/CLionProjects/OOOP/Robots/IGameView.h">
 			<Option target="Robots"/>
 		</Unit>
+		<Unit filename="/mnt/d/Workshop/CLionProjects/OOOP/Robots/IManualModeCommand.h">
+			<Option target="Robots"/>
+		</Unit>
 		<Unit filename="/mnt/d/Workshop/CLionProjects/OOOP/Robots/IMode.h">
 			<Option target="Robots"/>
 		</Unit>

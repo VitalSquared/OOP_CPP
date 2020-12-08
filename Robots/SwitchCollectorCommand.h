@@ -2,13 +2,15 @@
 #define ROBOTS_SWITCH_COLLECTOR_COMMAND_H
 
 #include "ICommand.h"
+#include "IManualModeCommand.h"
 
-class SwitchCollectorCommand : public ICommand {
+class SwitchCollectorCommand : public IManualModeCommand {
 public:
-    SwitchCollectorCommand() = default;
+    SwitchCollectorCommand(std::map<IRobot*, std::pair<int, int>>* _robots, int* _id, Repeater* _repeater) : IManualModeCommand(_robots, _id, _repeater) {};
     ~SwitchCollectorCommand() override = default;
 
     CommandType validateArgs(std::vector<std::string> args) override;
+    bool execute(std::vector<std::string> args) override;
 };
 
 #endif

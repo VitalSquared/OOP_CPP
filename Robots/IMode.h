@@ -13,7 +13,7 @@ public:
     virtual ~IMode() = default;
 
     virtual ModeType getModeType() = 0;
-    virtual bool invokeCommand(IRobot* robot, CommandType cmd, std::vector<std::string>& args) = 0;
+    virtual bool invokeCommand(IRobot* robot, ICommand* cmd, std::vector<std::string>& args) = 0;
 };
 
 #endif
