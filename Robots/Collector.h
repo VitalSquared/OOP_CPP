@@ -7,12 +7,9 @@
 
 class Collector : public IRobot {
 public:
-    Collector(int id, Repeater* repeater);
+    Collector(Repeater* repeater, int id);
     ~Collector() override = default;
 
-    const Map& getLocalMap() const override;
-    bool isActive() const override;
-    std::pair<int, int> getPosition() const override;
     int getInvestment() const override;
     std::pair<RobotType, int> getRobotID() const override;
 
@@ -28,12 +25,7 @@ public:
     bool scan() override;
 
 private:
-    bool bActive;
-    int pos_r;
-    int pos_c;
     int apples;
-    int id;
-    Map localMap;
     Repeater* repeater;
 };
 

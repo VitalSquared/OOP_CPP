@@ -1,13 +1,9 @@
 #include "Utils.h"
 #include "Sapper.h"
 
-Sapper::Sapper(Repeater* repeater, int id) {
-    bActive = true;
-    this->id = id;
+Sapper::Sapper(Repeater* repeater, int id) : IRobot(id) {
     bombs = 0;
     this->repeater = repeater;
-    pos_r = 0;
-    pos_c = 0;
 }
 
 void Sapper::initMap() {
@@ -16,24 +12,12 @@ void Sapper::initMap() {
     invest();
 }
 
-const Map & Sapper::getLocalMap() const {
-    return localMap;
-}
-
-bool Sapper::isActive() const {
-    return bActive;
-}
-
-std::pair<int, int> Sapper::getPosition() const {
-    return std::make_pair(pos_r, pos_c);
-}
-
 int Sapper::getInvestment() const {
     return bombs;
 }
 
 std::pair<RobotType, int> Sapper::getRobotID() const {
-    return std::make_pair(RobotType::SAPPER, id);
+    return std::make_pair(RobotType::SAPPER, getID());
 }
 
 std::set<MapElement> Sapper::getWalkable() const {
@@ -45,7 +29,7 @@ std::set<MapElement> Sapper::getInvestible() const {
 }
 
 void Sapper::receiveNotificationUpdatedMap(std::pair<int, int> node, MapElement elem) {
-    localMap.addElement(node.first, node.second, elem);
+    getMap().addElement(node.first, node.second, elem);
 }
 
 void Sapper::receiveNotificationLanding(std::pair<int, int> pos) {
@@ -55,16 +39,15 @@ void Sapper::receiveNotificationLanding(std::pair<int, int> pos) {
             return;
         }
     }
-    bActive = false;
+    setActive(false);
 }
 
 bool Sapper::move(Direction dir) {
     std::pair<int, int> newPos = getPosition() + convertDirectionToDelta(dir);
 
-    if (containerContains(getWalkable(), localMap.getElement(newPos))) {
+    if (containerContains(getWalkable(), getMap().getElement(newPos))) {
         if (!repeater->anyRobotsInPosition(this, newPos)) {
-            pos_r = newPos.first;
-            pos_c = newPos.second;
+            setPosition(newPos);
             invest();
             return true;
         }
@@ -73,9 +56,9 @@ bool Sapper::move(Direction dir) {
 }
 
 bool Sapper::invest() {
-    if (containerContains(getInvestible(), localMap.getElement(pos_r, pos_c))) {
+    if (containerContains(getInvestible(), getMap().getElement(getPosition()))) {
         bombs++;
-        localMap.addElement(pos_r, pos_c, MapElement::EMPTY);
+        getMap().addElement(getPosition().first, getPosition().second, MapElement::EMPTY);
         repeater->notifyAllUpdatedMap(this, getPosition(), MapElement::EMPTY);
         return true;
     }
@@ -83,6 +66,6 @@ bool Sapper::invest() {
 }
 
 bool Sapper::scan() {
-    localMap.mergeMap(repeater->getCollectorsScannedMap(this));
+    getMap().mergeMap(repeater->getCollectorsScannedMap(this));
     return true;
 }

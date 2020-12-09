@@ -10,9 +10,6 @@ public:
     Sapper(Repeater* repeater, int id);
     ~Sapper() override = default;
 
-    const Map& getLocalMap() const override;
-    bool isActive() const override;
-    std::pair<int, int> getPosition() const override;
     int getInvestment() const override;
     std::pair<RobotType, int> getRobotID() const override;
 
@@ -28,15 +25,8 @@ public:
     bool scan() override;
 
 private:
-    bool bActive;
-    int pos_r;
-    int pos_c;
     int bombs;
-    int id;
-    Map localMap;
     Repeater* repeater;
-
-    void init();
 };
 
 #endif

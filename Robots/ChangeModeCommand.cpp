@@ -37,7 +37,7 @@ bool ChangeModeCommand::execute(std::vector<std::string> args) {
         return true;
     }
     else {
-        if ((*mode)->getModeType() != new_mode->getModeType()) {
+        if ((*mode)->getModeName() != new_mode->getModeName()) {
             delete *mode;
             *mode = new_mode;
             return true;

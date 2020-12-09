@@ -152,7 +152,7 @@ void ConsoleView::renderMap() {
     }
 
     std::cout << output + colorDefault << std::endl;
-    std::cout << "\tApples collected: " << apples << std::endl;
+    std::cout << "\tApples collected: " << apples << "\t|\tCurrent mode: " << game->getActiveModeName() << std::endl;
     std::cout << std::endl;
 }
 

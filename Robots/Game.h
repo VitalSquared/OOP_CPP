@@ -22,6 +22,8 @@ public:
     const std::map<IRobot *, std::pair<int, int>> & getRobots();
     IRobot* getActiveCollector();
 
+    std::string getActiveModeName();
+
 private:
     int activeCollectorID;
     std::string curCmd;

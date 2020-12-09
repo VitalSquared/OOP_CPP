@@ -9,11 +9,17 @@ enum class Direction { NONE, UP, DOWN, LEFT, RIGHT };
 
 class IRobot {
 public:
+    IRobot(int _id) {
+        bActive = true;
+        pos_r = 0;
+        pos_c = 0;
+        id = _id;
+    }
     virtual ~IRobot() = default;
 
-    virtual const Map& getLocalMap() const = 0;
-    virtual bool isActive() const = 0;
-    virtual std::pair<int, int> getPosition() const = 0;
+    const Map& getLocalMap() const { return localMap; }
+    bool isActive() const { return bActive; }
+    std::pair<int, int> getPosition() const { return std::make_pair(pos_r, pos_c); }
     virtual int getInvestment() const = 0;
     virtual std::pair<RobotType, int> getRobotID() const = 0;
 
@@ -27,6 +33,20 @@ public:
     virtual bool move(Direction dir) = 0;
     virtual bool invest() = 0;
     virtual bool scan() = 0;
+
+protected:
+    void setActive(bool newActive) { bActive = newActive; }
+    void setPosition(std::pair<int, int> newPos) { pos_r = newPos.first; pos_c = newPos.second; }
+
+    int getID() const { return id; }
+    Map& getMap() { return localMap; }
+
+private:
+    bool bActive;
+    int pos_r;
+    int pos_c;
+    int id;
+    Map localMap;
 };
 
 #endif

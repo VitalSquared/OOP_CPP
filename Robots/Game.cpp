@@ -21,7 +21,7 @@ Game::Game(const std::string& map_file, int cnt_collectors) {
 
     std::vector<std::pair<int, int>> positions = findSuitablePos(cnt_collectors, globalMap->_getMap(), { MapElement::EMPTY, MapElement::APPLE });
     for (int i = 0; i < cnt_collectors; i++) {
-        IRobot* collector = new Collector(i, repeater);
+        IRobot* collector = new Collector(repeater, i);
         robots.insert(std::make_pair(collector, positions[i]));
         collector->initMap();
     }
@@ -129,4 +129,9 @@ IRobot* Game::getActiveCollector() {
         }
     }
     return nullptr;
+}
+
+std::string Game::getActiveModeName() {
+    if (mode == nullptr) return "NONE";
+    return mode->getModeName();
 }

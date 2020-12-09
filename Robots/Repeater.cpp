@@ -19,7 +19,7 @@ void Repeater::notifyAllLanding(IRobot* sender, std::pair<int, int> pos) {
     if (robots == nullptr || sender == nullptr) return;
     for(auto robot: *robots) {
         if (robot.first != sender) {
-            robot.first->receiveNotificationLanding(robots->at(sender) - robot.second);
+            robot.first->receiveNotificationLanding(robots->at(sender) + pos - robot.second);
         }
     }
 }

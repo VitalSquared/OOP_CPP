@@ -6,8 +6,8 @@ ManualMode::ManualMode() {
     stepsMade = 0;
 }
 
-ModeType ManualMode::getModeType() {
-    return ModeType::MANUAL;
+std::string ManualMode::getModeName() {
+    return "MANUAL";
 }
 
 bool ManualMode::invokeCommand(IRobot *robot, ICommand* cmd, std::vector<std::string> &args) {

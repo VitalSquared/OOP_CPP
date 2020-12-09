@@ -8,7 +8,7 @@ public:
     ManualMode();
     ~ManualMode() override = default;
 
-    ModeType getModeType() override;
+    std::string getModeName() override;
     bool invokeCommand(IRobot* robot, ICommand* cmd, std::vector<std::string>& args) override;
 
 private:

@@ -2,8 +2,8 @@
 #include "AutoMode.h"
 #include "IManualModeCommand.h"
 
-ModeType AutoMode::getModeType() {
-    return ModeType::AUTO;
+std::string AutoMode::getModeName() {
+    return "AUTO";
 }
 
 bool AutoMode::invokeCommand(IRobot* robot, ICommand* cmd, std::vector<std::string>& args) {

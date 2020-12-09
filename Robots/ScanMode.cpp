@@ -2,8 +2,8 @@
 #include "ScanMode.h"
 #include "IManualModeCommand.h"
 
-ModeType ScanMode::getModeType() {
-    return ModeType::SCAN;
+std::string ScanMode::getModeName() {
+    return "SCAN";
 }
 
 bool ScanMode::invokeCommand(IRobot *robot, ICommand* cmd, std::vector<std::string> &args) {
