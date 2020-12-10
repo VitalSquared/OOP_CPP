@@ -9,8 +9,8 @@ public:
     GrabCommand(std::map<IRobot*, std::pair<int, int>>* _robots, int* _id, Repeater* _repeater) : IManualModeCommand(_robots, _id, _repeater) {};
     ~GrabCommand() override = default;
 
-    CommandType validateArgs(std::vector<std::string> args) override;
-    bool execute(std::vector<std::string> args) override;
+    bool validateArgs(std::vector<std::string> args) override;
+    bool execute(IRobot* sender, std::vector<std::string> args) override;
 };
 
 #endif

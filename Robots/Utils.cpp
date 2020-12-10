@@ -70,22 +70,6 @@ bool fileExists(const std::string& file_name) {
     return false;
 }
 
-
-std::vector<std::pair<int, int>> findSuitablePos(int count, const std::map<std::pair<int, int>, MapElement>& data, const std::set<MapElement>& allowed) {
-    std::vector<std::pair<int, int>> possible;
-    std::vector<std::pair<int, int>> result;
-    for(auto cell: data) {
-        if (!containerContains(allowed, cell.second)) continue;
-        possible.emplace_back(cell.first);
-    }
-    for (int i = 0; i < count; i++) {
-        int idx = random(possible.size());
-        result.emplace_back(possible[idx]);
-        containerRemove(possible, idx);
-    }
-    return result;
-}
-
 std::vector<std::pair<int, int>> findSuitablePos(int count, const std::vector<MapElement>& data, const std::set<MapElement>& allowed) {
     std::vector<std::pair<int, int>> possible;
     std::vector<std::pair<int, int>> result;

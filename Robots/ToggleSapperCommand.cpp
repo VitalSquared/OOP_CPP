@@ -4,19 +4,20 @@
 #include "Sapper.h"
 #include "ToggleSapperCommand.h"
 
-CommandType ToggleSapperCommand::validateArgs(std::vector<std::string> args) {
+bool ToggleSapperCommand::validateArgs(std::vector<std::string> args) {
     int id;
-    if (args.empty()) return CommandType::SAPPER;
-    if (args.size() > 2) return CommandType::UNKNOWN;
-    if (args[0] == "ON") return args.size() == 1 ? CommandType::SAPPER : CommandType::UNKNOWN;
+    if (args.empty()) return true;
+    if (args.size() > 2) return false;
+    if (args[0] == "ON") return args.size() == 1;
     else if (args[0] == "OFF") {
-        if (args.size() == 2 && !convertStringToInt(args[1], id)) return CommandType::UNKNOWN;
-        return CommandType::SAPPER;
+        if (args.size() == 2 && !convertStringToInt(args[1], id)) return false;
+        return true;
     }
-    return CommandType::UNKNOWN;
+    return false;
 }
 
-bool ToggleSapperCommand::execute(std::vector<std::string> args) {
+bool ToggleSapperCommand::execute(IRobot* sender, std::vector<std::string> args) {
+    if (getActiveCollector() != sender) return false;
     if (args.empty()) {
         std::cout << "Sappers ID list: ";
         for (auto robot : *getRobots()) {

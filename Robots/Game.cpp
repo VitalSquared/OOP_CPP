@@ -33,7 +33,6 @@ Game::Game(const std::string& map_file, int cnt_collectors) {
     commandsContainer.insert(std::make_pair("SAPPER", new ToggleSapperCommand(&robots, &activeCollectorID, repeater)));
     commandsContainer.insert(std::make_pair("COLLECTOR", new SwitchCollectorCommand(&robots, &activeCollectorID, repeater)));
     commandsContainer.insert(std::make_pair("SET_MODE", new ChangeModeCommand(&mode)));
-    curCmdType = CommandType::UNKNOWN;
     curCmd = "";
 }
 
@@ -55,21 +54,23 @@ Game::~Game() {
 }
 
 bool Game::parseCommand(const std::string &cmd) {
+     bool validArgs;
+
     std::vector<std::string> split = splitString(cmd, ' ');
     if (split.empty()) {
         curArgs = {};
         curCmd = "";
-        curCmdType = CommandType::UNKNOWN;
+        validArgs = false;
     }
     else {
         curCmd = std::string(split[0]);
         containerRemove(split, 0);
         curArgs = split;
 
-        if (!containerContains(commandsContainer, curCmd)) curCmdType = CommandType::UNKNOWN;
-        else curCmdType = commandsContainer[curCmd]->validateArgs(curArgs);
+        if (!containerContains(commandsContainer, curCmd)) validArgs = false;
+        else validArgs = commandsContainer[curCmd]->validateArgs(curArgs);
     }
-    return curCmdType != CommandType::UNKNOWN;
+    return validArgs;
 }
 
 bool Game::step() {
@@ -77,17 +78,21 @@ bool Game::step() {
     std::set<IRobot*> finishedWork;
     for (auto robot : robots) {
         bool invokeRes = mode->invokeCommand(robot.first, commandsContainer[curCmd], curArgs);
-         if (robot.first->getRobotID().first == RobotType::COLLECTOR) {
-             res = res || invokeRes;
-             if (!invokeRes) finishedWork.insert(robot.first);
-         }
+        if (robot.first->getRobotID().first == RobotType::COLLECTOR) {
+            res = res || invokeRes;
+            if (!invokeRes) finishedWork.insert(robot.first);
+        }
     }
 
-    if (containerContains(finishedWork, getActiveCollector()) && res) {
-        for (auto robot : robots) {
-            if (robot.first->getRobotID().first != RobotType::COLLECTOR || containerContains(finishedWork, robot.first)) continue;
-            activeCollectorID = robot.first->getRobotID().second;
-            break;
+    if (dynamic_cast<ManualMode*>(mode) == nullptr) {
+        if (containerContains(finishedWork, getActiveCollector()) && res) {
+            for (auto robot : robots) {
+                if (robot.first->getRobotID().first != RobotType::COLLECTOR ||
+                    containerContains(finishedWork, robot.first))
+                    continue;
+                activeCollectorID = robot.first->getRobotID().second;
+                break;
+            }
         }
     }
 

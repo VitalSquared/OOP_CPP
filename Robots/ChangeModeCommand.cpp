@@ -8,17 +8,17 @@ ChangeModeCommand::ChangeModeCommand(IMode **mode) {
     this->mode = mode;
 }
 
-CommandType ChangeModeCommand::validateArgs(std::vector<std::string> args) {
+bool ChangeModeCommand::validateArgs(std::vector<std::string> args) {
     int n;
-    if (args.empty()) return CommandType::UNKNOWN;
+    if (args.empty()) return false;
     if (args[0] == "manual" || args[0] == "auto") {
-        if (args.size() != 1) return CommandType::UNKNOWN;
+        if (args.size() != 1) return false;
     }
     else if (args[0] == "scan") {
-        if (args.size() != 2) return CommandType::UNKNOWN;
-        if (!convertStringToInt(args[1], n)) return CommandType::UNKNOWN;
+        if (args.size() != 2) return false;
+        if (!convertStringToInt(args[1], n)) return false;
     }
-    return CommandType::SET_MODE;
+    return true;
 }
 
 bool ChangeModeCommand::execute(std::vector<std::string> args) {

@@ -12,8 +12,9 @@ public:
     }
     ~IManualModeCommand() override = default;
 
-    CommandType validateArgs(std::vector<std::string> args) override = 0;
-    bool execute(std::vector<std::string> args) override = 0;
+    bool validateArgs(std::vector<std::string> args) override = 0;
+    bool execute(std::vector<std::string> args) override { return false; }
+    virtual bool execute(IRobot* sender, std::vector<std::string> args) = 0;
 
 protected:
     std::map<IRobot*, std::pair<int, int>>* getRobots() { return robots; }

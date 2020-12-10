@@ -5,14 +5,14 @@
 
 class ManualMode : public IMode {
 public:
-    ManualMode();
+    ManualMode() = default;
     ~ManualMode() override = default;
 
     std::string getModeName() override;
     bool invokeCommand(IRobot* robot, ICommand* cmd, std::vector<std::string>& args) override;
 
 private:
-    int stepsMade;
+    std::map<IRobot*, int> stepsMade;
 };
 
 #endif

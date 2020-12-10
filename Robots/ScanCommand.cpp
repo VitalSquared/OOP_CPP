@@ -1,9 +1,10 @@
 #include "ScanCommand.h"
 
-CommandType ScanCommand::validateArgs(std::vector<std::string> args) {
-    return args.empty() ? CommandType::SCAN : CommandType::UNKNOWN;
+bool ScanCommand::validateArgs(std::vector<std::string> args) {
+    return args.empty();
 }
 
-bool ScanCommand::execute(std::vector<std::string> args) {
+bool ScanCommand::execute(IRobot* sender, std::vector<std::string> args) {
+    if (sender != getActiveCollector()) return false;
     return getActiveCollector()->scan();
 }

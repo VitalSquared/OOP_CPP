@@ -27,7 +27,6 @@ public:
 private:
     int activeCollectorID;
     std::string curCmd;
-    CommandType curCmdType;
     std::vector<std::string> curArgs;
     std::map<std::string, ICommand*> commandsContainer;
     std::map<IRobot*, std::pair<int, int>> robots;

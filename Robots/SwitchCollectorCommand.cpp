@@ -2,14 +2,13 @@
 #include "Utils.h"
 #include "SwitchCollectorCommand.h"
 
-CommandType SwitchCollectorCommand::validateArgs(std::vector<std::string> args) {
+bool SwitchCollectorCommand::validateArgs(std::vector<std::string> args) {
     int n;
-    if (args.empty()) return CommandType::COLLECTOR;
-    if (args.size() > 1 || !convertStringToInt(args[0], n)) return CommandType::UNKNOWN;
-    return CommandType::COLLECTOR;
+    return args.empty() || args.size() == 1 && convertStringToInt(args[0], n);
 }
 
-bool SwitchCollectorCommand::execute(std::vector<std::string> args) {
+bool SwitchCollectorCommand::execute(IRobot* sender, std::vector<std::string> args) {
+    if (getActiveCollector() != sender) return false;
     if (args.empty()) {
         std::cout << "Collectors ID list: ";
         for (auto robot : *getRobots()) {

@@ -174,6 +174,7 @@ Texture * ConsoleView::getTextureFromMap(MapElement elem) {
         case MapElement::BOMB: texture = T_Bomb; break;
         case MapElement::APPLE: texture = T_Apple; break;
         case MapElement::ROCK: texture = T_Rock; break;
+        case MapElement::UNKNOWN: texture = T_Unknown; break;
     }
     return texture;
 }

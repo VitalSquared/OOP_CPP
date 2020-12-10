@@ -10,7 +10,7 @@ public:
     ChangeModeCommand(IMode** mode);
     ~ChangeModeCommand() override = default;
 
-    CommandType validateArgs(std::vector<std::string> args) override;
+    bool validateArgs(std::vector<std::string> args) override;
     bool execute(std::vector<std::string> args) override;
 
 private:

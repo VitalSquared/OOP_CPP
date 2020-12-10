@@ -1,2 +1,3 @@
--need to make sure that "local positions of robots" feature works normally
+-optimization
+-fix navigation during scan and auto modes
 -files review

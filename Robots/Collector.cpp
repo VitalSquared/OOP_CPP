@@ -73,7 +73,7 @@ bool Collector::scan() {
     for (auto adj: getAdjacentCoords(getPosition())) {
         if (!getMap().containsLocation(adj.first, adj.second)) {
             getMap().addElement(adj.first, adj.second, repeater->getMapElement(this, adj.first, adj.second));
-            repeater->notifyAllUpdatedMap(this, adj, getMap().getElement(adj.first, adj.second));
+            repeater->notifyAllUpdatedMap(this, adj, getMap().getElement(adj));
         }
     }
     return true;
