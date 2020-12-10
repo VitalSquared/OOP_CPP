@@ -22,27 +22,20 @@ bool ChangeModeCommand::validateArgs(std::vector<std::string> args) {
 }
 
 bool ChangeModeCommand::execute(std::vector<std::string> args) {
-    IMode* new_mode;
-    if (args[0] == "manual") {
-        new_mode = new ManualMode();
-    }
-    else if (args[0] == "scan") {
-        new_mode = new ScanMode();
-    }
-    else if (args[0] == "auto") {
-        new_mode = new AutoMode();
-    }
-    if (*mode == nullptr) {
-        *mode = new_mode;
+    if (args[0] == "manual" && dynamic_cast<ManualMode*>(*mode) == nullptr) {
+        delete *mode;
+        *mode = new ManualMode();
         return true;
     }
-    else {
-        if ((*mode)->getModeName() != new_mode->getModeName()) {
-            delete *mode;
-            *mode = new_mode;
-            return true;
-        }
-        else delete new_mode;
+    else if (args[0] == "scan" && dynamic_cast<ScanMode*>(*mode) == nullptr) {
+        delete *mode;
+        *mode = new ScanMode();
+        return true;
+    }
+    else if (args[0] == "auto" && dynamic_cast<AutoMode*>(*mode) == nullptr) {
+        delete *mode;
+        *mode = new AutoMode();
+        return true;
     }
     return false;
 }

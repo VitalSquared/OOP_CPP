@@ -20,7 +20,7 @@ protected:
     std::map<IRobot*, std::pair<int, int>>* getRobots() { return robots; }
     IRobot* getActiveCollector() {
         for (auto robot : *robots) {
-            if (robot.first->getRobotID().second == *activeCollectorID) {
+            if (robot.first->getRobotID() == std::make_pair(RobotType::COLLECTOR, *activeCollectorID)) {
                 return robot.first;
             }
         }

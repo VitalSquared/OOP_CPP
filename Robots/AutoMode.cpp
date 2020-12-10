@@ -9,8 +9,6 @@ std::string AutoMode::getModeName() {
 bool AutoMode::invokeCommand(IRobot* robot, ICommand* cmd, std::vector<std::string>& args) {
     if (robot == nullptr || dynamic_cast<IManualModeCommand*>(cmd) != nullptr) return false;
 
-    if (cmd->execute(args)) return true;
-
     if (robot->invest()) return true;
 
     if (!containerContains(unreachable, robot)) {

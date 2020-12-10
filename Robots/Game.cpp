@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <queue>
 #include "MoveCommand.h"
 #include "ScanCommand.h"
 #include "GrabCommand.h"
@@ -43,11 +44,11 @@ Game::~Game() {
     for (auto robot : robots) delete robot.first;
     robots.clear();
 
-    delete globalMap;
-    globalMap = nullptr;
-
     delete mode;
     mode = nullptr;
+
+    delete globalMap;
+    globalMap = nullptr;
 
     delete repeater;
     repeater = nullptr;
@@ -74,9 +75,38 @@ bool Game::parseCommand(const std::string &cmd) {
 }
 
 bool Game::step() {
+    if (curCmd == "SET_MODE" && commandsContainer[curCmd]->execute(curArgs)) {
+        return true;
+    }
+
+    auto cmp = [this](IRobot* a, IRobot* b) {
+        RobotType type1 = a->getRobotID().first;
+        RobotType type2 = b->getRobotID().first;
+        if (type1 != type2) {
+            return type2 == RobotType::COLLECTOR;
+        } else {
+            if (type1 == RobotType::SAPPER) return false;
+            else return b->getRobotID().second == activeCollectorID;
+        }
+    };
+
     bool res = false;
     std::set<IRobot*> finishedWork;
-    for (auto robot : robots) {
+
+    std::priority_queue<IRobot*, std::vector<IRobot*>, decltype(cmp)> _queue(cmp);
+    for (auto robot: robots) {
+        if (dynamic_cast<ManualMode*>(mode) != nullptr) {
+            if (robot.first->getRobotID().first == RobotType::SAPPER) continue;
+        }
+        _queue.push(robot.first);
+    }
+
+    while (!_queue.empty()) {
+        auto robot = std::make_pair(_queue.top(), robots[_queue.top()]);
+        _queue.pop();
+        if (robot.first->getRobotID().first == RobotType::SAPPER) {
+            if (!res) break;
+        }
         bool invokeRes = mode->invokeCommand(robot.first, commandsContainer[curCmd], curArgs);
         if (robot.first->getRobotID().first == RobotType::COLLECTOR) {
             res = res || invokeRes;
@@ -119,6 +149,7 @@ bool Game::step() {
             i++;
         }
     }
+
     return res;
 }
 

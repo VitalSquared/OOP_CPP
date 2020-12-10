@@ -10,7 +10,10 @@ bool ManualMode::invokeCommand(IRobot *robot, ICommand* cmd, std::vector<std::st
     if (robot == nullptr || robot->getRobotID().first != RobotType::COLLECTOR) return false;
 
     auto *manualCmd = dynamic_cast<IManualModeCommand *>(cmd);
-    if (manualCmd == nullptr) return cmd->execute(args);
+    if (manualCmd == nullptr) {
+        stepsMade.clear();
+        return false;
+    }
 
     if (!containerContains(stepsMade, robot)) {
         stepsMade.insert(std::make_pair(robot, 0));
@@ -20,10 +23,11 @@ bool ManualMode::invokeCommand(IRobot *robot, ICommand* cmd, std::vector<std::st
         stepsMade[robot] = 0;
         return false;
     }
-    stepsMade[robot]++;
 
     bool res = manualCmd->execute(robot, args);
-    if (!res) stepsMade[robot] = 0;
+    if (res) {
+        stepsMade[robot]++;
+    }
 
     return res;
 }

@@ -1,2 +1,2 @@
-Robots.exe map1.txt 3
+Robots.exe map1.txt 2
 pause

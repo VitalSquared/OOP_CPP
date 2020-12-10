@@ -9,8 +9,6 @@ std::string ScanMode::getModeName() {
 bool ScanMode::invokeCommand(IRobot *robot, ICommand* cmd, std::vector<std::string> &args) {
     if (robot == nullptr || robot->getRobotID().first != RobotType::COLLECTOR || dynamic_cast<IManualModeCommand*>(cmd) != nullptr) return false;
 
-    if (cmd->execute(args)) return true;
-
     int stepsReq;
     convertStringToInt(args[1], stepsReq);
 
