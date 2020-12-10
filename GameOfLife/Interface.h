@@ -16,9 +16,6 @@ private:
     int cols;
     GameModel *game;
 
-    const char T_Dead = '.';
-    const char T_Alive = '*';
-
     void clearUI();
     void updateUI();
     void printHelp();

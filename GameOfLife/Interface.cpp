@@ -33,17 +33,7 @@ void Interface::run() {
 
 void Interface::updateUI() {
     clearUI();
-    for (int r = 0; r < rows; r++) {
-        cout << rows - 1 - r << " ";
-        for (int c = 0; c < cols; c++) {
-            bool state = game->getCell(r, c);
-            cout << (state ? T_Alive : T_Dead) << " ";
-        }
-        cout << endl;
-    }
-    cout << "  ";
-    for (char i = 'A'; i < 'A' + cols; i++) cout << i << " ";
-    cout << endl;
+    cout << (*game) << endl;
     cout << "Moves made: " << game->getMoves() << endl;
 }
 

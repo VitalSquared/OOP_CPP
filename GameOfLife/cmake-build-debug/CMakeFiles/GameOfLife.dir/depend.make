@@ -57,21 +57,6 @@ CMakeFiles\GameOfLife.dir\main.cpp.obj: ..\GameModel.h
 CMakeFiles\GameOfLife.dir\main.cpp.obj: ..\Interface.h
 CMakeFiles\GameOfLife.dir\main.cpp.obj: ..\main.cpp
 
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\gmock-actions.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\gmock-cardinalities.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\gmock-function-mocker.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\gmock-generated-actions.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\gmock-matchers.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\gmock-more-matchers.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\gmock-nice-strict.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\gmock-spec-builders.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\gmock.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\internal\custom\gmock-generated-actions.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\internal\custom\gmock-matchers.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\internal\custom\gmock-port.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\internal\gmock-internal-utils.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\internal\gmock-port.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googlemock\include\gmock\internal\gmock-pp.h
 CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googletest\include\gtest\gtest-death-test.h
 CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googletest\include\gtest\gtest-matchers.h
 CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googletest\include\gtest\gtest-message.h
@@ -93,6 +78,5 @@ CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googletest\incl
 CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googletest\include\gtest\internal\gtest-string.h
 CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\lib\googletest-master\googletest\include\gtest\internal\gtest-type-util.h
 CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\CommandParser.h
-CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\GameModel.h
 CMakeFiles\GameOfLife.dir\test.cpp.obj: ..\test.cpp
 

@@ -13,9 +13,9 @@ public:
     ~GameModel();
 
     bool invokeCommand(CommandType cmd, const vector<string>& args);
-
-    bool getCell(int r, int c) const;
     int getMoves() const;
+
+    friend ostream& operator<<(ostream& stream, const GameModel& game);
 
 private:
     int rows;
@@ -28,6 +28,7 @@ private:
     void makeMove();
     void undoMove();
 
+    bool getCell(int r, int c) const;
     void setCell(int r, int c, bool state);
     void reset();
 

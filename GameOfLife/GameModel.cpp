@@ -166,3 +166,18 @@ int GameModel::normalizeCol(int c) const {
 int GameModel::pairToIndex(int r, int c) const {
     return r * cols + c;
 }
+
+ostream& operator<<(ostream& stream, const GameModel& game) {
+    for (int r = 0; r < game.rows; r++) {
+        stream << game.rows - 1 - r << " ";
+        for (int c = 0; c < game.cols; c++) {
+            bool state = game.getCell(r, c);
+            stream << (state ? '*' : '.') << " ";
+        }
+        stream << endl;
+    }
+    stream << "  ";
+    for (char i = 'A'; i < 'A' + game.cols; i++) cout << i << " ";
+    stream << endl;
+    return stream;
+}
