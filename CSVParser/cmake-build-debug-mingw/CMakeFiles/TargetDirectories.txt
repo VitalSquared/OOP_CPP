@@ -1,0 +1,3 @@
+D:/Workshop/CLionProjects/OOOP/CSVParser/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
+D:/Workshop/CLionProjects/OOOP/CSVParser/cmake-build-debug-mingw/CMakeFiles/CSVParser.dir
+D:/Workshop/CLionProjects/OOOP/CSVParser/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir

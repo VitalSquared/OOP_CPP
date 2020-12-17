@@ -4,198 +4,73 @@
 #include <tuple>
 #include <vector>
 #include <fstream>
-#include <typeinfo>
-#include <regex>
 #include "Utils.h"
 #include "TupleUtils.h"
 
 template<class ... Args>
 class CSVParser {
 private:
-    std::ifstream &input;
+    std::ifstream &file;
     size_t skip_lines;
-    int fileLength = -1;
+    int linesCount;
     char escape_char;
     char col_separator;
     char row_separator;
 
-    enum class ParsingState { simpleRead, delimiterReading };
-
-    template<typename _CharT, typename _Traits, typename _Alloc>
-    void getLine(std::basic_istream<_CharT, _Traits> &is, std::basic_string<_CharT, _Traits, _Alloc> &str) {
-        str.clear();
-
+    std::string getLine(std::istream& is, size_t linesBefore) {
+        std::string str;
+        bool isEscapeChar = false;
         char c;
         while(is.get(c)) {
-            if(c == row_separator) break;
+            if (c == escape_char) {
+                isEscapeChar = !isEscapeChar;
+            }
+            if(c == row_separator && !isEscapeChar) break;
             str.push_back(c);
         }
+        if (isEscapeChar) throw std::invalid_argument("Line " + std::to_string(linesBefore + 1) + ": escape character " + std::to_string(escape_char) + "did not have a closing equivalent");
+        return str;
     }
 
-    bool emptyTailToDelimiter(std::string a, int pos) {
-        for(int i = pos; i < a.size(); ++i)
-            if(a[i] == col_separator)
-                break;
-            else
-            if(a[i] != ' ')
-                return false;
-
-        return true;
-    }
-
-    int getLength() {
-        if(fileLength == -1) {
-            input.clear();
-            input.seekg(0, std::ios::beg);
-
-            std::string line;
-            for(fileLength = 0; getline(input, line); fileLength++);
-
-            input.clear();
-            input.seekg(0, std::ios::beg);
-        }
-        return fileLength;
-    }
-
-
-    class CSVIterator {
-    private:
-        std::string strBuffer;
-        std::ifstream &input;
-        size_t index;
-        CSVParser<Args...> &parent;
-        bool last = false;
-
-        friend class CSVParser;
-
-    public:
-        CSVIterator(std::ifstream &file, size_t index, CSVParser<Args...> &parent) : index(index), parent(parent), input(file) {
-            for(int i = 0; i < index - 1; i++, parent.getLine(input, strBuffer));
-
-            parent.getLine(input, strBuffer);
-            if(!input) throw std::logic_error("Bad file!");
-        }
-
-        CSVIterator& operator++() {
-            if(index < parent.fileLength) {
-                index++;
-                input.clear();
-                input.seekg(0, std::ios::beg);
-                for(int i = 0; i < index - 1; ++i, parent.getLine(input, strBuffer));
-
-                parent.getLine(input, strBuffer);
-            }
-            else {
-                strBuffer = "";
-                last = true;
-            }
-
-            return *this;
-        }
-
-        bool operator==(const CSVIterator &other) const {
-            return this->last == other.last && this->index == other.index && this->strBuffer == other.strBuffer;
-        }
-
-        bool operator!=(const CSVIterator &other) {
-            return !(*this == other);
-        }
-
-        std::tuple<Args...> operator*() {
-            return parent.parseLine(strBuffer, index);
-        }
-    };
-
-public:
-    CSVParser(std::ifstream& file, size_t skip_lines,
-              char row_separator = '\n', char col_separator = ',', char escape_char = '\"')
-              : input(file), skip_lines(skip_lines), row_separator(row_separator), col_separator(col_separator), escape_char(escape_char) {
-        if(!file.is_open())
-            throw std::invalid_argument("Can't open file");
-        if(skip_lines >= getLength())
-            throw std::logic_error("Amount of lines to skip is greater than lines in the file");
-        if(skip_lines < 0)
-            throw std::logic_error("Bad number of lines to skip");
-    }
-
-    ~CSVParser() = default;
-
-    CSVIterator begin() {
-        CSVIterator a(input, skip_lines + 1, *this);
-        return a;
-    }
-
-    CSVIterator end() {
-        int t = getLength();
-
-        CSVIterator a(input, 1, *this);
-        a.last = true;
-        a.strBuffer = "";
-        a.index = getLength();
-        return a;
+    void updateLinesCount() {
+        file.clear();
+        file.seekg(0, std::ios::beg);
+        for(linesCount = 0; getLine(file, linesCount) != ""; linesCount++);
+        file.clear();
+        file.seekg(0, std::ios::beg);
     }
 
     std::vector<std::string> splitLine(std::string& line, size_t lineNumber) {
-        std::vector<std::string> fields {""};
-        ParsingState state = ParsingState::simpleRead;
-        size_t fcounter = 0;
-        size_t linePos = 0;
-        bool filled = false;
-        bool accessWriteDelim = false;
-        line = trimString(line);
-        for(char c : line) {
-            if(state == ParsingState::simpleRead) {
-                if(c == col_separator) {
-                    fields[fcounter] = trimString(fields[fcounter]);
-                    fields.emplace_back("");
-                    fcounter++;
-                    filled = false;
+        std::vector<std::string> fields;
+        std::string cur_str, between_escape_chars;
+        bool isEscapeChar = false;
+        for (char c : line) {
+            if (c == escape_char) {
+                isEscapeChar = !isEscapeChar;
+                if (!isEscapeChar) {
+                    if (between_escape_chars.empty()) cur_str.push_back(escape_char);
+                    else cur_str += between_escape_chars;
+                    between_escape_chars.clear();
                 }
-                else if(c == escape_char) {
-                    if(linePos > 0 && filled)
-                        throw std::invalid_argument("Bad " + std::to_string(fcounter) + "th field at line " + std::to_string(lineNumber) +
-                                               ": field delimiter not first!");
-
-                    fields[fcounter] = trimString(fields[fcounter]);
-                    state = ParsingState::delimiterReading;
-                    accessWriteDelim = false;
-                }
-                else {
-                    if(c != ' ')
-                        filled = true;
-
-                    fields[fcounter].push_back(c);
-                }
+                continue;
             }
-            else { //TODO DELIMITER READING
-                if(c == escape_char) {
-                    if(!accessWriteDelim && line.size() > linePos + 1 && line[linePos + 1] != escape_char) {
-                        if(!emptyTailToDelimiter(line, linePos + 1))
-                            throw std::invalid_argument(
-                                    "Bad " + std::to_string(fcounter) + "th field at line " + std::to_string(lineNumber) +
-                                    ": symbols after delimiter in field!");
-                        state = ParsingState::simpleRead;
-                    }
-                    else if(!accessWriteDelim && linePos == line.size() - 1) {
-                        state = ParsingState::simpleRead;
-                    }
-                    else if(!accessWriteDelim) accessWriteDelim = true;
-                    else {
-                        fields[fcounter].push_back(c);
-                        accessWriteDelim = false;
-                    }
-                }
-                else fields[fcounter].push_back(c);
+            if (isEscapeChar) {
+                between_escape_chars.push_back(c);
+                continue;
             }
-            linePos++;
+            if(c == col_separator) {
+                fields.emplace_back(cur_str);
+                cur_str.clear();
+                continue;
+            }
+            cur_str.push_back(c);
         }
-        if(state != ParsingState::simpleRead)
-            throw std::invalid_argument(
-                    "Bad " + std::to_string(fcounter) + "th field at line " + std::to_string(lineNumber) + ": not closed field!");
+        if (isEscapeChar) throw std::invalid_argument("Line " + std::to_string(lineNumber) + ": escape character " + std::to_string(escape_char) + "did not have a closing equivalent");
+        if (!cur_str.empty()) fields.emplace_back(cur_str);
         return fields;
     }
 
-    std::tuple<Args...> parseLine(std::string &line, size_t lineNumber) {
+    std::tuple<Args...> parseLine(std::string& line, size_t lineNumber) {
         size_t size = sizeof...(Args);
 
         if(line.empty()) {
@@ -217,6 +92,92 @@ public:
         }
 
         return lineTuple;
+    }
+
+    class CSVIterator {
+    private:
+        std::ifstream &file;
+        CSVParser<Args...>* parent;
+        std::string content;
+        size_t index;
+        bool last;
+
+        void updateContent() {
+            if (last) content = "";
+            else {
+                file.clear();
+                file.seekg(0, std::ios::beg);
+                for (int i = 0; i < index; i++) parent->getLine(file, i);
+                content = parent->getLine(file, index);
+            }
+        }
+
+    public:
+        CSVIterator(std::ifstream &file, size_t index, CSVParser<Args...>* parent) : index(index), parent(parent), file(file) {
+            last = index >= parent->linesCount;
+            updateContent();
+        }
+
+        CSVIterator& operator++() {
+            if(index < parent->linesCount) index++;
+            if (index >= parent->linesCount) last = true;
+            updateContent();
+            return *this;
+        }
+
+        CSVIterator& operator--() {
+            if (index <= parent->skip_lines) {
+                index = parent->skip_lines;
+                last = false;
+            }
+            else {
+                if (last) {
+                    last = false;
+                    index = parent->linesCount - 1;
+                }
+                else index--;
+            }
+            updateContent();
+            return *this;
+        }
+
+        bool operator==(const CSVIterator &other) const {
+            return this->last == other.last || (this->index == other.index && this->parent == other.parent);
+        }
+
+        bool operator!=(const CSVIterator &other) {
+            return !(*this == other);
+        }
+
+        std::tuple<Args...> operator*() {
+            return parent->parseLine(content, index + 1);
+        }
+    };
+
+public:
+    CSVParser(std::ifstream& file, size_t skip_lines,
+              char row_separator = '\n', char col_separator = ',', char escape_char = '\"')
+              : file(file), skip_lines(skip_lines), row_separator(row_separator), col_separator(col_separator), escape_char(escape_char) {
+        if(!file.is_open())
+            throw std::invalid_argument("File is not open");
+
+        linesCount = 0;
+        updateLinesCount();
+
+        if(skip_lines >= linesCount)
+            throw std::logic_error("Amount of lines to skip is greater than lines in the file");
+        if(skip_lines < 0)
+            throw std::logic_error("Bad number of lines to skip");
+    }
+
+    ~CSVParser() = default;
+
+    CSVIterator begin() {
+        return CSVIterator(file, skip_lines, this);
+    }
+
+    CSVIterator end() {
+        return CSVIterator(file, linesCount, this);
     }
 };
 

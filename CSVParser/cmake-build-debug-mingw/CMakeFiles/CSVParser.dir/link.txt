@@ -1,0 +1,3 @@
+"D:\CLion\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\CSVParser.dir/objects.a
+D:\mingw\mingw64\bin\ar.exe cr CMakeFiles\CSVParser.dir/objects.a @CMakeFiles\CSVParser.dir\objects1.rsp
+D:\mingw\mingw64\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\CSVParser.dir/objects.a -Wl,--no-whole-archive  -o CSVParser.exe -Wl,--out-implib,libCSVParser.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\CSVParser.dir\linklibs.rsp

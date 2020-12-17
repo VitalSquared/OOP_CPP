@@ -13,10 +13,6 @@ vector
 -
 fstream
 -
-typeinfo
--
-regex
--
 Utils.h
 D:/Workshop/CLionProjects/OOOP/CSVParser/Utils.h
 TupleUtils.h

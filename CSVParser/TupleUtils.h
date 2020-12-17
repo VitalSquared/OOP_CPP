@@ -11,13 +11,13 @@
 
 template <size_t N, typename... Args>
 typename std::enable_if<(N >= sizeof...(Args))>::type
-print_tuple(std::ostream&, const std::tuple<Args...>&) {}
+print_tuple(std::ostream& os, const std::tuple<Args...>&) {}
 
 template <size_t N, typename... T>
 typename std::enable_if<(N < sizeof...(T))>::type
 print_tuple(std::ostream& os, const std::tuple<T...>& tuple) {
     if (N != 0) os << ", ";
-    os << std::get<N>(tuple);
+    os << "[" << std::get<N>(tuple) << "]";
     print_tuple<N+1>(os, tuple);
 }
 

@@ -26,6 +26,22 @@ public:
         return value;
     }
 };
+template<>
+class from_string<std::string> {
+private:
+    std::string value;
+
+public:
+    from_string(const std::string &src) : value(src) {}
+
+    operator const std::string &() const {
+        return value;
+    }
+
+    operator std::string &() {
+        return value;
+    }
+};
 
 //trim strings
 
