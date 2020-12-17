@@ -3,4 +3,4 @@ project(CSVParser)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CSVParser main.cpp)
+add_executable(CSVParser main.cpp CSVParser.h TupleUtils.h Utils.h)
