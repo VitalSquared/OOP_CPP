@@ -5,26 +5,68 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
-#include "Utils.h"
+
+//convert string to Type
+
+template<class Type>
+class from_string {
+private:
+    Type value;
+
+public:
+    from_string(const std::string &src) {
+        std::stringstream s;
+        s << src;
+        s >> value;
+        if (!s) throw std::exception();
+    }
+
+    operator const Type &() const {
+        return value;
+    }
+
+    operator Type &() {
+        return value;
+    }
+};
+
+template<>
+class from_string<std::string> {
+private:
+    std::string value;
+
+public:
+    from_string(const std::string &src) : value(src) {}
+
+    operator const std::string &() const {
+        return value;
+    }
+
+    operator std::string &() {
+        return value;
+    }
+};
 
 //tuple print
 
-template <size_t N, typename... Args>
-typename std::enable_if<(N >= sizeof...(Args))>::type
-print_tuple(std::ostream& os, const std::tuple<Args...>&) {}
+template<size_t N, typename T>
+struct PrintTuple {
+    static void print(std::ostream& os, const T& tuple) {
+        PrintTuple<N - 1, T>::print(os, tuple);
+        if (N != 1) os << ", ";
+        os << "[" << std::get<N - 1>(tuple) << "]";
+    }
+};
 
-template <size_t N, typename... T>
-typename std::enable_if<(N < sizeof...(T))>::type
-print_tuple(std::ostream& os, const std::tuple<T...>& tuple) {
-    if (N != 0) os << ", ";
-    os << "[" << std::get<N>(tuple) << "]";
-    print_tuple<N+1>(os, tuple);
-}
+template<typename T>
+struct PrintTuple<0, T> {
+    static void print(std::ostream& os, const T& tuple) {}
+};
 
 template <typename... Args>
 std::ostream& operator<<(std::ostream& os, const std::tuple<Args...>& tuple) {
     os << "(";
-    print_tuple<0>(os, tuple);
+    PrintTuple<sizeof...(Args), std::tuple<Args...>>::print(os, tuple);
     os << ")";
     return os;
 }

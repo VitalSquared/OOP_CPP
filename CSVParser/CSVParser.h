@@ -4,7 +4,6 @@
 #include <tuple>
 #include <vector>
 #include <fstream>
-#include "Utils.h"
 #include "TupleUtils.h"
 
 template<class ... Args>
@@ -17,7 +16,7 @@ private:
     char col_separator;
     char row_separator;
 
-    std::string getLine(std::istream& is, size_t linesBefore) {
+    std::string getRow(std::istream& is, size_t linesBefore) {
         std::string str;
         bool isEscapeChar = false;
         char c;
@@ -28,19 +27,19 @@ private:
             if(c == row_separator && !isEscapeChar) break;
             str.push_back(c);
         }
-        if (isEscapeChar) throw std::invalid_argument("Line " + std::to_string(linesBefore + 1) + ": escape character " + std::to_string(escape_char) + "did not have a closing equivalent");
+        if (isEscapeChar) throw std::invalid_argument("Row " + std::to_string(linesBefore + 1) + ": escape character " + escape_char + " did not have a closing equivalent");
         return str;
     }
 
     void updateLinesCount() {
         file.clear();
         file.seekg(0, std::ios::beg);
-        for(linesCount = 0; getLine(file, linesCount) != ""; linesCount++);
+        for(linesCount = 0; getRow(file, linesCount) != ""; linesCount++);
         file.clear();
         file.seekg(0, std::ios::beg);
     }
 
-    std::vector<std::string> splitLine(std::string& line, size_t lineNumber) {
+    std::vector<std::string> splitRow(std::string& line) {
         std::vector<std::string> fields;
         std::string cur_str, between_escape_chars;
         bool isEscapeChar = false;
@@ -65,22 +64,21 @@ private:
             }
             cur_str.push_back(c);
         }
-        if (isEscapeChar) throw std::invalid_argument("Line " + std::to_string(lineNumber) + ": escape character " + std::to_string(escape_char) + "did not have a closing equivalent");
         if (!cur_str.empty()) fields.emplace_back(cur_str);
         return fields;
     }
 
-    std::tuple<Args...> parseLine(std::string& line, size_t lineNumber) {
+    std::tuple<Args...> parseRow(std::string& line, size_t lineNumber) {
         size_t size = sizeof...(Args);
 
         if(line.empty()) {
-            throw std::invalid_argument("Line " + std::to_string(lineNumber) + ": empty line!");
+            throw std::invalid_argument("Row " + std::to_string(lineNumber) + ": empty line!");
         }
 
-        std::vector<std::string> fields = splitLine(line, lineNumber);
+        std::vector<std::string> fields = splitRow(line);
 
         if(fields.size() != size) {
-            throw std::invalid_argument("Line " + std::to_string(lineNumber) + ": wrong number of fields!");
+            throw std::invalid_argument("Row " + std::to_string(lineNumber) + ": wrong number of fields!");
         }
 
         std::tuple<Args...> lineTuple;
@@ -88,7 +86,7 @@ private:
             lineTuple = parseToTuple<Args...>(fields);
         }
         catch(std::exception& e) {
-            throw std::invalid_argument("Line " + std::to_string(lineNumber) + ", Field " + e.what() + ": bad type!");
+            throw std::invalid_argument("Row " + std::to_string(lineNumber) + ", Column " + e.what() + ": bad type!");
         }
 
         return lineTuple;
@@ -101,28 +99,40 @@ private:
         std::string content;
         size_t index;
         bool last;
+        bool updatedContent;
 
         void updateContent() {
             if (last) content = "";
             else {
                 file.clear();
                 file.seekg(0, std::ios::beg);
-                for (int i = 0; i < index; i++) parent->getLine(file, i);
-                content = parent->getLine(file, index);
+                for (int i = 0; i < index; i++) parent->getRow(file, i);
+                content = parent->getRow(file, index);
             }
         }
 
     public:
         CSVIterator(std::ifstream &file, size_t index, CSVParser<Args...>* parent) : index(index), parent(parent), file(file) {
             last = index >= parent->linesCount;
-            updateContent();
+            updatedContent = false;
         }
 
         CSVIterator& operator++() {
             if(index < parent->linesCount) index++;
             if (index >= parent->linesCount) last = true;
-            updateContent();
+            updatedContent = false;
             return *this;
+        }
+
+        CSVIterator& operator++(int i) {
+            ++(*this);
+            return (*this);
+        }
+
+        CSVIterator operator+(int offset) {
+            CSVIterator it(file, index, parent);
+            for (int i = 0; i < offset; i++) it++;
+            return it;
         }
 
         CSVIterator& operator--() {
@@ -137,20 +147,35 @@ private:
                 }
                 else index--;
             }
-            updateContent();
+            updatedContent = false;
             return *this;
         }
 
-        bool operator==(const CSVIterator &other) const {
-            return this->last == other.last || (this->index == other.index && this->parent == other.parent);
+        CSVIterator& operator--(int i) {
+            --(*this);
+            return (*this);
         }
 
-        bool operator!=(const CSVIterator &other) {
-            return !(*this == other);
+        CSVIterator operator-(int offset) {
+            CSVIterator it(file, index, parent);
+            for (int i = 0; i < offset; i++) it--;
+            return it;
+        }
+
+        bool operator==(const CSVIterator &it) const {
+            return this->last == it.last || (this->index == it.index && this->parent == it.parent);
+        }
+
+        bool operator!=(const CSVIterator &it) {
+            return !(*this == it);
         }
 
         std::tuple<Args...> operator*() {
-            return parent->parseLine(content, index + 1);
+            if (!updatedContent) {
+                updateContent();
+                updatedContent = true;
+            }
+            return parent->parseRow(content, index + 1);
         }
     };
 
@@ -165,7 +190,7 @@ public:
         updateLinesCount();
 
         if(skip_lines >= linesCount)
-            throw std::logic_error("Amount of lines to skip is greater than lines in the file");
+            throw std::logic_error("Amount of lines to skip is >= lines in the file");
         if(skip_lines < 0)
             throw std::logic_error("Bad number of lines to skip");
     }

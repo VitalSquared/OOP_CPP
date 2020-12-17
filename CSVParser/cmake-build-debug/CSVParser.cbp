@@ -90,9 +90,6 @@
 		<Unit filename="D:/Workshop/CLionProjects/OOOP/CSVParser/TupleUtils.h">
 			<Option target="CSVParser"/>
 		</Unit>
-		<Unit filename="D:/Workshop/CLionProjects/OOOP/CSVParser/Utils.h">
-			<Option target="CSVParser"/>
-		</Unit>
 		<Unit filename="D:/Workshop/CLionProjects/OOOP/CSVParser/main.cpp">
 			<Option target="CSVParser"/>
 		</Unit>

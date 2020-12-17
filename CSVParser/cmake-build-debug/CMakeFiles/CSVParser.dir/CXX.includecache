@@ -13,8 +13,6 @@ vector
 -
 fstream
 -
-Utils.h
-D:/Workshop/CLionProjects/OOOP/CSVParser/Utils.h
 TupleUtils.h
 D:/Workshop/CLionProjects/OOOP/CSVParser/TupleUtils.h
 
@@ -26,12 +24,6 @@ vector
 iostream
 -
 sstream
--
-Utils.h
-D:/Workshop/CLionProjects/OOOP/CSVParser/Utils.h
-
-D:/Workshop/CLionProjects/OOOP/CSVParser/Utils.h
-regex
 -
 
 D:/Workshop/CLionProjects/OOOP/CSVParser/main.cpp
