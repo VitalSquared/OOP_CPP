@@ -15,10 +15,9 @@ private:
 
 public:
     from_string(const std::string &src) {
-        std::stringstream s;
-        s << src;
-        s >> value;
-        if (!s) throw std::exception();
+        std::stringstream stream;
+        stream << src;
+        if (!(stream >> value)) throw std::exception();
     }
 
     operator const Type &() const {
