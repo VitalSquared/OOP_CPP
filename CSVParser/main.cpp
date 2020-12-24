@@ -18,6 +18,7 @@ int main() {
             std::cout << *it << std::endl;
             it++;
             std::cout << *it << std::endl;
+            std::cout << *(it - 1) << std::endl;
             it--;
             std::cout << *it << std::endl;
             std::cout << *(it + 2) << std::endl;

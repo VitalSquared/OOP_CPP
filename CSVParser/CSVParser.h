@@ -130,9 +130,7 @@ private:
         }
 
         CSVIterator operator+(int offset) {
-            CSVIterator it(file, index, parent);
-            for (int i = 0; i < offset; i++) it++;
-            return it;
+            return CSVIterator(file, index + offset, parent);
         }
 
         CSVIterator& operator--() {
@@ -156,14 +154,12 @@ private:
             return (*this);
         }
 
-        CSVIterator operator-(int offset) {
-            CSVIterator it(file, index, parent);
-            for (int i = 0; i < offset; i++) it--;
-            return it;
+        CSVIterator operator-(size_t offset) {
+            return CSVIterator(file, index - std::min(index, offset), parent);;
         }
 
         bool operator==(const CSVIterator &it) const {
-            return this->last == it.last || (this->index == it.index && this->parent == it.parent);
+            return this->parent == it.parent && (this->last == it.last || this->index == it.index);
         }
 
         bool operator!=(const CSVIterator &it) {
