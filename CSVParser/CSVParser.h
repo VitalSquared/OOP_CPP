@@ -6,7 +6,7 @@
 #include <fstream>
 #include "TupleUtils.h"
 
-template<class ... Args>
+template<typename ... Args>
 class CSVParser {
 private:
     std::ifstream &file;

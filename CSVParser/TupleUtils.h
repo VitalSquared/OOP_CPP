@@ -8,43 +8,18 @@
 
 //convert string to Type
 
-template<class Type>
-class from_string {
-private:
-    Type value;
-
-public:
-    from_string(const std::string &src) {
-        std::stringstream stream;
-        stream << src;
-        if (!(stream >> value)) throw std::exception();
-    }
-
-    operator const Type &() const {
-        return value;
-    }
-
-    operator Type &() {
-        return value;
-    }
-};
+template<typename T>
+T from_string(const std::string &str) {
+    std::stringstream ss(str);
+    T value;
+    if (!(ss >> value)) throw std::exception();
+    return value;
+}
 
 template<>
-class from_string<std::string> {
-private:
-    std::string value;
-
-public:
-    from_string(const std::string &src) : value(src) {}
-
-    operator const std::string &() const {
-        return value;
-    }
-
-    operator std::string &() {
-        return value;
-    }
-};
+std::string from_string<std::string>(const std::string &str) {
+    return str;
+}
 
 //tuple print
 
