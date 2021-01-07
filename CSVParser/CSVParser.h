@@ -124,38 +124,10 @@ private:
             return *this;
         }
 
-        CSVIterator& operator++(int i) {
+        CSVIterator operator++(int i) {
+            CSVIterator it = *this;
             ++(*this);
-            return (*this);
-        }
-
-        CSVIterator operator+(int offset) {
-            return CSVIterator(file, index + offset, parent);
-        }
-
-        CSVIterator& operator--() {
-            if (index <= parent->skip_lines) {
-                index = parent->skip_lines;
-                last = false;
-            }
-            else {
-                if (last) {
-                    last = false;
-                    index = parent->linesCount - 1;
-                }
-                else index--;
-            }
-            updatedContent = false;
-            return *this;
-        }
-
-        CSVIterator& operator--(int i) {
-            --(*this);
-            return (*this);
-        }
-
-        CSVIterator operator-(size_t offset) {
-            return CSVIterator(file, index - std::min(index, offset), parent);;
+            return it;
         }
 
         bool operator==(const CSVIterator &it) const {
